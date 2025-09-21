@@ -231,21 +231,23 @@ const ProcessSection = () => {
   ];
 
   return (
-    <section className="py-20 bg-gray-900">
+    <section className="py-12 md:py-16 bg-gray-900">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <div>
-          <h2 className="text-pink-400 font-semibold text-lg mb-4">Benefit-Focused Steps</h2>
-          <h3 className="text-4xl font-bold text-white mb-16">How to Sell Your Gift Cards</h3>
+        <div className="mb-10 md:mb-12">
+          <h2 className="text-pink-400 font-semibold text-base md:text-lg mb-3">Benefit-Focused Steps</h2>
+          <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white">How to Sell Your Gift Cards</h3>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 lg:gap-10">
           {steps.map((step, index) => (
             <div key={index} className="text-center scroll-move">
-              <div className="bg-pink-600 rounded-full w-24 h-24 flex items-center justify-center mx-auto mb-6 transform transition-transform duration-300 hover:scale-110">
-                {step.icon}
+              <div className="bg-pink-600 rounded-full w-16 h-16 md:w-20 md:h-20 lg:w-24 lg:h-24 flex items-center justify-center mx-auto mb-4 md:mb-6 transform transition-transform duration-300 hover:scale-110">
+                {React.cloneElement(step.icon, {
+                  className: "h-8 w-8 md:h-10 md:w-10 lg:h-12 lg:w-12 text-white"
+                })}
               </div>
-              <h4 className="text-xl font-semibold text-white mb-4">{step.title}</h4>
-              <p className="text-gray-300">{step.description}</p>
+              <h4 className="text-lg md:text-xl font-semibold text-white mb-2 md:mb-4">{step.title}</h4>
+              <p className="text-sm md:text-base text-gray-300 px-2">{step.description}</p>
             </div>
           ))}
         </div>
