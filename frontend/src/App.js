@@ -119,7 +119,7 @@ const Header = () => {
               <div className="bg-gradient-to-r from-pink-500 to-pink-600 p-2 rounded-full">
                 <CreditCard className="h-6 w-6 text-white" />
               </div>
-              <span className="ml-3 text-xl font-bold text-gray-900">GiftCard Exchange</span>
+              <span className="ml-3 text-xl font-bold text-gray-900">Cashifygcmart.com</span>
             </a>
           </div>
           
