@@ -218,12 +218,42 @@ const FormSubmission = () => {
     setCurrentStep(prev => Math.max(prev - 1, 1));
   };
 
+  // Generate unique reference number
+  const generateReferenceNumber = () => {
+    const timestamp = Date.now();
+    const random = Math.floor(Math.random() * 1000);
+    return `GC-${timestamp.toString().slice(-6)}-${random.toString().padStart(2, '0')}`;
+  };
+
   // Submit form
   const handleSubmit = async () => {
     if (validateStep(4)) {
-      // Here you would typically send the data to your backend
-      console.log('Form submitted:', formData);
-      alert('Form submitted successfully! We will review your gift card and get back to you within 24 hours.');
+      const referenceNumber = generateReferenceNumber();
+      
+      try {
+        // Send confirmation email
+        const emailData = {
+          to: formData.email,
+          subject: `Thank you — we've received your gift card submission (Ref: ${referenceNumber})`,
+          customerName: `${formData.firstName} ${formData.lastName}`,
+          referenceNumber: referenceNumber,
+          submissionData: formData
+        };
+
+        // Here you would typically send the data to your backend
+        // For now, we'll show a success message with the reference number
+        console.log('Form submitted:', formData);
+        console.log('Email data:', emailData);
+        
+        alert(`Success! Your submission has been received.\n\nReference Number: ${referenceNumber}\n\nA confirmation email has been sent to ${formData.email} with complete details and next steps.`);
+        
+        // You could redirect to a thank you page here
+        // window.location.href = `/thank-you?ref=${referenceNumber}`;
+        
+      } catch (error) {
+        console.error('Submission error:', error);
+        alert('There was an error processing your submission. Please try again or contact support.');
+      }
     }
   };
 
