@@ -78,7 +78,7 @@ const GettingStarted = () => {
       {/* Steps Section */}
       <section className="py-8 md:py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="space-y-20">
+          <div className="space-y-12 md:space-y-20">
             {steps.map((step, index) => (
               <div key={index} className="relative">
                 {/* Connector Line */}
