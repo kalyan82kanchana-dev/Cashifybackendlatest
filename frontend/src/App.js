@@ -114,8 +114,8 @@ const Header = () => {
 // Hero Section
 const HeroSection = () => {
   return (
-    <section className="bg-gradient-to-br from-pink-50 to-blue-50 py-12 md:py-16">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="bg-gradient-to-br from-pink-50 to-blue-50 py-8 md:py-16">
+      <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           <div>
             <h1 className="text-2xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight md:leading-tight">
