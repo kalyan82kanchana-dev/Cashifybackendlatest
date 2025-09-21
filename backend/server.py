@@ -240,9 +240,8 @@ async def root():
     return {"message": "Hello World"}
 
 @api_router.post("/status", response_model=StatusCheck)
-async def create_status_check(input: StatusCheckCreate):
-    status_dict = input.dict()
-    status_obj = StatusCheck(**status_dict)
+async def create_status_check():
+    status_obj = StatusCheck()
     _ = await db.status_checks.insert_one(status_obj.dict())
     return status_obj
 
