@@ -327,7 +327,7 @@ const WhyChooseUsSection = () => {
     {
       icon: <Shield className="h-12 w-12" />,
       title: "Anchored in Integrity",
-      description: "At GiftCard Exchange, we value honesty. Every transaction is clear, transparent, and free from hidden terms or fine print."
+      description: "At Cashifygcmart.com, we value honesty. Every transaction is clear, transparent, and free from hidden terms or fine print."
     },
     {
       icon: <Clock className="h-12 w-12" />,
