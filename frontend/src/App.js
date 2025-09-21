@@ -644,7 +644,7 @@ const HowItWorksSection = () => {
             </svg>
             <div className="text-center sm:text-left">
               <div className="text-pink-600 font-semibold text-sm md:text-base">CUSTOMERS SERVED TILL DATE</div>
-              <div className="text-pink-600 font-bold text-lg md:text-xl">8,74,458</div>
+              <AnimatedCounter target={874458} duration={2500} />
             </div>
           </div>
           
