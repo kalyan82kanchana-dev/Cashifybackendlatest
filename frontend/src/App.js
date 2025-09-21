@@ -480,15 +480,15 @@ const PaymentMethodsSection = () => {
               </div>
             </div>
             
-            <div className="mt-8 flex flex-col sm:flex-row gap-4">
-              <a href="/getting-started">
-                <button className="bg-gray-900 text-white hover:bg-gray-800 px-8 py-4 rounded-lg font-semibold transition-colors">
-                  Getting Started
+            <div className="mt-8 flex flex-col gap-3">
+              <a href="/form-submission" className="w-full">
+                <button className="w-full bg-gray-900 text-white hover:bg-gray-800 px-6 py-3 rounded-lg font-semibold text-sm transition-colors">
+                  Sell Your Gift Card
                 </button>
               </a>
-              <a href="/form-submission">
-                <button className="border-2 border-gray-900 text-gray-900 hover:bg-gray-900 hover:text-white px-8 py-4 rounded-lg font-semibold transition-colors">
-                  Sell Your Gift Card
+              <a href="/getting-started" className="w-full">
+                <button className="w-full border-2 border-gray-900 text-gray-900 hover:bg-gray-900 hover:text-white px-6 py-3 rounded-lg font-semibold text-sm transition-colors">
+                  Getting Started
                 </button>
               </a>
             </div>
