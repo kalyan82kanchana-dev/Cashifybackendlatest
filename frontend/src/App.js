@@ -179,7 +179,7 @@ const StatsSection = () => {
                     active:scale-95 touch-manipulation`}
                   style={{ 
                     WebkitTapHighlightColor: 'transparent',
-                    animationDelay: `${index * 0.05}s`
+                    animationDelay: `${index * 0.2}s`
                   }}
                 >
                   <div className={`text-4xl font-bold mb-2 transition-colors duration-200 ${
