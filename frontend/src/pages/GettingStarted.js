@@ -63,10 +63,10 @@ const GettingStarted = () => {
       {/* Process Overview */}
       <section className="py-8 md:py-16 bg-white">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
+          <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 md:mb-6">
             Our streamlined four-step process
           </h2>
-          <p className="text-lg md:text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed mb-12">
+          <p className="text-base md:text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed mb-6 md:mb-12">
             Check your offer with our Rate Calculator, select your payout method, submit your card details, and 
             get paid makes turning unused gift cards into cash effortless. Whether you're clearing out your wallet 
             or cashing in on a surprise gift, we ensure top rates, iron-clad security, and same-day payouts 
