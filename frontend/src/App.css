@@ -37,35 +37,11 @@ html {
   scroll-behavior: smooth;
 }
 
-/* Slow and Smooth Pop-up Animation */
-.scroll-animate {
-  opacity: 0;
-  transform: scale(0.85);
-  transition: all 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+/* Simple scroll-based movement */
+.scroll-move {
+  transition: transform 0.1s ease-out;
+  will-change: transform;
 }
-
-/* Animate in state - slow and smooth pop up */
-.scroll-animate.animate-in {
-  opacity: 1;
-  transform: scale(1);
-}
-
-/* Remove complex slide classes - using slow pop for all */
-.scroll-animate.slide-left,
-.scroll-animate.slide-right,
-.scroll-animate.slide-up,
-.scroll-animate.fade-in {
-  opacity: 0;
-  transform: scale(0.85);
-}
-
-/* Stagger animation delays */
-.scroll-animate:nth-child(1) { animation-delay: 0s; }
-.scroll-animate:nth-child(2) { animation-delay: 0.1s; }
-.scroll-animate:nth-child(3) { animation-delay: 0.2s; }
-.scroll-animate:nth-child(4) { animation-delay: 0.3s; }
-.scroll-animate:nth-child(5) { animation-delay: 0.4s; }
-.scroll-animate:nth-child(6) { animation-delay: 0.5s; }
 
 /* Gentle floating animation for hero elements */
 @keyframes float {
