@@ -302,7 +302,7 @@ const WhyChooseUsSection = () => {
               <div 
                 key={index} 
                 onClick={() => handleFeatureClick(index)}
-                className={`scroll-animate slide-right p-8 rounded-2xl transition-all duration-300 cursor-pointer transform
+                className={`scroll-animate p-8 rounded-2xl transition-all duration-300 cursor-pointer transform
                   ${isSelected 
                     ? 'bg-pink-600 text-white scale-105 shadow-2xl' 
                     : 'bg-gray-50 hover:bg-white hover:scale-105 hover:shadow-2xl'
@@ -310,7 +310,7 @@ const WhyChooseUsSection = () => {
                   active:scale-95 touch-manipulation`}
                 style={{ 
                   WebkitTapHighlightColor: 'transparent',
-                  animationDelay: `${index * 0.1}s`
+                  animationDelay: `${index * 0.05}s`
                 }}
               >
                 <div className={`flex justify-center mb-6 transform transition-all duration-200 
