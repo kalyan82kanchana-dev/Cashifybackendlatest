@@ -98,10 +98,10 @@ const GettingStarted = () => {
                     </div>
                     
                     {/* Content */}
-                    <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 mb-6">
+                    <h3 className="text-xl md:text-3xl lg:text-4xl font-bold text-gray-900 mb-3 md:mb-6">
                       {step.title}
                     </h3>
-                    <p className="text-lg md:text-xl text-gray-600 leading-relaxed mb-8 max-w-2xl mx-auto lg:mx-0">
+                    <p className="text-base md:text-xl text-gray-600 leading-relaxed mb-4 md:mb-8 max-w-2xl mx-auto lg:mx-0">
                       {step.description}
                     </p>
                     
