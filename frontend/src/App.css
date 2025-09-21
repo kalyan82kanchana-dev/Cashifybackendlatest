@@ -20,6 +20,17 @@
   display: none;  /* Chrome, Safari and Opera */
 }
 
+/* Premium brand styling */
+.premium-brand {
+  background: linear-gradient(135deg, #ec4899 0%, #8b5cf6 50%, #6366f1 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  text-shadow: 0 0 30px rgba(236, 72, 153, 0.3);
+}
+
 /* Mobile touch optimization */
 * {
   -webkit-tap-highlight-color: transparent;
