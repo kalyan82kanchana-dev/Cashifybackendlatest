@@ -135,8 +135,8 @@ const StatsSection = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {stats.map((stat, index) => (
             <div key={index} className="text-center">
-              <div className="bg-pink-100 rounded-2xl p-8 mb-4">
-                <div className="text-4xl font-bold text-pink-600 mb-2">{stat.number}</div>
+              <div className="bg-pink-100 hover:bg-pink-200 rounded-2xl p-8 mb-4 transition-all duration-300 hover:scale-105 hover:shadow-xl cursor-pointer">
+                <div className="text-4xl font-bold text-pink-600 mb-2 hover:text-pink-700 transition-colors duration-200">{stat.number}</div>
                 <div className="text-lg font-semibold text-gray-900 mb-2">{stat.label}</div>
                 <div className="text-sm text-gray-600">{stat.description}</div>
               </div>
