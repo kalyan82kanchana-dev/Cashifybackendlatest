@@ -219,41 +219,36 @@ const FormSubmission = () => {
     setCurrentStep(prev => Math.max(prev - 1, 1));
   };
 
-  // Generate unique reference number
-  const generateReferenceNumber = () => {
-    const timestamp = Date.now();
-    const random = Math.floor(Math.random() * 1000);
-    return `GC-${timestamp.toString().slice(-6)}-${random.toString().padStart(2, '0')}`;
-  };
-
   // Submit form
   const handleSubmit = async () => {
     if (validateStep(4)) {
-      const referenceNumber = generateReferenceNumber();
-      
       try {
-        // Send confirmation email
-        const emailData = {
-          to: formData.email,
-          subject: `Thank you — we've received your gift card submission (Ref: ${referenceNumber})`,
-          customerName: `${formData.firstName} ${formData.lastName}`,
-          referenceNumber: referenceNumber,
-          submissionData: formData
-        };
+        // Get backend URL from environment
+        const backendUrl = process.env.REACT_APP_BACKEND_URL || 'http://localhost:8001';
+        
+        const response = await fetch(`${backendUrl}/api/submit-gift-card`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(formData)
+        });
 
-        // Here you would typically send the data to your backend
-        // For now, we'll show a success message with the reference number
-        console.log('Form submitted:', formData);
-        console.log('Email data:', emailData);
+        const result = await response.json();
         
-        alert(`Success! Your submission has been received.\n\nReference Number: ${referenceNumber}\n\nA confirmation email has been sent to ${formData.email} with complete details and next steps.`);
-        
-        // You could redirect to a thank you page here
-        // window.location.href = `/thank-you?ref=${referenceNumber}`;
+        if (result.success) {
+          alert(`Success! Your submission has been received.\n\nReference Number: ${result.reference_number}\n\nA confirmation email has been sent to ${formData.email} with complete details and next steps.\n\nPlease check your inbox (and spam folder) for the confirmation email.`);
+          
+          // Optional: Clear form or redirect
+          // setFormData(initialFormData);
+          // setCurrentStep(1);
+        } else {
+          alert(`Error: ${result.message}\n\nPlease try again or contact support if the issue persists.`);
+        }
         
       } catch (error) {
         console.error('Submission error:', error);
-        alert('There was an error processing your submission. Please try again or contact support.');
+        alert('There was a network error while processing your submission. Please check your internet connection and try again.');
       }
     }
   };
