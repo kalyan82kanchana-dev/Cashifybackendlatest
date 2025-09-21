@@ -67,14 +67,14 @@ html {
 .scroll-animate:nth-child(5) { animation-delay: 0.4s; }
 .scroll-animate:nth-child(6) { animation-delay: 0.5s; }
 
-/* Floating animation for hero elements */
+/* Gentle floating animation for hero elements */
 @keyframes float {
   0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-10px); }
+  50% { transform: translateY(-8px); }
 }
 
 .float-animation {
-  animation: float 3s ease-in-out infinite;
+  animation: float 4.5s ease-in-out infinite;
 }
 
 /* Pulse animation for important elements */
