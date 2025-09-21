@@ -521,7 +521,7 @@ const TestimonialsSection = () => {
         
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
           {testimonials.map((testimonial, index) => (
-            <div key={index} className="scroll-animate bg-gray-50 hover:bg-white p-8 rounded-2xl transition-all duration-300 hover:scale-105 hover:shadow-xl cursor-pointer" style={{ animationDelay: `${index * 0.05}s` }}>
+            <div key={index} className="scroll-animate bg-gray-50 hover:bg-white p-8 rounded-2xl transition-all duration-300 hover:scale-105 hover:shadow-xl cursor-pointer" style={{ animationDelay: `${index * 0.25}s` }}>
               <img 
                 src={testimonial.image} 
                 alt={testimonial.name}
