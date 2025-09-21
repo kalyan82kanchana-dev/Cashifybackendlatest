@@ -511,71 +511,13 @@ const HowItWorksSection = () => {
             ))}
           </div>
 
-          {/* Rate Calculator Interface */}
+          {/* Rate Calculator Mockup */}
           <div className="relative flex justify-center lg:justify-end">
-            <div className="bg-white p-8 rounded-3xl shadow-2xl w-80 md:w-96">
-              {/* Header */}
-              <div className="text-center mb-8">
-                <h3 className="text-xl md:text-2xl font-bold text-blue-900 leading-tight">
-                  Get the current value for your transaction
-                </h3>
-              </div>
-
-              {/* Gift Card Category */}
-              <div className="mb-6">
-                <label className="block text-lg font-semibold text-gray-900 mb-4">
-                  Gift Card Category<span className="text-red-500">*</span>
-                </label>
-                <div className="space-y-3">
-                  <label className="flex items-center">
-                    <input type="checkbox" className="h-5 w-5 text-blue-600 border-2 border-gray-300 rounded focus:ring-blue-500" />
-                    <span className="ml-3 text-gray-700">Card with Receipt</span>
-                  </label>
-                  <label className="flex items-center">
-                    <input type="checkbox" className="h-5 w-5 text-blue-600 border-2 border-gray-300 rounded focus:ring-blue-500" />
-                    <span className="ml-3 text-gray-700">Card without Receipt</span>
-                  </label>
-                  <label className="flex items-center">
-                    <input type="checkbox" className="h-5 w-5 text-blue-600 border-2 border-gray-300 rounded focus:ring-blue-500" />
-                    <span className="ml-3 text-gray-700">Card Partially Used</span>
-                  </label>
-                </div>
-              </div>
-
-              {/* Gift Card Name */}
-              <div className="mb-6">
-                <input 
-                  type="text" 
-                  placeholder="Gift Card Name"
-                  className="w-full p-4 border-2 border-gray-300 rounded-lg text-gray-700 placeholder-gray-400 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-colors"
-                />
-              </div>
-
-              {/* Value of Gift Card */}
-              <div className="mb-8">
-                <input 
-                  type="text" 
-                  placeholder="Value of Gift Card"
-                  className="w-full p-4 border-2 border-gray-300 rounded-lg text-gray-700 placeholder-gray-400 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-colors"
-                />
-              </div>
-
-              {/* How much you will get */}
-              <div className="mb-8 text-center">
-                <p className="text-lg font-semibold text-gray-900 mb-2">How much you will get</p>
-                <p className="text-5xl font-bold text-blue-900">0.00</p>
-              </div>
-
-              {/* Buttons */}
-              <div className="space-y-4">
-                <button className="w-full bg-blue-600 text-white py-4 px-6 rounded-full text-lg font-semibold hover:bg-blue-700 transition-colors duration-200">
-                  Check Rate
-                </button>
-                <button className="w-full border-2 border-gray-900 text-gray-900 py-4 px-6 rounded-full text-lg font-semibold hover:bg-gray-100 transition-colors duration-200">
-                  Proceed to Trade Card
-                </button>
-              </div>
-            </div>
+            <img 
+              src="https://customer-assets.emergentagent.com/job_16fab678-371e-4a90-a19c-5f52ac3d1af1/artifacts/cxewhola_ChatGPT%20Image%20Sep%2021%2C%202025%2C%2005_06_09%20PM.png" 
+              alt="Rate calculator interface showing gift card valuation form" 
+              className="w-64 md:w-80 lg:w-96 rounded-3xl shadow-2xl"
+            />
           </div>
         </div>
 
