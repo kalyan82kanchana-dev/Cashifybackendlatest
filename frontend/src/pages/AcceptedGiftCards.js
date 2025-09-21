@@ -29,6 +29,10 @@ const AcceptedGiftCards = () => {
     { name: 'Macy\'s', category: 'popular', rate: '82%', logo: '👔', popular: true },
     
     // Retail
+    { name: 'Amazon', category: 'retail', rate: '92%', logo: '🛒', trending: true },
+    { name: 'iTunes', category: 'retail', rate: '87%', logo: '🎵' },
+    { name: 'Starbucks', category: 'retail', rate: '85%', logo: '☕' },
+    { name: 'Target', category: 'retail', rate: '90%', logo: '🎯', trending: true },
     { name: 'Walmart', category: 'retail', rate: '89%', logo: '🛍️' },
     { name: 'Best Buy', category: 'retail', rate: '86%', logo: '📺' },
     { name: 'Home Depot', category: 'retail', rate: '88%', logo: '🔨' },
