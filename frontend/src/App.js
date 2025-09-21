@@ -298,24 +298,24 @@ const WhyChooseUsSection = () => {
   };
 
   return (
-    <section className="py-20 bg-white">
+    <section className="py-12 md:py-16 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <div>
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">Why Choose Us?</h2>
-          <p className="text-lg text-gray-600 mb-16 max-w-3xl mx-auto">
+        <div className="mb-8 md:mb-10">
+          <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 mb-3 md:mb-4">Why Choose Us?</h2>
+          <p className="text-sm md:text-base lg:text-lg text-gray-600 max-w-3xl mx-auto px-4">
             Sell your unused gift cards with ease, speed, and confidence. We offer a secure, hassle-free process and 
             transparent rates to ensure you get the best value, every time.
           </p>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 lg:gap-8">
           {features.map((feature, index) => {
             const isSelected = selectedFeature === index;
             return (
               <div 
                 key={index} 
                 onClick={() => handleFeatureClick(index)}
-                className={`scroll-move p-8 rounded-2xl transition-all duration-300 cursor-pointer transform
+                className={`scroll-move p-4 md:p-6 lg:p-8 rounded-xl md:rounded-2xl transition-all duration-300 cursor-pointer transform
                   ${isSelected 
                     ? 'bg-pink-600 text-white scale-105 shadow-2xl' 
                     : 'bg-gray-50 hover:bg-white hover:scale-105 hover:shadow-2xl'
@@ -325,20 +325,20 @@ const WhyChooseUsSection = () => {
                   WebkitTapHighlightColor: 'transparent'
                 }}
               >
-                <div className={`flex justify-center mb-6 transform transition-all duration-200 
+                <div className={`flex justify-center mb-4 md:mb-6 transform transition-all duration-200 
                   ${isSelected ? 'scale-110' : 'hover:scale-110'}`}>
                   {React.cloneElement(feature.icon, {
-                    className: `h-12 w-12 transition-colors duration-200 ${
+                    className: `h-8 w-8 md:h-10 md:w-10 lg:h-12 lg:w-12 transition-colors duration-200 ${
                       isSelected ? 'text-white' : 'text-pink-600'
                     }`
                   })}
                 </div>
-                <h4 className={`text-xl font-semibold mb-4 transition-colors duration-200 ${
+                <h4 className={`text-base md:text-lg lg:text-xl font-semibold mb-2 md:mb-4 transition-colors duration-200 ${
                   isSelected ? 'text-white' : 'text-gray-900'
                 }`}>
                   {feature.title}
                 </h4>
-                <p className={`transition-colors duration-200 ${
+                <p className={`text-xs md:text-sm lg:text-base transition-colors duration-200 ${
                   isSelected ? 'text-pink-100' : 'text-gray-600'
                 }`}>
                   {feature.description}
