@@ -60,6 +60,9 @@ const AnimatedCounter = ({ target, duration = 2000 }) => {
     </div>
   );
 };
+
+// Custom hook for scroll movement effect
+const useScrollMovement = () => {
   React.useEffect(() => {
     const handleScroll = () => {
       const scrolled = window.pageYOffset;
