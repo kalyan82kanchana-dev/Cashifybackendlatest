@@ -189,9 +189,7 @@ const HeroSection = () => {
               <span className="text-pink-600 block">Same-Day Cash</span>
             </h1>
             <p className="mt-4 md:mt-6 text-base md:text-lg text-gray-600 max-w-lg leading-relaxed">
-              Don't let your unused gift cards go to waste. At Cashifygcmart, we make it quick and 
-              easy to convert your cards into real money. Enjoy a fast, secure, and user-friendly 
-              experience – anytime, anywhere.
+              Cashifygcmart makes selling gift cards effortless: get a transparent offer, fast verification, and secure same-day payouts.
             </p>
             <div className="mt-6 md:mt-8 flex flex-col sm:flex-row gap-3 md:gap-4">
               <a href="/form-submission">
