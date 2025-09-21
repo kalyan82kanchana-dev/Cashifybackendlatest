@@ -242,14 +242,14 @@ const RateCalculator = () => {
             </div>
 
             {/* Gift Card Name */}
-            <div className="mb-6">
-              <label className="block text-lg font-semibold text-gray-900 mb-2">
+            <div className="mb-4 md:mb-6">
+              <label className="block text-base md:text-lg font-semibold text-gray-900 mb-2">
                 Gift Card Name <span className="text-red-500">*</span>
               </label>
               <select
                 value={selectedCard}
                 onChange={(e) => setSelectedCard(e.target.value)}
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-gray-900 hover:border-blue-400 transition-all duration-200 hover:shadow-md"
+                className="w-full px-3 md:px-4 py-2 md:py-3 text-sm md:text-base border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-gray-900 hover:border-blue-400 transition-all duration-200 hover:shadow-md"
               >
                 <option value="">Select Gift Card...</option>
                 {giftCards.map((card) => (
@@ -261,8 +261,8 @@ const RateCalculator = () => {
             </div>
 
             {/* Card Amount */}
-            <div className="mb-8">
-              <label className="block text-lg font-semibold text-gray-900 mb-2">
+            <div className="mb-6 md:mb-8">
+              <label className="block text-base md:text-lg font-semibold text-gray-900 mb-2">
                 Value of Gift Card <span className="text-red-500">*</span>
               </label>
               <input
@@ -271,7 +271,7 @@ const RateCalculator = () => {
                 onChange={(e) => setCardAmount(e.target.value)}
                 min="0"
                 placeholder="Enter amount..."
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-gray-900 hover:border-blue-400 transition-all duration-200 hover:shadow-md"
+                className="w-full px-3 md:px-4 py-2 md:py-3 text-sm md:text-base border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-gray-900 hover:border-blue-400 transition-all duration-200 hover:shadow-md"
               />
             </div>
 
