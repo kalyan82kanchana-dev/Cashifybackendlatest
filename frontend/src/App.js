@@ -51,7 +51,7 @@ const HeroSection = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div>
             <div className="text-4xl md:text-6xl font-bold leading-tight text-left">
-              <div className="text-gray-900 mb-2">Turn Unused Gift Cards</div>
+              <div className="text-gray-900 mb-3">Turn Unused Gift Cards</div>
               <div className="text-transparent bg-clip-text bg-gradient-to-r from-pink-600 to-blue-600">
                 into Same-Day Cash
               </div>
