@@ -584,11 +584,14 @@ const HowItWorksSection = () => {
 
         {/* CTA Section */}
         <div className="text-center mt-10 md:mt-12">
-          <div className="bg-pink-100 p-4 rounded-lg inline-flex items-center justify-center mb-6">
-            <svg className="h-6 w-6 text-pink-600 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <div className="bg-pink-100 p-3 md:p-4 rounded-lg inline-flex flex-col sm:flex-row items-center justify-center mb-6 mx-4 sm:mx-0">
+            <svg className="h-5 w-5 md:h-6 md:w-6 text-pink-600 mb-2 sm:mb-0 sm:mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
             </svg>
-            <span className="text-pink-600 font-semibold">CUSTOMERS SERVED TILL DATE 8,74,458</span>
+            <div className="text-center sm:text-left">
+              <div className="text-pink-600 font-semibold text-sm md:text-base">CUSTOMERS SERVED TILL DATE</div>
+              <div className="text-pink-600 font-bold text-lg md:text-xl">8,74,458</div>
+            </div>
           </div>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center max-w-md mx-auto">
