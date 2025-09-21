@@ -407,13 +407,13 @@ const AdvantagesSection = () => {
             
             <div className="mt-6 md:mt-8 flex flex-col sm:flex-row gap-3 md:gap-4">
               <a href="/getting-started" className="w-full sm:w-auto">
-                <button className="w-full bg-white text-pink-600 hover:bg-gray-100 px-6 md:px-8 py-3 md:py-4 rounded-lg font-semibold text-sm md:text-base transition-colors">
-                  Getting Started
+                <button className="w-full bg-white text-pink-600 hover:bg-gray-100 px-4 sm:px-6 md:px-8 py-3 rounded-lg font-semibold text-sm sm:text-base transition-colors">
+                  Get Started
                 </button>
               </a>
               <a href="/form-submission" className="w-full sm:w-auto">
-                <button className="w-full border-2 border-white text-white hover:bg-white hover:text-pink-600 px-6 md:px-8 py-3 md:py-4 rounded-lg font-semibold text-sm md:text-base transition-colors">
-                  Sell Your Gift Card
+                <button className="w-full border-2 border-white text-white hover:bg-white hover:text-pink-600 px-4 sm:px-6 md:px-8 py-3 rounded-lg font-semibold text-sm sm:text-base transition-colors">
+                  Sell Gift Card
                 </button>
               </a>
             </div>
