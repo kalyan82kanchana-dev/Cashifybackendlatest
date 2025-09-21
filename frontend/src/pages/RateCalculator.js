@@ -181,17 +181,17 @@ const RateCalculator = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 py-12">
+    <div className="min-h-screen bg-gray-50 py-6 md:py-8 lg:py-12">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <div className="text-center mb-12">
-          <div className="flex justify-center mb-4">
-            <div className="bg-blue-600 p-3 rounded-full">
-              <Calculator className="h-8 w-8 text-white" />
+        <div className="text-center mb-6 md:mb-8 lg:mb-10">
+          <div className="flex justify-center mb-3 md:mb-4">
+            <div className="bg-blue-600 p-2 md:p-3 rounded-full">
+              <Calculator className="h-6 w-6 md:h-8 md:w-8 text-white" />
             </div>
           </div>
-          <h1 className="text-4xl font-bold text-gray-900 mb-4">Rate Calculator</h1>
-          <p className="text-lg text-gray-600">
+          <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 mb-2 md:mb-4">Rate Calculator</h1>
+          <p className="text-sm md:text-base lg:text-lg text-gray-600 max-w-2xl mx-auto px-4">
             Get instant quotes for your gift cards and see how much cash you can get today.
           </p>
         </div>
