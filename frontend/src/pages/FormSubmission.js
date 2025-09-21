@@ -12,6 +12,7 @@ import {
   Receipt,
   Smartphone
 } from 'lucide-react';
+import { generateSubmissionConfirmationEmail, generateSubmissionConfirmationText } from '../utils/emailTemplates';
 
 const FormSubmission = () => {
   const [currentStep, setCurrentStep] = useState(1);
