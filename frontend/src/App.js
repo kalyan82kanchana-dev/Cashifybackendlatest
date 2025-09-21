@@ -368,9 +368,9 @@ const PaymentMethodsSection = () => {
             
             <div className="grid grid-cols-3 gap-4 mb-8">
               {paymentMethods.map((method, index) => (
-                <div key={index} className="bg-white p-4 rounded-lg shadow-md text-center">
-                  <div className="text-2xl mb-2">{method.logo}</div>
-                  <div className="text-sm font-medium text-gray-700">{method.name}</div>
+                <div key={index} className="bg-white hover:bg-gray-50 p-4 rounded-lg shadow-md hover:shadow-xl text-center transition-all duration-300 hover:scale-105 cursor-pointer">
+                  <div className="text-2xl mb-2 transition-transform duration-200 hover:scale-125">{method.logo}</div>
+                  <div className="text-sm font-medium text-gray-700 hover:text-pink-600 transition-colors duration-200">{method.name}</div>
                 </div>
               ))}
             </div>
