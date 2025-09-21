@@ -440,7 +440,7 @@ const PaymentMethodsSection = () => {
     { name: "Zelle", logo: "⚡" },
     { name: "Google Pay", logo: "📱" },
     { name: "Chime", logo: "🏦" },
-    { name: "Bitcoin", logo: "₿" }
+    { name: "Venmo", logo: "💸" }
   ];
 
   return (
