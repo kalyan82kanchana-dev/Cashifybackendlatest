@@ -255,8 +255,8 @@ const AcceptedGiftCards = () => {
               <div>Best Rate</div>
             </div>
             <div className="text-center">
-              <div className="font-bold text-lg text-blue-600">24hrs</div>
-              <div>Processing</div>
+              <div className="font-bold text-lg text-blue-600">Same Day</div>
+              <div>Payment</div>
             </div>
           </div>
         </div>
