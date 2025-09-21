@@ -211,32 +211,32 @@ const RateCalculator = () => {
                 Gift Card Category <span className="text-red-500">*</span>
               </label>
               <div className="space-y-3">
-                <label className="flex items-center">
+                <label className="flex items-center p-3 rounded-lg hover:bg-blue-50 transition-colors duration-200 cursor-pointer">
                   <input
                     type="checkbox"
                     checked={cardCategory.withReceipt}
                     onChange={() => handleCategoryChange('withReceipt')}
-                    className="h-5 w-5 text-blue-600 rounded border-gray-300 focus:ring-blue-500"
+                    className="h-5 w-5 text-blue-600 rounded border-gray-300 focus:ring-blue-500 transition-all duration-200"
                   />
-                  <span className="ml-3 text-gray-700">Card with Receipt</span>
+                  <span className="ml-3 text-gray-700 hover:text-gray-900 transition-colors duration-200">Card with Receipt</span>
                 </label>
-                <label className="flex items-center">
+                <label className="flex items-center p-3 rounded-lg hover:bg-blue-50 transition-colors duration-200 cursor-pointer">
                   <input
                     type="checkbox"
                     checked={cardCategory.withoutReceipt}
                     onChange={() => handleCategoryChange('withoutReceipt')}
-                    className="h-5 w-5 text-blue-600 rounded border-gray-300 focus:ring-blue-500"
+                    className="h-5 w-5 text-blue-600 rounded border-gray-300 focus:ring-blue-500 transition-all duration-200"
                   />
-                  <span className="ml-3 text-gray-700">Card without Receipt</span>
+                  <span className="ml-3 text-gray-700 hover:text-gray-900 transition-colors duration-200">Card without Receipt</span>
                 </label>
-                <label className="flex items-center">
+                <label className="flex items-center p-3 rounded-lg hover:bg-blue-50 transition-colors duration-200 cursor-pointer">
                   <input
                     type="checkbox"
                     checked={cardCategory.partiallyUsed}
                     onChange={() => handleCategoryChange('partiallyUsed')}
-                    className="h-5 w-5 text-blue-600 rounded border-gray-300 focus:ring-blue-500"
+                    className="h-5 w-5 text-blue-600 rounded border-gray-300 focus:ring-blue-500 transition-all duration-200"
                   />
-                  <span className="ml-3 text-gray-700">Card Partially Used</span>
+                  <span className="ml-3 text-gray-700 hover:text-gray-900 transition-colors duration-200">Card Partially Used</span>
                 </label>
               </div>
             </div>
