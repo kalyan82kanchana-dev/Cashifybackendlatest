@@ -784,7 +784,7 @@ const Footer = () => {
         
         {/* Copyright */}
         <div className="mt-8 pt-8 border-t border-gray-800 text-center">
-          <p className="text-gray-400">Copyright @giftcardexchange.com - All Rights Reserved.</p>
+          <p className="text-gray-400">Copyright @cashifygcmart.com - All Rights Reserved.</p>
         </div>
       </div>
     </footer>
