@@ -5,6 +5,7 @@ import { CheckCircle, Clock, Shield, Smartphone, Leaf, CreditCard, DollarSign } 
 import RateCalculator from "./pages/RateCalculator";
 import FormSubmission from "./pages/FormSubmission";
 import AcceptedGiftCards from "./pages/AcceptedGiftCards";
+import FAQs from "./pages/FAQs";
 
 // Visible scroll-based movement effect
 // Animated Counter Component - Triggers only on scroll into view
