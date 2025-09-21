@@ -24,7 +24,6 @@ const AcceptedGiftCards = () => {
     // Popular Cards
     { name: 'Amazon', category: 'popular', rate: '92%', logo: '🛒', popular: true, trending: true },
     { name: 'Apple', category: 'popular', rate: '88%', logo: '🍎', popular: true },
-    { name: 'Google Play', category: 'popular', rate: '89%', logo: '📱', popular: true },
     { name: 'iTunes', category: 'popular', rate: '87%', logo: '🎵', popular: true },
     { name: 'Starbucks', category: 'popular', rate: '85%', logo: '☕', popular: true },
     { name: 'Target', category: 'popular', rate: '90%', logo: '🎯', popular: true, trending: true },
