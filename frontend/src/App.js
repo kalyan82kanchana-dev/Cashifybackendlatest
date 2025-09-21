@@ -5,7 +5,7 @@ import { CheckCircle, Clock, Shield, Smartphone, Leaf, CreditCard, DollarSign } 
 import RateCalculator from "./pages/RateCalculator";
 
 // Visible scroll-based movement effect
-// Animated Counter Component
+// Animated Counter Component - Triggers only on scroll into view
 const AnimatedCounter = ({ target, duration = 2000 }) => {
   const [count, setCount] = React.useState(0);
   const [isVisible, setIsVisible] = React.useState(false);
@@ -18,7 +18,10 @@ const AnimatedCounter = ({ target, duration = 2000 }) => {
           setIsVisible(true);
         }
       },
-      { threshold: 0.5 }
+      { 
+        threshold: 0.6, // Trigger when 60% of element is visible
+        rootMargin: '0px 0px -100px 0px' // Start animation slightly before fully visible
+      }
     );
 
     if (counterRef.current) {
@@ -36,7 +39,7 @@ const AnimatedCounter = ({ target, duration = 2000 }) => {
       if (!startTime) startTime = currentTime;
       const progress = Math.min((currentTime - startTime) / duration, 1);
       
-      // Easing function for smooth animation
+      // Easing function for smooth, impressive animation
       const easeOutQuart = 1 - Math.pow(1 - progress, 4);
       const currentCount = Math.floor(easeOutQuart * target);
       
