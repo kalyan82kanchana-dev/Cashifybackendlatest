@@ -513,11 +513,17 @@ const HowItWorksSection = () => {
 
           {/* Rate Calculator Mockup */}
           <div className="relative flex justify-center lg:justify-end">
-            <img 
-              src="https://customer-assets.emergentagent.com/job_16fab678-371e-4a90-a19c-5f52ac3d1af1/artifacts/cxewhola_ChatGPT%20Image%20Sep%2021%2C%202025%2C%2005_06_09%20PM.png" 
-              alt="Rate calculator interface showing gift card valuation form" 
-              className="w-64 md:w-80 lg:w-96 rounded-3xl shadow-2xl"
-            />
+            <div className="relative">
+              <img 
+                src="https://customer-assets.emergentagent.com/job_16fab678-371e-4a90-a19c-5f52ac3d1af1/artifacts/cxewhola_ChatGPT%20Image%20Sep%2021%2C%202025%2C%2005_06_09%20PM.png" 
+                alt="Rate calculator interface showing gift card valuation form" 
+                className="w-64 md:w-80 lg:w-96 rounded-3xl shadow-2xl bg-transparent mix-blend-multiply"
+                style={{
+                  filter: 'drop-shadow(0 25px 50px -12px rgba(0, 0, 0, 0.25))',
+                  background: 'transparent'
+                }}
+              />
+            </div>
           </div>
         </div>
 
