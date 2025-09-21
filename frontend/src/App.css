@@ -37,33 +37,26 @@ html {
   scroll-behavior: smooth;
 }
 
-/* Scroll Animation Classes */
+/* Simple Pop-up Animation */
 .scroll-animate {
   opacity: 0;
-  transform: translateY(50px);
-  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  transform: scale(0.8);
+  transition: all 0.4s ease-out;
 }
 
-.scroll-animate.slide-left {
-  transform: translateX(-50px) translateY(20px);
-}
-
-.scroll-animate.slide-right {
-  transform: translateX(50px) translateY(20px);
-}
-
-.scroll-animate.slide-up {
-  transform: translateY(50px);
-}
-
-.scroll-animate.fade-in {
-  transform: scale(0.9);
-}
-
-/* Animate in states */
+/* Animate in state - simple pop up */
 .scroll-animate.animate-in {
   opacity: 1;
-  transform: translateX(0) translateY(0) scale(1);
+  transform: scale(1);
+}
+
+/* Remove complex slide classes - using simple pop for all */
+.scroll-animate.slide-left,
+.scroll-animate.slide-right,
+.scroll-animate.slide-up,
+.scroll-animate.fade-in {
+  opacity: 0;
+  transform: scale(0.8);
 }
 
 /* Stagger animation delays */
