@@ -236,10 +236,10 @@ const WhyChooseUsSection = () => {
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {features.map((feature, index) => (
-            <div key={index} className={`p-8 rounded-2xl ${index === 2 ? 'bg-pink-600 text-white' : 'bg-gray-50'}`}>
-              <div className="flex justify-center mb-6">
+            <div key={index} className={`p-8 rounded-2xl transition-all duration-300 hover:scale-105 hover:shadow-2xl cursor-pointer ${index === 2 ? 'bg-pink-600 hover:bg-pink-700 text-white' : 'bg-gray-50 hover:bg-white'}`}>
+              <div className="flex justify-center mb-6 transform transition-transform duration-200 hover:scale-110">
                 {React.cloneElement(feature.icon, {
-                  className: `h-12 w-12 ${index === 2 ? 'text-white' : 'text-pink-600'}`
+                  className: `h-12 w-12 ${index === 2 ? 'text-white' : 'text-pink-600'} transition-colors duration-200`
                 })}
               </div>
               <h4 className={`text-xl font-semibold mb-4 ${index === 2 ? 'text-white' : 'text-gray-900'}`}>
