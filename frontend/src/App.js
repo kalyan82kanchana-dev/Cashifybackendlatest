@@ -599,7 +599,7 @@ const Footer = () => {
 
 // Main App Component
 const Home = () => {
-  useScrollAnimation();
+  useScrollMovement();
   
   return (
     <div>
