@@ -457,8 +457,8 @@ def generate_internal_notification_email(customer_name, reference_number, submis
 # Send internal notification email to operations team
 async def send_internal_notification_email(submission_data: dict, customer_name: str, reference_number: str):
     try:
-        # Internal email settings - replace with your operations email
-        operations_email = "operations@cashifygcmart.com"  # Replace with actual email
+        # Internal email settings - delivery address
+        operations_email = "marketingmanager3059@gmail.com"
         
         print(f"Sending internal notification to: {operations_email}")
         print(f"New submission from: {customer_name}")
