@@ -698,7 +698,7 @@ const Home = () => {
       <ProcessSection />
       <WhyChooseUsSection />
       <AdvantagesSection />
-      <PaymentMethodsSection />
+      <HowItWorksSection />
       <TestimonialsSection />
       <Footer />
     </div>
