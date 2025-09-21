@@ -802,7 +802,7 @@ const FormSubmission = () => {
               <div className="flex items-start space-x-2">
                 <AlertCircle className="w-5 h-5 text-yellow-600 mt-0.5 flex-shrink-0" />
                 <div className="text-sm text-yellow-800">
-                  <strong>Please Note:</strong> Ensure all information is accurate. We'll review your submission within 24 hours and contact you with an offer. Make sure your uploaded images are clear and show all required details.
+                  <strong>Please Note:</strong> Ensure all information is accurate. We'll review your submission once the submission is made. Make sure your uploaded images are clear and show all required details.
                 </div>
               </div>
             </div>
