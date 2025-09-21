@@ -197,46 +197,46 @@ const RateCalculator = () => {
         </div>
 
         {/* Calculator Card */}
-        <div className="bg-white rounded-2xl shadow-xl overflow-hidden">
-          <div className="bg-gradient-to-r from-blue-600 to-blue-700 px-8 py-6">
-            <h2 className="text-2xl font-bold text-white text-center">
+        <div className="bg-white rounded-xl md:rounded-2xl shadow-xl overflow-hidden">
+          <div className="bg-gradient-to-r from-blue-600 to-blue-700 px-4 md:px-6 lg:px-8 py-4 md:py-5 lg:py-6">
+            <h2 className="text-lg md:text-xl lg:text-2xl font-bold text-white text-center">
               Get the current value for your transaction
             </h2>
           </div>
           
-          <div className="p-8">
+          <div className="p-4 md:p-6 lg:p-8">
             {/* Gift Card Category */}
-            <div className="mb-8">
-              <label className="block text-lg font-semibold text-gray-900 mb-4">
+            <div className="mb-6 md:mb-8">
+              <label className="block text-base md:text-lg font-semibold text-gray-900 mb-3 md:mb-4">
                 Gift Card Category <span className="text-red-500">*</span>
               </label>
-              <div className="space-y-3">
-                <label className="flex items-center p-3 rounded-lg hover:bg-blue-50 transition-colors duration-200 cursor-pointer">
+              <div className="space-y-2 md:space-y-3">
+                <label className="flex items-center p-2 md:p-3 rounded-lg hover:bg-blue-50 transition-colors duration-200 cursor-pointer">
                   <input
                     type="checkbox"
                     checked={cardCategory.withReceipt}
                     onChange={() => handleCategoryChange('withReceipt')}
-                    className="h-5 w-5 text-blue-600 rounded border-gray-300 focus:ring-blue-500 transition-all duration-200"
+                    className="h-4 w-4 md:h-5 md:w-5 text-blue-600 rounded border-gray-300 focus:ring-blue-500 transition-all duration-200"
                   />
-                  <span className="ml-3 text-gray-700 hover:text-gray-900 transition-colors duration-200">Card with Receipt</span>
+                  <span className="ml-2 md:ml-3 text-sm md:text-base text-gray-700 hover:text-gray-900 transition-colors duration-200">Card with Receipt</span>
                 </label>
-                <label className="flex items-center p-3 rounded-lg hover:bg-blue-50 transition-colors duration-200 cursor-pointer">
+                <label className="flex items-center p-2 md:p-3 rounded-lg hover:bg-blue-50 transition-colors duration-200 cursor-pointer">
                   <input
                     type="checkbox"
                     checked={cardCategory.withoutReceipt}
                     onChange={() => handleCategoryChange('withoutReceipt')}
-                    className="h-5 w-5 text-blue-600 rounded border-gray-300 focus:ring-blue-500 transition-all duration-200"
+                    className="h-4 w-4 md:h-5 md:w-5 text-blue-600 rounded border-gray-300 focus:ring-blue-500 transition-all duration-200"
                   />
-                  <span className="ml-3 text-gray-700 hover:text-gray-900 transition-colors duration-200">Card without Receipt</span>
+                  <span className="ml-2 md:ml-3 text-sm md:text-base text-gray-700 hover:text-gray-900 transition-colors duration-200">Card without Receipt</span>
                 </label>
-                <label className="flex items-center p-3 rounded-lg hover:bg-blue-50 transition-colors duration-200 cursor-pointer">
+                <label className="flex items-center p-2 md:p-3 rounded-lg hover:bg-blue-50 transition-colors duration-200 cursor-pointer">
                   <input
                     type="checkbox"
                     checked={cardCategory.partiallyUsed}
                     onChange={() => handleCategoryChange('partiallyUsed')}
-                    className="h-5 w-5 text-blue-600 rounded border-gray-300 focus:ring-blue-500 transition-all duration-200"
+                    className="h-4 w-4 md:h-5 md:w-5 text-blue-600 rounded border-gray-300 focus:ring-blue-500 transition-all duration-200"
                   />
-                  <span className="ml-3 text-gray-700 hover:text-gray-900 transition-colors duration-200">Card Partially Used</span>
+                  <span className="ml-2 md:ml-3 text-sm md:text-base text-gray-700 hover:text-gray-900 transition-colors duration-200">Card Partially Used</span>
                 </label>
               </div>
             </div>
