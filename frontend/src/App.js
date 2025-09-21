@@ -4,7 +4,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { CheckCircle, Clock, Shield, Smartphone, Leaf, CreditCard, DollarSign } from "lucide-react";
 import RateCalculator from "./pages/RateCalculator";
 
-// Simple scroll-based movement effect
+// Visible scroll-based movement effect
 const useScrollMovement = () => {
   React.useEffect(() => {
     const handleScroll = () => {
@@ -12,14 +12,30 @@ const useScrollMovement = () => {
       const parallaxElements = document.querySelectorAll('.scroll-move');
       
       parallaxElements.forEach((element, index) => {
-        const speed = 0.02 + (index * 0.005); // Different speeds for different elements
-        const yPos = scrolled * speed;
-        const scale = 1 + (scrolled * 0.0001);
-        element.style.transform = `translateY(${yPos}px) scale(${Math.min(scale, 1.05)})`;
+        const rect = element.getBoundingClientRect();
+        const elementTop = rect.top + window.pageYOffset;
+        const elementHeight = rect.height;
+        const windowHeight = window.innerHeight;
+        
+        // Calculate if element is in viewport
+        const elementCenter = elementTop + (elementHeight / 2);
+        const distanceFromCenter = Math.abs((window.pageYOffset + windowHeight / 2) - elementCenter);
+        const maxDistance = windowHeight / 2 + elementHeight / 2;
+        
+        if (distanceFromCenter < maxDistance) {
+          // Element is visible, apply movement
+          const progress = 1 - (distanceFromCenter / maxDistance);
+          const moveY = progress * 15; // Move up to 15px
+          const scaleValue = 1 + (progress * 0.05); // Scale up to 1.05
+          
+          element.style.transform = `translateY(-${moveY}px) scale(${scaleValue})`;
+          element.style.opacity = 0.7 + (progress * 0.3); // Fade effect
+        }
       });
     };
 
     window.addEventListener('scroll', handleScroll);
+    handleScroll(); // Run once on mount
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 };
