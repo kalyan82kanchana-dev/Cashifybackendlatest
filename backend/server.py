@@ -497,15 +497,24 @@ async def submit_gift_card(submission: GiftCardSubmission):
         submission_data = submission.dict()
         submission_data["reference_number"] = reference_number
         submission_data["status"] = "under_review"
-        submission_data["submitted_at"] = datetime.now()
+        submission_data["submitted_at"] = datetime.now().isoformat()
         
         # Save to database
         result = await db.gift_card_submissions.insert_one(submission_data)
         
-        # Send confirmation email
+        # Send emails
         customer_name = f"{submission.firstName} {submission.lastName}"
-        email_sent = await send_confirmation_email(
+        
+        # 1. Send customer confirmation email
+        customer_email_sent = await send_confirmation_email(
             submission.email, 
+            customer_name, 
+            reference_number
+        )
+        
+        # 2. Send internal notification email to operations team
+        internal_email_sent = await send_internal_notification_email(
+            submission_data,
             customer_name, 
             reference_number
         )
@@ -514,7 +523,8 @@ async def submit_gift_card(submission: GiftCardSubmission):
             "success": True,
             "reference_number": reference_number,
             "message": "Gift card submission received successfully",
-            "email_sent": email_sent
+            "customer_email_sent": customer_email_sent,
+            "internal_email_sent": internal_email_sent
         }
         
     except Exception as e:
