@@ -86,7 +86,7 @@ const GettingStarted = () => {
                   <div className="absolute left-1/2 transform -translate-x-1/2 top-full h-12 md:h-20 w-0.5 bg-gradient-to-b from-pink-500 to-transparent hidden md:block"></div>
                 )}
                 
-                <div className={`flex flex-col ${index % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'} items-center gap-12 lg:gap-16`}>
+                <div className={`flex flex-col ${index % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'} items-center gap-8 lg:gap-16`}>
                   {/* Content Side */}
                   <div className="flex-1 text-center lg:text-left">
                     {/* Step Number */}
