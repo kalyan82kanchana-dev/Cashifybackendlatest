@@ -201,31 +201,65 @@ const AcceptedGiftCards = () => {
 
           {/* Category Filters */}
           <div className="mt-6">
-            <div className="flex flex-wrap gap-2">
-              {categories.map((category) => {
-                const CategoryIcon = category.icon;
-                return (
-                  <button
-                    key={category.id}
-                    onClick={() => setSelectedCategory(category.id)}
-                    className={`flex items-center space-x-2 px-4 py-2 rounded-full text-sm font-medium transition-colors ${
-                      selectedCategory === category.id
-                        ? 'bg-pink-600 text-white'
-                        : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-                    }`}
-                  >
-                    <CategoryIcon className="w-4 h-4" />
-                    <span>{category.name}</span>
-                    <span className={`text-xs px-2 py-1 rounded-full ${
-                      selectedCategory === category.id
-                        ? 'bg-white/20 text-white'
-                        : 'bg-white text-gray-600'
-                    }`}>
-                      {category.count}
-                    </span>
-                  </button>
-                );
-              })}
+            {/* Mobile: Horizontal scrollable categories */}
+            <div className="md:hidden">
+              <div className="flex space-x-3 overflow-x-auto pb-4 scrollbar-hide">
+                {categories.map((category) => {
+                  const CategoryIcon = category.icon;
+                  return (
+                    <button
+                      key={category.id}
+                      onClick={() => setSelectedCategory(category.id)}
+                      className={`flex-shrink-0 flex items-center space-x-2 px-3 py-2 rounded-full text-sm font-medium transition-colors whitespace-nowrap ${
+                        selectedCategory === category.id
+                          ? 'bg-pink-600 text-white'
+                          : 'bg-gray-100 text-gray-700'
+                      }`}
+                    >
+                      <CategoryIcon className="w-4 h-4" />
+                      <span className="hidden sm:inline">{category.name}</span>
+                      <span className="sm:hidden">{category.name.split(' ')[0]}</span>
+                      <span className={`text-xs px-1.5 py-0.5 rounded-full ${
+                        selectedCategory === category.id
+                          ? 'bg-white/20 text-white'
+                          : 'bg-white text-gray-600'
+                      }`}>
+                        {category.count}
+                      </span>
+                    </button>
+                  );
+                })}
+              </div>
+            </div>
+
+            {/* Desktop: Wrapped categories */}
+            <div className="hidden md:block">
+              <div className="flex flex-wrap gap-2">
+                {categories.map((category) => {
+                  const CategoryIcon = category.icon;
+                  return (
+                    <button
+                      key={category.id}
+                      onClick={() => setSelectedCategory(category.id)}
+                      className={`flex items-center space-x-2 px-4 py-2 rounded-full text-sm font-medium transition-colors ${
+                        selectedCategory === category.id
+                          ? 'bg-pink-600 text-white'
+                          : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                      }`}
+                    >
+                      <CategoryIcon className="w-4 h-4" />
+                      <span>{category.name}</span>
+                      <span className={`text-xs px-2 py-1 rounded-full ${
+                        selectedCategory === category.id
+                          ? 'bg-white/20 text-white'
+                          : 'bg-white text-gray-600'
+                      }`}>
+                        {category.count}
+                      </span>
+                    </button>
+                  );
+                })}
+              </div>
             </div>
           </div>
         </div>
