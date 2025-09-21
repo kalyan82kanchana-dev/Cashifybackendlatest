@@ -507,7 +507,7 @@ const TestimonialsSection = () => {
   return (
     <section className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <div className="scroll-animate">
+        <div>
           <h2 className="text-4xl font-bold text-gray-900 mb-4">
             Recent <span className="text-pink-600">reviews</span> from our customers
           </h2>
@@ -515,7 +515,7 @@ const TestimonialsSection = () => {
         
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
           {testimonials.map((testimonial, index) => (
-            <div key={index} className="scroll-animate bg-gray-50 hover:bg-white p-8 rounded-2xl transition-all duration-300 hover:scale-105 hover:shadow-xl cursor-pointer" style={{ animationDelay: `${index * 0.25}s` }}>
+            <div key={index} className="scroll-move bg-gray-50 hover:bg-white p-8 rounded-2xl transition-all duration-300 hover:scale-105 hover:shadow-xl cursor-pointer">
               <img 
                 src={testimonial.image} 
                 alt={testimonial.name}
