@@ -54,10 +54,8 @@ const HeroSection = () => {
               Turn Unused Gift Cards
               <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-pink-600 to-blue-600">
-                into Instant Cash
+                into Same-Day Cash
               </span>
-              <br />
-              <span className="text-pink-600">Fast</span>
             </h1>
             <p className="mt-6 text-lg text-gray-600 max-w-lg">
               Don't let your unused gift cards go to waste. At GiftCard Exchange, we make it quick and 
