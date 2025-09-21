@@ -742,7 +742,7 @@ const Footer = () => {
               <div className="bg-gradient-to-r from-pink-500 to-pink-600 p-2 rounded-full">
                 <CreditCard className="h-6 w-6 text-white" />
               </div>
-              <span className="ml-3 text-xl font-bold">GiftCard Exchange</span>
+              <span className="ml-3 text-xl font-bold">Cashifygcmart.com</span>
             </div>
             <p className="text-gray-400 mb-6">
               Turn Gift Cards into Cash Instantly with GiftCard Exchange! Trade unused gift cards 
