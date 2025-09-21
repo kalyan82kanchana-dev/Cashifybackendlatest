@@ -310,22 +310,22 @@ const RateCalculator = () => {
         </div>
 
         {/* Info Section */}
-        <div className="mt-12 bg-blue-50 rounded-xl p-8">
+        <div className="mt-6 md:mt-8 lg:mt-12 bg-blue-50 rounded-xl p-4 md:p-6 lg:p-8">
           <div className="text-center">
-            <CheckCircle className="h-12 w-12 text-blue-600 mx-auto mb-4" />
-            <h3 className="text-2xl font-bold text-gray-900 mb-4">How It Works</h3>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-left">
+            <CheckCircle className="h-8 w-8 md:h-10 md:w-10 lg:h-12 lg:w-12 text-blue-600 mx-auto mb-3 md:mb-4" />
+            <h3 className="text-lg md:text-xl lg:text-2xl font-bold text-gray-900 mb-3 md:mb-4">How It Works</h3>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 text-left">
               <div>
-                <h4 className="font-semibold text-gray-900 mb-2">1. Select Category</h4>
-                <p className="text-gray-600">Choose whether you have a receipt, no receipt, or the card is partially used.</p>
+                <h4 className="font-semibold text-gray-900 mb-1 md:mb-2 text-sm md:text-base">1. Select Category</h4>
+                <p className="text-gray-600 text-xs md:text-sm">Choose whether you have a receipt, no receipt, or the card is partially used.</p>
               </div>
               <div>
-                <h4 className="font-semibold text-gray-900 mb-2">2. Enter Details</h4>
-                <p className="text-gray-600">Select your gift card brand and enter the current balance amount.</p>
+                <h4 className="font-semibold text-gray-900 mb-1 md:mb-2 text-sm md:text-base">2. Enter Details</h4>
+                <p className="text-gray-600 text-xs md:text-sm">Select your gift card brand and enter the current balance amount.</p>
               </div>
               <div>
-                <h4 className="font-semibold text-gray-900 mb-2">3. Get Quote</h4>
-                <p className="text-gray-600">Click 'Check Rate' to see your instant cash offer and proceed to trade.</p>
+                <h4 className="font-semibold text-gray-900 mb-1 md:mb-2 text-sm md:text-base">3. Get Quote</h4>
+                <p className="text-gray-600 text-xs md:text-sm">Click 'Check Rate' to see your instant cash offer and proceed to trade.</p>
               </div>
             </div>
           </div>
