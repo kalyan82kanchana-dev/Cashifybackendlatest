@@ -124,7 +124,7 @@ const GettingStarted = () => {
                   <div className="flex-1 flex justify-center">
                     <div className="relative">
                       {/* Main Image Container */}
-                      <div className="w-80 h-80 md:w-96 md:h-96 bg-gradient-to-br from-pink-100 to-purple-100 rounded-3xl overflow-hidden shadow-2xl">
+                      <div className="w-64 h-64 md:w-96 md:h-96 bg-gradient-to-br from-pink-100 to-purple-100 rounded-3xl overflow-hidden shadow-2xl">
                         <img 
                           src={step.illustration} 
                           alt={step.title}
