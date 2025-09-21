@@ -215,7 +215,7 @@ const GettingStarted = () => {
       </section>
 
       {/* Quick Tips */}
-      <section className="py-16 bg-gray-100">
+      <section className="py-12 md:py-16 bg-gray-100">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 text-center mb-12">
             💡 Pro Tips for Best Results
