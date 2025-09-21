@@ -432,72 +432,137 @@ const AdvantagesSection = () => {
   );
 };
 
-// Payment Methods Section
-const PaymentMethodsSection = () => {
-  const paymentMethods = [
-    { name: "PayPal", logo: "https://customer-assets.emergentagent.com/job_website-builder-117/artifacts/fnwxn68t_paypal.svg" },
-    { name: "Cash App", logo: "https://customer-assets.emergentagent.com/job_website-builder-117/artifacts/a055zsrq_cashapp.svg" },
-    { name: "Zelle", logo: "https://customer-assets.emergentagent.com/job_website-builder-117/artifacts/ftfqekwg_zelle.svg" },
-    { name: "Google Pay", logo: "https://customer-assets.emergentagent.com/job_website-builder-117/artifacts/ealdjzb3_googlepay.svg" },
-    { name: "Chime", logo: "https://customer-assets.emergentagent.com/job_website-builder-117/artifacts/fbf4paum_chime.svg" },
-    { name: "Venmo", logo: "https://customer-assets.emergentagent.com/job_website-builder-117/artifacts/nk6h83zg_venmo.svg" }
+// How It Works Process Section
+const HowItWorksSection = () => {
+  const steps = [
+    {
+      number: "1",
+      icon: (
+        <svg className="h-8 w-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+        </svg>
+      ),
+      title: "Select your card from our Accepted Gift Cards tab.",
+      description: "If it's not listed, contact support via email or Live Chat."
+    },
+    {
+      number: "2", 
+      icon: (
+        <svg className="h-8 w-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
+        </svg>
+      ),
+      title: "Select your card in our Rate Calculator for an instant quote.",
+      description: "Happy with the rate? Proceed to the next step."
+    },
+    {
+      number: "3",
+      icon: (
+        <svg className="h-8 w-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
+        </svg>
+      ),
+      title: "Fill in your gift card details and submit the form.",
+      description: "Pick your payment method to complete."
+    },
+    {
+      number: "4",
+      icon: (
+        <svg className="h-8 w-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+        </svg>
+      ),
+      title: "We verify and approve your card.",
+      description: "Funds are sent to your chosen payment method."
+    }
   ];
 
   return (
-    <section className="py-20 bg-gray-50">
+    <section className="py-12 md:py-16 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          <div className="relative">
-            <img 
-              src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=600&h=400&fit=crop" 
-              alt="Cash out your way illustration" 
-              className="rounded-2xl shadow-xl"
-            />
-          </div>
-          <div>
-            <h2 className="text-4xl font-bold text-gray-900 mb-6">Cash Out Your Way</h2>
-            <p className="text-sm md:text-base lg:text-lg text-gray-600 mb-6 md:mb-8">
-              Choose PayPal, Cash App, Zelle, Google Pay, Chime, or Venmo, 
-              enter your details, and receive your payment often within hours, 
-              with no hidden fees and full security.
-            </p>
-            
-            <div className="grid grid-cols-3 gap-4 mb-8">
-              {paymentMethods.map((method, index) => (
-                <div key={index} className="bg-white hover:bg-gray-50 p-4 rounded-lg shadow-md hover:shadow-xl text-center transition-all duration-300 hover:scale-105 cursor-pointer">
-                  <div className="flex justify-center items-center h-12 mb-2">
-                    <img 
-                      src={method.logo} 
-                      alt={method.name}
-                      className="max-h-8 max-w-20 object-contain transition-transform duration-200 hover:scale-110"
-                    />
-                  </div>
-                  <div className="text-sm font-medium text-gray-700 hover:text-pink-600 transition-colors duration-200">{method.name}</div>
+        {/* Header */}
+        <div className="text-center mb-10 md:mb-12">
+          <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-4">
+            <span className="text-pink-600">The all-in-one solution</span> for turning
+            <br />
+            your unused gift cards
+            <br />
+            <span className="text-gray-900">into instant cash.</span>
+          </h2>
+        </div>
+
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+          {/* Steps */}
+          <div className="space-y-6 md:space-y-8">
+            {steps.map((step, index) => (
+              <div key={index} className="scroll-move flex items-start">
+                <div className="bg-pink-600 rounded-full w-12 h-12 md:w-14 md:h-14 flex items-center justify-center mr-4 md:mr-6 flex-shrink-0">
+                  {step.icon}
                 </div>
-              ))}
-            </div>
-            
-            <div className="mb-6">
-              <div className="bg-pink-100 p-4 rounded-lg flex items-center justify-center">
-                <svg className="h-6 w-6 text-pink-600 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
-                </svg>
-                <div className="text-pink-600 font-semibold">CUSTOMERS SERVED TILL DATE 8,74,458</div>
+                <div>
+                  <h3 className="text-lg md:text-xl font-semibold text-gray-900 mb-2">
+                    {step.title}
+                  </h3>
+                  <p className="text-sm md:text-base text-gray-600">
+                    {step.description}
+                  </p>
+                </div>
               </div>
+            ))}
+          </div>
+
+          {/* Mobile Mockup */}
+          <div className="relative flex justify-center lg:justify-end">
+            <img 
+              src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=400&h=600&fit=crop" 
+              alt="Mobile app interface showing gift card exchange process" 
+              className="w-64 md:w-80 lg:w-96 rounded-3xl shadow-2xl"
+            />
+            {/* Floating customer avatars */}
+            <div className="absolute -top-4 -right-4 w-12 h-12 bg-white rounded-full shadow-lg overflow-hidden">
+              <img 
+                src="https://images.unsplash.com/photo-1494790108755-2616b612b786?w=100&h=100&fit=crop&crop=face" 
+                alt="Happy customer" 
+                className="w-full h-full object-cover"
+              />
             </div>
-            
-            <div className="mt-8 flex flex-col gap-3">
-              <a href="/form-submission" className="w-full">
-                <button className="w-full bg-gray-900 text-white hover:bg-gray-800 px-6 py-3 rounded-lg font-semibold text-sm transition-colors">
-                  Sell Your Gift Card
-                </button>
-              </a>
-              <a href="/getting-started" className="w-full">
-                <button className="w-full border-2 border-gray-900 text-gray-900 hover:bg-gray-900 hover:text-white px-6 py-3 rounded-lg font-semibold text-sm transition-colors">
-                  Getting Started
-                </button>
-              </a>
+            <div className="absolute top-16 -left-6 w-10 h-10 bg-white rounded-full shadow-lg overflow-hidden">
+              <img 
+                src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&crop=face" 
+                alt="Happy customer" 
+                className="w-full h-full object-cover"
+              />
             </div>
+            <div className="absolute bottom-20 -right-8 w-14 h-14 bg-white rounded-full shadow-lg overflow-hidden">
+              <img 
+                src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=face" 
+                alt="Happy customer" 
+                className="w-full h-full object-cover"
+              />
+            </div>
+          </div>
+        </div>
+
+        {/* CTA Section */}
+        <div className="text-center mt-10 md:mt-12">
+          <div className="bg-pink-100 p-4 rounded-lg inline-flex items-center justify-center mb-6">
+            <svg className="h-6 w-6 text-pink-600 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+            </svg>
+            <span className="text-pink-600 font-semibold">CUSTOMERS SERVED TILL DATE 8,74,458</span>
+          </div>
+          
+          <div className="flex flex-col sm:flex-row gap-4 justify-center max-w-md mx-auto">
+            <a href="/form-submission" className="flex-1">
+              <button className="w-full bg-pink-600 text-white hover:bg-pink-700 px-6 py-3 rounded-lg font-semibold text-sm transition-colors">
+                Start Trading Now
+              </button>
+            </a>
+            <a href="/rate-calculator" className="flex-1">
+              <button className="w-full border-2 border-pink-600 text-pink-600 hover:bg-pink-600 hover:text-white px-6 py-3 rounded-lg font-semibold text-sm transition-colors">
+                Check Rates
+              </button>
+            </a>
           </div>
         </div>
       </div>
