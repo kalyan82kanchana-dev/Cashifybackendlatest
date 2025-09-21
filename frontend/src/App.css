@@ -37,26 +37,26 @@ html {
   scroll-behavior: smooth;
 }
 
-/* Simple Pop-up Animation */
+/* Slow and Smooth Pop-up Animation */
 .scroll-animate {
   opacity: 0;
-  transform: scale(0.8);
-  transition: all 0.4s ease-out;
+  transform: scale(0.85);
+  transition: all 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
-/* Animate in state - simple pop up */
+/* Animate in state - slow and smooth pop up */
 .scroll-animate.animate-in {
   opacity: 1;
   transform: scale(1);
 }
 
-/* Remove complex slide classes - using simple pop for all */
+/* Remove complex slide classes - using slow pop for all */
 .scroll-animate.slide-left,
 .scroll-animate.slide-right,
 .scroll-animate.slide-up,
 .scroll-animate.fade-in {
   opacity: 0;
-  transform: scale(0.8);
+  transform: scale(0.85);
 }
 
 /* Stagger animation delays */
