@@ -276,13 +276,13 @@ const RateCalculator = () => {
             </div>
 
             {/* Result Display */}
-            <div className="mb-8 p-6 bg-gray-50 rounded-lg">
+            <div className="mb-8 p-6 bg-gray-50 hover:bg-blue-50 rounded-lg transition-all duration-300 hover:shadow-md">
               <p className="text-lg text-gray-700 mb-2">How much you will get</p>
-              <div className="text-4xl font-bold text-blue-600 mb-4">
+              <div className="text-4xl font-bold text-blue-600 mb-4 hover:text-blue-700 transition-colors duration-200">
                 ${calculatedAmount}
               </div>
               {showLimitError && (
-                <div className="flex items-center text-red-600">
+                <div className="flex items-center text-red-600 animate-pulse">
                   <AlertCircle className="h-5 w-5 mr-2" />
                   <span>Sorry! We don't process cards less than $50</span>
                 </div>
