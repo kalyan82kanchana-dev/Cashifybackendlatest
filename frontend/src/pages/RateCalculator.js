@@ -276,33 +276,33 @@ const RateCalculator = () => {
             </div>
 
             {/* Result Display */}
-            <div className="mb-8 p-6 bg-gray-50 hover:bg-blue-50 rounded-lg transition-all duration-300 hover:shadow-md">
-              <p className="text-lg text-gray-700 mb-2">How much you will get</p>
-              <div className="text-4xl font-bold text-blue-600 mb-4 hover:text-blue-700 transition-colors duration-200">
+            <div className="mb-6 md:mb-8 p-4 md:p-6 bg-gray-50 hover:bg-blue-50 rounded-lg transition-all duration-300 hover:shadow-md">
+              <p className="text-base md:text-lg text-gray-700 mb-2">How much you will get</p>
+              <div className="text-2xl md:text-3xl lg:text-4xl font-bold text-blue-600 mb-3 md:mb-4 hover:text-blue-700 transition-colors duration-200">
                 ${calculatedAmount}
               </div>
               {showLimitError && (
                 <div className="flex items-center text-red-600 animate-pulse">
-                  <AlertCircle className="h-5 w-5 mr-2" />
-                  <span>Sorry! We don't process cards less than $50</span>
+                  <AlertCircle className="h-4 w-4 md:h-5 md:w-5 mr-2" />
+                  <span className="text-sm md:text-base">Sorry! We don't process cards less than $50</span>
                 </div>
               )}
             </div>
 
             {/* Action Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4">
+            <div className="flex flex-col sm:flex-row gap-3 md:gap-4">
               <button
                 onClick={calculateRate}
-                className="flex-1 bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-full font-semibold text-lg transition-all duration-300 flex items-center justify-center hover:scale-105 hover:shadow-xl transform"
+                className="flex-1 bg-blue-600 hover:bg-blue-700 text-white px-4 md:px-6 lg:px-8 py-3 md:py-4 rounded-full font-semibold text-sm md:text-base lg:text-lg transition-all duration-300 flex items-center justify-center hover:scale-105 hover:shadow-xl transform"
               >
-                <Calculator className="h-5 w-5 mr-2 transition-transform duration-200 hover:rotate-12" />
+                <Calculator className="h-4 w-4 md:h-5 md:w-5 mr-2 transition-transform duration-200 hover:rotate-12" />
                 Check Rate
               </button>
               <button
                 onClick={() => window.location.href = '/form-submission'}
-                className="flex-1 bg-white hover:bg-gray-900 text-gray-900 hover:text-white border-2 border-gray-900 px-8 py-4 rounded-full font-semibold text-lg transition-all duration-300 flex items-center justify-center hover:scale-105 hover:shadow-xl transform"
+                className="flex-1 bg-white hover:bg-gray-900 text-gray-900 hover:text-white border-2 border-gray-900 px-4 md:px-6 lg:px-8 py-3 md:py-4 rounded-full font-semibold text-sm md:text-base lg:text-lg transition-all duration-300 flex items-center justify-center hover:scale-105 hover:shadow-xl transform"
               >
-                <CreditCard className="h-5 w-5 mr-2 transition-transform duration-200 hover:rotate-12" />
+                <CreditCard className="h-4 w-4 md:h-5 md:w-5 mr-2 transition-transform duration-200 hover:rotate-12" />
                 Proceed to Trade Card
               </button>
             </div>
