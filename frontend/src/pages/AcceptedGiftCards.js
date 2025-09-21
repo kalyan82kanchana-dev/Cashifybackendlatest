@@ -39,6 +39,7 @@ const AcceptedGiftCards = () => {
     { name: 'Nordstrom', category: 'retail', rate: '85%', logo: '👗' },
     { name: 'Sephora', category: 'retail', rate: '86%', logo: '💄' },
     { name: 'Victoria\'s Secret', category: 'retail', rate: '83%', logo: '🌺' },
+    { name: 'eBay', category: 'retail', rate: '89%', logo: '🏷️' },
     
     // Fashion & Apparel  
     { name: 'Nike', category: 'fashion', rate: '87%', logo: '👟' },
