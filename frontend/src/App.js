@@ -114,37 +114,37 @@ const Header = () => {
 // Hero Section
 const HeroSection = () => {
   return (
-    <section className="bg-gradient-to-br from-pink-50 to-blue-50 py-20">
+    <section className="bg-gradient-to-br from-pink-50 to-blue-50 py-12 md:py-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           <div>
-            <h1 className="text-4xl md:text-6xl font-bold text-gray-900 leading-tight">
+            <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight">
               Turn Unused Gift Cards into 
               <span className="text-pink-600 block">Same-Day Cash</span>
             </h1>
-            <p className="mt-6 text-lg text-gray-600 max-w-lg">
+            <p className="mt-4 md:mt-6 text-base md:text-lg text-gray-600 max-w-lg">
               Don't let your unused gift cards go to waste. At GiftCard Exchange, we make it quick and 
               easy to convert your cards into real money. Enjoy a fast, secure, and user-friendly 
               experience – anytime, anywhere.
             </p>
-            <div className="mt-8 flex flex-col sm:flex-row gap-4">
+            <div className="mt-6 md:mt-8 flex flex-col sm:flex-row gap-3 md:gap-4">
               <a href="/form-submission">
-                <button className="bg-pink-600 hover:bg-pink-700 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-300 hover:scale-105 hover:shadow-xl transform">
+                <button className="w-full sm:w-auto bg-pink-600 hover:bg-pink-700 text-white px-6 md:px-8 py-3 md:py-4 rounded-lg font-semibold text-base md:text-lg transition-all duration-300 hover:scale-105 hover:shadow-xl transform">
                   Get Cash Now
                 </button>
               </a>
               <a href="/accepted-cards">
-                <button className="bg-gray-900 hover:bg-gray-800 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-300 hover:scale-105 hover:shadow-xl transform">
+                <button className="w-full sm:w-auto bg-gray-900 hover:bg-gray-800 text-white px-6 md:px-8 py-3 md:py-4 rounded-lg font-semibold text-base md:text-lg transition-all duration-300 hover:scale-105 hover:shadow-xl transform">
                   See Accepted Gift Cards
                 </button>
               </a>
             </div>
           </div>
-          <div className="relative">
+          <div className="relative mt-8 lg:mt-0">
             <img 
               src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&h=400&fit=crop" 
               alt="Happy customers exchanging gift cards" 
-              className="rounded-2xl shadow-2xl float-animation"
+              className="rounded-2xl shadow-2xl float-animation w-full"
             />
           </div>
         </div>
