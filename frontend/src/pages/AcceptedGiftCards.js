@@ -48,6 +48,7 @@ const AcceptedGiftCards = () => {
     { name: 'Old Navy', category: 'fashion', rate: '81%', logo: '👔' },
     { name: 'TJ Maxx', category: 'fashion', rate: '84%', logo: '🛍️' },
     { name: 'Footlocker', category: 'fashion', rate: '85%', logo: '👟' },
+    { name: 'Michael Kors', category: 'fashion', rate: '88%', logo: '👜' },
     
     // Food & Dining
     { name: 'Uber Eats', category: 'dining', rate: '88%', logo: '🍔' },
