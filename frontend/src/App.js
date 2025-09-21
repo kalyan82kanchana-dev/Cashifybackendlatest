@@ -745,7 +745,7 @@ const Footer = () => {
               <span className="ml-3 text-xl font-bold">Cashifygcmart.com</span>
             </div>
             <p className="text-gray-400 mb-6">
-              Turn Gift Cards into Cash Instantly with GiftCard Exchange! Trade unused gift cards 
+              Turn Gift Cards into Cash Instantly with Cashifygcmart.com! Trade unused gift cards 
               for quick cash - fast, easy and hassle-free!
             </p>
           </div>
