@@ -877,11 +877,11 @@ const FormSubmission = () => {
           {renderStep()}
 
           {/* Navigation */}
-          <div className="flex justify-between mt-8 pt-6 border-t">
+          <div className="flex flex-col sm:flex-row justify-between items-center mt-8 pt-6 border-t space-y-3 sm:space-y-0">
             <button
               onClick={prevStep}
               disabled={currentStep === 1}
-              className={`flex items-center space-x-2 px-6 py-3 rounded-lg font-medium transition-colors ${
+              className={`w-full sm:w-auto flex items-center justify-center space-x-2 px-6 py-3 rounded-lg font-medium transition-colors ${
                 currentStep === 1
                   ? 'bg-gray-100 text-gray-400 cursor-not-allowed'
                   : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
@@ -894,7 +894,7 @@ const FormSubmission = () => {
             {currentStep === steps.length ? (
               <button
                 onClick={handleSubmit}
-                className="flex items-center space-x-2 bg-pink-600 text-white px-8 py-3 rounded-lg font-medium hover:bg-pink-700 transition-colors"
+                className="w-full sm:w-auto flex items-center justify-center space-x-2 bg-pink-600 text-white px-8 py-3 rounded-lg font-medium hover:bg-pink-700 transition-colors"
               >
                 <span>Submit Form</span>
                 <Check className="w-5 h-5" />
@@ -902,7 +902,7 @@ const FormSubmission = () => {
             ) : (
               <button
                 onClick={nextStep}
-                className="flex items-center space-x-2 bg-pink-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-pink-700 transition-colors"
+                className="w-full sm:w-auto flex items-center justify-center space-x-2 bg-pink-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-pink-700 transition-colors"
               >
                 <span>Next</span>
                 <ChevronRight className="w-5 h-5" />
