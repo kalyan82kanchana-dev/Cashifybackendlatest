@@ -2,6 +2,7 @@ import React from "react";
 import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { CheckCircle, Clock, Shield, Smartphone, Leaf, CreditCard, DollarSign } from "lucide-react";
+import RateCalculator from "./pages/RateCalculator";
 
 const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
 
@@ -13,29 +14,33 @@ const Header = () => {
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <div className="flex items-center">
-            <div className="bg-gradient-to-r from-pink-500 to-pink-600 p-2 rounded-full">
-              <CreditCard className="h-6 w-6 text-white" />
-            </div>
-            <span className="ml-3 text-xl font-bold text-gray-900">GiftCard Exchange</span>
+            <a href="/" className="flex items-center">
+              <div className="bg-gradient-to-r from-pink-500 to-pink-600 p-2 rounded-full">
+                <CreditCard className="h-6 w-6 text-white" />
+              </div>
+              <span className="ml-3 text-xl font-bold text-gray-900">GiftCard Exchange</span>
+            </a>
           </div>
           
           {/* Navigation */}
           <div className="hidden md:block">
             <div className="ml-10 flex items-baseline space-x-8">
-              <a href="#home" className="text-gray-900 hover:text-pink-600 px-3 py-2 text-sm font-medium">Home</a>
-              <a href="#getting-started" className="text-gray-700 hover:text-pink-600 px-3 py-2 text-sm font-medium">Getting Started</a>
-              <a href="#accepted-cards" className="text-gray-700 hover:text-pink-600 px-3 py-2 text-sm font-medium">Accepted Gift Cards</a>
-              <a href="#form-submission" className="text-gray-700 hover:text-pink-600 px-3 py-2 text-sm font-medium">Form Submission</a>
-              <a href="#rate-calculator" className="text-gray-700 hover:text-pink-600 px-3 py-2 text-sm font-medium">Rate Calculator</a>
-              <a href="#faqs" className="text-gray-700 hover:text-pink-600 px-3 py-2 text-sm font-medium">FAQs</a>
+              <a href="/" className="text-gray-900 hover:text-pink-600 px-3 py-2 text-sm font-medium">Home</a>
+              <a href="/getting-started" className="text-gray-700 hover:text-pink-600 px-3 py-2 text-sm font-medium">Getting Started</a>
+              <a href="/accepted-cards" className="text-gray-700 hover:text-pink-600 px-3 py-2 text-sm font-medium">Accepted Gift Cards</a>
+              <a href="/form-submission" className="text-gray-700 hover:text-pink-600 px-3 py-2 text-sm font-medium">Form Submission</a>
+              <a href="/rate-calculator" className="text-gray-700 hover:text-pink-600 px-3 py-2 text-sm font-medium">Rate Calculator</a>
+              <a href="/faqs" className="text-gray-700 hover:text-pink-600 px-3 py-2 text-sm font-medium">FAQs</a>
             </div>
           </div>
           
           {/* Upload Card Button */}
           <div className="flex items-center">
-            <button className="bg-pink-600 hover:bg-pink-700 text-white px-6 py-2 rounded-lg font-medium transition-colors">
-              Upload Card
-            </button>
+            <a href="/form-submission">
+              <button className="bg-pink-600 hover:bg-pink-700 text-white px-6 py-2 rounded-lg font-medium transition-colors">
+                Upload Card
+              </button>
+            </a>
           </div>
         </div>
       </nav>
@@ -60,12 +65,16 @@ const HeroSection = () => {
               experience – anytime, anywhere.
             </p>
             <div className="mt-8 flex flex-col sm:flex-row gap-4">
-              <button className="bg-pink-600 hover:bg-pink-700 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-colors">
-                Get Cash Now
-              </button>
-              <button className="bg-gray-900 hover:bg-gray-800 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-colors">
-                See Accepted Gift Cards
-              </button>
+              <a href="/form-submission">
+                <button className="bg-pink-600 hover:bg-pink-700 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-colors">
+                  Get Cash Now
+                </button>
+              </a>
+              <a href="/accepted-cards">
+                <button className="bg-gray-900 hover:bg-gray-800 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-colors">
+                  See Accepted Gift Cards
+                </button>
+              </a>
             </div>
           </div>
           <div className="relative">
@@ -274,12 +283,16 @@ const AdvantagesSection = () => {
             </div>
             
             <div className="mt-8 flex flex-col sm:flex-row gap-4">
-              <button className="bg-white text-pink-600 hover:bg-gray-100 px-8 py-4 rounded-lg font-semibold transition-colors">
-                Getting Started
-              </button>
-              <button className="border-2 border-white text-white hover:bg-white hover:text-pink-600 px-8 py-4 rounded-lg font-semibold transition-colors">
-                Sell Your Gift Card
-              </button>
+              <a href="/getting-started">
+                <button className="bg-white text-pink-600 hover:bg-gray-100 px-8 py-4 rounded-lg font-semibold transition-colors">
+                  Getting Started
+                </button>
+              </a>
+              <a href="/form-submission">
+                <button className="border-2 border-white text-white hover:bg-white hover:text-pink-600 px-8 py-4 rounded-lg font-semibold transition-colors">
+                  Sell Your Gift Card
+                </button>
+              </a>
             </div>
           </div>
           
@@ -345,12 +358,16 @@ const PaymentMethodsSection = () => {
             </div>
             
             <div className="mt-8 flex flex-col sm:flex-row gap-4">
-              <button className="bg-gray-900 text-white hover:bg-gray-800 px-8 py-4 rounded-lg font-semibold transition-colors">
-                Getting Started
-              </button>
-              <button className="border-2 border-gray-900 text-gray-900 hover:bg-gray-900 hover:text-white px-8 py-4 rounded-lg font-semibold transition-colors">
-                Sell Your Gift Card
-              </button>
+              <a href="/getting-started">
+                <button className="bg-gray-900 text-white hover:bg-gray-800 px-8 py-4 rounded-lg font-semibold transition-colors">
+                  Getting Started
+                </button>
+              </a>
+              <a href="/form-submission">
+                <button className="border-2 border-gray-900 text-gray-900 hover:bg-gray-900 hover:text-white px-8 py-4 rounded-lg font-semibold transition-colors">
+                  Sell Your Gift Card
+                </button>
+              </a>
             </div>
           </div>
         </div>
@@ -436,10 +453,10 @@ const Footer = () => {
           <div>
             <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
             <ul className="space-y-3 text-gray-400">
-              <li><a href="#getting-started" className="hover:text-white transition-colors">Getting Started</a></li>
-              <li><a href="#accepted-cards" className="hover:text-white transition-colors">Accepted Gift Cards</a></li>
-              <li><a href="#form-submission" className="hover:text-white transition-colors">Form Submission</a></li>
-              <li><a href="#important-notice" className="hover:text-white transition-colors">Important Notice</a></li>
+              <li><a href="/getting-started" className="hover:text-white transition-colors">Getting Started</a></li>
+              <li><a href="/accepted-cards" className="hover:text-white transition-colors">Accepted Gift Cards</a></li>
+              <li><a href="/form-submission" className="hover:text-white transition-colors">Form Submission</a></li>
+              <li><a href="/rate-calculator" className="hover:text-white transition-colors">Rate Calculator</a></li>
             </ul>
           </div>
           
@@ -447,34 +464,20 @@ const Footer = () => {
           <div>
             <h3 className="text-lg font-semibold mb-4">Menu</h3>
             <ul className="space-y-3 text-gray-400">
-              <li><a href="#faqs" className="hover:text-white transition-colors">FAQs</a></li>
-              <li><a href="#cookie-policy" className="hover:text-white transition-colors">Cookie Policy</a></li>
-              <li><a href="#rate-calculator" className="hover:text-white transition-colors">Rate Calculator</a></li>
+              <li><a href="/faqs" className="hover:text-white transition-colors">FAQs</a></li>
+              <li><a href="/privacy-policy" className="hover:text-white transition-colors">Privacy Policy</a></li>
+              <li><a href="/refund-policy" className="hover:text-white transition-colors">Refund Policy</a></li>
             </ul>
           </div>
           
           {/* Services */}
           <div>
-            <h3 className="text-lg font-semibold mb-4">Services</h3>
+            <h3 className="text-lg font-semibold mb-4">Contact Us</h3>
             <ul className="space-y-3 text-gray-400">
-              <li><a href="#privacy-policy" className="hover:text-white transition-colors">Privacy Policy</a></li>
-              <li><a href="#refund-policy" className="hover:text-white transition-colors">Refund Policy</a></li>
-              <li><a href="#imp-guidelines" className="hover:text-white transition-colors">IMP Guidelines</a></li>
+              <li>📧 support@giftcardexchange.com</li>
+              <li>📞 +1-305-389-8091</li>
+              <li>📍 111 Longwood Ave<br />Rockledge, Florida FL, 32955</li>
             </ul>
-          </div>
-        </div>
-        
-        {/* Contact Info */}
-        <div className="mt-12 pt-8 border-t border-gray-800 grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div>
-            <h4 className="text-lg font-semibold mb-4">Contact Us</h4>
-            <p className="text-gray-400">📧 support@giftcardexchange.com</p>
-          </div>
-          <div>
-            <p className="text-gray-400">📞 +1-305-389-8091</p>
-          </div>
-          <div>
-            <p className="text-gray-400">📍 (321) 208-7512 111 Longwood Ave<br />Rockledge, Florida FL, 32955</p>
           </div>
         </div>
         
@@ -510,6 +513,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/rate-calculator" element={<><Header /><RateCalculator /><Footer /></>} />
         </Routes>
       </BrowserRouter>
     </div>
