@@ -435,19 +435,19 @@ const TestimonialsSection = () => {
         
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
           {testimonials.map((testimonial, index) => (
-            <div key={index} className="bg-gray-50 p-8 rounded-2xl">
+            <div key={index} className="bg-gray-50 hover:bg-white p-8 rounded-2xl transition-all duration-300 hover:scale-105 hover:shadow-xl cursor-pointer">
               <img 
                 src={testimonial.image} 
                 alt={testimonial.name}
-                className="w-16 h-16 rounded-full mx-auto mb-4"
+                className="w-16 h-16 rounded-full mx-auto mb-4 transition-transform duration-200 hover:scale-110"
               />
               <div className="flex justify-center mb-4">
                 {[...Array(testimonial.rating)].map((_, i) => (
-                  <span key={i} className="text-yellow-400 text-xl">★</span>
+                  <span key={i} className="text-yellow-400 hover:text-yellow-500 text-xl transition-colors duration-150">★</span>
                 ))}
               </div>
-              <p className="text-gray-600 mb-6 italic">"{testimonial.text}"</p>
-              <div className="font-semibold text-gray-900">{testimonial.name}</div>
+              <p className="text-gray-600 mb-6 italic hover:text-gray-800 transition-colors duration-200">"{testimonial.text}"</p>
+              <div className="font-semibold text-gray-900 hover:text-pink-600 transition-colors duration-200">{testimonial.name}</div>
             </div>
           ))}
         </div>
