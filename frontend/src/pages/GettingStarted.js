@@ -51,10 +51,10 @@ const GettingStarted = () => {
         </div>
         
         <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight">
+          <h1 className="text-3xl md:text-6xl lg:text-7xl font-bold text-white mb-4 md:mb-6 leading-tight">
             Getting Started
           </h1>
-          <p className="text-xl md:text-2xl text-white/90 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-lg md:text-2xl text-white/90 max-w-3xl mx-auto leading-relaxed">
             Turn your unused gift cards into cash with our simple, secure process
           </p>
         </div>
