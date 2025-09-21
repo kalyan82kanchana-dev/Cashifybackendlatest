@@ -513,13 +513,15 @@ const TestimonialsSection = () => {
   return (
     <section className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <h2 className="text-4xl font-bold text-gray-900 mb-4">
-          Recent <span className="text-pink-600">reviews</span> from our customers
-        </h2>
+        <div className="scroll-animate slide-up">
+          <h2 className="text-4xl font-bold text-gray-900 mb-4">
+            Recent <span className="text-pink-600">reviews</span> from our customers
+          </h2>
+        </div>
         
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
           {testimonials.map((testimonial, index) => (
-            <div key={index} className="bg-gray-50 hover:bg-white p-8 rounded-2xl transition-all duration-300 hover:scale-105 hover:shadow-xl cursor-pointer">
+            <div key={index} className="scroll-animate slide-up bg-gray-50 hover:bg-white p-8 rounded-2xl transition-all duration-300 hover:scale-105 hover:shadow-xl cursor-pointer" style={{ animationDelay: `${index * 0.2}s` }}>
               <img 
                 src={testimonial.image} 
                 alt={testimonial.name}
