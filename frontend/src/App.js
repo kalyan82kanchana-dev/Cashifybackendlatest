@@ -4,6 +4,30 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { CheckCircle, Clock, Shield, Smartphone, Leaf, CreditCard, DollarSign } from "lucide-react";
 import RateCalculator from "./pages/RateCalculator";
 
+// Custom hook for scroll animations
+const useScrollAnimation = () => {
+  React.useEffect(() => {
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate-in');
+        }
+      });
+    }, observerOptions);
+
+    // Observe all elements with scroll animation classes
+    const animatedElements = document.querySelectorAll('.scroll-animate');
+    animatedElements.forEach(el => observer.observe(el));
+
+    return () => observer.disconnect();
+  }, []);
+};
+
 const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
 
 // Header Component
