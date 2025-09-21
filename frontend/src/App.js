@@ -405,15 +405,10 @@ const AdvantagesSection = () => {
               </div>
             </div>
             
-            <div className="mt-6 md:mt-8 flex flex-col sm:flex-row gap-3 md:gap-4">
-              <a href="/getting-started" className="w-full sm:w-auto">
-                <button className="w-full bg-white text-pink-600 hover:bg-gray-100 px-4 sm:px-6 md:px-8 py-3 rounded-lg font-semibold text-sm sm:text-base transition-colors">
-                  Get Started
-                </button>
-              </a>
-              <a href="/form-submission" className="w-full sm:w-auto">
-                <button className="w-full border-2 border-white text-white hover:bg-white hover:text-pink-600 px-4 sm:px-6 md:px-8 py-3 rounded-lg font-semibold text-sm sm:text-base transition-colors">
-                  Sell Gift Card
+            <div className="mt-6 md:mt-8">
+              <a href="/form-submission" className="inline-block">
+                <button className="bg-white text-pink-600 hover:bg-pink-50 hover:scale-105 px-6 md:px-8 py-3 md:py-4 rounded-xl font-bold text-sm md:text-base transition-all duration-300 shadow-lg hover:shadow-xl">
+                  Start Trading Now →
                 </button>
               </a>
             </div>
