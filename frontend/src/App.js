@@ -93,12 +93,12 @@ const HeroSection = () => {
             </p>
             <div className="mt-8 flex flex-col sm:flex-row gap-4">
               <a href="/form-submission">
-                <button className="bg-pink-600 hover:bg-pink-700 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-colors">
+                <button className="bg-pink-600 hover:bg-pink-700 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-300 hover:scale-105 hover:shadow-xl transform">
                   Get Cash Now
                 </button>
               </a>
               <a href="/accepted-cards">
-                <button className="bg-gray-900 hover:bg-gray-800 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-colors">
+                <button className="bg-gray-900 hover:bg-gray-800 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-300 hover:scale-105 hover:shadow-xl transform">
                   See Accepted Gift Cards
                 </button>
               </a>
