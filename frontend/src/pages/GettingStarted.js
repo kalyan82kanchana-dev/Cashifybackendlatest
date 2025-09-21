@@ -39,7 +39,7 @@ const GettingStarted = () => {
   return (
     <div className="min-h-screen">
       {/* Hero Section with Gradient Background */}
-      <section className="relative bg-gradient-to-br from-pink-600 via-purple-600 to-red-500 py-20 md:py-24 overflow-hidden">
+      <section className="relative bg-gradient-to-br from-pink-600 via-purple-600 to-red-500 py-12 md:py-20 overflow-hidden">
         {/* Background Pattern */}
         <div className="absolute inset-0 opacity-20">
           <div className="absolute top-10 left-10 text-white text-4xl opacity-30">💳</div>
