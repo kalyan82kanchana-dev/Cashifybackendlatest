@@ -523,29 +523,29 @@ const TestimonialsSection = () => {
   ];
 
   return (
-    <section className="py-20 bg-white">
+    <section className="py-12 md:py-16 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <div>
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">
+        <div className="mb-8 md:mb-10">
+          <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900">
             Recent <span className="text-pink-600">reviews</span> from our customers
           </h2>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 lg:gap-8">
           {testimonials.map((testimonial, index) => (
-            <div key={index} className="scroll-move bg-gray-50 hover:bg-white p-8 rounded-2xl transition-all duration-300 hover:scale-105 hover:shadow-xl cursor-pointer">
+            <div key={index} className="scroll-move bg-gray-50 hover:bg-white p-4 md:p-6 lg:p-8 rounded-xl md:rounded-2xl transition-all duration-300 hover:scale-105 hover:shadow-xl cursor-pointer">
               <img 
                 src={testimonial.image} 
                 alt={testimonial.name}
-                className="w-16 h-16 rounded-full mx-auto mb-4 transition-transform duration-200 hover:scale-110"
+                className="w-12 h-12 md:w-14 md:h-14 lg:w-16 lg:h-16 rounded-full mx-auto mb-3 md:mb-4 transition-transform duration-200 hover:scale-110"
               />
-              <div className="flex justify-center mb-4">
+              <div className="flex justify-center mb-3 md:mb-4">
                 {[...Array(testimonial.rating)].map((_, i) => (
-                  <span key={i} className="text-yellow-400 hover:text-yellow-500 text-xl transition-colors duration-150">★</span>
+                  <span key={i} className="text-yellow-400 hover:text-yellow-500 text-lg md:text-xl transition-colors duration-150">★</span>
                 ))}
               </div>
-              <p className="text-gray-600 mb-6 italic hover:text-gray-800 transition-colors duration-200">"{testimonial.text}"</p>
-              <div className="font-semibold text-gray-900 hover:text-pink-600 transition-colors duration-200">{testimonial.name}</div>
+              <p className="text-gray-600 mb-4 md:mb-6 italic hover:text-gray-800 transition-colors duration-200 text-sm md:text-base">"{testimonial.text}"</p>
+              <div className="font-semibold text-gray-900 hover:text-pink-600 transition-colors duration-200 text-sm md:text-base">{testimonial.name}</div>
             </div>
           ))}
         </div>
