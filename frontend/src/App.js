@@ -217,14 +217,14 @@ const ProcessSection = () => {
   return (
     <section className="py-20 bg-gray-900">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <div className="scroll-animate">
+        <div>
           <h2 className="text-pink-400 font-semibold text-lg mb-4">Benefit-Focused Steps</h2>
           <h3 className="text-4xl font-bold text-white mb-16">How to Sell Your Gift Cards</h3>
         </div>
         
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {steps.map((step, index) => (
-            <div key={index} className="text-center scroll-animate" style={{ animationDelay: `${index * 0.3}s` }}>
+            <div key={index} className="text-center scroll-move">
               <div className="bg-pink-600 rounded-full w-24 h-24 flex items-center justify-center mx-auto mb-6 transform transition-transform duration-300 hover:scale-110">
                 {step.icon}
               </div>
