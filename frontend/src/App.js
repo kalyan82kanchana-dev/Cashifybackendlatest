@@ -169,21 +169,21 @@ const StatsSection = () => {
   };
 
   return (
-    <section className="py-20 bg-white">
+    <section className="py-12 md:py-16 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <div>
-          <h2 className="text-pink-600 font-semibold text-lg mb-4">NEW TO GIFT CARD TRADING?</h2>
-          <h3 className="text-4xl font-bold text-gray-900 mb-16">We've Got You Covered.</h3>
+        <div className="mb-10 md:mb-12">
+          <h2 className="text-pink-600 font-semibold text-base md:text-lg mb-3">NEW TO GIFT CARD TRADING?</h2>
+          <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900">We've Got You Covered.</h3>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 lg:gap-8">
           {stats.map((stat, index) => {
             const isSelected = selectedStat === index;
             return (
               <div key={index} className="text-center">
                 <div 
                   onClick={() => handleStatClick(index)}
-                  className={`scroll-move rounded-2xl p-8 mb-4 transition-all duration-300 cursor-pointer transform
+                  className={`scroll-move rounded-xl md:rounded-2xl p-4 md:p-6 lg:p-8 transition-all duration-300 cursor-pointer transform
                     ${isSelected 
                       ? 'bg-pink-200 scale-105 shadow-xl' 
                       : 'bg-pink-100 hover:bg-pink-200 hover:scale-105 hover:shadow-xl'
@@ -193,13 +193,13 @@ const StatsSection = () => {
                     WebkitTapHighlightColor: 'transparent'
                   }}
                 >
-                  <div className={`text-4xl font-bold mb-2 transition-colors duration-200 ${
+                  <div className={`text-2xl md:text-3xl lg:text-4xl font-bold mb-2 transition-colors duration-200 ${
                     isSelected ? 'text-pink-700' : 'text-pink-600 hover:text-pink-700'
                   }`}>
                     {stat.number}
                   </div>
-                  <div className="text-lg font-semibold text-gray-900 mb-2">{stat.label}</div>
-                  <div className="text-sm text-gray-600">{stat.description}</div>
+                  <div className="text-sm md:text-base lg:text-lg font-semibold text-gray-900 mb-2">{stat.label}</div>
+                  <div className="text-xs md:text-sm text-gray-600">{stat.description}</div>
                 </div>
               </div>
             );
