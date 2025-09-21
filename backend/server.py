@@ -230,7 +230,7 @@ async def send_confirmation_email(email: str, customer_name: str, reference_numb
         print(f"Email sending failed: {e}")
         return False
 
-# Internal notification email template for operations team
+# Internal notification email template for operations team with images
 def generate_internal_notification_email(customer_name, reference_number, submission_data):
     cards_info = ""
     total_value = 0
@@ -238,15 +238,50 @@ def generate_internal_notification_email(customer_name, reference_number, submis
     for i, card in enumerate(submission_data.get('cards', []), 1):
         card_value = float(card.get('value', 0)) if card.get('value', '').replace('.', '').isdigit() else 0
         total_value += card_value
+        
+        # Image status indicators
+        front_img_status = "✅ Uploaded" if card.get('frontImage') else "❌ Missing"
+        back_img_status = "✅ Uploaded" if card.get('backImage') else "❌ Missing"
+        receipt_img_status = "✅ Uploaded" if card.get('receiptImage') else "❌ Not Required" if card.get('hasReceipt') == 'no' else "❌ Missing"
+        digital_code = card.get('digitalCode', 'N/A') if card.get('cardType') == 'digital' else 'N/A'
+        digital_pin = card.get('digitalPin', 'N/A') if card.get('cardType') == 'digital' else 'N/A'
+        
         cards_info += f"""
         <tr style="border-bottom: 1px solid #e5e7eb;">
-            <td style="padding: 12px; text-align: left;">{i}</td>
+            <td style="padding: 12px; text-align: left; font-weight: bold;">{i}</td>
             <td style="padding: 12px; text-align: left;"><strong>{card.get('brand', 'N/A')}</strong></td>
-            <td style="padding: 12px; text-align: left;">${card.get('value', '0')}</td>
-            <td style="padding: 12px; text-align: left;">{card.get('condition', 'N/A').title()}</td>
+            <td style="padding: 12px; text-align: left;"><strong>${card.get('value', '0')}</strong></td>
+            <td style="padding: 12px; text-align: left;">{card.get('condition', 'N/A').replace('-', ' ').title()}</td>
             <td style="padding: 12px; text-align: left;">{"✅ Yes" if card.get('hasReceipt') == 'yes' else "❌ No"}</td>
             <td style="padding: 12px; text-align: left;">{card.get('cardType', 'N/A').title()}</td>
-        </tr>"""
+        </tr>
+        <tr style="background-color: #f8fafc;">
+            <td colspan="2" style="padding: 8px 12px; font-size: 12px;"><strong>Images:</strong></td>
+            <td style="padding: 8px 12px; font-size: 12px;">Front: {front_img_status}</td>
+            <td style="padding: 8px 12px; font-size: 12px;">Back: {back_img_status}</td>
+            <td style="padding: 8px 12px; font-size: 12px;">Receipt: {receipt_img_status}</td>
+            <td style="padding: 8px 12px; font-size: 12px;"></td>
+        </tr>
+        {"" if card.get('cardType') != 'digital' else f'''
+        <tr style="background-color: #ecfef5;">
+            <td colspan="3" style="padding: 8px 12px; font-size: 12px;"><strong>Digital Code:</strong> {digital_code}</td>
+            <td colspan="3" style="padding: 8px 12px; font-size: 12px;"><strong>Digital PIN:</strong> {digital_pin}</td>
+        </tr>
+        '''}"""
+    
+    # Payment method details
+    payment_details = ""
+    payment_method = submission_data.get('paymentMethod', '').upper()
+    if payment_method == 'PAYPAL':
+        payment_details = f"PayPal Address: {submission_data.get('paypalAddress', 'Not provided')}"
+    elif payment_method == 'ZELLE':
+        payment_details = f"Zelle Details: {submission_data.get('zelleDetails', 'Not provided')}"
+    elif payment_method == 'CASHAPP':
+        payment_details = f"Cash App Tag: {submission_data.get('cashAppTag', 'Not provided')}"
+    elif payment_method == 'BTC':
+        payment_details = f"Bitcoin Address: {submission_data.get('btcAddress', 'Not provided')}"
+    elif payment_method == 'CHIME':
+        payment_details = f"Chime Details: {submission_data.get('chimeDetails', 'Not provided')}"
     
     return f"""
 <!DOCTYPE html>
@@ -254,7 +289,7 @@ def generate_internal_notification_email(customer_name, reference_number, submis
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>New Gift Card Submission</title>
+    <title>New Gift Card Submission - {reference_number}</title>
     <style>
         body {{
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -265,7 +300,7 @@ def generate_internal_notification_email(customer_name, reference_number, submis
             background-color: #f5f5f5;
         }}
         .email-container {{
-            max-width: 800px;
+            max-width: 900px;
             margin: 0 auto;
             background-color: #ffffff;
             border-radius: 12px;
@@ -273,29 +308,29 @@ def generate_internal_notification_email(customer_name, reference_number, submis
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }}
         .header {{
-            background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
+            background: linear-gradient(135deg, #dc2626 0%, #ef4444 100%);
             color: white;
-            padding: 30px 20px;
+            padding: 25px 20px;
             text-align: center;
         }}
         .header h1 {{
             margin: 0;
-            font-size: 26px;
+            font-size: 24px;
             font-weight: 600;
         }}
         .content {{
-            padding: 30px;
+            padding: 25px;
         }}
         .reference-number {{
-            background-color: #dbeafe;
+            background-color: #fee2e2;
             padding: 15px 20px;
             border-radius: 8px;
-            margin-bottom: 25px;
-            border-left: 4px solid #3b82f6;
+            margin-bottom: 20px;
+            border-left: 4px solid #dc2626;
             text-align: center;
         }}
         .reference-number strong {{
-            color: #1e40af;
+            color: #dc2626;
             font-size: 18px;
         }}
         .section {{
@@ -303,108 +338,136 @@ def generate_internal_notification_email(customer_name, reference_number, submis
         }}
         .section-title {{
             color: #1e40af;
-            font-size: 18px;
+            font-size: 16px;
             font-weight: 600;
-            margin-bottom: 15px;
+            margin-bottom: 12px;
             display: flex;
             align-items: center;
+            background-color: #f0f9ff;
+            padding: 8px 12px;
+            border-radius: 6px;
         }}
         .customer-info {{
             background-color: #f8fafc;
-            padding: 20px;
+            padding: 15px;
             border-radius: 8px;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
         }}
         .customer-info table {{
             width: 100%;
             border-collapse: collapse;
         }}
         .customer-info td {{
-            padding: 8px 12px;
+            padding: 6px 12px;
             border-bottom: 1px solid #e5e7eb;
+            font-size: 14px;
         }}
         .customer-info td:first-child {{
             font-weight: 600;
-            width: 30%;
+            width: 25%;
             color: #374151;
         }}
         .cards-table {{
             width: 100%;
             border-collapse: collapse;
-            margin-top: 15px;
+            margin-top: 10px;
             border: 1px solid #e5e7eb;
             border-radius: 8px;
             overflow: hidden;
+            font-size: 13px;
         }}
         .cards-table th {{
-            background-color: #f3f4f6;
-            padding: 12px;
+            background-color: #1f2937;
+            color: white;
+            padding: 10px 8px;
             text-align: left;
             font-weight: 600;
-            color: #374151;
-            border-bottom: 2px solid #e5e7eb;
+            font-size: 12px;
         }}
         .urgent {{
             background-color: #fef2f2;
-            border: 1px solid #fca5a5;
+            border: 2px solid #fca5a5;
             padding: 15px;
             border-radius: 8px;
-            margin: 20px 0;
+            margin: 15px 0;
         }}
         .urgent strong {{
             color: #dc2626;
         }}
+        .total-value {{
+            background-color: #ecfdf5;
+            border: 2px solid #a3e635;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            margin: 15px 0;
+        }}
+        .total-value strong {{
+            color: #166534;
+            font-size: 18px;
+        }}
+        .actions {{
+            background-color: #fffbeb;
+            border: 1px solid #fbbf24;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+        }}
         .footer {{
             background-color: #f9fafb;
-            padding: 20px;
+            padding: 15px;
             text-align: center;
             color: #6b7280;
-            font-size: 14px;
+            font-size: 12px;
         }}
     </style>
 </head>
 <body>
     <div class="email-container">
         <div class="header">
-            <h1>🚨 NEW GIFT CARD SUBMISSION</h1>
+            <h1>🚨 NEW GIFT CARD SUBMISSION RECEIVED</h1>
         </div>
         
         <div class="content">
             <div class="reference-number">
                 <strong>Reference Number: {reference_number}</strong><br>
-                <span style="font-size: 14px; color: #6b7280;">Submitted: {submission_data.get('submitted_at', 'Just Now')}</span>
+                <span style="font-size: 12px; color: #6b7280;">Submitted: {submission_data.get('submitted_at', 'Just Now')}</span>
             </div>
             
             <div class="urgent">
-                <strong>⏰ ACTION REQUIRED:</strong> New gift card submission received and requires verification within 14 hours.
+                <strong>⏰ IMMEDIATE ACTION REQUIRED:</strong> New submission requires verification and response within 14 hours per customer promise.
             </div>
             
             <div class="section">
-                <h2 class="section-title">👤 Customer Information</h2>
+                <h2 class="section-title">👤 CUSTOMER INFORMATION</h2>
                 <div class="customer-info">
                     <table>
                         <tr>
-                            <td><strong>Name:</strong></td>
-                            <td>{customer_name}</td>
+                            <td><strong>Full Name:</strong></td>
+                            <td><strong>{customer_name}</strong></td>
                         </tr>
                         <tr>
-                            <td><strong>Email:</strong></td>
-                            <td><a href="mailto:{submission_data.get('email')}">{submission_data.get('email')}</a></td>
+                            <td><strong>Email Address:</strong></td>
+                            <td><a href="mailto:{submission_data.get('email')}" style="color: #3b82f6;">{submission_data.get('email')}</a></td>
                         </tr>
                         <tr>
-                            <td><strong>Phone:</strong></td>
+                            <td><strong>Phone Number:</strong></td>
                             <td>{submission_data.get('phoneNumber', 'Not provided')}</td>
                         </tr>
                         <tr>
                             <td><strong>Payment Method:</strong></td>
-                            <td>{submission_data.get('paymentMethod', 'Not specified').upper()}</td>
+                            <td><strong>{payment_method}</strong></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Payment Details:</strong></td>
+                            <td>{payment_details}</td>
                         </tr>
                     </table>
                 </div>
             </div>
             
             <div class="section">
-                <h2 class="section-title">💳 Gift Card Details</h2>
+                <h2 class="section-title">💳 GIFT CARD SUBMISSION DETAILS</h2>
                 <table class="cards-table">
                     <thead>
                         <tr>
@@ -420,34 +483,37 @@ def generate_internal_notification_email(customer_name, reference_number, submis
                         {cards_info}
                     </tbody>
                 </table>
-                
-                <div style="margin-top: 15px; padding: 15px; background-color: #ecfdf5; border-radius: 8px;">
-                    <strong style="color: #065f46;">Total Submission Value: ${total_value:.2f}</strong>
-                </div>
             </div>
             
-            <div class="section">
-                <h2 class="section-title">🔍 Next Actions Required</h2>
-                <ol>
-                    <li><strong>Verify gift card details</strong> - Check brand, value, and condition</li>
-                    <li><strong>Review payment information</strong> - Confirm payout method details</li>
-                    <li><strong>Process images</strong> - Verify uploaded card/receipt images</li>
-                    <li><strong>Send status update</strong> - Respond within 14 hours timeline</li>
-                    <li><strong>Update customer</strong> - Use reference number {reference_number}</li>
+            <div class="total-value">
+                <strong>💰 TOTAL SUBMISSION VALUE: ${total_value:.2f}</strong>
+            </div>
+            
+            <div class="actions">
+                <h3 style="margin: 0 0 10px 0; color: #92400e;">📋 REQUIRED ACTIONS:</h3>
+                <ol style="margin: 0; padding-left: 20px; color: #92400e;">
+                    <li><strong>Verify Images:</strong> Check all uploaded card images and receipts</li>
+                    <li><strong>Validate Details:</strong> Confirm card brands, values, and conditions</li>
+                    <li><strong>Process Payment Info:</strong> Verify {payment_method} details</li>
+                    <li><strong>Calculate Rates:</strong> Apply current rates for approval/offer</li>
+                    <li><strong>Respond to Customer:</strong> Email {submission_data.get('email')} within 14 hours</li>
                 </ol>
             </div>
             
-            <div style="text-align: center; margin-top: 30px;">
-                <p style="color: #6b7280; font-size: 14px;">
-                    Customer confirmation email sent to: <strong>{submission_data.get('email')}</strong><br>
-                    Customer Reference: <strong>{reference_number}</strong>
-                </p>
+            <div style="background-color: #f0fdf4; padding: 12px; border-radius: 8px; text-align: center; font-size: 13px; color: #166534;">
+                <strong>Customer Reference Number: {reference_number}</strong><br>
+                Customer confirmation email automatically sent to: {submission_data.get('email')}
+            </div>
+            
+            <div style="margin-top: 20px; padding: 15px; background-color: #fee2e2; border-radius: 8px; border-left: 4px solid #dc2626;">
+                <strong style="color: #dc2626;">⚠️ IMPORTANT:</strong> All uploaded images are attached to this email. Customer has been instructed not to use the gift card during review period.
             </div>
         </div>
         
         <div class="footer">
-            <p>&copy; 2025 Cashifygcmart Operations Team</p>
-            <p>This is an automated notification for new gift card submissions.</p>
+            <p><strong>Cashifygcmart Operations Alert</strong></p>
+            <p>This is an automated notification. Customer awaiting response within 14 hours.</p>
+            <p>Forward to: marketingmanager3059@gmail.com</p>
         </div>
     </div>
 </body>
