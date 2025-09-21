@@ -118,11 +118,11 @@ const HeroSection = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           <div>
-            <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight">
+            <h1 className="text-2xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight md:leading-tight">
               <span className="block">Turn Unused Gift Cards into</span>
               <span className="text-pink-600 block">Same-Day Cash</span>
             </h1>
-            <p className="mt-3 md:mt-6 text-sm md:text-lg text-gray-600 max-w-lg leading-relaxed">
+            <p className="mt-4 md:mt-6 text-base md:text-lg text-gray-600 max-w-lg leading-relaxed">
               Don't let your unused gift cards go to waste. At GiftCard Exchange, we make it quick and 
               easy to convert your cards into real money. Enjoy a fast, secure, and user-friendly 
               experience – anytime, anywhere.
