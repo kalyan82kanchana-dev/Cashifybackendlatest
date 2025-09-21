@@ -3,6 +3,7 @@ import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { CheckCircle, Clock, Shield, Smartphone, Leaf, CreditCard, DollarSign } from "lucide-react";
 import RateCalculator from "./pages/RateCalculator";
+import FormSubmission from "./pages/FormSubmission";
 
 // Visible scroll-based movement effect
 // Animated Counter Component - Triggers only on scroll into view
