@@ -287,11 +287,13 @@ const WhyChooseUsSection = () => {
   return (
     <section className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <h2 className="text-4xl font-bold text-gray-900 mb-4">Why Choose Us?</h2>
-        <p className="text-lg text-gray-600 mb-16 max-w-3xl mx-auto">
-          Sell your unused gift cards with ease, speed, and confidence. We offer a secure, hassle-free process and 
-          transparent rates to ensure you get the best value, every time.
-        </p>
+        <div className="scroll-animate slide-up">
+          <h2 className="text-4xl font-bold text-gray-900 mb-4">Why Choose Us?</h2>
+          <p className="text-lg text-gray-600 mb-16 max-w-3xl mx-auto">
+            Sell your unused gift cards with ease, speed, and confidence. We offer a secure, hassle-free process and 
+            transparent rates to ensure you get the best value, every time.
+          </p>
+        </div>
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {features.map((feature, index) => {
@@ -300,13 +302,16 @@ const WhyChooseUsSection = () => {
               <div 
                 key={index} 
                 onClick={() => handleFeatureClick(index)}
-                className={`p-8 rounded-2xl transition-all duration-300 cursor-pointer transform
+                className={`scroll-animate slide-right p-8 rounded-2xl transition-all duration-300 cursor-pointer transform
                   ${isSelected 
                     ? 'bg-pink-600 text-white scale-105 shadow-2xl' 
                     : 'bg-gray-50 hover:bg-white hover:scale-105 hover:shadow-2xl'
                   }
                   active:scale-95 touch-manipulation`}
-                style={{ WebkitTapHighlightColor: 'transparent' }}
+                style={{ 
+                  WebkitTapHighlightColor: 'transparent',
+                  animationDelay: `${index * 0.1}s`
+                }}
               >
                 <div className={`flex justify-center mb-6 transform transition-all duration-200 
                   ${isSelected ? 'scale-110' : 'hover:scale-110'}`}>
