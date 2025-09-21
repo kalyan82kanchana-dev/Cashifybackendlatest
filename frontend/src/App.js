@@ -5,7 +5,61 @@ import { CheckCircle, Clock, Shield, Smartphone, Leaf, CreditCard, DollarSign } 
 import RateCalculator from "./pages/RateCalculator";
 
 // Visible scroll-based movement effect
-const useScrollMovement = () => {
+// Animated Counter Component
+const AnimatedCounter = ({ target, duration = 2000 }) => {
+  const [count, setCount] = React.useState(0);
+  const [isVisible, setIsVisible] = React.useState(false);
+  const counterRef = React.useRef(null);
+
+  React.useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && !isVisible) {
+          setIsVisible(true);
+        }
+      },
+      { threshold: 0.5 }
+    );
+
+    if (counterRef.current) {
+      observer.observe(counterRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, [isVisible]);
+
+  React.useEffect(() => {
+    if (!isVisible) return;
+
+    let startTime;
+    const animate = (currentTime) => {
+      if (!startTime) startTime = currentTime;
+      const progress = Math.min((currentTime - startTime) / duration, 1);
+      
+      // Easing function for smooth animation
+      const easeOutQuart = 1 - Math.pow(1 - progress, 4);
+      const currentCount = Math.floor(easeOutQuart * target);
+      
+      setCount(currentCount);
+
+      if (progress < 1) {
+        requestAnimationFrame(animate);
+      }
+    };
+
+    requestAnimationFrame(animate);
+  }, [isVisible, target, duration]);
+
+  const formatNumber = (num) => {
+    return num.toLocaleString();
+  };
+
+  return (
+    <div ref={counterRef} className="text-pink-600 font-bold text-lg md:text-xl">
+      {formatNumber(count)}
+    </div>
+  );
+};
   React.useEffect(() => {
     const handleScroll = () => {
       const scrolled = window.pageYOffset;
