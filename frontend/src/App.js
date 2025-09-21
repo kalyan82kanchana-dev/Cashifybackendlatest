@@ -27,12 +27,12 @@ const Header = () => {
           {/* Desktop Navigation */}
           <div className="hidden md:block">
             <div className="ml-10 flex items-baseline space-x-8">
-              <a href="/" className="text-gray-900 hover:text-pink-600 px-3 py-2 text-sm font-medium">Home</a>
-              <a href="/getting-started" className="text-gray-700 hover:text-pink-600 px-3 py-2 text-sm font-medium">Getting Started</a>
-              <a href="/accepted-cards" className="text-gray-700 hover:text-pink-600 px-3 py-2 text-sm font-medium">Accepted Gift Cards</a>
-              <a href="/form-submission" className="text-gray-700 hover:text-pink-600 px-3 py-2 text-sm font-medium">Form Submission</a>
-              <a href="/rate-calculator" className="text-gray-700 hover:text-pink-600 px-3 py-2 text-sm font-medium">Rate Calculator</a>
-              <a href="/faqs" className="text-gray-700 hover:text-pink-600 px-3 py-2 text-sm font-medium">FAQs</a>
+              <a href="/" className="text-gray-900 hover:text-pink-600 px-3 py-2 text-sm font-medium transition-all duration-200 hover:scale-110 relative hover:font-semibold">Home</a>
+              <a href="/getting-started" className="text-gray-700 hover:text-pink-600 px-3 py-2 text-sm font-medium transition-all duration-200 hover:scale-110 relative hover:font-semibold">Getting Started</a>
+              <a href="/accepted-cards" className="text-gray-700 hover:text-pink-600 px-3 py-2 text-sm font-medium transition-all duration-200 hover:scale-110 relative hover:font-semibold">Accepted Gift Cards</a>
+              <a href="/form-submission" className="text-gray-700 hover:text-pink-600 px-3 py-2 text-sm font-medium transition-all duration-200 hover:scale-110 relative hover:font-semibold">Form Submission</a>
+              <a href="/rate-calculator" className="text-gray-700 hover:text-pink-600 px-3 py-2 text-sm font-medium transition-all duration-200 hover:scale-110 relative hover:font-semibold">Rate Calculator</a>
+              <a href="/faqs" className="text-gray-700 hover:text-pink-600 px-3 py-2 text-sm font-medium transition-all duration-200 hover:scale-110 relative hover:font-semibold">FAQs</a>
             </div>
           </div>
           
