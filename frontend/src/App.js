@@ -456,7 +456,7 @@ const PaymentMethodsSection = () => {
           </div>
           <div>
             <h2 className="text-4xl font-bold text-gray-900 mb-6">Cash Out Your Way</h2>
-            <p className="text-lg text-gray-600 mb-8">
+            <p className="text-sm md:text-base lg:text-lg text-gray-600 mb-6 md:mb-8">
               Choose PayPal, Cash App, Zelle, Google Pay, Chime, or Venmo, 
               enter your details, and receive your payment often within hours, 
               with no hidden fees and full security.
