@@ -310,7 +310,7 @@ const WhyChooseUsSection = () => {
                   active:scale-95 touch-manipulation`}
                 style={{ 
                   WebkitTapHighlightColor: 'transparent',
-                  animationDelay: `${index * 0.05}s`
+                  animationDelay: `${index * 0.15}s`
                 }}
               >
                 <div className={`flex justify-center mb-6 transform transition-all duration-200 
