@@ -222,7 +222,7 @@ const ProcessSection = () => {
   return (
     <section className="py-20 bg-gray-900">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <div className="scroll-animate slide-up">
+        <div className="scroll-animate">
           <h2 className="text-pink-400 font-semibold text-lg mb-4">Benefit-Focused Steps</h2>
           <h3 className="text-4xl font-bold text-white mb-16">How to Sell Your Gift Cards</h3>
         </div>
