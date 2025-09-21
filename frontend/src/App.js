@@ -825,6 +825,7 @@ function App() {
           <Route path="/form-submission" element={<><Header /><FormSubmission /><Footer /></>} />
           <Route path="/accepted-cards" element={<><Header /><AcceptedGiftCards /><Footer /></>} />
           <Route path="/faqs" element={<><Header /><FAQs /><Footer /></>} />
+          <Route path="/getting-started" element={<><Header /><GettingStarted /><Footer /></>} />
         </Routes>
       </BrowserRouter>
     </div>
