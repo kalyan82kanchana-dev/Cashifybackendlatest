@@ -4,27 +4,23 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { CheckCircle, Clock, Shield, Smartphone, Leaf, CreditCard, DollarSign } from "lucide-react";
 import RateCalculator from "./pages/RateCalculator";
 
-// Custom hook for scroll animations
-const useScrollAnimation = () => {
+// Simple scroll-based movement effect
+const useScrollMovement = () => {
   React.useEffect(() => {
-    const observerOptions = {
-      threshold: 0.1,
-      rootMargin: '0px 0px -50px 0px'
+    const handleScroll = () => {
+      const scrolled = window.pageYOffset;
+      const parallaxElements = document.querySelectorAll('.scroll-move');
+      
+      parallaxElements.forEach((element, index) => {
+        const speed = 0.02 + (index * 0.005); // Different speeds for different elements
+        const yPos = scrolled * speed;
+        const scale = 1 + (scrolled * 0.0001);
+        element.style.transform = `translateY(${yPos}px) scale(${Math.min(scale, 1.05)})`;
+      });
     };
 
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('animate-in');
-        }
-      });
-    }, observerOptions);
-
-    // Observe all elements with scroll animation classes
-    const animatedElements = document.querySelectorAll('.scroll-animate');
-    animatedElements.forEach(el => observer.observe(el));
-
-    return () => observer.disconnect();
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 };
 
