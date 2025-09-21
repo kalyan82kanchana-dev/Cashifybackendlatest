@@ -817,7 +817,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/rate-calculator" element={<><Header /><RateCalculator /><Footer /></>} />
-          <Route path="/form-submission" element={<FormSubmission />} />
+          <Route path="/form-submission" element={<><Header /><FormSubmission /><Footer /></>} />
           <Route path="/accepted-cards" element={<><Header /><AcceptedGiftCards /><Footer /></>} />
           <Route path="/faqs" element={<><Header /><FAQs /><Footer /></>} />
         </Routes>
