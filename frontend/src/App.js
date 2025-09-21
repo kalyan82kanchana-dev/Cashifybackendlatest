@@ -301,6 +301,197 @@ const AdvantagesSection = () => {
   );
 };
 
+// Payment Methods Section
+const PaymentMethodsSection = () => {
+  const paymentMethods = [
+    { name: "PayPal", logo: "💳" },
+    { name: "Cash App", logo: "💵" },
+    { name: "Zelle", logo: "⚡" },
+    { name: "Google Pay", logo: "📱" },
+    { name: "Chime", logo: "🏦" },
+    { name: "Bitcoin", logo: "₿" }
+  ];
+
+  return (
+    <section className="py-20 bg-gray-50">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div className="relative">
+            <img 
+              src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=600&h=400&fit=crop" 
+              alt="Cash out your way illustration" 
+              className="rounded-2xl shadow-xl"
+            />
+          </div>
+          <div>
+            <h2 className="text-4xl font-bold text-gray-900 mb-6">Cash Out Your Way</h2>
+            <p className="text-lg text-gray-600 mb-8">
+              Choose PayPal, Cash App, Zelle, Google Pay, Chime, or Bitcoin, 
+              enter your details, and receive your payment often within hours, 
+              with no hidden fees and full security.
+            </p>
+            
+            <div className="grid grid-cols-3 gap-4 mb-8">
+              {paymentMethods.map((method, index) => (
+                <div key={index} className="bg-white p-4 rounded-lg shadow-md text-center">
+                  <div className="text-2xl mb-2">{method.logo}</div>
+                  <div className="text-sm font-medium text-gray-700">{method.name}</div>
+                </div>
+              ))}
+            </div>
+            
+            <div className="space-y-4">
+              <div className="bg-pink-100 p-4 rounded-lg">
+                <div className="text-pink-600 font-semibold">CUSTOMERS SERVED TILL DATE 9,45670</div>
+              </div>
+              <div className="bg-pink-100 p-4 rounded-lg">
+                <div className="text-pink-600 font-semibold">PAYMENTS PROCESSED 6 MILLION $</div>
+              </div>
+            </div>
+            
+            <div className="mt-8 flex flex-col sm:flex-row gap-4">
+              <button className="bg-gray-900 text-white hover:bg-gray-800 px-8 py-4 rounded-lg font-semibold transition-colors">
+                Getting Started
+              </button>
+              <button className="border-2 border-gray-900 text-gray-900 hover:bg-gray-900 hover:text-white px-8 py-4 rounded-lg font-semibold transition-colors">
+                Sell Your Gift Card
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+// Testimonials Section
+const TestimonialsSection = () => {
+  const testimonials = [
+    {
+      name: "Olivia S",
+      image: "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=100&h=100&fit=crop&crop=face",
+      rating: 5,
+      text: "I've used GC Swapmart multiple times and they've never let me down. It's secure, fast, and I always get fair value for my gift cards. Can't ask for more!"
+    },
+    {
+      name: "Cleveland Des",
+      image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&crop=face",
+      rating: 5,
+      text: "GC Swapmart is now my go-to for selling gift cards. Their site is clean, easy to use, and I always get top rates. Great experience every time!"
+    },
+    {
+      name: "Davis Jordan",
+      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=face",
+      rating: 5,
+      text: "I was skeptical at first, but GC Swapmart exceeded expectations. The process was simple, and I had cash in my account fast. Highly recommend for anyone."
+    }
+  ];
+
+  return (
+    <section className="py-20 bg-white">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 className="text-4xl font-bold text-gray-900 mb-4">
+          Recent <span className="text-pink-600">reviews</span> from our customers
+        </h2>
+        
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
+          {testimonials.map((testimonial, index) => (
+            <div key={index} className="bg-gray-50 p-8 rounded-2xl">
+              <img 
+                src={testimonial.image} 
+                alt={testimonial.name}
+                className="w-16 h-16 rounded-full mx-auto mb-4"
+              />
+              <div className="flex justify-center mb-4">
+                {[...Array(testimonial.rating)].map((_, i) => (
+                  <span key={i} className="text-yellow-400 text-xl">★</span>
+                ))}
+              </div>
+              <p className="text-gray-600 mb-6 italic">"{testimonial.text}"</p>
+              <div className="font-semibold text-gray-900">{testimonial.name}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+
+// Footer Component
+const Footer = () => {
+  return (
+    <footer className="bg-gray-900 text-white py-16">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+          {/* Company Info */}
+          <div className="md:col-span-1">
+            <div className="flex items-center mb-4">
+              <div className="bg-gradient-to-r from-pink-500 to-pink-600 p-2 rounded-full">
+                <CreditCard className="h-6 w-6 text-white" />
+              </div>
+              <span className="ml-3 text-xl font-bold">GiftCard Exchange</span>
+            </div>
+            <p className="text-gray-400 mb-6">
+              Turn Gift Cards into Cash Instantly with GiftCard Exchange! Trade unused gift cards 
+              for quick cash - fast, easy and hassle-free!
+            </p>
+          </div>
+          
+          {/* Quick Links */}
+          <div>
+            <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
+            <ul className="space-y-3 text-gray-400">
+              <li><a href="#getting-started" className="hover:text-white transition-colors">Getting Started</a></li>
+              <li><a href="#accepted-cards" className="hover:text-white transition-colors">Accepted Gift Cards</a></li>
+              <li><a href="#form-submission" className="hover:text-white transition-colors">Form Submission</a></li>
+              <li><a href="#important-notice" className="hover:text-white transition-colors">Important Notice</a></li>
+            </ul>
+          </div>
+          
+          {/* Menu */}
+          <div>
+            <h3 className="text-lg font-semibold mb-4">Menu</h3>
+            <ul className="space-y-3 text-gray-400">
+              <li><a href="#faqs" className="hover:text-white transition-colors">FAQs</a></li>
+              <li><a href="#cookie-policy" className="hover:text-white transition-colors">Cookie Policy</a></li>
+              <li><a href="#rate-calculator" className="hover:text-white transition-colors">Rate Calculator</a></li>
+            </ul>
+          </div>
+          
+          {/* Services */}
+          <div>
+            <h3 className="text-lg font-semibold mb-4">Services</h3>
+            <ul className="space-y-3 text-gray-400">
+              <li><a href="#privacy-policy" className="hover:text-white transition-colors">Privacy Policy</a></li>
+              <li><a href="#refund-policy" className="hover:text-white transition-colors">Refund Policy</a></li>
+              <li><a href="#imp-guidelines" className="hover:text-white transition-colors">IMP Guidelines</a></li>
+            </ul>
+          </div>
+        </div>
+        
+        {/* Contact Info */}
+        <div className="mt-12 pt-8 border-t border-gray-800 grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div>
+            <h4 className="text-lg font-semibold mb-4">Contact Us</h4>
+            <p className="text-gray-400">📧 support@giftcardexchange.com</p>
+          </div>
+          <div>
+            <p className="text-gray-400">📞 +1-305-389-8091</p>
+          </div>
+          <div>
+            <p className="text-gray-400">📍 (321) 208-7512 111 Longwood Ave<br />Rockledge, Florida FL, 32955</p>
+          </div>
+        </div>
+        
+        {/* Copyright */}
+        <div className="mt-8 pt-8 border-t border-gray-800 text-center">
+          <p className="text-gray-400">Copyright @giftcardexchange.com - All Rights Reserved.</p>
+        </div>
+      </div>
+    </footer>
+  );
+};
+
 // Main App Component
 const Home = () => {
   return (
@@ -311,6 +502,9 @@ const Home = () => {
       <ProcessSection />
       <WhyChooseUsSection />
       <AdvantagesSection />
+      <PaymentMethodsSection />
+      <TestimonialsSection />
+      <Footer />
     </div>
   );
 };
