@@ -603,6 +603,8 @@ const Footer = () => {
 
 // Main App Component
 const Home = () => {
+  useScrollAnimation();
+  
   return (
     <div>
       <Header />
