@@ -229,7 +229,7 @@ const ProcessSection = () => {
         
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {steps.map((step, index) => (
-            <div key={index} className="text-center scroll-animate slide-left" style={{ animationDelay: `${index * 0.2}s` }}>
+            <div key={index} className="text-center scroll-animate" style={{ animationDelay: `${index * 0.1}s` }}>
               <div className="bg-pink-600 rounded-full w-24 h-24 flex items-center justify-center mx-auto mb-6 transform transition-transform duration-300 hover:scale-110">
                 {step.icon}
               </div>
