@@ -192,38 +192,44 @@ const ProcessSection = () => {
 
 // Why Choose Us Section
 const WhyChooseUsSection = () => {
+  const [selectedFeature, setSelectedFeature] = React.useState(null);
+
   const features = [
     {
-      icon: <Shield className="h-12 w-12 text-pink-600" />,
+      icon: <Shield className="h-12 w-12" />,
       title: "Anchored in Integrity",
       description: "At GiftCard Exchange, we value honesty. Every transaction is clear, transparent, and free from hidden terms or fine print."
     },
     {
-      icon: <Clock className="h-12 w-12 text-pink-600" />,
+      icon: <Clock className="h-12 w-12" />,
       title: "Speed & Efficiency",
       description: "Time is money — we process your gift card trades swiftly, ensuring you receive your cash without delay."
     },
     {
-      icon: <CheckCircle className="h-12 w-12 text-pink-600" />,
+      icon: <CheckCircle className="h-12 w-12" />,
       title: "Dependable Service",
       description: "Count on consistent, reliable service every time you trade. Whether it's your first card or your fiftieth, we're here to deliver."
     },
     {
-      icon: <Smartphone className="h-12 w-12 text-pink-600" />,
+      icon: <Smartphone className="h-12 w-12" />,
       title: "Simplicity at Its Best",
       description: "No confusion. No tech headaches. Our platform is designed to be clean, user-friendly, and accessible for everyone."
     },
     {
-      icon: <Shield className="h-12 w-12 text-pink-600" />,
+      icon: <Shield className="h-12 w-12" />,
       title: "Advanced Security",
       description: "Your privacy matters. We use industry-grade encryption and fraud protection to safeguard your card details and transactions."
     },
     {
-      icon: <CheckCircle className="h-12 w-12 text-pink-600" />,
+      icon: <CheckCircle className="h-12 w-12" />,
       title: "Customer-First Support",
       description: "Have a question? Our responsive support team is just a message away — ready to assist you at any step of the journey."
     }
   ];
+
+  const handleFeatureClick = (index) => {
+    setSelectedFeature(selectedFeature === index ? null : index);
+  };
 
   return (
     <section className="py-20 bg-white">
@@ -235,21 +241,41 @@ const WhyChooseUsSection = () => {
         </p>
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {features.map((feature, index) => (
-            <div key={index} className={`p-8 rounded-2xl transition-all duration-300 hover:scale-105 hover:shadow-2xl cursor-pointer ${index === 2 ? 'bg-pink-600 hover:bg-pink-700 text-white' : 'bg-gray-50 hover:bg-white'}`}>
-              <div className="flex justify-center mb-6 transform transition-transform duration-200 hover:scale-110">
-                {React.cloneElement(feature.icon, {
-                  className: `h-12 w-12 ${index === 2 ? 'text-white' : 'text-pink-600'} transition-colors duration-200`
-                })}
+          {features.map((feature, index) => {
+            const isSelected = selectedFeature === index;
+            return (
+              <div 
+                key={index} 
+                onClick={() => handleFeatureClick(index)}
+                className={`p-8 rounded-2xl transition-all duration-300 cursor-pointer transform
+                  ${isSelected 
+                    ? 'bg-pink-600 text-white scale-105 shadow-2xl' 
+                    : 'bg-gray-50 hover:bg-white hover:scale-105 hover:shadow-2xl'
+                  }
+                  active:scale-95 touch-manipulation`}
+                style={{ WebkitTapHighlightColor: 'transparent' }}
+              >
+                <div className={`flex justify-center mb-6 transform transition-all duration-200 
+                  ${isSelected ? 'scale-110' : 'hover:scale-110'}`}>
+                  {React.cloneElement(feature.icon, {
+                    className: `h-12 w-12 transition-colors duration-200 ${
+                      isSelected ? 'text-white' : 'text-pink-600'
+                    }`
+                  })}
+                </div>
+                <h4 className={`text-xl font-semibold mb-4 transition-colors duration-200 ${
+                  isSelected ? 'text-white' : 'text-gray-900'
+                }`}>
+                  {feature.title}
+                </h4>
+                <p className={`transition-colors duration-200 ${
+                  isSelected ? 'text-pink-100' : 'text-gray-600'
+                }`}>
+                  {feature.description}
+                </p>
               </div>
-              <h4 className={`text-xl font-semibold mb-4 ${index === 2 ? 'text-white' : 'text-gray-900'}`}>
-                {feature.title}
-              </h4>
-              <p className={index === 2 ? 'text-pink-100' : 'text-gray-600'}>
-                {feature.description}
-              </p>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
     </section>
