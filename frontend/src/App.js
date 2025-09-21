@@ -355,75 +355,75 @@ const WhyChooseUsSection = () => {
 // Advantages Section
 const AdvantagesSection = () => {
   return (
-    <section className="py-20 bg-gradient-to-r from-pink-600 to-pink-800">
+    <section className="py-12 md:py-16 bg-gradient-to-r from-pink-600 to-pink-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           <div className="text-white">
-            <h2 className="text-4xl font-bold mb-8">
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-6 md:mb-8">
               Advantages of becoming a customer of our company.
             </h2>
             
-            <div className="space-y-8">
+            <div className="space-y-4 md:space-y-6">
               <div className="flex items-start">
-                <div className="bg-white text-pink-600 rounded-full p-2 mr-4 mt-1">
-                  <span className="font-bold text-lg">1</span>
+                <div className="bg-white text-pink-600 rounded-full p-2 mr-3 md:mr-4 mt-1 flex-shrink-0">
+                  <span className="font-bold text-sm md:text-base lg:text-lg">1</span>
                 </div>
                 <div>
-                  <h3 className="text-xl font-semibold mb-2">Mobile-First Convenience</h3>
-                  <p className="text-pink-100">Sell your gift cards in seconds, straight from your phone.</p>
+                  <h3 className="text-lg md:text-xl font-semibold mb-1 md:mb-2">Mobile-First Convenience</h3>
+                  <p className="text-pink-100 text-sm md:text-base">Sell your gift cards in seconds, straight from your phone.</p>
                 </div>
               </div>
               
               <div className="flex items-start">
-                <div className="bg-white text-pink-600 rounded-full p-2 mr-4 mt-1">
-                  <span className="font-bold text-lg">2</span>
+                <div className="bg-white text-pink-600 rounded-full p-2 mr-3 md:mr-4 mt-1 flex-shrink-0">
+                  <span className="font-bold text-sm md:text-base lg:text-lg">2</span>
                 </div>
                 <div>
-                  <h3 className="text-xl font-semibold mb-2">Eco-Friendly Digital Processing</h3>
-                  <p className="text-pink-100">Go fully digital to cut waste and carbon emissions.</p>
+                  <h3 className="text-lg md:text-xl font-semibold mb-1 md:mb-2">Eco-Friendly Digital Processing</h3>
+                  <p className="text-pink-100 text-sm md:text-base">Go fully digital to cut waste and carbon emissions.</p>
                 </div>
               </div>
               
               <div className="flex items-start">
-                <div className="bg-white text-pink-600 rounded-full p-2 mr-4 mt-1">
-                  <span className="font-bold text-lg">3</span>
+                <div className="bg-white text-pink-600 rounded-full p-2 mr-3 md:mr-4 mt-1 flex-shrink-0">
+                  <span className="font-bold text-sm md:text-base lg:text-lg">3</span>
                 </div>
                 <div>
-                  <h3 className="text-xl font-semibold mb-2">Extensive Card Coverage</h3>
-                  <p className="text-pink-100">We buy hundreds of major gift-card brands, no matter the balance.</p>
+                  <h3 className="text-lg md:text-xl font-semibold mb-1 md:mb-2">Extensive Card Coverage</h3>
+                  <p className="text-pink-100 text-sm md:text-base">We buy hundreds of major gift-card brands, no matter the balance.</p>
                 </div>
               </div>
               
               <div className="flex items-start">
-                <div className="bg-white text-pink-600 rounded-full p-2 mr-4 mt-1">
-                  <span className="font-bold text-lg">4</span>
+                <div className="bg-white text-pink-600 rounded-full p-2 mr-3 md:mr-4 mt-1 flex-shrink-0">
+                  <span className="font-bold text-sm md:text-base lg:text-lg">4</span>
                 </div>
                 <div>
-                  <h3 className="text-xl font-semibold mb-2">Transparent Pricing</h3>
-                  <p className="text-pink-100">See your exact payout up front with zero hidden fees.</p>
+                  <h3 className="text-lg md:text-xl font-semibold mb-1 md:mb-2">Transparent Pricing</h3>
+                  <p className="text-pink-100 text-sm md:text-base">See your exact payout up front with zero hidden fees.</p>
                 </div>
               </div>
             </div>
             
-            <div className="mt-8 flex flex-col sm:flex-row gap-4">
-              <a href="/getting-started">
-                <button className="bg-white text-pink-600 hover:bg-gray-100 px-8 py-4 rounded-lg font-semibold transition-colors">
+            <div className="mt-6 md:mt-8 flex flex-col sm:flex-row gap-3 md:gap-4">
+              <a href="/getting-started" className="w-full sm:w-auto">
+                <button className="w-full bg-white text-pink-600 hover:bg-gray-100 px-6 md:px-8 py-3 md:py-4 rounded-lg font-semibold text-sm md:text-base transition-colors">
                   Getting Started
                 </button>
               </a>
-              <a href="/form-submission">
-                <button className="border-2 border-white text-white hover:bg-white hover:text-pink-600 px-8 py-4 rounded-lg font-semibold transition-colors">
+              <a href="/form-submission" className="w-full sm:w-auto">
+                <button className="w-full border-2 border-white text-white hover:bg-white hover:text-pink-600 px-6 md:px-8 py-3 md:py-4 rounded-lg font-semibold text-sm md:text-base transition-colors">
                   Sell Your Gift Card
                 </button>
               </a>
             </div>
           </div>
           
-          <div className="relative">
+          <div className="relative mt-8 lg:mt-0">
             <img 
               src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=600&fit=crop" 
               alt="Success illustration" 
-              className="rounded-2xl shadow-2xl"
+              className="rounded-2xl shadow-2xl w-full"
             />
           </div>
         </div>
