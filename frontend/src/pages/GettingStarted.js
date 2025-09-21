@@ -90,7 +90,7 @@ const GettingStarted = () => {
                   {/* Content Side */}
                   <div className="flex-1 text-center lg:text-left">
                     {/* Step Number */}
-                    <div className="flex items-center justify-center lg:justify-start mb-6">
+                    <div className="flex items-center justify-center lg:justify-start mb-4 md:mb-6">
                       <div className="bg-gradient-to-r from-pink-500 to-pink-600 text-white rounded-full w-16 h-16 flex items-center justify-center text-2xl font-bold shadow-lg">
                         {step.number}
                       </div>
