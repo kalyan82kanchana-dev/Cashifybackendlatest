@@ -293,16 +293,16 @@ const RateCalculator = () => {
             <div className="flex flex-col sm:flex-row gap-4">
               <button
                 onClick={calculateRate}
-                className="flex-1 bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-full font-semibold text-lg transition-colors flex items-center justify-center"
+                className="flex-1 bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-full font-semibold text-lg transition-all duration-300 flex items-center justify-center hover:scale-105 hover:shadow-xl transform"
               >
-                <Calculator className="h-5 w-5 mr-2" />
+                <Calculator className="h-5 w-5 mr-2 transition-transform duration-200 hover:rotate-12" />
                 Check Rate
               </button>
               <button
                 onClick={() => window.location.href = '/form-submission'}
-                className="flex-1 bg-white hover:bg-gray-50 text-gray-900 border-2 border-gray-900 px-8 py-4 rounded-full font-semibold text-lg transition-colors flex items-center justify-center"
+                className="flex-1 bg-white hover:bg-gray-900 text-gray-900 hover:text-white border-2 border-gray-900 px-8 py-4 rounded-full font-semibold text-lg transition-all duration-300 flex items-center justify-center hover:scale-105 hover:shadow-xl transform"
               >
-                <CreditCard className="h-5 w-5 mr-2" />
+                <CreditCard className="h-5 w-5 mr-2 transition-transform duration-200 hover:rotate-12" />
                 Proceed to Trade Card
               </button>
             </div>
