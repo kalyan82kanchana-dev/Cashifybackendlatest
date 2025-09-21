@@ -22,11 +22,11 @@ const AcceptedGiftCards = () => {
   // Gift cards data with categories and rates
   const giftCards = [
     // Popular Cards
-    { name: 'Amazon', category: 'popular', rate: '92%', logo: '🛒', popular: true, trending: true },
     { name: 'Apple', category: 'popular', rate: '88%', logo: '🍎', popular: true },
-    { name: 'iTunes', category: 'popular', rate: '87%', logo: '🎵', popular: true },
-    { name: 'Starbucks', category: 'popular', rate: '85%', logo: '☕', popular: true },
-    { name: 'Target', category: 'popular', rate: '90%', logo: '🎯', popular: true, trending: true },
+    { name: 'Home Depot', category: 'popular', rate: '88%', logo: '🔨', popular: true },
+    { name: 'Best Buy', category: 'popular', rate: '86%', logo: '📺', popular: true },
+    { name: 'Nordstrom', category: 'popular', rate: '85%', logo: '👗', popular: true },
+    { name: 'Macy\'s', category: 'popular', rate: '82%', logo: '👔', popular: true },
     
     // Retail
     { name: 'Walmart', category: 'retail', rate: '89%', logo: '🛍️' },
