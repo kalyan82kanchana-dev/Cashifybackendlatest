@@ -155,7 +155,7 @@ const StatsSection = () => {
   return (
     <section className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <div className="scroll-animate">
+        <div>
           <h2 className="text-pink-600 font-semibold text-lg mb-4">NEW TO GIFT CARD TRADING?</h2>
           <h3 className="text-4xl font-bold text-gray-900 mb-16">We've Got You Covered.</h3>
         </div>
@@ -167,15 +167,14 @@ const StatsSection = () => {
               <div key={index} className="text-center">
                 <div 
                   onClick={() => handleStatClick(index)}
-                  className={`scroll-animate rounded-2xl p-8 mb-4 transition-all duration-300 cursor-pointer transform
+                  className={`scroll-move rounded-2xl p-8 mb-4 transition-all duration-300 cursor-pointer transform
                     ${isSelected 
                       ? 'bg-pink-200 scale-105 shadow-xl' 
                       : 'bg-pink-100 hover:bg-pink-200 hover:scale-105 hover:shadow-xl'
                     }
                     active:scale-95 touch-manipulation`}
                   style={{ 
-                    WebkitTapHighlightColor: 'transparent',
-                    animationDelay: `${index * 0.2}s`
+                    WebkitTapHighlightColor: 'transparent'
                   }}
                 >
                   <div className={`text-4xl font-bold mb-2 transition-colors duration-200 ${
