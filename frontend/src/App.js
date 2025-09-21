@@ -132,7 +132,7 @@ const HeroSection = () => {
             <img 
               src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&h=400&fit=crop" 
               alt="Happy customers exchanging gift cards" 
-              className="rounded-2xl shadow-2xl"
+              className="rounded-2xl shadow-2xl float-animation"
             />
           </div>
         </div>
