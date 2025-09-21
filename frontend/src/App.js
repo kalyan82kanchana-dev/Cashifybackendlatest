@@ -817,6 +817,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/rate-calculator" element={<><Header /><RateCalculator /><Footer /></>} />
           <Route path="/form-submission" element={<FormSubmission />} />
+          <Route path="/accepted-cards" element={<><Header /><AcceptedGiftCards /><Footer /></>} />
         </Routes>
       </BrowserRouter>
     </div>
