@@ -8,6 +8,8 @@ const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
 
 // Header Component
 const Header = () => {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
+
   return (
     <header className="bg-white shadow-sm sticky top-0 z-50">
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -22,7 +24,7 @@ const Header = () => {
             </a>
           </div>
           
-          {/* Navigation */}
+          {/* Desktop Navigation */}
           <div className="hidden md:block">
             <div className="ml-10 flex items-baseline space-x-8">
               <a href="/" className="text-gray-900 hover:text-pink-600 px-3 py-2 text-sm font-medium">Home</a>
@@ -34,15 +36,40 @@ const Header = () => {
             </div>
           </div>
           
-          {/* Upload Card Button */}
-          <div className="flex items-center">
-            <a href="/form-submission">
-              <button className="bg-pink-600 hover:bg-pink-700 text-white px-6 py-2 rounded-lg font-medium transition-colors">
-                Upload Card
-              </button>
-            </a>
+          {/* Mobile menu button */}
+          <div className="md:hidden">
+            <button
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              className="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-pink-500"
+              aria-expanded="false"
+            >
+              <span className="sr-only">Open main menu</span>
+              {!isMobileMenuOpen ? (
+                <svg className="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+              ) : (
+                <svg className="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              )}
+            </button>
           </div>
         </div>
+        
+        {/* Mobile menu, show/hide based on menu state */}
+        {isMobileMenuOpen && (
+          <div className="md:hidden">
+            <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white border-t border-gray-200">
+              <a href="/" className="text-gray-900 hover:text-pink-600 block px-3 py-2 text-base font-medium">Home</a>
+              <a href="/getting-started" className="text-gray-700 hover:text-pink-600 block px-3 py-2 text-base font-medium">Getting Started</a>
+              <a href="/accepted-cards" className="text-gray-700 hover:text-pink-600 block px-3 py-2 text-base font-medium">Accepted Gift Cards</a>
+              <a href="/form-submission" className="text-gray-700 hover:text-pink-600 block px-3 py-2 text-base font-medium">Form Submission</a>
+              <a href="/rate-calculator" className="text-gray-700 hover:text-pink-600 block px-3 py-2 text-base font-medium">Rate Calculator</a>
+              <a href="/faqs" className="text-gray-700 hover:text-pink-600 block px-3 py-2 text-base font-medium">FAQs</a>
+            </div>
+          </div>
+        )}
       </nav>
     </header>
   );
