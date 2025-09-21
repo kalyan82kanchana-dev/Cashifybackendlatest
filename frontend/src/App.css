@@ -11,6 +11,27 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* Mobile touch optimization */
+* {
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+
+/* Improved mobile hover states */
+@media (hover: hover) and (pointer: fine) {
+  .hover-scale:hover {
+    transform: scale(1.05);
+  }
+}
+
+/* Mobile tap states */
+@media (hover: none) and (pointer: coarse) {
+  .hover-scale:active {
+    transform: scale(0.95);
+    transition: transform 0.1s ease;
+  }
+}
+
 /* Smooth scrolling */
 html {
   scroll-behavior: smooth;
