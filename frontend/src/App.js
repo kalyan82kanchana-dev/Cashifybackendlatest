@@ -186,7 +186,7 @@ const HeroSection = () => {
               <span className="text-pink-600 block">Same-Day Cash</span>
             </h1>
             <p className="mt-4 md:mt-6 text-base md:text-lg text-gray-600 max-w-lg leading-relaxed">
-              Don't let your unused gift cards go to waste. At GiftCard Exchange, we make it quick and 
+              Don't let your unused gift cards go to waste. At Cashifygcmart.com, we make it quick and 
               easy to convert your cards into real money. Enjoy a fast, secure, and user-friendly 
               experience – anytime, anywhere.
             </p>
