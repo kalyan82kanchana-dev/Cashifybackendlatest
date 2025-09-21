@@ -511,18 +511,73 @@ const HowItWorksSection = () => {
             ))}
           </div>
 
-          {/* Rate Calculator Mockup */}
+          {/* Rate Calculator Mockup - Clean Version */}
           <div className="relative flex justify-center lg:justify-end">
             <div className="relative">
-              <img 
-                src="https://customer-assets.emergentagent.com/job_16fab678-371e-4a90-a19c-5f52ac3d1af1/artifacts/cxewhola_ChatGPT%20Image%20Sep%2021%2C%202025%2C%2005_06_09%20PM.png" 
-                alt="Rate calculator interface showing gift card valuation form" 
-                className="w-64 md:w-80 lg:w-96 rounded-3xl shadow-2xl bg-transparent mix-blend-multiply"
-                style={{
-                  filter: 'drop-shadow(0 25px 50px -12px rgba(0, 0, 0, 0.25))',
-                  background: 'transparent'
-                }}
-              />
+              {/* Clean phone frame */}
+              <div className="w-64 md:w-80 lg:w-96 bg-black rounded-[3rem] p-2 shadow-2xl">
+                <div className="bg-white rounded-[2.5rem] p-8 h-[600px] overflow-hidden">
+                  {/* Screen content */}
+                  <div className="flex flex-col h-full">
+                    {/* Header */}
+                    <div className="text-center mb-6">
+                      <h3 className="text-lg md:text-xl font-bold text-blue-900 leading-tight">
+                        Get the current value for your transaction
+                      </h3>
+                    </div>
+
+                    {/* Gift Card Category */}
+                    <div className="mb-4">
+                      <label className="block text-sm font-semibold text-gray-900 mb-3">
+                        Gift Card Category<span className="text-red-500">*</span>
+                      </label>
+                      <div className="space-y-2">
+                        <div className="flex items-center">
+                          <div className="w-4 h-4 border-2 border-gray-300 rounded mr-2"></div>
+                          <span className="text-sm text-gray-700">Card with Receipt</span>
+                        </div>
+                        <div className="flex items-center">
+                          <div className="w-4 h-4 border-2 border-gray-300 rounded mr-2"></div>
+                          <span className="text-sm text-gray-700">Card without Receipt</span>
+                        </div>
+                        <div className="flex items-center">
+                          <div className="w-4 h-4 border-2 border-gray-300 rounded mr-2"></div>
+                          <span className="text-sm text-gray-700">Card Partially Used</span>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Input Fields */}
+                    <div className="mb-3">
+                      <div className="border-2 border-gray-300 rounded-lg p-3 text-sm text-gray-400">
+                        Gift Card Name
+                      </div>
+                    </div>
+                    
+                    <div className="mb-6">
+                      <div className="border-2 border-gray-300 rounded-lg p-3 text-sm text-gray-400">
+                        Value of Gift Card
+                      </div>
+                    </div>
+
+                    {/* Result Display */}
+                    <div className="mb-6 text-center">
+                      <p className="text-sm font-semibold text-gray-900 mb-1">How much you will get</p>
+                      <p className="text-3xl font-bold text-blue-900">0.00</p>
+                    </div>
+
+                    {/* Buttons */}
+                    <div className="space-y-3">
+                      <div className="bg-blue-600 text-white text-center py-3 px-4 rounded-full text-sm font-semibold">
+                        Check Rate
+                      </div>
+                      <div className="border-2 border-gray-900 text-gray-900 text-center py-3 px-4 rounded-full text-sm font-semibold">
+                        Proceed to Trade Card
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
