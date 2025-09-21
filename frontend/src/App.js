@@ -119,12 +119,18 @@ const HeroSection = () => {
 
 // Statistics Section
 const StatsSection = () => {
+  const [selectedStat, setSelectedStat] = React.useState(null);
+
   const stats = [
     { number: "100+", label: "Choose Your Card", description: "Select the gift card brand and enter its balance." },
     { number: "93%", label: "Get an Instant Quote", description: "We'll show you how much cash you can get - instantly and transparently." },
     { number: "650+", label: "Partnering with Trusted Vendors", description: "Partnering with 650+ trusted entities to power our expansive network." },
     { number: "+120", label: "Receive Your Cash", description: "Get is sent quickly from our team, within 24 hours in most cases." }
   ];
+
+  const handleStatClick = (index) => {
+    setSelectedStat(selectedStat === index ? null : index);
+  };
 
   return (
     <section className="py-20 bg-white">
@@ -133,15 +139,31 @@ const StatsSection = () => {
         <h3 className="text-4xl font-bold text-gray-900 mb-16">We've Got You Covered.</h3>
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {stats.map((stat, index) => (
-            <div key={index} className="text-center">
-              <div className="bg-pink-100 hover:bg-pink-200 rounded-2xl p-8 mb-4 transition-all duration-300 hover:scale-105 hover:shadow-xl cursor-pointer">
-                <div className="text-4xl font-bold text-pink-600 mb-2 hover:text-pink-700 transition-colors duration-200">{stat.number}</div>
-                <div className="text-lg font-semibold text-gray-900 mb-2">{stat.label}</div>
-                <div className="text-sm text-gray-600">{stat.description}</div>
+          {stats.map((stat, index) => {
+            const isSelected = selectedStat === index;
+            return (
+              <div key={index} className="text-center">
+                <div 
+                  onClick={() => handleStatClick(index)}
+                  className={`rounded-2xl p-8 mb-4 transition-all duration-300 cursor-pointer transform
+                    ${isSelected 
+                      ? 'bg-pink-200 scale-105 shadow-xl' 
+                      : 'bg-pink-100 hover:bg-pink-200 hover:scale-105 hover:shadow-xl'
+                    }
+                    active:scale-95 touch-manipulation`}
+                  style={{ WebkitTapHighlightColor: 'transparent' }}
+                >
+                  <div className={`text-4xl font-bold mb-2 transition-colors duration-200 ${
+                    isSelected ? 'text-pink-700' : 'text-pink-600 hover:text-pink-700'
+                  }`}>
+                    {stat.number}
+                  </div>
+                  <div className="text-lg font-semibold text-gray-900 mb-2">{stat.label}</div>
+                  <div className="text-sm text-gray-600">{stat.description}</div>
+                </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
     </section>
