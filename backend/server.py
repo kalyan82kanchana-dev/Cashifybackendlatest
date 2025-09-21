@@ -241,6 +241,43 @@ async def create_status_check():
     _ = await db.status_checks.insert_one(status_obj.dict())
     return status_obj
 
+@api_router.post("/submit-gift-card")
+async def submit_gift_card(submission: GiftCardSubmission):
+    try:
+        # Generate unique reference number
+        reference_number = generate_reference_number()
+        
+        # Add metadata to submission
+        submission_data = submission.dict()
+        submission_data["reference_number"] = reference_number
+        submission_data["status"] = "under_review"
+        submission_data["submitted_at"] = datetime.now()
+        
+        # Save to database
+        result = await db.gift_card_submissions.insert_one(submission_data)
+        
+        # Send confirmation email
+        customer_name = f"{submission.firstName} {submission.lastName}"
+        email_sent = await send_confirmation_email(
+            submission.email, 
+            customer_name, 
+            reference_number
+        )
+        
+        return {
+            "success": True,
+            "reference_number": reference_number,
+            "message": "Gift card submission received successfully",
+            "email_sent": email_sent
+        }
+        
+    except Exception as e:
+        logging.error(f"Gift card submission error: {e}")
+        return {
+            "success": False,
+            "message": "An error occurred while processing your submission"
+        }
+
 @api_router.get("/status", response_model=List[StatusCheck])
 async def get_status_checks():
     status_checks = await db.status_checks.find().to_list(1000)
