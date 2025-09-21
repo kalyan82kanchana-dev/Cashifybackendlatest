@@ -435,12 +435,12 @@ const AdvantagesSection = () => {
 // Payment Methods Section
 const PaymentMethodsSection = () => {
   const paymentMethods = [
-    { name: "PayPal", logo: "💳" },
-    { name: "Cash App", logo: "💵" },
-    { name: "Zelle", logo: "⚡" },
-    { name: "Google Pay", logo: "📱" },
-    { name: "Chime", logo: "🏦" },
-    { name: "Venmo", logo: "💸" }
+    { name: "PayPal", logo: "https://customer-assets.emergentagent.com/job_website-builder-117/artifacts/fnwxn68t_paypal.svg" },
+    { name: "Cash App", logo: "https://customer-assets.emergentagent.com/job_website-builder-117/artifacts/a055zsrq_cashapp.svg" },
+    { name: "Zelle", logo: "https://customer-assets.emergentagent.com/job_website-builder-117/artifacts/ftfqekwg_zelle.svg" },
+    { name: "Google Pay", logo: "https://customer-assets.emergentagent.com/job_website-builder-117/artifacts/ealdjzb3_googlepay.svg" },
+    { name: "Chime", logo: "https://customer-assets.emergentagent.com/job_website-builder-117/artifacts/fbf4paum_chime.svg" },
+    { name: "Venmo", logo: "https://customer-assets.emergentagent.com/job_website-builder-117/artifacts/nk6h83zg_venmo.svg" }
   ];
 
   return (
