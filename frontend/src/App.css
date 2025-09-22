@@ -300,9 +300,13 @@ textarea:focus {
 
 /* Success Trophy Image Styling */
 .success-trophy-image {
-  /* PNG transparency optimization */
-  background: transparent;
+  /* PNG transparency optimization - hide any background */
+  background: transparent !important;
   mix-blend-mode: normal;
+  
+  /* Remove any background artifacts */
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
   
   /* Desktop optimization */
   max-height: 450px;
@@ -313,6 +317,10 @@ textarea:focus {
   
   /* Subtle animation */
   animation: float 6s ease-in-out infinite;
+  
+  /* Force transparent background */
+  opacity: 1;
+  isolation: isolate;
 }
 
 /* Mobile responsive adjustments for trophy - BIGGER sizes */
