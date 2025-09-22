@@ -54,6 +54,7 @@ const FormSubmission = () => {
   const [uploadProgress, setUploadProgress] = useState({});
   const [showSuccessModal, setShowSuccessModal] = useState(false);
   const [submissionResult, setSubmissionResult] = useState(null);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const steps = [
     {
