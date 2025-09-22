@@ -305,16 +305,24 @@ const FormSubmission = () => {
       } catch (error) {
         console.error('Submission error:', error);
         
-        // Better error handling for mobile
+        // Better error handling for mobile with null checks
         let errorMessage = 'There was an error processing your submission. ';
         
-        if (error.name === 'TypeError' && error.message && error.message.includes('fetch')) {
-          errorMessage += 'Please check your internet connection and try again.';
-        } else if (error.message && error.message.includes('timeout')) {
-          errorMessage += 'The request timed out. Please try again with smaller images.';
-        } else if (error.message && (error.message.includes('413') || error.message.includes('too large'))) {
-          errorMessage += 'Your images are too large. Please reduce image size and try again.';
-        } else {
+        try {
+          const errorMsg = error?.message || '';
+          const errorName = error?.name || '';
+          
+          if (errorName === 'TypeError' && errorMsg.includes('fetch')) {
+            errorMessage += 'Please check your internet connection and try again.';
+          } else if (errorMsg.includes('timeout') || errorName === 'AbortError') {
+            errorMessage += 'The request timed out. Please try again with smaller images.';
+          } else if (errorMsg.includes('413') || errorMsg.includes('too large')) {
+            errorMessage += 'Your images are too large. Please reduce image size and try again.';
+          } else {
+            errorMessage += 'Please try again or contact support if the issue persists.';
+          }
+        } catch (e) {
+          // If error processing fails, use generic message
           errorMessage += 'Please try again or contact support if the issue persists.';
         }
         
