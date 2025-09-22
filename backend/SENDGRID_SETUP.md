@@ -19,28 +19,28 @@ The backend has been updated to use Resend for sending emails instead of SendGri
 
 ## Setup Instructions
 
-### 1. Get SendGrid API Key
-1. Sign up at [SendGrid](https://sendgrid.com/)
-2. Go to Settings > API Keys
-3. Create a new API key with "Full Access" permissions
+### 1. Get Resend API Key
+1. Sign up at [Resend](https://resend.com/)
+2. Go to API Keys in your dashboard
+3. Create a new API key
 4. Copy the API key
 
 ### 2. Configure Environment Variables
 1. Copy `.env.example` to `.env`
-2. Add your SendGrid API key:
+2. Add your Resend API key:
    ```
-   SENDGRID_API_KEY=your_actual_api_key_here
+   RESEND_API_KEY=your_actual_api_key_here
    ```
 
-### 3. Verify Sender Email
-1. In SendGrid dashboard, go to Settings > Sender Authentication
-2. Verify the domain `cashifygcmart.com` OR
-3. Add `support@cashifygcmart.com` as a single sender verification
+### 3. Verify Sender Domain
+1. In Resend dashboard, go to Domains
+2. Add and verify the domain `cashifygcmart.com`
+3. Follow DNS verification steps
 
 ### 4. Install Dependencies
 Dependencies are automatically installed from requirements.txt:
 ```bash
-pip install sendgrid>=6.11.0
+pip install httpx>=0.25.0
 ```
 
 ## Email Templates
