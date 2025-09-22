@@ -10,7 +10,6 @@ from typing import List, Optional
 from datetime import datetime
 import random
 import httpx
-import json
 
 
 ROOT_DIR = Path(__file__).parent
