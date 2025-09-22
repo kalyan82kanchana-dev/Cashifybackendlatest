@@ -238,8 +238,8 @@ textarea:focus {
   mix-blend-mode: multiply;
   filter: contrast(1.1) brightness(1.05) saturate(1.1);
   
-  /* Mobile optimization */
-  max-height: 400px;
+  /* Desktop optimization */
+  max-height: 450px;
   object-fit: contain;
   
   /* Subtle shadow and animation */
@@ -252,9 +252,10 @@ textarea:focus {
 /* Mobile responsive adjustments */
 @media (max-width: 768px) {
   .hero-image {
-    max-height: 280px;
+    max-height: 380px;
     margin: 0 auto;
     display: block;
+    width: 100%;
     
     /* Better mobile blending */
     mix-blend-mode: normal;
@@ -264,8 +265,18 @@ textarea:focus {
 
 @media (max-width: 480px) {
   .hero-image {
-    max-height: 220px;
-    padding: 0 10px;
+    max-height: 320px;
+    width: 100%;
+    padding: 0 5px;
+    margin: 10px auto;
+  }
+}
+
+/* Very small screens */
+@media (max-width: 360px) {
+  .hero-image {
+    max-height: 280px;
+    width: 100%;
   }
 }
 
