@@ -301,33 +301,33 @@ textarea:focus {
 /* Success Trophy Image Styling */
 .clean-image-wrapper {
   background: transparent !important;
-  overflow: hidden;
+  overflow: visible;
   position: relative;
 }
 
 .success-trophy-image {
-  /* Clean photo styling */
+  /* PNG optimization for your custom image */
   background: transparent !important;
   
-  /* Professional photo enhancement */
-  filter: 
-    contrast(1.1) 
-    saturate(1.15) 
-    brightness(1.02);
+  /* Minimal processing to preserve your custom design */
+  mix-blend-mode: normal;
+  
+  /* Very light enhancement without affecting transparency */
+  filter: brightness(1.02) saturate(1.05);
   
   /* Desktop optimization */
   max-height: 450px;
-  object-fit: cover;
-  border-radius: 16px;
-  
-  /* Professional shadow */
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  object-fit: contain;
   
   /* Clean styling */
   transition: all 0.3s ease;
   
   /* Subtle animation */
   animation: float 6s ease-in-out infinite;
+  
+  /* PNG specific optimization */
+  image-rendering: auto;
+  -webkit-image-smoothing: true;
 }
 
 /* Mobile responsive adjustments for trophy - BIGGER sizes */
