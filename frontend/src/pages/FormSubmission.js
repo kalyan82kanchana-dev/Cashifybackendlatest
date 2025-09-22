@@ -228,8 +228,11 @@ const FormSubmission = () => {
 
   // Submit form
   const handleSubmit = async () => {
-    if (validateStep(4)) {
-      try {
+    if (!validateStep(4) || isSubmitting) return;
+    
+    setIsSubmitting(true);
+    
+    try {
         // Get backend URL from environment
         const backendUrl = process.env.REACT_APP_BACKEND_URL || 'http://localhost:8001';
         
