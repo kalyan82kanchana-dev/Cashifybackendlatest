@@ -10,7 +10,11 @@ import {
   AlertCircle,
   Camera,
   Receipt,
-  Smartphone
+  Smartphone,
+  CheckCircle,
+  X,
+  Mail,
+  Copy
 } from 'lucide-react';
 import { generateSubmissionConfirmationEmail, generateSubmissionConfirmationText } from '../utils/emailTemplates';
 
