@@ -198,7 +198,7 @@ const RateCalculator = () => {
 
         {/* Calculator Card */}
         <div className="bg-white rounded-xl md:rounded-2xl shadow-xl overflow-hidden">
-          <div className="bg-gradient-to-r from-blue-600 to-blue-700 px-4 md:px-6 lg:px-8 py-4 md:py-5 lg:py-6">
+          <div className="bg-gradient-to-r from-pink-600 to-purple-600 px-4 md:px-6 lg:px-8 py-4 md:py-5 lg:py-6">
             <h2 className="text-lg md:text-xl lg:text-2xl font-bold text-white text-center">
               Get the current value for your transaction
             </h2>
