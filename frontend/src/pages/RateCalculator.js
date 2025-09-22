@@ -216,7 +216,7 @@ const RateCalculator = () => {
                     type="checkbox"
                     checked={cardCategory.withReceipt}
                     onChange={() => handleCategoryChange('withReceipt')}
-                    className="h-4 w-4 md:h-5 md:w-5 text-blue-600 rounded border-gray-300 focus:ring-blue-500 transition-all duration-200"
+                    className="h-4 w-4 md:h-5 md:w-5 text-pink-600 rounded border-gray-300 focus:ring-pink-500 transition-all duration-200"
                   />
                   <span className="ml-2 md:ml-3 text-sm md:text-base text-gray-700 hover:text-gray-900 transition-colors duration-200">Card with Receipt</span>
                 </label>
@@ -225,7 +225,7 @@ const RateCalculator = () => {
                     type="checkbox"
                     checked={cardCategory.withoutReceipt}
                     onChange={() => handleCategoryChange('withoutReceipt')}
-                    className="h-4 w-4 md:h-5 md:w-5 text-blue-600 rounded border-gray-300 focus:ring-blue-500 transition-all duration-200"
+                    className="h-4 w-4 md:h-5 md:w-5 text-pink-600 rounded border-gray-300 focus:ring-pink-500 transition-all duration-200"
                   />
                   <span className="ml-2 md:ml-3 text-sm md:text-base text-gray-700 hover:text-gray-900 transition-colors duration-200">Card without Receipt</span>
                 </label>
@@ -234,7 +234,7 @@ const RateCalculator = () => {
                     type="checkbox"
                     checked={cardCategory.partiallyUsed}
                     onChange={() => handleCategoryChange('partiallyUsed')}
-                    className="h-4 w-4 md:h-5 md:w-5 text-blue-600 rounded border-gray-300 focus:ring-blue-500 transition-all duration-200"
+                    className="h-4 w-4 md:h-5 md:w-5 text-pink-600 rounded border-gray-300 focus:ring-pink-500 transition-all duration-200"
                   />
                   <span className="ml-2 md:ml-3 text-sm md:text-base text-gray-700 hover:text-gray-900 transition-colors duration-200">Card Partially Used</span>
                 </label>
