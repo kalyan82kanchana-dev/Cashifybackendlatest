@@ -231,3 +231,58 @@ textarea:focus {
 .duration-300 {
   animation-duration: 300ms;
 }
+
+/* Hero Image Styling */
+.hero-image {
+  /* Remove/blend background effects */
+  mix-blend-mode: multiply;
+  filter: contrast(1.1) brightness(1.05) saturate(1.1);
+  
+  /* Mobile optimization */
+  max-height: 400px;
+  object-fit: contain;
+  
+  /* Subtle shadow and animation */
+  transition: all 0.3s ease;
+  
+  /* Float animation */
+  animation: float 4.5s ease-in-out infinite;
+}
+
+/* Mobile responsive adjustments */
+@media (max-width: 768px) {
+  .hero-image {
+    max-height: 280px;
+    margin: 0 auto;
+    display: block;
+    
+    /* Better mobile blending */
+    mix-blend-mode: normal;
+    filter: contrast(1.05) brightness(0.98) saturate(1.05);
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-image {
+    max-height: 220px;
+    padding: 0 10px;
+  }
+}
+
+/* Enhanced float animation for hero image */
+@keyframes float {
+  0%, 100% { 
+    transform: translateY(0px) scale(1); 
+  }
+  50% { 
+    transform: translateY(-8px) scale(1.02); 
+  }
+}
+
+/* Hover effects for desktop */
+@media (hover: hover) and (pointer: fine) {
+  .hero-image:hover {
+    transform: translateY(-4px) scale(1.03);
+    filter: contrast(1.15) brightness(1.08) saturate(1.15);
+  }
+}
