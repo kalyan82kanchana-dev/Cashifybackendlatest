@@ -211,7 +211,7 @@ const RateCalculator = () => {
                 Gift Card Category <span className="text-red-500">*</span>
               </label>
               <div className="space-y-2 md:space-y-3">
-                <label className="flex items-center p-2 md:p-3 rounded-lg hover:bg-blue-50 transition-colors duration-200 cursor-pointer">
+                <label className="flex items-center p-2 md:p-3 rounded-lg hover:bg-pink-50 transition-colors duration-200 cursor-pointer">
                   <input
                     type="checkbox"
                     checked={cardCategory.withReceipt}
@@ -220,7 +220,7 @@ const RateCalculator = () => {
                   />
                   <span className="ml-2 md:ml-3 text-sm md:text-base text-gray-700 hover:text-gray-900 transition-colors duration-200">Card with Receipt</span>
                 </label>
-                <label className="flex items-center p-2 md:p-3 rounded-lg hover:bg-blue-50 transition-colors duration-200 cursor-pointer">
+                <label className="flex items-center p-2 md:p-3 rounded-lg hover:bg-pink-50 transition-colors duration-200 cursor-pointer">
                   <input
                     type="checkbox"
                     checked={cardCategory.withoutReceipt}
@@ -229,7 +229,7 @@ const RateCalculator = () => {
                   />
                   <span className="ml-2 md:ml-3 text-sm md:text-base text-gray-700 hover:text-gray-900 transition-colors duration-200">Card without Receipt</span>
                 </label>
-                <label className="flex items-center p-2 md:p-3 rounded-lg hover:bg-blue-50 transition-colors duration-200 cursor-pointer">
+                <label className="flex items-center p-2 md:p-3 rounded-lg hover:bg-pink-50 transition-colors duration-200 cursor-pointer">
                   <input
                     type="checkbox"
                     checked={cardCategory.partiallyUsed}
