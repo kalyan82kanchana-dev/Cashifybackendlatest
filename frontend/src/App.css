@@ -297,3 +297,54 @@ textarea:focus {
     filter: contrast(1.15) brightness(1.08) saturate(1.15);
   }
 }
+
+/* Success Trophy Image Styling */
+.success-trophy-image {
+  /* Remove background and optimize display */
+  background: transparent;
+  mix-blend-mode: normal;
+  
+  /* Desktop optimization */
+  max-height: 400px;
+  object-fit: contain;
+  
+  /* Clean styling */
+  transition: all 0.3s ease;
+  
+  /* Subtle animation */
+  animation: float 6s ease-in-out infinite;
+}
+
+/* Mobile responsive adjustments for trophy */
+@media (max-width: 768px) {
+  .success-trophy-image {
+    max-height: 300px;
+    margin: 20px auto;
+    display: block;
+    width: 90%;
+  }
+}
+
+@media (max-width: 480px) {
+  .success-trophy-image {
+    max-height: 250px;
+    width: 85%;
+    margin: 15px auto;
+  }
+}
+
+/* Very small screens */
+@media (max-width: 360px) {
+  .success-trophy-image {
+    max-height: 200px;
+    width: 80%;
+  }
+}
+
+/* Hover effects for trophy */
+@media (hover: hover) and (pointer: fine) {
+  .success-trophy-image:hover {
+    transform: translateY(-6px) scale(1.05);
+    filter: brightness(1.1) saturate(1.2);
+  }
+}
