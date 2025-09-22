@@ -486,9 +486,9 @@ const AdvantagesSection = () => {
           
           <div className="relative mt-8 lg:mt-0">
             <img 
-              src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=600&fit=crop" 
-              alt="Success illustration" 
-              className="rounded-2xl shadow-2xl w-full"
+              src="https://customer-assets.emergentagent.com/job_giftcard-trader/artifacts/2rz6qcz6_gemini%20mart%20.png" 
+              alt="Cashifygcmart success achievement trophy" 
+              className="success-trophy-image w-full h-auto object-contain"
             />
           </div>
         </div>
