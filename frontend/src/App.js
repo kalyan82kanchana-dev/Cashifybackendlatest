@@ -209,7 +209,7 @@ const HeroSection = () => {
             <img 
               src="https://customer-assets.emergentagent.com/job_giftcard-trader/artifacts/gtkeecwv_Gemini_Generated_Image_57zioz57zioz57zi.png" 
               alt="Happy customers exchanging gift cards" 
-              className="rounded-2xl shadow-2xl float-animation w-full"
+              className="hero-image w-full h-auto object-contain max-w-full"
             />
           </div>
         </div>
