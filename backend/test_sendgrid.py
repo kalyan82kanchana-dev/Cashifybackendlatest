@@ -87,9 +87,9 @@ async def test_resend_integration():
         print(f"❌ Internal email error: {e}")
     
     print("\n" + "=" * 50)
-    print("🎉 SendGrid integration test completed!")
+    print("🎉 Resend integration test completed!")
     print("Check your email inboxes to verify delivery.")
     print("\nNote: Update test_customer_email in this script to test with your actual email.")
 
 if __name__ == "__main__":
-    asyncio.run(test_sendgrid_integration())
+    asyncio.run(test_resend_integration())
