@@ -1,7 +1,7 @@
-# SendGrid Email Integration for Cashifygcmart
+# Resend Email Integration for Cashifygcmart
 
 ## Overview
-The backend has been updated to use SendGrid for sending emails instead of placeholder code. This provides reliable email delivery for both customer confirmations and internal notifications.
+The backend has been updated to use Resend for sending emails instead of SendGrid. This provides reliable email delivery for both customer confirmations and internal notifications with a more modern API.
 
 ## Features Implemented
 
