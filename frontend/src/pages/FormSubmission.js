@@ -281,7 +281,8 @@ const FormSubmission = () => {
         const result = await response.json();
         
         if (result.success) {
-          alert(`Success! Your submission has been received.\n\nReference Number: ${result.reference_number}\n\nA confirmation email has been sent to ${formData.email} with complete details and next steps.\n\nPlease check your inbox (and spam folder) for the confirmation email.`);
+          setSubmissionResult(result);
+          setShowSuccessModal(true);
           
           // Optional: Clear form or redirect
           // setFormData(initialFormData);
