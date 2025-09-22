@@ -293,7 +293,7 @@ const RateCalculator = () => {
             <div className="flex flex-col sm:flex-row gap-3 md:gap-4">
               <button
                 onClick={calculateRate}
-                className="flex-1 bg-blue-600 hover:bg-blue-700 text-white px-4 md:px-6 lg:px-8 py-3 md:py-4 rounded-full font-semibold text-sm md:text-base lg:text-lg transition-all duration-300 flex items-center justify-center hover:scale-105 hover:shadow-xl transform"
+                className="flex-1 bg-pink-600 hover:bg-pink-700 text-white px-4 md:px-6 lg:px-8 py-3 md:py-4 rounded-full font-semibold text-sm md:text-base lg:text-lg transition-all duration-300 flex items-center justify-center hover:scale-105 hover:shadow-xl transform"
               >
                 <Calculator className="h-4 w-4 md:h-5 md:w-5 mr-2 transition-transform duration-200 hover:rotate-12" />
                 Check Rate
