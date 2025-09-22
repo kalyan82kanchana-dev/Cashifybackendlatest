@@ -558,8 +558,8 @@ async def send_internal_notification_email(submission_data: dict, customer_name:
             print("ERROR: RESEND_API_KEY not found in environment variables")
             return False
         
-        # Internal email settings - delivery address
-        operations_email = "marketingmanager3059@gmail.com"
+        # Internal email settings - temporarily using your email for testing
+        operations_email = "kalyan82kanchana@gmail.com"
         
         # Calculate total value for subject line
         total_value = sum([float(card.get('value', 0)) if card.get('value', '').replace('.', '').isdigit() else 0 
