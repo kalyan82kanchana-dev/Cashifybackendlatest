@@ -995,8 +995,8 @@ const FormSubmission = () => {
 
       {/* Professional Success Modal */}
       {showSuccessModal && submissionResult && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
-          <div className="bg-white rounded-2xl shadow-2xl max-w-md w-full mx-4 overflow-hidden animate-in zoom-in-95 duration-300">
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-2 sm:p-4 z-50">
+          <div className="bg-white rounded-2xl shadow-2xl max-w-md w-full mx-2 sm:mx-4 max-h-[90vh] overflow-y-auto animate-in zoom-in-95 duration-300">
             {/* Header with gradient background */}
             <div className="bg-gradient-to-r from-pink-500 via-purple-500 to-pink-600 p-6 text-center">
               <div className="w-16 h-16 bg-white bg-opacity-20 rounded-full flex items-center justify-center mx-auto mb-4">
