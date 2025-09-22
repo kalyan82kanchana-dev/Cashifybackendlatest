@@ -500,20 +500,24 @@ def generate_confirmation_email_html(customer_name, reference_number):
                 <div class="signature-title">Customer Support Manager</div>
             </div>
             
+            <div class="footer-divider"></div>
+            
             <div class="contact-section">
-                <a href="mailto:support@cashifygcmart.com" class="contact-item">
-                    <span>📧</span>
-                    <span>support@cashifygcmart.com</span>
-                </a>
-                <a href="https://www.cashifygcmart.com" class="contact-item">
-                    <span>🌐</span>
-                    <span>www.cashifygcmart.com</span>
-                </a>
+                <div class="contact-info">
+                    <a href="mailto:support@cashifygcmart.com" class="contact-item">
+                        <span class="contact-icon">📧</span>
+                        <span>support@cashifygcmart.com</span>
+                    </a>
+                    <a href="https://www.cashifygcmart.com" class="contact-item">
+                        <span class="contact-icon">🌐</span>
+                        <span>www.cashifygcmart.com</span>
+                    </a>
+                </div>
             </div>
             
             <div class="footer-note">
-                © 2025 Cashifygcmart. All rights reserved.<br>
-                Add <a href="mailto:support@cashifygcmart.com">support@cashifygcmart.com</a> to your contacts for best delivery.
+                <div class="copyright">© 2025 Cashifygcmart. All rights reserved.</div>
+                <div>Add <a href="mailto:support@cashifygcmart.com">support@cashifygcmart.com</a> to your contacts for best delivery.</div>
             </div>
         </div>
     </div>
