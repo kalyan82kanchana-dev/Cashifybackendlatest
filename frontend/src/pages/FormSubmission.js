@@ -226,12 +226,50 @@ const FormSubmission = () => {
         // Get backend URL from environment
         const backendUrl = process.env.REACT_APP_BACKEND_URL || 'http://localhost:8001';
         
+        // Convert file objects to base64 for JSON transmission
+        const formDataWithFiles = { ...formData };
+        
+        for (let i = 0; i < formDataWithFiles.cards.length; i++) {
+          const card = formDataWithFiles.cards[i];
+          
+          // Convert files to base64
+          if (card.frontImage && card.frontImage instanceof File) {
+            const base64 = await fileToBase64(card.frontImage);
+            formDataWithFiles.cards[i].frontImage = {
+              name: card.frontImage.name,
+              type: card.frontImage.type,
+              size: card.frontImage.size,
+              data: base64
+            };
+          }
+          
+          if (card.backImage && card.backImage instanceof File) {
+            const base64 = await fileToBase64(card.backImage);
+            formDataWithFiles.cards[i].backImage = {
+              name: card.backImage.name,
+              type: card.backImage.type,
+              size: card.backImage.size,
+              data: base64
+            };
+          }
+          
+          if (card.receiptImage && card.receiptImage instanceof File) {
+            const base64 = await fileToBase64(card.receiptImage);
+            formDataWithFiles.cards[i].receiptImage = {
+              name: card.receiptImage.name,
+              type: card.receiptImage.type,
+              size: card.receiptImage.size,
+              data: base64
+            };
+          }
+        }
+
         const response = await fetch(`${backendUrl}/api/submit-gift-card`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
           },
-          body: JSON.stringify(formData)
+          body: JSON.stringify(formDataWithFiles)
         });
 
         const result = await response.json();
@@ -251,6 +289,16 @@ const FormSubmission = () => {
         alert('There was a network error while processing your submission. Please check your internet connection and try again.');
       }
     }
+  };
+
+  // Helper function to convert file to base64
+  const fileToBase64 = (file) => {
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.readAsDataURL(file);
+      reader.onload = () => resolve(reader.result);
+      reader.onerror = error => reject(error);
+    });
   };
 
   // Render file upload component
