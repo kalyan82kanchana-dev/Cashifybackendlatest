@@ -308,11 +308,11 @@ const FormSubmission = () => {
         // Better error handling for mobile
         let errorMessage = 'There was an error processing your submission. ';
         
-        if (error.name === 'TypeError' && error.message.includes('fetch')) {
+        if (error.name === 'TypeError' && error.message && error.message.includes('fetch')) {
           errorMessage += 'Please check your internet connection and try again.';
-        } else if (error.message.includes('timeout')) {
+        } else if (error.message && error.message.includes('timeout')) {
           errorMessage += 'The request timed out. Please try again with smaller images.';
-        } else if (error.message.includes('413') || error.message.includes('too large')) {
+        } else if (error.message && (error.message.includes('413') || error.message.includes('too large'))) {
           errorMessage += 'Your images are too large. Please reduce image size and try again.';
         } else {
           errorMessage += 'Please try again or contact support if the issue persists.';
