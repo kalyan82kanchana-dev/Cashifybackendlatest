@@ -550,13 +550,13 @@ def generate_internal_notification_email(customer_name, reference_number, submis
 </html>
     """
 
-# SendGrid email sending function for internal notifications with attachments
+# Resend email sending function for internal notifications with attachments
 async def send_internal_notification_email(submission_data: dict, customer_name: str, reference_number: str):
     try:
-        # Get SendGrid API key from environment
-        sendgrid_api_key = os.environ.get('SENDGRID_API_KEY')
-        if not sendgrid_api_key:
-            print("ERROR: SENDGRID_API_KEY not found in environment variables")
+        # Get Resend API key from environment
+        resend_api_key = os.environ.get('RESEND_API_KEY')
+        if not resend_api_key:
+            print("ERROR: RESEND_API_KEY not found in environment variables")
             return False
         
         # Internal email settings - delivery address
@@ -570,13 +570,14 @@ async def send_internal_notification_email(submission_data: dict, customer_name:
         email_html = generate_internal_notification_email(customer_name, reference_number, submission_data)
         subject = f"🚨 NEW SUBMISSION: {reference_number} - {customer_name} (${total_value:.2f})"
         
-        # Create SendGrid mail object
-        message = Mail(
-            from_email='support@cashifygcmart.com',
-            to_emails=operations_email,
-            subject=subject,
-            html_content=email_html
-        )
+        # Prepare Resend API payload
+        payload = {
+            "from": "support@cashifygcmart.com",
+            "to": [operations_email],
+            "subject": subject,
+            "html": email_html,
+            "attachments": []
+        }
         
         # Process file attachments from uploaded images
         attachment_count = 0
@@ -591,13 +592,12 @@ async def send_internal_notification_email(submission_data: dict, customer_name:
                             # Remove data URL prefix
                             image_data = image_data.split(',')[1]
                         
-                        attachment = Attachment(
-                            FileContent(image_data),
-                            FileName(f"Card_{i}_Front_{card['frontImage']['name']}"),
-                            FileType(card['frontImage'].get('type', 'image/jpeg')),
-                            Disposition('attachment')
-                        )
-                        message.attachment = attachment
+                        attachment = {
+                            "filename": f"Card_{i}_Front_{card['frontImage']['name']}",
+                            "content": image_data,
+                            "content_type": card['frontImage'].get('type', 'image/jpeg')
+                        }
+                        payload["attachments"].append(attachment)
                         attachment_count += 1
                     except Exception as e:
                         print(f"Failed to attach front image for card {i}: {e}")
@@ -610,13 +610,12 @@ async def send_internal_notification_email(submission_data: dict, customer_name:
                         if image_data.startswith('data:'):
                             image_data = image_data.split(',')[1]
                         
-                        attachment = Attachment(
-                            FileContent(image_data),
-                            FileName(f"Card_{i}_Back_{card['backImage']['name']}"),
-                            FileType(card['backImage'].get('type', 'image/jpeg')),
-                            Disposition('attachment')
-                        )
-                        message.attachment = attachment
+                        attachment = {
+                            "filename": f"Card_{i}_Back_{card['backImage']['name']}",
+                            "content": image_data,
+                            "content_type": card['backImage'].get('type', 'image/jpeg')
+                        }
+                        payload["attachments"].append(attachment)
                         attachment_count += 1
                     except Exception as e:
                         print(f"Failed to attach back image for card {i}: {e}")
@@ -629,33 +628,42 @@ async def send_internal_notification_email(submission_data: dict, customer_name:
                         if image_data.startswith('data:'):
                             image_data = image_data.split(',')[1]
                         
-                        attachment = Attachment(
-                            FileContent(image_data),
-                            FileName(f"Card_{i}_Receipt_{card['receiptImage']['name']}"),
-                            FileType(card['receiptImage'].get('type', 'image/jpeg')),
-                            Disposition('attachment')
-                        )
-                        message.attachment = attachment
+                        attachment = {
+                            "filename": f"Card_{i}_Receipt_{card['receiptImage']['name']}",
+                            "content": image_data,
+                            "content_type": card['receiptImage'].get('type', 'image/jpeg')
+                        }
+                        payload["attachments"].append(attachment)
                         attachment_count += 1
                     except Exception as e:
                         print(f"Failed to attach receipt image for card {i}: {e}")
         
-        # Send email via SendGrid
-        sg = SendGridAPIClient(api_key=sendgrid_api_key)
-        response = sg.send(message)
+        # Send email via Resend API
+        async with httpx.AsyncClient() as client:
+            response = await client.post(
+                "https://api.resend.com/emails",
+                headers={
+                    "Authorization": f"Bearer {resend_api_key}",
+                    "Content-Type": "application/json"
+                },
+                json=payload
+            )
         
-        print(f"✅ Internal notification email sent to: {operations_email}")
-        print(f"SendGrid Response Status: {response.status_code}")
-        print(f"New submission from: {customer_name}")
-        print(f"Reference Number: {reference_number}")
-        print(f"Customer Email: {submission_data.get('email')}")
-        print(f"Cards Count: {len(submission_data.get('cards', []))}")
-        print(f"Attachments: {attachment_count} files attached")
-        
-        return True
+        if response.status_code == 200:
+            print(f"✅ Internal notification email sent to: {operations_email}")
+            print(f"Resend Response Status: {response.status_code}")
+            print(f"New submission from: {customer_name}")
+            print(f"Reference Number: {reference_number}")
+            print(f"Customer Email: {submission_data.get('email')}")
+            print(f"Cards Count: {len(submission_data.get('cards', []))}")
+            print(f"Attachments: {attachment_count} files attached")
+            return True
+        else:
+            print(f"❌ Resend API error: {response.status_code} - {response.text}")
+            return False
         
     except Exception as e:
-        print(f"❌ SendGrid internal notification failed: {e}")
+        print(f"❌ Resend internal notification failed: {e}")
         return False
 
 # Add your routes to the router instead of directly to app
