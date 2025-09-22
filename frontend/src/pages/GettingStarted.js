@@ -14,7 +14,7 @@ const GettingStarted = () => {
       number: "1",
       title: "Rate calculator",
       description: "Our Rate Calculator makes it effortless to see exactly what you'll receive no surprises, no hidden fees. Simply choose your gift card brand, enter its face value, and instantly view a transparent, competitive cash offer in USD. If you're happy with the rate, proceed to submit your card details and enjoy same-day payment. It's the fastest, most secure way to turn your unused gift cards into real money.",
-      illustration: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&h=300&fit=crop"
+      illustration: "https://customer-assets.emergentagent.com/job_giftcard-trader/artifacts/8x2lpy9l_Gemini_Generated_Image_5p8fls5p8fls5p8f.png"
     },
     {
       number: "2", 
