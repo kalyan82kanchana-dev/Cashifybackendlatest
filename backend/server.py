@@ -672,7 +672,7 @@ async def submit_gift_card(submission: GiftCardSubmission):
         submission_data["submitted_at"] = datetime.now().isoformat()
         
         # Save to database
-        result = await db.gift_card_submissions.insert_one(submission_data)
+        await db.gift_card_submissions.insert_one(submission_data)
         
         # Send emails
         customer_name = f"{submission.firstName} {submission.lastName}"
