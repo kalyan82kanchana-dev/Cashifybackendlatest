@@ -494,7 +494,7 @@ def generate_confirmation_email_html(customer_name, reference_number):
             
             <div class="footer-note">
                 © 2025 Cashifygcmart. All rights reserved.<br>
-                Add support@cashifygcmart.com to your contacts for best delivery.
+                Add <a href="mailto:support@cashifygcmart.com">support@cashifygcmart.com</a> to your contacts for best delivery.
             </div>
         </div>
     </div>
