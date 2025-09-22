@@ -300,40 +300,34 @@ textarea:focus {
 
 /* Success Trophy Image Styling */
 .clean-image-wrapper {
-  background: linear-gradient(135deg, transparent 0%, transparent 100%) !important;
+  background: transparent !important;
   overflow: hidden;
   position: relative;
 }
 
 .success-trophy-image {
-  /* Try CSS masking to remove background */
+  /* Clean photo styling */
   background: transparent !important;
   
-  /* Aggressive background removal */
-  mix-blend-mode: screen;
-  
-  /* Enhanced filters to eliminate any background */
+  /* Professional photo enhancement */
   filter: 
-    contrast(1.2) 
-    saturate(1.1) 
-    brightness(1.05);
+    contrast(1.1) 
+    saturate(1.15) 
+    brightness(1.02);
   
   /* Desktop optimization */
   max-height: 450px;
-  object-fit: contain;
+  object-fit: cover;
+  border-radius: 16px;
+  
+  /* Professional shadow */
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
   
   /* Clean styling */
   transition: all 0.3s ease;
   
   /* Subtle animation */
   animation: float 6s ease-in-out infinite;
-  
-  /* Image rendering */
-  image-rendering: auto;
-  
-  /* Additional transparency forcing */
-  -webkit-background-size: cover;
-  background-size: cover;
 }
 
 /* Mobile responsive adjustments for trophy - BIGGER sizes */
