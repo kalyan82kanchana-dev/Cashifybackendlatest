@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Quick test script to verify SendGrid integration
+Quick test script to verify Resend integration
 Run this to test email functionality before going live
 """
 
