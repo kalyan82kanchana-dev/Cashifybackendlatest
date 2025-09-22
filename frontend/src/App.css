@@ -299,6 +299,11 @@ textarea:focus {
 }
 
 /* Success Trophy Image Styling */
+.clean-image-wrapper {
+  background: transparent !important;
+  overflow: hidden;
+}
+
 .success-trophy-image {
   /* PNG transparency optimization - hide any background */
   background: transparent !important;
