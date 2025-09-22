@@ -20,7 +20,7 @@ const GettingStarted = () => {
       number: "2", 
       title: "Select payout method",
       description: "Our Payout Options make it simple to get your cash exactly where you want it. Just choose from PayPal, Cash App, Zelle, Google Pay, Chime, or Bitcoin, enter your account details, and confirm. Once your gift card is verified, we'll send your funds directly typically within hours. No hidden fees, full security, and the flexibility to match your preferred payment method.",
-      illustration: "https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=400&h=300&fit=crop"
+      illustration: "https://customer-assets.emergentagent.com/job_giftcard-trader/artifacts/t93r84ty_Gemini_Generated_Image_qjo6tlqjo6tlqjo6.png"
     },
     {
       number: "3",
