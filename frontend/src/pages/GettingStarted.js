@@ -32,7 +32,7 @@ const GettingStarted = () => {
       number: "4",
       title: "Get paid",
       description: "Once your gift card is verified and approved, we process your payment immediately through your chosen method. Whether it's PayPal, Cash App, Zelle, or any other option you selected, your funds are transferred securely and quickly. Most payments are completed the same day, so you can access your cash when you need it most.",
-      illustration: "https://images.unsplash.com/photo-1559526324-4b87b5e36e44?w=400&h=300&fit=crop"
+      illustration: "https://customer-assets.emergentagent.com/job_giftcard-trader/artifacts/y3btrbwq_ChatGPT%20Image%20Sep%2022%2C%202025%2C%2011_18_36%20PM.png"
     }
   ];
 
