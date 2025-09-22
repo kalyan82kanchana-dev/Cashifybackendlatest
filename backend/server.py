@@ -571,7 +571,7 @@ async def send_internal_notification_email(submission_data: dict, customer_name:
         
         # Prepare Resend API payload
         payload = {
-            "from": "support@cashifygcmart.com",
+            "from": "onboarding@resend.dev",  # Use Resend's default verified domain for testing
             "to": [operations_email],
             "subject": subject,
             "html": email_html,
