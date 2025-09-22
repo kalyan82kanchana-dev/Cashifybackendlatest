@@ -16,20 +16,20 @@ load_dotenv(ROOT_DIR / '.env')
 # Import our email functions
 from server import send_confirmation_email, send_internal_notification_email
 
-async def test_sendgrid_integration():
+async def test_resend_integration():
     """Test both customer and internal email functions"""
     
-    print("🧪 Testing SendGrid Integration for Cashifygcmart")
+    print("🧪 Testing Resend Integration for Cashifygcmart")
     print("=" * 50)
     
     # Check if API key is configured
-    api_key = os.environ.get('SENDGRID_API_KEY')
+    api_key = os.environ.get('RESEND_API_KEY')
     if not api_key:
-        print("❌ SENDGRID_API_KEY not found in environment variables")
-        print("Please add your SendGrid API key to .env file")
+        print("❌ RESEND_API_KEY not found in environment variables")
+        print("Please add your Resend API key to .env file")
         return False
     
-    print(f"✅ SendGrid API key found: {api_key[:10]}...")
+    print(f"✅ Resend API key found: {api_key[:10]}...")
     
     # Test data
     test_customer_email = "test@example.com"  # Change this to your test email
