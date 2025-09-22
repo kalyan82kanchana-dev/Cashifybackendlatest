@@ -998,31 +998,31 @@ const FormSubmission = () => {
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-2 sm:p-4 z-50">
           <div className="bg-white rounded-2xl shadow-2xl max-w-md w-full mx-2 sm:mx-4 max-h-[90vh] overflow-y-auto animate-in zoom-in-95 duration-300">
             {/* Header with gradient background */}
-            <div className="bg-gradient-to-r from-pink-500 via-purple-500 to-pink-600 p-6 text-center">
-              <div className="w-16 h-16 bg-white bg-opacity-20 rounded-full flex items-center justify-center mx-auto mb-4">
-                <CheckCircle className="w-10 h-10 text-white" />
+            <div className="bg-gradient-to-r from-pink-500 via-purple-500 to-pink-600 p-4 sm:p-6 text-center">
+              <div className="w-12 h-12 sm:w-16 sm:h-16 bg-white bg-opacity-20 rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4">
+                <CheckCircle className="w-8 h-8 sm:w-10 sm:h-10 text-white" />
               </div>
-              <h3 className="text-2xl font-bold text-white mb-2">
+              <h3 className="text-xl sm:text-2xl font-bold text-white mb-2">
                 Submission Successful!
               </h3>
-              <p className="text-pink-100">
+              <p className="text-pink-100 text-sm sm:text-base">
                 Your gift card details have been received
               </p>
             </div>
 
             {/* Content */}
-            <div className="p-6">
+            <div className="p-4 sm:p-6">
               {/* Reference Number */}
-              <div className="bg-gray-50 rounded-lg p-4 mb-6">
+              <div className="bg-gray-50 rounded-lg p-3 sm:p-4 mb-4 sm:mb-6">
                 <div className="text-center">
-                  <p className="text-sm text-gray-600 mb-1">Reference Number</p>
+                  <p className="text-xs sm:text-sm text-gray-600 mb-1">Reference Number</p>
                   <div className="flex items-center justify-center space-x-2">
-                    <p className="text-xl font-bold text-gray-900">
+                    <p className="text-lg sm:text-xl font-bold text-gray-900 break-all">
                       {submissionResult.reference_number}
                     </p>
                     <button
                       onClick={() => navigator.clipboard.writeText(submissionResult.reference_number)}
-                      className="p-1 text-gray-500 hover:text-gray-700 transition-colors"
+                      className="p-1 text-gray-500 hover:text-gray-700 transition-colors flex-shrink-0"
                       title="Copy reference number"
                     >
                       <Copy className="w-4 h-4" />
@@ -1032,17 +1032,17 @@ const FormSubmission = () => {
               </div>
 
               {/* Email confirmation */}
-              <div className="flex items-start space-x-3 mb-6">
+              <div className="flex items-start space-x-3 mb-4 sm:mb-6">
                 <div className="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
                   <Mail className="w-4 h-4 text-blue-600" />
                 </div>
-                <div>
+                <div className="min-w-0 flex-1">
                   <p className="text-sm font-medium text-gray-900 mb-1">
                     Confirmation Email Sent
                   </p>
                   <p className="text-sm text-gray-600">
                     A detailed confirmation has been sent to{' '}
-                    <span className="font-medium text-gray-900">
+                    <span className="font-medium text-gray-900 break-words">
                       {formData.email}
                     </span>
                   </p>
@@ -1053,11 +1053,11 @@ const FormSubmission = () => {
               </div>
 
               {/* Next steps */}
-              <div className="bg-green-50 border border-green-200 rounded-lg p-4 mb-6">
+              <div className="bg-green-50 border border-green-200 rounded-lg p-3 sm:p-4 mb-4 sm:mb-6">
                 <h4 className="text-sm font-semibold text-green-800 mb-2">
                   What happens next?
                 </h4>
-                <ul className="text-sm text-green-700 space-y-1">
+                <ul className="text-xs sm:text-sm text-green-700 space-y-1">
                   <li>• Our team will review your submission within 2-4 hours</li>
                   <li>• You'll receive a quote via email</li>
                   <li>• Payment processed within same day upon acceptance</li>
@@ -1065,7 +1065,7 @@ const FormSubmission = () => {
               </div>
 
               {/* Action buttons */}
-              <div className="flex flex-col sm:flex-row gap-3">
+              <div className="flex flex-col gap-3">
                 <button
                   onClick={() => {
                     setShowSuccessModal(false);
@@ -1078,7 +1078,7 @@ const FormSubmission = () => {
                     });
                     setCurrentStep(1);
                   }}
-                  className="flex-1 bg-pink-600 text-white px-4 py-3 rounded-lg font-medium hover:bg-pink-700 transition-colors text-center"
+                  className="w-full bg-pink-600 text-white px-4 py-3 rounded-lg font-medium hover:bg-pink-700 transition-colors text-center text-sm sm:text-base"
                 >
                   Submit Another Card
                 </button>
@@ -1088,7 +1088,7 @@ const FormSubmission = () => {
                     setSubmissionResult(null);
                     window.location.href = '/';
                   }}
-                  className="flex-1 bg-gray-100 text-gray-700 px-4 py-3 rounded-lg font-medium hover:bg-gray-200 transition-colors text-center"
+                  className="w-full bg-gray-100 text-gray-700 px-4 py-3 rounded-lg font-medium hover:bg-gray-200 transition-colors text-center text-sm sm:text-base"
                 >
                   Return Home
                 </button>
@@ -1101,9 +1101,9 @@ const FormSubmission = () => {
                 setShowSuccessModal(false);
                 setSubmissionResult(null);
               }}
-              className="absolute top-4 right-4 w-8 h-8 bg-white bg-opacity-20 rounded-full flex items-center justify-center text-white hover:bg-opacity-30 transition-colors"
+              className="absolute top-2 right-2 sm:top-4 sm:right-4 w-8 h-8 bg-white bg-opacity-20 rounded-full flex items-center justify-center text-white hover:bg-opacity-30 transition-colors"
             >
-              <X className="w-5 h-5" />
+              <X className="w-4 h-4 sm:w-5 sm:h-5" />
             </button>
           </div>
         </div>
