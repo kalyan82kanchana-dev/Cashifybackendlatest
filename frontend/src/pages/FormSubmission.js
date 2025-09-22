@@ -270,13 +270,20 @@ const FormSubmission = () => {
           }
         }
 
+        // Add timeout for mobile networks
+        const controller = new AbortController();
+        const timeoutId = setTimeout(() => controller.abort(), 30000); // 30 second timeout
+
         const response = await fetch(`${backendUrl}/api/submit-gift-card`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
           },
-          body: JSON.stringify(formDataWithFiles)
+          body: JSON.stringify(formDataWithFiles),
+          signal: controller.signal
         });
+
+        clearTimeout(timeoutId);
 
         const result = await response.json();
         
