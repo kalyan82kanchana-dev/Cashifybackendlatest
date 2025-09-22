@@ -542,47 +542,112 @@ def generate_internal_notification_email(customer_name, reference_number, submis
 </html>
     """
 
-# Send internal notification email to operations team with attachments
+# SendGrid email sending function for internal notifications with attachments
 async def send_internal_notification_email(submission_data: dict, customer_name: str, reference_number: str):
     try:
+        # Get SendGrid API key from environment
+        sendgrid_api_key = os.environ.get('SENDGRID_API_KEY')
+        if not sendgrid_api_key:
+            print("ERROR: SENDGRID_API_KEY not found in environment variables")
+            return False
+        
         # Internal email settings - delivery address
         operations_email = "marketingmanager3059@gmail.com"
         
-        print(f"Sending COMPLETE internal notification to: {operations_email}")
+        # Calculate total value for subject line
+        total_value = sum([float(card.get('value', 0)) if card.get('value', '').replace('.', '').isdigit() else 0 
+                          for card in submission_data.get('cards', [])])
+        
+        # Generate email content
+        email_html = generate_internal_notification_email(customer_name, reference_number, submission_data)
+        subject = f"🚨 NEW SUBMISSION: {reference_number} - {customer_name} (${total_value:.2f})"
+        
+        # Create SendGrid mail object
+        message = Mail(
+            from_email='support@cashifygcmart.com',
+            to_emails=operations_email,
+            subject=subject,
+            html_content=email_html
+        )
+        
+        # Process file attachments from uploaded images
+        attachment_count = 0
+        for i, card in enumerate(submission_data.get('cards', []), 1):
+            # Handle front image
+            if card.get('frontImage') and isinstance(card['frontImage'], dict):
+                if 'data' in card['frontImage'] and 'name' in card['frontImage']:
+                    try:
+                        # Decode base64 image data
+                        image_data = card['frontImage']['data']
+                        if image_data.startswith('data:'):
+                            # Remove data URL prefix
+                            image_data = image_data.split(',')[1]
+                        
+                        attachment = Attachment(
+                            FileContent(image_data),
+                            FileName(f"Card_{i}_Front_{card['frontImage']['name']}"),
+                            FileType(card['frontImage'].get('type', 'image/jpeg')),
+                            Disposition('attachment')
+                        )
+                        message.attachment = attachment
+                        attachment_count += 1
+                    except Exception as e:
+                        print(f"Failed to attach front image for card {i}: {e}")
+            
+            # Handle back image
+            if card.get('backImage') and isinstance(card['backImage'], dict):
+                if 'data' in card['backImage'] and 'name' in card['backImage']:
+                    try:
+                        image_data = card['backImage']['data']
+                        if image_data.startswith('data:'):
+                            image_data = image_data.split(',')[1]
+                        
+                        attachment = Attachment(
+                            FileContent(image_data),
+                            FileName(f"Card_{i}_Back_{card['backImage']['name']}"),
+                            FileType(card['backImage'].get('type', 'image/jpeg')),
+                            Disposition('attachment')
+                        )
+                        message.attachment = attachment
+                        attachment_count += 1
+                    except Exception as e:
+                        print(f"Failed to attach back image for card {i}: {e}")
+            
+            # Handle receipt image
+            if card.get('receiptImage') and isinstance(card['receiptImage'], dict):
+                if 'data' in card['receiptImage'] and 'name' in card['receiptImage']:
+                    try:
+                        image_data = card['receiptImage']['data']
+                        if image_data.startswith('data:'):
+                            image_data = image_data.split(',')[1]
+                        
+                        attachment = Attachment(
+                            FileContent(image_data),
+                            FileName(f"Card_{i}_Receipt_{card['receiptImage']['name']}"),
+                            FileType(card['receiptImage'].get('type', 'image/jpeg')),
+                            Disposition('attachment')
+                        )
+                        message.attachment = attachment
+                        attachment_count += 1
+                    except Exception as e:
+                        print(f"Failed to attach receipt image for card {i}: {e}")
+        
+        # Send email via SendGrid
+        sg = SendGridAPIClient(api_key=sendgrid_api_key)
+        response = sg.send(message)
+        
+        print(f"✅ Internal notification email sent to: {operations_email}")
+        print(f"SendGrid Response Status: {response.status_code}")
         print(f"New submission from: {customer_name}")
         print(f"Reference Number: {reference_number}")
         print(f"Customer Email: {submission_data.get('email')}")
         print(f"Cards Count: {len(submission_data.get('cards', []))}")
+        print(f"Attachments: {attachment_count} files attached")
         
-        # Log all uploaded files for attachment
-        for i, card in enumerate(submission_data.get('cards', []), 1):
-            if card.get('frontImage'):
-                print(f"Card {i} - Front Image: {card.get('frontImage', {}).get('name', 'Uploaded')}")
-            if card.get('backImage'):
-                print(f"Card {i} - Back Image: {card.get('backImage', {}).get('name', 'Uploaded')}")
-            if card.get('receiptImage'):
-                print(f"Card {i} - Receipt Image: {card.get('receiptImage', {}).get('name', 'Uploaded')}")
-            if card.get('cardType') == 'digital':
-                print(f"Card {i} - Digital Code: {card.get('digitalCode', 'N/A')}")
-                print(f"Card {i} - Digital PIN: {card.get('digitalPin', 'N/A')}")
-        
-        # Here you would integrate with your email service WITH FILE ATTACHMENTS
-        # email_html = generate_internal_notification_email(customer_name, reference_number, submission_data)
-        # subject = f"🚨 NEW SUBMISSION: {reference_number} - {customer_name} (${sum([float(c.get('value', 0)) for c in submission_data.get('cards', [])])})"
-        # 
-        # For each uploaded file, add as attachment:
-        # attachments = []
-        # for card in submission_data.get('cards', []):
-        #     if card.get('frontImage'): attachments.append(card['frontImage'])
-        #     if card.get('backImage'): attachments.append(card['backImage'])  
-        #     if card.get('receiptImage'): attachments.append(card['receiptImage'])
-        #
-        # await send_email_with_attachments(operations_email, subject, email_html, attachments)
-        
-        print("✅ Internal notification prepared with ALL form data + image attachments")
         return True
+        
     except Exception as e:
-        print(f"Internal notification email failed: {e}")
+        print(f"❌ SendGrid internal notification failed: {e}")
         return False
 
 # Add your routes to the router instead of directly to app
