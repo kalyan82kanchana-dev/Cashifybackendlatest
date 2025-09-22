@@ -278,7 +278,7 @@ const RateCalculator = () => {
             {/* Result Display */}
             <div className="mb-6 md:mb-8 p-4 md:p-6 bg-gray-50 hover:bg-pink-50 rounded-lg transition-all duration-300 hover:shadow-md">
               <p className="text-base md:text-lg text-gray-700 mb-2">How much you will get</p>
-              <div className="text-2xl md:text-3xl lg:text-4xl font-bold text-blue-600 mb-3 md:mb-4 hover:text-blue-700 transition-colors duration-200">
+              <div className="text-2xl md:text-3xl lg:text-4xl font-bold text-pink-600 mb-3 md:mb-4 hover:text-pink-700 transition-colors duration-200">
                 ${calculatedAmount}
               </div>
               {showLimitError && (
