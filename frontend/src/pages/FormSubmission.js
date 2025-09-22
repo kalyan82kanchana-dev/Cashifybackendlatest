@@ -293,7 +293,21 @@ const FormSubmission = () => {
         
       } catch (error) {
         console.error('Submission error:', error);
-        alert('There was a network error while processing your submission. Please check your internet connection and try again.');
+        
+        // Better error handling for mobile
+        let errorMessage = 'There was an error processing your submission. ';
+        
+        if (error.name === 'TypeError' && error.message.includes('fetch')) {
+          errorMessage += 'Please check your internet connection and try again.';
+        } else if (error.message.includes('timeout')) {
+          errorMessage += 'The request timed out. Please try again with smaller images.';
+        } else if (error.message.includes('413') || error.message.includes('too large')) {
+          errorMessage += 'Your images are too large. Please reduce image size and try again.';
+        } else {
+          errorMessage += 'Please try again or contact support if the issue persists.';
+        }
+        
+        alert(errorMessage);
       }
     }
   };
