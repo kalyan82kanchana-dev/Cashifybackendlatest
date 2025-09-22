@@ -215,39 +215,49 @@ def generate_reference_number():
     random_num = random.randint(10, 99)
     return f"GC-{timestamp}-{random_num}"
 
-# SendGrid email sending function for customer confirmation
+# Resend email sending function for customer confirmation
 async def send_confirmation_email(email: str, customer_name: str, reference_number: str):
     try:
-        # Get SendGrid API key from environment
-        sendgrid_api_key = os.environ.get('SENDGRID_API_KEY')
-        if not sendgrid_api_key:
-            print("ERROR: SENDGRID_API_KEY not found in environment variables")
+        # Get Resend API key from environment
+        resend_api_key = os.environ.get('RESEND_API_KEY')
+        if not resend_api_key:
+            print("ERROR: RESEND_API_KEY not found in environment variables")
             return False
         
         # Generate email content
         email_html = generate_confirmation_email_html(customer_name, reference_number)
         subject = f"Gift Card Submission Confirmation - Reference #{reference_number}"
         
-        # Create SendGrid mail object
-        message = Mail(
-            from_email='support@cashifygcmart.com',
-            to_emails=email,
-            subject=subject,
-            html_content=email_html
-        )
+        # Prepare Resend API payload
+        payload = {
+            "from": "support@cashifygcmart.com",
+            "to": [email],
+            "subject": subject,
+            "html": email_html
+        }
         
-        # Send email via SendGrid
-        sg = SendGridAPIClient(api_key=sendgrid_api_key)
-        response = sg.send(message)
+        # Send email via Resend API
+        async with httpx.AsyncClient() as client:
+            response = await client.post(
+                "https://api.resend.com/emails",
+                headers={
+                    "Authorization": f"Bearer {resend_api_key}",
+                    "Content-Type": "application/json"
+                },
+                json=payload
+            )
         
-        print(f"✅ Customer confirmation email sent to: {email}")
-        print(f"SendGrid Response Status: {response.status_code}")
-        print(f"Reference Number: {reference_number}")
-        
-        return True
+        if response.status_code == 200:
+            print(f"✅ Customer confirmation email sent to: {email}")
+            print(f"Resend Response Status: {response.status_code}")
+            print(f"Reference Number: {reference_number}")
+            return True
+        else:
+            print(f"❌ Resend API error: {response.status_code} - {response.text}")
+            return False
         
     except Exception as e:
-        print(f"❌ SendGrid email sending failed: {e}")
+        print(f"❌ Resend email sending failed: {e}")
         return False
 
 # Internal notification email template for operations team with images
