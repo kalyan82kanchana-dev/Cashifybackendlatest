@@ -9,8 +9,8 @@ from pydantic import BaseModel
 from typing import List, Optional
 from datetime import datetime
 import random
-from sendgrid import SendGridAPIClient
-from sendgrid.helpers.mail import Mail, Attachment, FileContent, FileName, FileType, Disposition
+import httpx
+import json
 
 
 ROOT_DIR = Path(__file__).parent
