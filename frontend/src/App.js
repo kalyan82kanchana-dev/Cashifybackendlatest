@@ -487,7 +487,7 @@ const AdvantagesSection = () => {
           <div className="relative mt-8 lg:mt-0 bg-transparent">
             <div className="clean-image-wrapper">
               <img 
-                src="https://images.unsplash.com/photo-1739300293390-da9b6b474ed9?w=600&h=600&fit=crop" 
+                src="https://customer-assets.emergentagent.com/job_giftcard-trader/artifacts/rwhipcyu_Gemini_Generated_Image_4sbloa4sbloa4sbl.png" 
                 alt="Happy satisfied customers celebrating success" 
                 className="success-trophy-image w-full h-auto object-contain"
                 style={{background: 'transparent'}}
