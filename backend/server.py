@@ -285,23 +285,25 @@ def generate_confirmation_email_html(customer_name, reference_number):
         
         /* Footer */
         .footer {{
-            background: linear-gradient(135deg, #1f2937 0%, #374151 100%);
-            color: white;
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            color: #1f2937;
             padding: 32px 30px;
             text-align: center;
+            border-top: 3px solid #ec4899;
         }}
         .signature {{
             margin-bottom: 24px;
             padding-bottom: 24px;
-            border-bottom: 1px solid #4b5563;
+            border-bottom: 2px solid #e5e7eb;
         }}
         .signature-name {{
             font-size: 18px;
             font-weight: 600;
             margin-bottom: 4px;
+            color: #1f2937;
         }}
         .signature-title {{
-            color: #d1d5db;
+            color: #6b7280;
             font-size: 14px;
         }}
         .contact-section {{
@@ -315,22 +317,28 @@ def generate_confirmation_email_html(customer_name, reference_number):
             display: flex;
             align-items: center;
             gap: 8px;
-            color: #d1d5db;
+            color: #ffffff;
             text-decoration: none;
             font-size: 14px;
-            padding: 8px 16px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 20px;
+            padding: 12px 20px;
+            background: linear-gradient(135deg, #ec4899 0%, #8b5cf6 100%);
+            border-radius: 25px;
             transition: all 0.3s ease;
+            font-weight: 500;
         }}
         .contact-item:hover {{
-            background: rgba(255, 255, 255, 0.2);
-            color: white;
+            background: linear-gradient(135deg, #db2777 0%, #7c3aed 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(236, 72, 153, 0.3);
         }}
         .footer-note {{
             font-size: 12px;
-            color: #9ca3af;
+            color: #6b7280;
             line-height: 1.5;
+        }}
+        .footer-note a {{
+            color: #ec4899;
+            font-weight: 500;
         }}
         
         /* Links */
