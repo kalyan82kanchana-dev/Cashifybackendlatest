@@ -300,12 +300,12 @@ textarea:focus {
 
 /* Success Trophy Image Styling */
 .success-trophy-image {
-  /* Remove background and optimize display */
+  /* PNG transparency optimization */
   background: transparent;
   mix-blend-mode: normal;
   
   /* Desktop optimization */
-  max-height: 400px;
+  max-height: 450px;
   object-fit: contain;
   
   /* Clean styling */
@@ -315,29 +315,29 @@ textarea:focus {
   animation: float 6s ease-in-out infinite;
 }
 
-/* Mobile responsive adjustments for trophy */
+/* Mobile responsive adjustments for trophy - BIGGER sizes */
 @media (max-width: 768px) {
   .success-trophy-image {
-    max-height: 300px;
+    max-height: 420px;
     margin: 20px auto;
     display: block;
-    width: 90%;
+    width: 95%;
   }
 }
 
 @media (max-width: 480px) {
   .success-trophy-image {
-    max-height: 250px;
-    width: 85%;
-    margin: 15px auto;
+    max-height: 380px;
+    width: 95%;
+    margin: 20px auto;
   }
 }
 
 /* Very small screens */
 @media (max-width: 360px) {
   .success-trophy-image {
-    max-height: 200px;
-    width: 80%;
+    max-height: 340px;
+    width: 90%;
   }
 }
 
