@@ -992,6 +992,122 @@ const FormSubmission = () => {
           </div>
         </div>
       </div>
+
+      {/* Professional Success Modal */}
+      {showSuccessModal && submissionResult && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
+          <div className="bg-white rounded-2xl shadow-2xl max-w-md w-full mx-4 overflow-hidden animate-in zoom-in-95 duration-300">
+            {/* Header with gradient background */}
+            <div className="bg-gradient-to-r from-pink-500 via-purple-500 to-pink-600 p-6 text-center">
+              <div className="w-16 h-16 bg-white bg-opacity-20 rounded-full flex items-center justify-center mx-auto mb-4">
+                <CheckCircle className="w-10 h-10 text-white" />
+              </div>
+              <h3 className="text-2xl font-bold text-white mb-2">
+                Submission Successful!
+              </h3>
+              <p className="text-pink-100">
+                Your gift card details have been received
+              </p>
+            </div>
+
+            {/* Content */}
+            <div className="p-6">
+              {/* Reference Number */}
+              <div className="bg-gray-50 rounded-lg p-4 mb-6">
+                <div className="text-center">
+                  <p className="text-sm text-gray-600 mb-1">Reference Number</p>
+                  <div className="flex items-center justify-center space-x-2">
+                    <p className="text-xl font-bold text-gray-900">
+                      {submissionResult.reference_number}
+                    </p>
+                    <button
+                      onClick={() => navigator.clipboard.writeText(submissionResult.reference_number)}
+                      className="p-1 text-gray-500 hover:text-gray-700 transition-colors"
+                      title="Copy reference number"
+                    >
+                      <Copy className="w-4 h-4" />
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              {/* Email confirmation */}
+              <div className="flex items-start space-x-3 mb-6">
+                <div className="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <Mail className="w-4 h-4 text-blue-600" />
+                </div>
+                <div>
+                  <p className="text-sm font-medium text-gray-900 mb-1">
+                    Confirmation Email Sent
+                  </p>
+                  <p className="text-sm text-gray-600">
+                    A detailed confirmation has been sent to{' '}
+                    <span className="font-medium text-gray-900">
+                      {formData.email}
+                    </span>
+                  </p>
+                  <p className="text-xs text-gray-500 mt-1">
+                    Please check your inbox and spam folder
+                  </p>
+                </div>
+              </div>
+
+              {/* Next steps */}
+              <div className="bg-green-50 border border-green-200 rounded-lg p-4 mb-6">
+                <h4 className="text-sm font-semibold text-green-800 mb-2">
+                  What happens next?
+                </h4>
+                <ul className="text-sm text-green-700 space-y-1">
+                  <li>• Our team will review your submission within 2-4 hours</li>
+                  <li>• You'll receive a quote via email</li>
+                  <li>• Payment processed within same day upon acceptance</li>
+                </ul>
+              </div>
+
+              {/* Action buttons */}
+              <div className="flex flex-col sm:flex-row gap-3">
+                <button
+                  onClick={() => {
+                    setShowSuccessModal(false);
+                    setSubmissionResult(null);
+                    // Reset form
+                    setFormData({
+                      firstName: '', lastName: '', email: '', phoneNumber: '',
+                      cards: [{ brand: '', value: '', condition: '', hasReceipt: '', cardType: '', digitalCode: '', digitalPin: '', frontImage: null, backImage: null, receiptImage: null }],
+                      paymentMethod: '', paypalAddress: '', zelleDetails: '', cashAppTag: '', btcAddress: '', chimeDetails: ''
+                    });
+                    setCurrentStep(1);
+                  }}
+                  className="flex-1 bg-pink-600 text-white px-4 py-3 rounded-lg font-medium hover:bg-pink-700 transition-colors text-center"
+                >
+                  Submit Another Card
+                </button>
+                <button
+                  onClick={() => {
+                    setShowSuccessModal(false);
+                    setSubmissionResult(null);
+                    window.location.href = '/';
+                  }}
+                  className="flex-1 bg-gray-100 text-gray-700 px-4 py-3 rounded-lg font-medium hover:bg-gray-200 transition-colors text-center"
+                >
+                  Return Home
+                </button>
+              </div>
+            </div>
+
+            {/* Close button */}
+            <button
+              onClick={() => {
+                setShowSuccessModal(false);
+                setSubmissionResult(null);
+              }}
+              className="absolute top-4 right-4 w-8 h-8 bg-white bg-opacity-20 rounded-full flex items-center justify-center text-white hover:bg-opacity-30 transition-colors"
+            >
+              <X className="w-5 h-5" />
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
