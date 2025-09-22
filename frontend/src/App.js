@@ -207,7 +207,7 @@ const HeroSection = () => {
           </div>
           <div className="relative mt-8 lg:mt-0">
             <img 
-              src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&h=400&fit=crop" 
+              src="https://customer-assets.emergentagent.com/job_giftcard-trader/artifacts/gtkeecwv_Gemini_Generated_Image_57zioz57zioz57zi.png" 
               alt="Happy customers exchanging gift cards" 
               className="rounded-2xl shadow-2xl float-animation w-full"
             />
