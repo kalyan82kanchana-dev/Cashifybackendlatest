@@ -186,7 +186,7 @@ const RateCalculator = () => {
         {/* Header */}
         <div className="text-center mb-6 md:mb-8 lg:mb-10">
           <div className="flex justify-center mb-3 md:mb-4">
-            <div className="bg-blue-600 p-2 md:p-3 rounded-full">
+            <div className="bg-pink-600 p-2 md:p-3 rounded-full">
               <Calculator className="h-6 w-6 md:h-8 md:w-8 text-white" />
             </div>
           </div>
