@@ -285,59 +285,78 @@ def generate_confirmation_email_html(customer_name, reference_number):
         
         /* Footer */
         .footer {{
-            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            background: #ffffff;
             color: #1f2937;
-            padding: 32px 30px;
+            padding: 40px 30px;
             text-align: center;
-            border-top: 3px solid #ec4899;
+            border-top: 1px solid #e5e7eb;
         }}
         .signature {{
-            margin-bottom: 24px;
-            padding-bottom: 24px;
-            border-bottom: 2px solid #e5e7eb;
+            margin-bottom: 30px;
         }}
         .signature-name {{
-            font-size: 18px;
-            font-weight: 600;
-            margin-bottom: 4px;
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 6px;
             color: #1f2937;
         }}
         .signature-title {{
             color: #6b7280;
-            font-size: 14px;
+            font-size: 16px;
+            font-weight: 500;
         }}
         .contact-section {{
+            margin: 30px 0;
+        }}
+        .contact-info {{
             display: flex;
             justify-content: center;
-            gap: 32px;
-            margin-bottom: 24px;
+            gap: 40px;
             flex-wrap: wrap;
+            margin-bottom: 20px;
         }}
         .contact-item {{
             display: flex;
             align-items: center;
             gap: 8px;
-            color: #ffffff;
+            color: #374151;
             text-decoration: none;
-            font-size: 14px;
-            padding: 12px 20px;
-            background: linear-gradient(135deg, #ec4899 0%, #8b5cf6 100%);
-            border-radius: 25px;
-            transition: all 0.3s ease;
+            font-size: 15px;
             font-weight: 500;
+            transition: color 0.3s ease;
         }}
         .contact-item:hover {{
-            background: linear-gradient(135deg, #db2777 0%, #7c3aed 100%);
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(236, 72, 153, 0.3);
+            color: #ec4899;
+        }}
+        .contact-icon {{
+            width: 18px;
+            height: 18px;
+            opacity: 0.7;
+        }}
+        .footer-divider {{
+            width: 60px;
+            height: 2px;
+            background: linear-gradient(135deg, #ec4899 0%, #8b5cf6 100%);
+            margin: 20px auto;
+            border-radius: 1px;
         }}
         .footer-note {{
-            font-size: 12px;
+            font-size: 13px;
             color: #6b7280;
-            line-height: 1.5;
+            line-height: 1.6;
+            max-width: 400px;
+            margin: 0 auto;
         }}
         .footer-note a {{
             color: #ec4899;
+            font-weight: 500;
+            text-decoration: none;
+        }}
+        .footer-note a:hover {{
+            text-decoration: underline;
+        }}
+        .copyright {{
+            margin-bottom: 8px;
             font-weight: 500;
         }}
         
