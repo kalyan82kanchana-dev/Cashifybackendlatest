@@ -130,55 +130,7 @@ const GettingStarted = () => {
                           alt={step.title}
                           className="w-full h-full object-cover"
                         />
-                        {/* Overlay Content Based on Step */}
-                        <div className="absolute inset-0 bg-black/20 flex items-center justify-center">
-                          {step.number === "1" && (
-                            <div className="text-center text-white">
-                              <Calculator className="w-16 h-16 mx-auto mb-4" />
-                              <div className="bg-white/90 text-gray-900 px-6 py-2 rounded-full font-bold text-xl">
-                                92% Rate
-                              </div>
-                            </div>
-                          )}
-                          {step.number === "2" && (
-                            <div className="text-center text-white">
-                              <div className="bg-white/90 text-gray-900 p-4 rounded-2xl">
-                                <CreditCard className="w-12 h-12 mx-auto mb-2 text-pink-600" />
-                                <div className="text-sm font-semibold">Payment Methods</div>
-                              </div>
-                            </div>
-                          )}
-                          {step.number === "3" && (
-                            <div className="text-center text-white">
-                              <FileText className="w-16 h-16 mx-auto mb-4" />
-                              <div className="bg-white/90 text-gray-900 px-4 py-2 rounded-full font-semibold">
-                                Submit Form
-                              </div>
-                            </div>
-                          )}
-                          {step.number === "4" && (
-                            <div className="text-center text-white">
-                              <DollarSign className="w-16 h-16 mx-auto mb-4" />
-                              <div className="bg-white/90 text-gray-900 px-4 py-2 rounded-full font-semibold">
-                                Same-Day Pay
-                              </div>
-                            </div>
-                          )}
-                        </div>
                       </div>
-                      
-                      {/* Floating Brand Icons */}
-                      <div className="absolute -top-4 -right-4 w-12 h-12 bg-white rounded-full shadow-lg flex items-center justify-center">
-                        <span className="text-2xl">🎯</span>
-                      </div>
-                      <div className="absolute -bottom-4 -left-4 w-10 h-10 bg-white rounded-full shadow-lg flex items-center justify-center">
-                        <span className="text-xl">💳</span>
-                      </div>
-                      {step.number === "2" && (
-                        <div className="absolute top-8 -left-6 w-14 h-14 bg-white rounded-full shadow-lg flex items-center justify-center">
-                          <span className="text-2xl">🔒</span>
-                        </div>
-                      )}
                     </div>
                   </div>
                 </div>
