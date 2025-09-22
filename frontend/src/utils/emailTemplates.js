@@ -437,44 +437,50 @@ export const generateSubmissionConfirmationEmail = (customerName, referenceNumbe
 
 // Plain text version for email clients that don't support HTML
 export const generateSubmissionConfirmationText = (customerName, referenceNumber, submissionData) => {
-  return `
-Thank You for Your Submission, ${customerName}
+  return `CASHIFYGCMART - SUBMISSION RECEIVED SUCCESSFULLY
+========================================================
 
-Reference Number: ${referenceNumber}
+Hello ${customerName},
 
-Thank you for submitting your gift card details to Cashifygcmart. Below is an update on the current status of your submission.
+Your gift card submission has been received and is now under review.
 
-CURRENT STATUS
-Our team is currently reviewing the gift card details you provided. This process ensures all submissions meet our standards for accuracy and authenticity. Your cooperation helps us maintain the trust and quality our customers rely on.
+REFERENCE NUMBER: ${referenceNumber}
+STATUS: Under Review
 
-NEXT STEPS
-• Notification Timeline: You will receive an update within 14 hours. Please check your inbox and spam/junk folders.
-• If Approved: We'll provide redemption details and timelines in the follow-up email.
-• If Not Approved: If no response is received within 8 hours, it may indicate your submission wasn't approved. Contact us for clarification.
+WHAT HAPPENS NEXT:
+==================
+1. VERIFICATION PROCESS
+   Our team reviews your submission within 2-4 hours during business hours.
 
-IMPORTANT: Do not use your gift card during the review period to avoid processing issues.
+2. EMAIL NOTIFICATION
+   You'll receive a quote or additional information request at ${submissionData.email}.
 
-GIFT CARD SUBMISSION GUIDELINES
-• Eligible Cards: Only those listed in our Rate Calculator.
-• Minimum Value: $50 per card.
-• Processing Times: Vary based on demand and market conditions.
-• Sundays: Submissions are processed on the next business day.
-• After 8 PM EST: Processed the following day.
-• Payment Methods: May be updated based on transaction success.
-• Unlisted Cards: Contact support before submission.
-• Disclaimer: Cashifygcmart is not responsible for balance discrepancies on unlisted cards.
+3. QUICK PAYMENT
+   Upon approval, payment is processed the same business day.
 
-Thank you again for choosing Cashifygcmart. Our support team is always here to help.
+⚠️ IMPORTANT NOTICE
+==================
+Please do not use or redeem your gift card while it's under review. This ensures smooth processing and prevents any complications with your submission.
+
+PROCESSING GUIDELINES:
+=====================
+• Processing Hours: Monday-Saturday, 9 AM - 8 PM EST
+• Sunday submissions reviewed Monday
+• Minimum Value: $50 per card
+• Only cards listed in Rate Calculator accepted
+• Response Time: Updates within 2-4 hours
+• Check inbox and spam folders
+• Include reference number ${referenceNumber} in all correspondence
+
+CONTACT INFORMATION:
+===================
+📧 Email: support@cashifygcmart.com
+🌐 Website: www.cashifygcmart.com
 
 Best regards,
 Robert Smith
-Customer Support Manager
+Customer Success Manager
 
-📧 support@cashifygcmart.com
-🌐 www.cashifygcmart.com
-
----
 © 2025 Cashifygcmart. All rights reserved.
-Please add support@cashifygcmart.com to your contacts to ensure our emails reach your inbox.
-`;
+Add support@cashifygcmart.com to your contacts for best delivery.`;
 };
