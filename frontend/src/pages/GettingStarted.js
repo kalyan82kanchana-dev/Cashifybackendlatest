@@ -26,7 +26,7 @@ const GettingStarted = () => {
       number: "3",
       title: "Submit form", 
       description: "Our submission form securely collects your gift card details along with essential contact information your full name, phone number, email address, and any other required fields in one simple step. Just complete the form, upload clear images of your card, and hit 'Submit.' Once we verify everything, you'll be on your way to receiving your instant cash payment without any extra hassle.",
-      illustration: "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=400&h=300&fit=crop"
+      illustration: "https://customer-assets.emergentagent.com/job_giftcard-trader/artifacts/l5klcneu_20250922_2254_Customer%20Submission%20Success_remix_01k5s75dnjefjbg5y9q69hqbmg.png"
     },
     {
       number: "4",
