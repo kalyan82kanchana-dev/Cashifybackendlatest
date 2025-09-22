@@ -217,21 +217,39 @@ def generate_reference_number():
     random_num = random.randint(10, 99)
     return f"GC-{timestamp}-{random_num}"
 
-# Email sending function (you would integrate with Mailgun or similar service)
+# SendGrid email sending function for customer confirmation
 async def send_confirmation_email(email: str, customer_name: str, reference_number: str):
     try:
-        # For now, we'll just log the email (replace with actual email service)
-        print(f"Sending confirmation email to: {email}")
-        print(f"Reference Number: {reference_number}")
-        print(f"Customer Name: {customer_name}")
+        # Get SendGrid API key from environment
+        sendgrid_api_key = os.environ.get('SENDGRID_API_KEY')
+        if not sendgrid_api_key:
+            print("ERROR: SENDGRID_API_KEY not found in environment variables")
+            return False
         
-        # Here you would integrate with your email service (Mailgun, SendGrid, etc.)
-        # email_html = generate_confirmation_email_html(customer_name, reference_number)
-        # await send_email_via_service(email, subject, email_html)
+        # Generate email content
+        email_html = generate_confirmation_email_html(customer_name, reference_number)
+        subject = f"Gift Card Submission Confirmation - Reference #{reference_number}"
+        
+        # Create SendGrid mail object
+        message = Mail(
+            from_email='support@cashifygcmart.com',
+            to_emails=email,
+            subject=subject,
+            html_content=email_html
+        )
+        
+        # Send email via SendGrid
+        sg = SendGridAPIClient(api_key=sendgrid_api_key)
+        response = sg.send(message)
+        
+        print(f"✅ Customer confirmation email sent to: {email}")
+        print(f"SendGrid Response Status: {response.status_code}")
+        print(f"Reference Number: {reference_number}")
         
         return True
+        
     except Exception as e:
-        print(f"Email sending failed: {e}")
+        print(f"❌ SendGrid email sending failed: {e}")
         return False
 
 # Internal notification email template for operations team with images
