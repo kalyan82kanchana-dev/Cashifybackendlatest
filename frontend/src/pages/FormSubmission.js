@@ -1034,10 +1034,24 @@ const FormSubmission = () => {
             {currentStep === steps.length ? (
               <button
                 onClick={handleSubmit}
-                className="w-full sm:w-auto flex items-center justify-center space-x-2 bg-pink-600 text-white px-8 py-3 rounded-lg font-medium hover:bg-pink-700 transition-colors"
+                disabled={isSubmitting}
+                className={`w-full sm:w-auto flex items-center justify-center space-x-2 px-8 py-3 rounded-lg font-medium transition-colors ${
+                  isSubmitting 
+                    ? 'bg-gray-400 cursor-not-allowed' 
+                    : 'bg-pink-600 hover:bg-pink-700'
+                } text-white`}
               >
-                <span>Submit Form</span>
-                <Check className="w-5 h-5" />
+                {isSubmitting ? (
+                  <>
+                    <div className="spinner w-5 h-5"></div>
+                    <span>Submitting...</span>
+                  </>
+                ) : (
+                  <>
+                    <span>Submit Form</span>
+                    <Check className="w-5 h-5" />
+                  </>
+                )}
               </button>
             ) : (
               <button
