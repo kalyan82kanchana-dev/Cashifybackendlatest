@@ -484,12 +484,15 @@ const AdvantagesSection = () => {
             </div>
           </div>
           
-          <div className="relative mt-8 lg:mt-0">
-            <img 
-              src="https://customer-assets.emergentagent.com/job_giftcard-trader/artifacts/rwhipcyu_Gemini_Generated_Image_4sbloa4sbloa4sbl.png" 
-              alt="Happy satisfied customers celebrating success" 
-              className="success-trophy-image w-full h-auto object-contain"
-            />
+          <div className="relative mt-8 lg:mt-0 bg-transparent">
+            <div className="clean-image-wrapper">
+              <img 
+                src="https://customer-assets.emergentagent.com/job_giftcard-trader/artifacts/rwhipcyu_Gemini_Generated_Image_4sbloa4sbloa4sbl.png" 
+                alt="Happy satisfied customers celebrating success" 
+                className="success-trophy-image w-full h-auto object-contain"
+                style={{background: 'transparent'}}
+              />
+            </div>
           </div>
         </div>
       </div>
