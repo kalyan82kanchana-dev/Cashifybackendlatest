@@ -300,35 +300,23 @@ textarea:focus {
 
 /* Success Trophy Image Styling */
 .clean-image-wrapper {
-  background: transparent !important;
+  background: linear-gradient(135deg, transparent 0%, transparent 100%) !important;
   overflow: hidden;
   position: relative;
 }
 
-.clean-image-wrapper::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: transparent;
-  z-index: -1;
-}
-
 .success-trophy-image {
-  /* Complete background removal */
+  /* Try CSS masking to remove background */
   background: transparent !important;
   
-  /* Try different blend modes to hide background */
-  mix-blend-mode: darken;
+  /* Aggressive background removal */
+  mix-blend-mode: screen;
   
-  /* Use CSS filters for background removal */
+  /* Enhanced filters to eliminate any background */
   filter: 
-    contrast(1.15) 
-    saturate(1.3) 
-    brightness(0.9)
-    hue-rotate(0deg);
+    contrast(1.2) 
+    saturate(1.1) 
+    brightness(1.05);
   
   /* Desktop optimization */
   max-height: 450px;
@@ -340,9 +328,12 @@ textarea:focus {
   /* Subtle animation */
   animation: float 6s ease-in-out infinite;
   
-  /* Image rendering optimization */
-  image-rendering: -webkit-optimize-contrast;
-  image-rendering: crisp-edges;
+  /* Image rendering */
+  image-rendering: auto;
+  
+  /* Additional transparency forcing */
+  -webkit-background-size: cover;
+  background-size: cover;
 }
 
 /* Mobile responsive adjustments for trophy - BIGGER sizes */
