@@ -310,7 +310,7 @@ const RateCalculator = () => {
         </div>
 
         {/* Info Section */}
-        <div className="mt-6 md:mt-8 lg:mt-12 bg-blue-50 rounded-xl p-4 md:p-6 lg:p-8">
+        <div className="mt-6 md:mt-8 lg:mt-12 bg-pink-50 rounded-xl p-4 md:p-6 lg:p-8">
           <div className="text-center">
             <CheckCircle className="h-8 w-8 md:h-10 md:w-10 lg:h-12 lg:w-12 text-blue-600 mx-auto mb-3 md:mb-4" />
             <h3 className="text-lg md:text-xl lg:text-2xl font-bold text-gray-900 mb-3 md:mb-4">How It Works</h3>
