@@ -319,8 +319,9 @@ const FormSubmission = () => {
         }
         
         alert(errorMessage);
+      } finally {
+        setIsSubmitting(false);
       }
-    }
   };
 
   // Helper function to convert file to base64 with compression for mobile
