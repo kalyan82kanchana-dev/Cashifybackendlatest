@@ -57,7 +57,7 @@ def generate_confirmation_email_html(customer_name, reference_number):
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gift Card Submission Confirmation</title>
+    <title>Submission Received — Reference {reference_number}</title>
     <style>
         * {{
             margin: 0;
@@ -88,37 +88,21 @@ def generate_confirmation_email_html(customer_name, reference_number):
             text-align: center;
             position: relative;
         }}
-        .header::before {{
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="50" cy="50" r="1" fill="white" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
-            opacity: 0.3;
-        }}
         .logo {{
             font-size: 28px;
             font-weight: 800;
             margin-bottom: 8px;
-            position: relative;
-            z-index: 1;
         }}
         .tagline {{
             font-size: 12px;
             opacity: 0.9;
             text-transform: uppercase;
             letter-spacing: 1px;
-            position: relative;
-            z-index: 1;
         }}
         .header h1 {{
             margin-top: 20px;
             font-size: 24px;
             font-weight: 600;
-            position: relative;
-            z-index: 1;
         }}
         
         /* Content */
@@ -126,110 +110,72 @@ def generate_confirmation_email_html(customer_name, reference_number):
             padding: 40px 30px;
         }}
         
-        /* Status Card */
-        .status-card {{
+        /* Greeting */
+        .greeting {{
+            font-size: 18px;
+            margin-bottom: 20px;
+            color: #1f2937;
+        }}
+        
+        /* Reference Card */
+        .reference-card {{
             background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
             border: 2px solid #0ea5e9;
             border-radius: 12px;
-            padding: 24px;
-            margin-bottom: 32px;
-            position: relative;
-        }}
-        .status-card::before {{
-            content: '✓';
-            position: absolute;
-            top: -12px;
-            left: 24px;
-            background: #0ea5e9;
-            color: white;
-            width: 24px;
-            height: 24px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            font-size: 14px;
-        }}
-        .status-title {{
-            font-size: 18px;
-            font-weight: 700;
-            color: #0c4a6e;
-            margin-bottom: 8px;
+            padding: 20px;
+            margin-bottom: 30px;
+            text-align: center;
         }}
         .reference-number {{
-            font-size: 20px;
+            font-size: 24px;
             font-weight: 800;
             color: #ec4899;
             font-family: 'Monaco', 'Consolas', monospace;
-            margin-bottom: 12px;
+            margin-bottom: 8px;
         }}
-        .status-text {{
-            color: #1e40af;
+        .reference-text {{
+            color: #0c4a6e;
             font-weight: 500;
-            background: rgba(255, 255, 255, 0.8);
-            padding: 12px;
-            border-radius: 8px;
-            margin-top: 12px;
         }}
         
-        /* Section Cards */
-        .section-card {{
-            background: #ffffff;
-            border: 1px solid #e5e7eb;
-            border-radius: 12px;
-            margin-bottom: 24px;
-            overflow: hidden;
-        }}
+        /* Section Headers */
         .section-header {{
-            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
-            padding: 20px 24px;
-            border-bottom: 1px solid #e5e7eb;
-        }}
-        .section-title {{
-            font-size: 18px;
+            font-size: 20px;
             font-weight: 700;
             color: #1f2937;
-            display: flex;
-            align-items: center;
+            margin: 30px 0 15px 0;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #ec4899;
         }}
-        .section-icon {{
-            margin-right: 12px;
-            font-size: 20px;
-        }}
-        .section-content {{
-            padding: 24px;
+        
+        /* Status Section */
+        .status-section {{
+            background: #f8fafc;
+            padding: 20px;
+            border-radius: 12px;
+            margin-bottom: 25px;
         }}
         
         /* Next Steps */
-        .steps-list {{
-            list-style: none;
-            counter-reset: step-counter;
+        .next-steps {{
+            background: #ffffff;
+            border: 1px solid #e5e7eb;
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 25px;
         }}
-        .steps-list li {{
-            counter-increment: step-counter;
+        .step-item {{
+            margin-bottom: 15px;
+            padding-left: 20px;
             position: relative;
-            padding: 16px 0 16px 50px;
-            border-bottom: 1px solid #f3f4f6;
         }}
-        .steps-list li:last-child {{
-            border-bottom: none;
-        }}
-        .steps-list li::before {{
-            content: counter(step-counter);
+        .step-item::before {{
+            content: "•";
+            color: #ec4899;
+            font-weight: bold;
             position: absolute;
             left: 0;
-            top: 16px;
-            background: #ec4899;
-            color: white;
-            width: 32px;
-            height: 32px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            font-size: 14px;
+            font-size: 18px;
         }}
         .step-title {{
             font-weight: 600;
@@ -247,56 +193,94 @@ def generate_confirmation_email_html(customer_name, reference_number):
             border: 2px solid #f87171;
             border-radius: 12px;
             padding: 20px;
-            margin: 24px 0;
+            margin: 25px 0;
             position: relative;
-        }}
-        .important-notice::before {{
-            content: '⚠️';
-            position: absolute;
-            top: -12px;
-            left: 20px;
-            background: #ef4444;
-            color: white;
-            width: 24px;
-            height: 24px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 12px;
         }}
         .important-title {{
             font-weight: 700;
             color: #dc2626;
             margin-bottom: 8px;
+            font-size: 16px;
         }}
         .important-text {{
             color: #7f1d1d;
             font-weight: 500;
         }}
         
-        /* Guidelines Grid */
-        .guidelines-grid {{
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 16px;
-            margin-top: 16px;
+        /* Guidelines Section */
+        .guidelines-section {{
+            background: #ffffff;
+            border: 1px solid #e5e7eb;
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 25px;
         }}
         .guideline-item {{
-            background: #f8fafc;
-            border: 1px solid #e2e8f0;
-            border-radius: 8px;
-            padding: 16px;
+            margin-bottom: 15px;
+            padding-left: 20px;
+            position: relative;
+        }}
+        .guideline-item::before {{
+            content: "•";
+            color: #1e40af;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+            font-size: 18px;
         }}
         .guideline-title {{
             font-weight: 600;
-            color: #1e40af;
-            margin-bottom: 6px;
-            font-size: 14px;
+            color: #1f2937;
+            margin-bottom: 4px;
         }}
-        .guideline-text {{
+        .guideline-description {{
+            color: #6b7280;
+            margin-bottom: 8px;
+        }}
+        .sub-guidelines {{
+            margin-left: 20px;
+            margin-top: 8px;
+        }}
+        .sub-guideline {{
+            color: #6b7280;
+            font-size: 14px;
+            margin-bottom: 4px;
+        }}
+        
+        /* Disclaimer */
+        .disclaimer {{
+            background: #fef7ee;
+            border-left: 4px solid #f59e0b;
+            padding: 15px;
+            margin: 20px 0;
+            font-style: italic;
+            color: #92400e;
+        }}
+        
+        /* Questions Section */
+        .questions-section {{
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 20px;
+            margin: 25px 0;
+        }}
+        .questions-title {{
+            font-size: 18px;
+            font-weight: 700;
+            color: #1e40af;
+            margin-bottom: 12px;
+        }}
+        .reference-instruction {{
             color: #64748b;
-            font-size: 13px;
+            font-size: 14px;
+            margin-bottom: 8px;
+        }}
+        
+        /* Closing */
+        .closing {{
+            margin: 25px 0;
+            color: #374151;
         }}
         
         /* Footer */
@@ -349,6 +333,15 @@ def generate_confirmation_email_html(customer_name, reference_number):
             line-height: 1.5;
         }}
         
+        /* Links */
+        a {{
+            color: #ec4899;
+            text-decoration: none;
+        }}
+        a:hover {{
+            text-decoration: underline;
+        }}
+        
         /* Mobile Responsive */
         @media (max-width: 640px) {{
             .email-container {{
@@ -358,15 +351,9 @@ def generate_confirmation_email_html(customer_name, reference_number):
             .header, .content, .footer {{
                 padding: 24px 20px;
             }}
-            .status-card, .section-content {{
-                padding: 16px;
-            }}
             .contact-section {{
                 flex-direction: column;
                 gap: 12px;
-            }}
-            .guidelines-grid {{
-                grid-template-columns: 1fr;
             }}
         }}
     </style>
@@ -377,82 +364,105 @@ def generate_confirmation_email_html(customer_name, reference_number):
         <div class="header">
             <div class="logo">Cashifygcmart</div>
             <div class="tagline">Instant Offers, Same-Day Payments</div>
-            <h1>Submission Received Successfully!</h1>
+            <h1>Submission Received</h1>
         </div>
         
         <!-- Content -->
         <div class="content">
-            <!-- Status Card -->
-            <div class="status-card">
-                <div class="status-title">Hello {customer_name},</div>
-                <div class="reference-number">Reference: {reference_number}</div>
-                <div class="status-text">
-                    Your gift card submission has been received and is now under review by our verification team.
-                </div>
+            <!-- Greeting -->
+            <div class="greeting">
+                Hi {customer_name},
             </div>
             
-            <!-- Next Steps Section -->
-            <div class="section-card">
-                <div class="section-header">
-                    <div class="section-title">
-                        <span class="section-icon">🚀</span>
-                        What Happens Next
-                    </div>
+            <p>Thanks — we've received your gift card submission. Your reference number is <strong>{reference_number}</strong>. Below is the current status and what to expect next.</p>
+            
+            <!-- Reference Card -->
+            <div class="reference-card">
+                <div class="reference-number">{reference_number}</div>
+                <div class="reference-text">Your Reference Number</div>
+            </div>
+            
+            <!-- Current Status -->
+            <h2 class="section-header">Current status</h2>
+            <div class="status-section">
+                <p>Our team is reviewing the gift card details you submitted to confirm accuracy and authenticity. This verification helps us keep the process safe and reliable for everyone.</p>
+            </div>
+            
+            <!-- Next Steps -->
+            <h2 class="section-header">Next steps</h2>
+            <div class="next-steps">
+                <div class="step-item">
+                    <div class="step-title">When you'll hear from us:</div>
+                    <div class="step-description">Expect an update within 14 hours. Please check your inbox (and spam/junk folder).</div>
                 </div>
-                <div class="section-content">
-                    <ul class="steps-list">
-                        <li>
-                            <div class="step-title">Verification Process</div>
-                            <div class="step-description">Our team reviews your submission within 2-4 hours during business hours</div>
-                        </li>
-                        <li>
-                            <div class="step-title">Email Notification</div>
-                            <div class="step-description">You'll receive a quote or additional information request</div>
-                        </li>
-                        <li>
-                            <div class="step-title">Quick Payment</div>
-                            <div class="step-description">Upon approval, payment is processed the same business day</div>
-                        </li>
-                    </ul>
+                
+                <div class="step-item">
+                    <div class="step-title">If approved:</div>
+                    <div class="step-description">We'll email redemption instructions and the payout timeline.</div>
+                </div>
+                
+                <div class="step-item">
+                    <div class="step-title">If not approved:</div>
+                    <div class="step-description">You'll receive an explanation. If you still haven't heard from us 8 hours after the 14-hour window, please contact support so we can follow up.</div>
                 </div>
             </div>
             
             <!-- Important Notice -->
             <div class="important-notice">
-                <div class="important-title">Important Notice</div>
-                <div class="important-text">
-                    Please do not use or redeem your gift card while it's under review. This ensures smooth processing and prevents any complications with your submission.
+                <div class="important-title">Important:</div>
+                <div class="important-text">Please do not use the gift card while it's under review to avoid processing issues.</div>
+            </div>
+            
+            <!-- Submission Guidelines -->
+            <h2 class="section-header">Submission guidelines & processing</h2>
+            <div class="guidelines-section">
+                <div class="guideline-item">
+                    <div class="guideline-title">Eligible cards:</div>
+                    <div class="guideline-description">Only cards listed in our Rate Calculator are accepted.</div>
+                </div>
+                
+                <div class="guideline-item">
+                    <div class="guideline-title">Minimum value:</div>
+                    <div class="guideline-description">$50 per card.</div>
+                </div>
+                
+                <div class="guideline-item">
+                    <div class="guideline-title">Processing times:</div>
+                    <div class="guideline-description">Vary depending on demand and market conditions.</div>
+                </div>
+                
+                <div class="guideline-item">
+                    <div class="guideline-title">Sundays & late submissions:</div>
+                    <div class="guideline-description">Submissions on Sundays or after 8:00 PM EST are processed the next business day.</div>
+                </div>
+                
+                <div class="guideline-item">
+                    <div class="guideline-title">Payment methods:</div>
+                    <div class="guideline-description">Payout method may change depending on transaction outcome.</div>
+                </div>
+                
+                <div class="guideline-item">
+                    <div class="guideline-title">Unlisted cards:</div>
+                    <div class="guideline-description">Contact support before submitting cards not shown in the Rate Calculator.</div>
                 </div>
             </div>
             
-            <!-- Guidelines Section -->
-            <div class="section-card">
-                <div class="section-header">
-                    <div class="section-title">
-                        <span class="section-icon">📋</span>
-                        Processing Guidelines
-                    </div>
-                </div>
-                <div class="section-content">
-                    <div class="guidelines-grid">
-                        <div class="guideline-item">
-                            <div class="guideline-title">Processing Hours</div>
-                            <div class="guideline-text">Monday-Saturday, 9 AM - 8 PM EST<br>Sunday submissions reviewed Monday</div>
-                        </div>
-                        <div class="guideline-item">
-                            <div class="guideline-title">Minimum Value</div>
-                            <div class="guideline-text">$50 per card<br>Only cards listed in Rate Calculator accepted</div>
-                        </div>
-                        <div class="guideline-item">
-                            <div class="guideline-title">Response Time</div>
-                            <div class="guideline-text">Updates within 2-4 hours<br>Check inbox and spam folders</div>
-                        </div>
-                        <div class="guideline-item">
-                            <div class="guideline-title">Questions?</div>
-                            <div class="guideline-text">Include reference number {reference_number}<br>in all correspondence</div>
-                        </div>
-                    </div>
-                </div>
+            <!-- Disclaimer -->
+            <div class="disclaimer">
+                <strong>Disclaimer:</strong> <a href="https://cashifygcmart.com">CashifyGCmart</a> is not responsible for balance discrepancies on unlisted cards.
+            </div>
+            
+            <!-- Questions Section -->
+            <div class="questions-section">
+                <div class="questions-title">Questions?</div>
+                <div class="reference-instruction">Include reference number <strong>{reference_number}</strong></div>
+                <div class="reference-instruction">in all correspondence</div>
+            </div>
+            
+            <!-- Closing -->
+            <div class="closing">
+                <p>If you have questions or need help, reply to this email or contact our support team.</p>
+                <p>Thanks for choosing <a href="https://cashifygcmart.com">CashifyGCmart</a> — we'll be in touch soon.</p>
             </div>
         </div>
         
@@ -460,7 +470,7 @@ def generate_confirmation_email_html(customer_name, reference_number):
         <div class="footer">
             <div class="signature">
                 <div class="signature-name">Robert Smith</div>
-                <div class="signature-title">Customer Success Manager</div>
+                <div class="signature-title">Customer Support Manager</div>
             </div>
             
             <div class="contact-section">
