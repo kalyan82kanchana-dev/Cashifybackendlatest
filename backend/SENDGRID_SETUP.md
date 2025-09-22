@@ -69,7 +69,7 @@ Images are decoded from base64 format and attached to internal notification emai
 
 ## Error Handling
 
-- Graceful fallback if SendGrid API key is missing
+- Graceful fallback if Resend API key is missing
 - Individual attachment failures don't stop email sending
 - Detailed logging for debugging
 - Returns success/failure status for each email type
@@ -77,22 +77,22 @@ Images are decoded from base64 format and attached to internal notification emai
 ## Testing
 
 To test the email functionality:
-1. Ensure SENDGRID_API_KEY is set in environment
-2. Verify sender email in SendGrid dashboard
+1. Ensure RESEND_API_KEY is set in environment
+2. Verify sender domain in Resend dashboard
 3. Submit a test gift card through the frontend
 4. Check both customer and operations email addresses
 
 ## Production Considerations
 
-1. **Rate Limits**: SendGrid free tier has daily limits
+1. **Rate Limits**: Resend has generous rate limits
 2. **Sender Reputation**: Use verified domain for better deliverability
-3. **Monitoring**: Check SendGrid dashboard for delivery statistics
+3. **Monitoring**: Check Resend dashboard for delivery statistics
 4. **Backup**: Consider fallback email service for critical notifications
 
 ## Support
 
-For SendGrid-related issues:
-- Check SendGrid dashboard for delivery logs
+For Resend-related issues:
+- Check Resend dashboard for delivery logs
 - Verify API key permissions
-- Ensure sender email is verified
-- Review SendGrid documentation: https://docs.sendgrid.com/
+- Ensure sender domain is verified
+- Review Resend documentation: https://resend.com/docs
