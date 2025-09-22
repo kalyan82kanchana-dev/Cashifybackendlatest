@@ -312,13 +312,46 @@ const FormSubmission = () => {
     }
   };
 
-  // Helper function to convert file to base64
+  // Helper function to convert file to base64 with compression for mobile
   const fileToBase64 = (file) => {
     return new Promise((resolve, reject) => {
-      const reader = new FileReader();
-      reader.readAsDataURL(file);
-      reader.onload = () => resolve(reader.result);
-      reader.onerror = error => reject(error);
+      // Check file size - compress if over 2MB
+      if (file.size > 2 * 1024 * 1024) {
+        const canvas = document.createElement('canvas');
+        const ctx = canvas.getContext('2d');
+        const img = new Image();
+        
+        img.onload = () => {
+          // Calculate new dimensions (max 1200px width/height)
+          let { width, height } = img;
+          const maxSize = 1200;
+          
+          if (width > height && width > maxSize) {
+            height = (height * maxSize) / width;
+            width = maxSize;
+          } else if (height > maxSize) {
+            width = (width * maxSize) / height;
+            height = maxSize;
+          }
+          
+          canvas.width = width;
+          canvas.height = height;
+          
+          // Draw and compress
+          ctx.drawImage(img, 0, 0, width, height);
+          const compressedDataURL = canvas.toDataURL('image/jpeg', 0.8); // 80% quality
+          resolve(compressedDataURL);
+        };
+        
+        img.onerror = () => reject(new Error('Image compression failed'));
+        img.src = URL.createObjectURL(file);
+      } else {
+        // File is small enough, use as-is
+        const reader = new FileReader();
+        reader.readAsDataURL(file);
+        reader.onload = () => resolve(reader.result);
+        reader.onerror = error => reject(error);
+      }
     });
   };
 
