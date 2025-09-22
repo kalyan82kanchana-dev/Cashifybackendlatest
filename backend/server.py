@@ -229,7 +229,7 @@ async def send_confirmation_email(email: str, customer_name: str, reference_numb
         
         # Prepare Resend API payload
         payload = {
-            "from": "support@cashifygcmart.com",
+            "from": "onboarding@resend.dev",  # Use Resend's default verified domain for testing
             "to": [email],
             "subject": subject,
             "html": email_html
