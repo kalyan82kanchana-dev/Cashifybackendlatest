@@ -829,6 +829,7 @@ function App() {
           <Route path="/accepted-cards" element={<><Header /><AcceptedGiftCards /><Footer /></>} />
           <Route path="/faqs" element={<><Header /><FAQs /><Footer /></>} />
           <Route path="/getting-started" element={<><Header /><GettingStarted /><Footer /></>} />
+          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
         </Routes>
       </BrowserRouter>
     </div>
