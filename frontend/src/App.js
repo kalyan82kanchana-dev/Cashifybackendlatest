@@ -237,8 +237,8 @@ const StatsSection = () => {
     <section className="py-12 md:py-16 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <div className="mb-10 md:mb-12">
-          <h2 className="text-pink-600 font-semibold text-base md:text-lg mb-3">NEW TO GIFT CARD TRADING?</h2>
-          <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900">We've Got You Covered.</h3>
+          <h2 className="text-pink-600 font-semibold text-base md:text-lg mb-3">First Time Selling a Gift Card?</h2>
+          <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900">Easy setup, clear rates, and same-day payout options.</h3>
         </div>
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 lg:gap-8">
