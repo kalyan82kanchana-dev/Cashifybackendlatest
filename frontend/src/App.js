@@ -224,7 +224,7 @@ const StatsSection = () => {
 
   const stats = [
     { number: "100+", label: "Choose Your Card", description: "Select a brand and enter the balance to view current offers." },
-    { number: "93%", label: "Get an Instant Quote", description: "We'll show you how much cash you can get - instantly and transparently." },
+    { number: "92%", label: "Get an Instant Quote", description: "Instant transparent pricing so you know what to expect." },
     { number: "650+", label: "Partnering with Trusted Vendors", description: "Partnering with 650+ trusted entities to power our expansive network." },
     { number: "+120", label: "Receive Your Cash", description: "Get is sent quickly from our team, within 24 hours in most cases." }
   ];
