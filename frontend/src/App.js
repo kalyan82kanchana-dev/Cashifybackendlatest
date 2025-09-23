@@ -225,8 +225,7 @@ const StatsSection = () => {
   const stats = [
     { number: "100+", label: "Choose Your Card", description: "Select a brand and enter the balance to view current offers." },
     { number: "92%", label: "Get an Instant Quote", description: "Instant transparent pricing so you know what to expect." },
-    { number: "230+", label: "Trusted Vendor Network", description: "Expert resources from vetted vendors." },
-    { number: "+120", label: "Receive Your Cash", description: "Get is sent quickly from our team, within 24 hours in most cases." }
+    { number: "230+", label: "Trusted Vendor Network", description: "Expert resources from vetted vendors." }
   ];
 
   const handleStatClick = (index) => {
