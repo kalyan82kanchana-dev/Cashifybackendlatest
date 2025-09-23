@@ -327,33 +327,33 @@ const WhyChooseUsSection = () => {
   const features = [
     {
       icon: <Shield className="h-12 w-12" />,
-      title: "Anchored in Integrity",
-      description: "At Cashifygcmart, we value honesty. Every transaction is clear, transparent, and free from hidden terms or fine print."
+      title: "Honest Pricing, Always",
+      description: "Clear, up-front offers — no hidden clauses, ever."
     },
     {
       icon: <Clock className="h-12 w-12" />,
-      title: "Speed & Efficiency",
-      description: "Time is money — we process your gift card trades swiftly, ensuring you receive your cash without delay."
+      title: "Quick Turnaround",
+      description: "Fast verification and prompt payouts so you don't wait for your cash."
     },
     {
       icon: <CheckCircle className="h-12 w-12" />,
-      title: "Dependable Service",
-      description: "Count on consistent, reliable service every time you trade. Whether it's your first card or your fiftieth, we're here to deliver."
+      title: "Consistent Results",
+      description: "Dependable processing and predictable outcomes every time you sell."
     },
     {
       icon: <Smartphone className="h-12 w-12" />,
-      title: "Simplicity at Its Best",
-      description: "No confusion. No tech headaches. Our platform is designed to be clean, user-friendly, and accessible for everyone."
+      title: "Designed for Everyone",
+      description: "Intuitive flows and friction-free steps — sell a card in minutes."
     },
     {
       icon: <Shield className="h-12 w-12" />,
-      title: "Advanced Security",
-      description: "Your privacy matters. We use industry-grade encryption and fraud protection to safeguard your card details and transactions."
+      title: "Privacy First",
+      description: "Encrypted storage and strict fraud checks protect your information."
     },
     {
       icon: <CheckCircle className="h-12 w-12" />,
-      title: "Customer-First Support",
-      description: "Have a question? Our responsive support team is just a message away — ready to assist you at any step of the journey."
+      title: "Help When You Need It",
+      description: "Responsive support via chat or email — real people, real help."
     }
   ];
 
