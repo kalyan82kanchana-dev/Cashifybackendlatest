@@ -683,22 +683,22 @@ const HowItWorksSection = () => {
 const TestimonialsSection = () => {
   const testimonials = [
     {
-      name: "Olivia S",
-      image: "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=100&h=100&fit=crop&crop=face",
-      rating: 5,
-      text: "I've used GC Swapmart multiple times and they've never let me down. It's secure, fast, and I always get fair value for my gift cards. Can't ask for more!"
-    },
-    {
-      name: "Cleveland Des",
-      image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&crop=face",
-      rating: 5,
-      text: "GC Swapmart is now my go-to for selling gift cards. Their site is clean, easy to use, and I always get top rates. Great experience every time!"
-    },
-    {
-      name: "Davis Jordan",
+      name: "Jordan K., Chicago",
       image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=face",
       rating: 5,
-      text: "I was skeptical at first, but GC Swapmart exceeded expectations. The process was simple, and I had cash in my account fast. Highly recommend for anyone."
+      text: "I sold three cards in one go — each payout arrived the same day. CashifyGCmart made the whole process seamless."
+    },
+    {
+      name: "Samantha W., Boston",
+      image: "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=100&h=100&fit=crop&crop=face",
+      rating: 5,
+      text: "Reliable and transparent. CashifyGCmart is the best gift-card buyer I've tried."
+    },
+    {
+      name: "Cameron P., Denver",
+      image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&crop=face",
+      rating: 5,
+      text: "The whole process was effortless: clear instructions, quick verification, and a reliable payout from CashifyGCmart."
     }
   ];
 
