@@ -831,6 +831,7 @@ function App() {
           <Route path="/faqs" element={<><Header /><FAQs /><Footer /></>} />
           <Route path="/getting-started" element={<><Header /><GettingStarted /><Footer /></>} />
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+          <Route path="/refund-policy" element={<RefundPolicy />} />
         </Routes>
       </BrowserRouter>
     </div>
