@@ -289,8 +289,8 @@ const ProcessSection = () => {
     },
     {
       icon: <CheckCircle className="h-12 w-12 text-white" />,
-      title: "Enjoy Instant Liquidity",
-      description: "Secure verification and same-day payouts."
+      title: "Unlock Same-Day Payouts",
+      description: "Quick verification and reliable same-day transfers."
     }
   ];
 
