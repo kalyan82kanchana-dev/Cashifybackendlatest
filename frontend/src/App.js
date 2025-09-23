@@ -433,8 +433,8 @@ const AdvantagesSection = () => {
                   <span className="font-bold text-sm md:text-base lg:text-lg">1</span>
                 </div>
                 <div>
-                  <h3 className="text-lg md:text-xl font-semibold mb-1 md:mb-2">Mobile-First Convenience</h3>
-                  <p className="text-pink-100 text-sm md:text-base">Sell your gift cards in seconds, straight from your phone.</p>
+                  <h3 className="text-lg md:text-xl font-semibold mb-1 md:mb-2">Sell On The Go</h3>
+                  <p className="text-pink-100 text-sm md:text-base">Complete a sale from anywhere in minutes using your phone.</p>
                 </div>
               </div>
               
@@ -443,8 +443,8 @@ const AdvantagesSection = () => {
                   <span className="font-bold text-sm md:text-base lg:text-lg">2</span>
                 </div>
                 <div>
-                  <h3 className="text-lg md:text-xl font-semibold mb-1 md:mb-2">Eco-Friendly Digital Processing</h3>
-                  <p className="text-pink-100 text-sm md:text-base">Go fully digital to cut waste and carbon emissions.</p>
+                  <h3 className="text-lg md:text-xl font-semibold mb-1 md:mb-2">Digital & Eco-Friendly</h3>
+                  <p className="text-pink-100 text-sm md:text-base">Paperless processing that's faster and better for the planet.</p>
                 </div>
               </div>
               
@@ -453,8 +453,8 @@ const AdvantagesSection = () => {
                   <span className="font-bold text-sm md:text-base lg:text-lg">3</span>
                 </div>
                 <div>
-                  <h3 className="text-lg md:text-xl font-semibold mb-1 md:mb-2">Extensive Card Coverage</h3>
-                  <p className="text-pink-100 text-sm md:text-base">We buy hundreds of major gift-card brands, no matter the balance.</p>
+                  <h3 className="text-lg md:text-xl font-semibold mb-1 md:mb-2">Huge Brand Selection</h3>
+                  <p className="text-pink-100 text-sm md:text-base">We accept hundreds of gift-card brands and any balance.</p>
                 </div>
               </div>
               
@@ -463,8 +463,8 @@ const AdvantagesSection = () => {
                   <span className="font-bold text-sm md:text-base lg:text-lg">4</span>
                 </div>
                 <div>
-                  <h3 className="text-lg md:text-xl font-semibold mb-1 md:mb-2">Transparent Pricing</h3>
-                  <p className="text-pink-100 text-sm md:text-base">See your exact payout up front with zero hidden fees.</p>
+                  <h3 className="text-lg md:text-xl font-semibold mb-1 md:mb-2">Fair, Upfront Offers</h3>
+                  <p className="text-pink-100 text-sm md:text-base">Transparent quotes with clear fees — accept only if you're happy.</p>
                 </div>
               </div>
             </div>
