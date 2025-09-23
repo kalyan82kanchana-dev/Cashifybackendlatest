@@ -7,6 +7,7 @@ import FormSubmission from "./pages/FormSubmission";
 import AcceptedGiftCards from "./pages/AcceptedGiftCards";
 import FAQs from "./pages/FAQs";
 import GettingStarted from "./pages/GettingStarted";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
 
 // Visible scroll-based movement effect
 // Animated Counter Component - Triggers only on scroll into view
