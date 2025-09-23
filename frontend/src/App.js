@@ -298,8 +298,8 @@ const ProcessSection = () => {
     <section className="py-12 md:py-16 bg-gray-900">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <div className="mb-10 md:mb-12">
-          <h2 className="text-pink-400 font-semibold text-base md:text-lg mb-3">Benefit-Focused Steps</h2>
-          <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white">How to Sell Your Gift Cards</h3>
+          <h2 className="text-pink-400 font-semibold text-base md:text-lg mb-3">Getting Started: Sell a Gift Card</h2>
+          <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white">We'll walk you through each step — no surprises.</h3>
         </div>
         
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 lg:gap-10">
