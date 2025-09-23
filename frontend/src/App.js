@@ -365,9 +365,10 @@ const WhyChooseUsSection = () => {
     <section className="py-12 md:py-16 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <div className="mb-8 md:mb-10">
-          <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 mb-3 md:mb-4">Fast Offers. Fair Rates. Zero Headaches.</h2>
+          <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 mb-3 md:mb-4">Why Choose Us?</h2>
           <p className="text-sm md:text-base lg:text-lg text-gray-600 max-w-3xl mx-auto px-4">
-            Transparent rates and secure processing to maximize what you get — every time.
+            Sell your unused gift cards with ease, speed, and confidence. We offer a secure, hassle-free process and 
+            transparent rates to ensure you get the best value, every time.
           </p>
         </div>
         
