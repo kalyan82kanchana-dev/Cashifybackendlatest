@@ -279,8 +279,8 @@ const ProcessSection = () => {
   const steps = [
     {
       icon: <DollarSign className="h-12 w-12 text-white" />,
-      title: "See Your Savings",
-      description: "Top cash value with clear, up-front quotes."
+      title: "Get Your Best Cash Offer",
+      description: "See a clear, up-front quote and get the highest payout available."
     },
     {
       icon: <CreditCard className="h-12 w-12 text-white" />,
