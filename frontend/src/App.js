@@ -833,6 +833,7 @@ function App() {
           <Route path="/getting-started" element={<><Header /><GettingStarted /><Footer /></>} />
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           <Route path="/refund-policy" element={<RefundPolicy />} />
+          <Route path="/cookie-policy" element={<CookiePolicy />} />
         </Routes>
       </BrowserRouter>
     </div>
