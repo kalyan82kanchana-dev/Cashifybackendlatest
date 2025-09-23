@@ -284,8 +284,8 @@ const ProcessSection = () => {
     },
     {
       icon: <CreditCard className="h-12 w-12 text-white" />,
-      title: "Customize Your Cash-Out",
-      description: "Choose digital wallets or bank transfer - get paid your way."
+      title: "Pick a Wallet, Get Paid",
+      description: "Fast payouts to the wallet you choose."
     },
     {
       icon: <CheckCircle className="h-12 w-12 text-white" />,
