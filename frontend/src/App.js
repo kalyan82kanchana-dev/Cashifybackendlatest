@@ -212,7 +212,7 @@ const HeroSection = () => {
             
             {/* Trust Badges */}
             <div className="mt-8 md:mt-10">
-              <p className="text-sm text-gray-500 mb-4">Trusted by thousands of customers</p>
+              <p className="text-sm text-gray-500 mb-4">Trusted by thousands of customers nationwide</p>
               <div className="flex flex-wrap items-center gap-4 text-sm text-gray-600">
                 <div className="flex items-center gap-2">
                   <Shield className="w-4 h-4 text-green-600" />
@@ -229,6 +229,14 @@ const HeroSection = () => {
                 <div className="flex items-center gap-2">
                   <CreditCard className="w-4 h-4 text-green-600" />
                   <span>230+ Vendors</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <Shield className="w-4 h-4 text-blue-600" />
+                  <span>PCI Compliant</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <CheckCircle className="w-4 h-4 text-blue-600" />
+                  <span>Licensed Platform</span>
                 </div>
               </div>
             </div>
