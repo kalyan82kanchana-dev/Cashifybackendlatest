@@ -10,6 +10,8 @@ import GettingStarted from "./pages/GettingStarted";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import RefundPolicy from "./pages/RefundPolicy";
 import CookiePolicy from "./pages/CookiePolicy";
+import TermsOfService from "./pages/TermsOfService";
+import SecurityPage from "./pages/SecurityPage";
 
 // Visible scroll-based movement effect
 // Animated Counter Component - Triggers only on scroll into view
