@@ -801,9 +801,11 @@ const Footer = () => {
             <h3 className="text-lg font-semibold mb-4">Menu</h3>
             <ul className="space-y-3 text-gray-400">
               <li><a href="/faqs" className="hover:text-white transition-colors">FAQs</a></li>
+              <li><a href="/terms-of-service" className="hover:text-white transition-colors">Terms of Service</a></li>
               <li><a href="/privacy-policy" className="hover:text-white transition-colors">Privacy Policy</a></li>
               <li><a href="/refund-policy" className="hover:text-white transition-colors">Refund Policy</a></li>
               <li><a href="/cookie-policy" className="hover:text-white transition-colors">Cookie Policy</a></li>
+              <li><a href="/security" className="hover:text-white transition-colors">Security & Data Protection</a></li>
             </ul>
           </div>
           
