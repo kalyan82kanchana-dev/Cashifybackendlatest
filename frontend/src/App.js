@@ -787,8 +787,8 @@ const Footer = () => {
             <h3 className="text-lg font-semibold mb-4">Contact Us</h3>
             <ul className="space-y-3 text-gray-400">
               <li>📧 support@cashifygcmart.com</li>
-              <li>📞 +1-305-389-8091</li>
-              <li>📍 111 Longwood Ave<br />Rockledge, Florida FL, 32955</li>
+              <li>📞 (555) 013-2099</li>
+              <li>📍 2099 Harborview Drive, Suite 210<br />San Diego, CA 92101</li>
             </ul>
           </div>
         </div>
