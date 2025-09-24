@@ -211,7 +211,7 @@ const HeroSection = () => {
           <div className="relative mt-8 lg:mt-0">
             <img 
               src="https://customer-assets.emergentagent.com/job_giftcard-trader/artifacts/gtkeecwv_Gemini_Generated_Image_57zioz57zioz57zi.png" 
-              alt="Happy customers exchanging gift cards" 
+              alt="Happy customers exchanging gift cards for cash online - Cashifygcmart secure platform" 
               className="hero-image w-full h-auto object-contain max-w-full"
             />
           </div>
