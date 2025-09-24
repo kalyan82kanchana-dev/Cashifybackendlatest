@@ -189,11 +189,11 @@ const HeroSection = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           <div>
             <h1 className="text-2xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight md:leading-tight">
-              <span className="block">Turn Unused Gift Cards into</span>
-              <span className="text-pink-600 block">Same-Day Cash</span>
+              <span className="block">Sell Unused Gift Cards for</span>
+              <span className="text-pink-600 block">Same-Day Cash Online</span>
             </h1>
             <p className="mt-4 md:mt-6 text-base md:text-lg text-gray-600 max-w-lg leading-relaxed">
-              Cashifygcmart makes selling gift cards effortless: get a transparent offer, fast verification, and secure same-day payouts.
+              CashifyGCmart is the trusted gift card exchange platform offering instant quotes, competitive rates up to 93%, and secure same-day payments. Turn your unwanted gift cards into cash today.
             </p>
             <div className="mt-6 md:mt-8 flex flex-col sm:flex-row gap-3 md:gap-4">
               <a href="/form-submission">
