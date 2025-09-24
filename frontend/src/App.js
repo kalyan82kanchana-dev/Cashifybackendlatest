@@ -230,14 +230,6 @@ const HeroSection = () => {
                   <CreditCard className="w-4 h-4 text-green-600" />
                   <span>230+ Vendors</span>
                 </div>
-                <div className="flex items-center gap-2">
-                  <Shield className="w-4 h-4 text-blue-600" />
-                  <span>PCI Compliant</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <CheckCircle className="w-4 h-4 text-blue-600" />
-                  <span>Licensed Platform</span>
-                </div>
               </div>
             </div>
           </div>
