@@ -198,7 +198,7 @@ const HeroSection = () => {
             <div className="mt-6 md:mt-8 flex flex-col sm:flex-row gap-3 md:gap-4">
               <a href="/form-submission">
                 <button className="w-full sm:w-auto bg-pink-600 hover:bg-pink-700 text-white px-6 md:px-8 py-3 md:py-4 rounded-lg font-semibold text-base md:text-lg transition-all duration-300 hover:scale-105 hover:shadow-xl transform">
-                  Get Cash Now
+                  Start Here
                 </button>
               </a>
               <a href="/accepted-cards">
