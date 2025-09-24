@@ -203,9 +203,32 @@ const HeroSection = () => {
               </a>
               <a href="/accepted-cards">
                 <button className="w-full sm:w-auto bg-gray-900 hover:bg-gray-800 text-white px-6 md:px-8 py-3 md:py-4 rounded-lg font-semibold text-base md:text-lg transition-all duration-300 hover:scale-105 hover:shadow-xl transform">
-                  See Accepted Gift Cards
+                  See 100+ Accepted Brands
                 </button>
               </a>
+            </div>
+            
+            {/* Trust Badges */}
+            <div className="mt-8 md:mt-10">
+              <p className="text-sm text-gray-500 mb-4">Trusted by thousands of customers</p>
+              <div className="flex flex-wrap items-center gap-4 text-sm text-gray-600">
+                <div className="flex items-center gap-2">
+                  <Shield className="w-4 h-4 text-green-600" />
+                  <span>SSL Secured</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <CheckCircle className="w-4 h-4 text-green-600" />
+                  <span>A+ BBB Rating</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <Clock className="w-4 h-4 text-green-600" />
+                  <span>Same-Day Payouts</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <CreditCard className="w-4 h-4 text-green-600" />
+                  <span>230+ Vendors</span>
+                </div>
+              </div>
             </div>
           </div>
           <div className="relative mt-8 lg:mt-0">
