@@ -1,62 +1,54 @@
 <analysis>
-The AI engineer successfully transformed the Cashifygcmart MVP into a more professional, feature-rich application, guided by iterative user feedback. Initial work focused on client-side enhancements: replacing a basic  with a sophisticated, mobile-responsive success modal in , necessitating robust error handling, image compression, and network timeouts. Concurrently, the email automation system was refined, requiring a complete overhaul of embedded HTML templates in  to match professional branding and content specifications. The homepage underwent extensive content and visual updates. This included replacing multiple images (hero, success section, Getting Started steps) in  and , which involved intricate CSS adjustments in  for background transparency, responsive sizing, and animations. Homepage statistics and process descriptions were meticulously updated. Furthermore, essential legal pages (, , ) were created with detailed content and integrated into the routing. Site icon and Zoho SalesIQ live chat were also implemented. The work addressed numerous UI/UX refinements and technical challenges, ensuring a polished user experience.
+The AI engineer's work primarily involved pivoting deployment strategies due to persistent Vercel environment variable issues and user frustration. Initially, efforts focused on configuring a FastAPI backend on Vercel, which repeatedly failed despite troubleshooting by a specialist agent that identified a Vercel UI bug. This led to a significant shift: converting the existing React/FastAPI application to a static HTML/CSS/JS frontend with a PHP backend suitable for Bluehost shared hosting, which did not support Node.js. The conversion process generated files into a  directory. The most recent and challenging phase involved manually guiding the user to deploy these converted files to Bluehost cPanel via copy-pasting, encountering significant user fatigue due to the tedious, multi-step process for editing  and other pages. The AI engineer has been providing the converted code in segments, aiming to replicate the original professional design.
 </analysis>
 
 <product_requirements>
-The overarching goal for Cashifygcmart is to establish a professional, mobile-responsive full-stack website for users to sell unused gift cards. The homepage features a dynamic layout with a hero section, detailed navigation, animated statistics, a three-step process, a Why Choose Us section, customer testimonials, and a footer, all refined for professionalism. Core functionalities include a Rate Calculator, a multi-step Form Submission page with client-side validation, drag-and-drop file uploads (with compression), and a new professional success modal. Automated customer confirmation and internal notification emails are sent upon form submission via cPanel SMTP (migrated from Resend), with extensively redesigned templates. A Zoho SalesIQ live chat widget is integrated for support. Other key pages include Accepted Gift Cards, FAQs, Getting Started, and essential legal pages: Privacy Policy, Refund Policy, Cookie Policy, Terms of Service, and Security Policy, all with detailed, user-provided content. The design emphasizes a pink/teal/purple gradient, modern illustrations, mobile responsiveness, and professional animations, with premium branding applied throughout. The application targets SEO-friendliness and reliable transactional email sending, with current work focusing on deploying the backend to Vercel and connecting it with Bluehost frontend hosting.
+The goal is a professional, mobile-responsive website, Cashifygcmart, for selling unused gift cards. It features a dynamic homepage (hero, navigation, animated stats, 3-step process, Why Choose Us, testimonials, footer) with a pink/teal/purple gradient, modern illustrations, and professional animations. Core functionalities include a Rate Calculator, a multi-step Form Submission with client-side validation, drag-and-drop file uploads (with compression), and a professional success modal. Automated customer confirmation and internal notification emails are sent via cPanel SMTP. Zoho SalesIQ live chat is integrated. Key pages are Accepted Gift Cards, FAQs, Getting Started, and legal policies (Privacy, Refund, Cookie, Terms, Security) with detailed content. The site is designed for SEO-friendliness and reliable email sending. Initial deployment focused on FastAPI backend to Vercel and connecting to Bluehost frontend, but due to Vercel issues, the strategy shifted to a static HTML/CSS/JS frontend with a PHP backend compatible with Bluehost shared hosting, maintaining the original design and functionality.
 </product_requirements>
 
 <key_technical_concepts>
--   **React 19:** Frontend framework for building UI components.
--   **FastAPI:** Backend framework for API endpoints and business logic.
--   **MongoDB:** Database for storing application data.
--   **Tailwind CSS:** Utility-first CSS framework for styling and responsive design.
--   **React Router:** For client-side navigation and page routing.
--   **SMTP (cPanel):** Email service for automated sending (migrated from Resend).
--   **Base64 Encoding:** For handling image file uploads.
--   **JSON-LD Structured Data:** For SEO optimization.
--   **Vercel:** Deployment platform for the FastAPI backend.
+- **React:** Frontend framework (original).
+- **FastAPI:** Backend framework (original).
+- **MongoDB:** Database for storing application data.
+- **Tailwind CSS:** Utility-first CSS framework for styling.
+- **SMTP (cPanel):** Email service.
+- **Vercel:** Deployment platform for FastAPI (attempted, failed).
+- **Static HTML/CSS/JS:** Frontend (new architecture).
+- **PHP:** Backend for form submission (new architecture).
+- **Bluehost cPanel:** Frontend hosting (current deployment target).
 </key_technical_concepts>
 
 <code_architecture>
 
--   
-    -   **Summary:** Core FastAPI backend.
-    -   **Changes:** Migrated email sending from Resend to cPanel SMTP, updating  and  functions using . Email templates were iteratively redesigned for professionalism, comprehensive content, and Gmail compatibility (simplified HTML, removed aggressive subject line elements). Digital gift card codes/PINs were added to internal notifications.
--   
-    -   **Summary:** Stores backend environment variables.
-    -   **Changes:**  was replaced with , , , , , and  for cPanel SMTP.
--   
-    -   **Summary:** Main React component for layout, routing, and homepage.
-    -   **Changes:** Added routes for , , and . Updated footer contact information and added links for new policy pages. Homepage CTA Get Cash Now changed to Start Here. Trust badges were modified. Temporarily removed all website links from emails and the footer due to production server issues.
--   
-    -   **Summary:** React component for the gift card submission form.
-    -   **Changes:** Modified validation logic to make the  field optional, updating its label and placeholder text for clarity.
--   
-    -   **Summary:** A newly created React page for the CashifyGCmart Cookie Policy.
-    -   **Changes:** New file containing comprehensive, user-provided content.
--   
-    -   **Summary:** A newly created React page to display the CashifyGCmart Terms of Service.
-    -   **Changes:** New file containing professional legal content.
--   
-    -   **Summary:** A newly created React page to display Security and Data Protection information.
-    -   **Changes:** New file detailing security measures and certifications.
--   
-    -   **Summary:** A temporary directory created to hold backend files for deployment to Vercel.
-    -   **Changes:** Contains the Vercel-ready  and .
+-   : Core FastAPI backend. Modified for cPanel SMTP and Vercel compatibility attempts.
+-   : Stores backend environment variables. Updated for cPanel SMTP.
+-   : Main React component. Updated routing and footer links. This file is part of the old architecture and is now being converted to static HTML/CSS/JS.
+-   : Temporary directory for Vercel deployment.
+    -   : New file for Vercel serverless configuration.
+    -   : New entry point for Vercel serverless.
+    -   : Modified  to be callable from .
+-   : New directory for Bluehost-compatible static files and PHP backend.
+    -   : Converted React homepage to static HTML, including inline CSS and JS.
+    -   , , , , , : Static HTML versions of corresponding React pages.
+    -   : PHP script to handle form submissions on Bluehost, replacing FastAPI logic.
+    -   : Centralized CSS for the static site (some styles are currently inline in  during the manual copy-paste process).
+    -   , , : JavaScript logic for respective pages, converted from React components.
 </code_architecture>
 
 <pending_tasks>
--   Backend integration of Rate Calculator logic (currently frontend-only).
--   Re-enable clickable links in email templates and the frontend footer once the  production server is successfully deployed and stable.
--   Complete deployment of the frontend to Bluehost and connect it to the deployed Vercel backend API.
--   Monitor the Vercel backend deployment to ensure all services start correctly after environment variables are saved.
+- Complete manual deployment of all converted static HTML/CSS/JS/PHP files from  to Bluehost cPanel.
+- Ensure all pages (Rate Calculator, Form Submission, FAQs, Policy pages, etc.) are correctly uploaded and functional.
+- Re-enable clickable links in email templates and the frontend footer once the  production server is fully stable.
 </pending_tasks>
 
 <current_work>
-Immediately before this summary request, the AI engineer was guiding the user through the final stages of deploying the FastAPI backend to Vercel. The  repository was successfully linked from GitHub to Vercel. Initial deployment attempts failed because crucial environment variables were not yet configured. The AI engineer instructed the user to navigate to the project's settings in the Vercel dashboard and add six essential SMTP environment variables:  (),  (),  (),  (),  (), and  (). All these variables were successfully entered into the Vercel UI. The very last action was the AI engineer instructing the user to click the Save button to apply these environment variables. This action is expected to trigger an automatic redeployment of the backend, which should then become fully functional with the cPanel email system at the URL . This represents a critical pivot in the deployment strategy, following previous unsuccessful attempts with Railway and Render due to platform limitations.
+Immediately before this summary request, the AI engineer was in the process of manually guiding the user to deploy the converted static website files to Bluehost cPanel. The previous attempts to deploy the FastAPI backend to Vercel had failed due to persistent environment variable configuration issues and a Vercel UI bug, despite troubleshooting. This led to a strategic pivot to a simpler Bluehost-compatible static architecture.
+
+The AI engineer has generated the static HTML, CSS, JavaScript, and PHP files and placed them in the  directory. The current work involves the highly granular, step-by-step process of instructing the user to copy and paste the content of these generated files directly into corresponding files created in the Bluehost cPanel File Manager ().
+
+The user has successfully navigated to the correct folder in cPanel and created an  file. The AI engineer has been providing sections of the  content (starting with CSS styling, then HTML structure) for the user to paste. This manual process has led to significant user frustration due to its tedious nature. The AI engineer has acknowledged the difficulty and attempted to simplify the instructions. The user had pasted incomplete HTML, resulting in a blank page, prompting the AI to provide a complete homepage code. The last action was the AI engineer providing the entire, supposed complete code for the homepage, which the user is expected to paste into their blank  file in cPanel.
 </current_work>
 
 <optional_next_step>
-Monitor the Vercel deployment after saving environment variables to ensure the backend starts successfully and its API endpoint is accessible and functioning.
+Provide explicit instructions for the user to paste the complete homepage code into Bluehost cPanel and verify its appearance.
 </optional_next_step>

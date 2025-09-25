@@ -18,7 +18,7 @@ def get_backend_url():
                     return line.split('=')[1].strip()
     except:
         pass
-    return "https://cardcash-hub.preview.emergentagent.com"
+    return "https://gift-verify-app.preview.emergentagent.com"
 
 BACKEND_URL = get_backend_url()
 API_BASE = f"{BACKEND_URL}/api"
