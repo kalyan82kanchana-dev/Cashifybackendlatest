@@ -544,10 +544,72 @@ def generate_internal_notification_email(customer_name, reference_number, submis
         <p>3. Process payment within 24 hours</p>
         <p>4. Update customer with status</p>
         
+        <!-- Professional Footer -->
+        <div style="margin-top: 40px; padding: 30px 0; border-top: 2px solid #e5e7eb; background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);">
+            
+            <!-- Company Branding -->
+            <div style="text-align: center; margin-bottom: 25px;">
+                <h2 style="color: #ec4899; font-size: 24px; font-weight: 800; margin: 0;">Cashifygcmart</h2>
+                <p style="color: #6b7280; font-size: 12px; margin: 5px 0 0 0; text-transform: uppercase; letter-spacing: 1px;">INSTANT OFFERS, SAME-DAY PAYMENTS</p>
+            </div>
+            
+            <!-- Contact Information Grid -->
+            <div style="display: flex; justify-content: center; gap: 30px; margin-bottom: 20px; flex-wrap: wrap;">
+                <div style="text-align: center; min-width: 150px;">
+                    <p style="color: #374151; font-weight: 600; margin: 0 0 5px 0;">📧 Email Support</p>
+                    <a href="mailto:support@cashifygcmart.com" style="color: #ec4899; text-decoration: none; font-size: 14px;">support@cashifygcmart.com</a>
+                </div>
+                <div style="text-align: center; min-width: 150px;">
+                    <p style="color: #374151; font-weight: 600; margin: 0 0 5px 0;">📞 Phone</p>
+                    <span style="color: #6b7280; font-size: 14px;">(555) 013-2099</span>
+                </div>
+                <div style="text-align: center; min-width: 150px;">
+                    <p style="color: #374151; font-weight: 600; margin: 0 0 5px 0;">🌐 Website</p>
+                    <a href="https://www.cashifygcmart.com" style="color: #ec4899; text-decoration: none; font-size: 14px;">www.cashifygcmart.com</a>
+                </div>
+            </div>
+            
+            <!-- Business Address -->
+            <div style="text-align: center; margin-bottom: 20px;">
+                <p style="color: #6b7280; font-size: 13px; margin: 0;">
+                    📍 2099 Harborview Drive, Suite 210<br>
+                    San Diego, CA 92101, United States
+                </p>
+            </div>
+            
+            <!-- Divider -->
+            <div style="width: 100px; height: 3px; background: linear-gradient(135deg, #ec4899 0%, #8b5cf6 100%); margin: 20px auto; border-radius: 2px;"></div>
+            
+            <!-- System Information -->
+            <div style="text-align: center; margin-bottom: 15px;">
+                <p style="color: #374151; font-size: 13px; font-weight: 600; margin: 0;">⚡ Operations Team Notification</p>
+                <p style="color: #6b7280; font-size: 12px; margin: 5px 0 0 0;">
+                    Priority Processing Required • Internal Use Only
+                </p>
+            </div>
+            
+            <!-- Footer Links -->
+            <div style="display: flex; justify-content: center; gap: 20px; margin-bottom: 15px; flex-wrap: wrap;">
+                <a href="https://www.cashifygcmart.com/privacy-policy" style="color: #6b7280; text-decoration: none; font-size: 12px;">Privacy Policy</a>
+                <span style="color: #d1d5db;">•</span>
+                <a href="https://www.cashifygcmart.com/terms-of-service" style="color: #6b7280; text-decoration: none; font-size: 12px;">Terms of Service</a>
+                <span style="color: #d1d5db;">•</span>
+                <a href="https://www.cashifygcmart.com/security" style="color: #6b7280; text-decoration: none; font-size: 12px;">Security</a>
+            </div>
+            
+            <!-- Copyright -->
+            <div style="text-align: center;">
+                <p style="color: #9ca3af; font-size: 11px; margin: 0;">
+                    © 2025 Cashifygcmart. All rights reserved.<br>
+                    This is an automated system notification. Please do not reply to this email.
+                </p>
+            </div>
+        </div>
+        
         <hr style="margin: 30px 0;">
         <p style="font-size: 12px; color: #6b7280;">
             Submission Date: {submission_data.get('submitted_at', 'N/A')}<br>
-            System: CashifyGCmart Notification<br>
+            System: CashifyGCmart Internal Notification<br>
             From: noreply@cashifygcmart.com
         </p>
     </div>
