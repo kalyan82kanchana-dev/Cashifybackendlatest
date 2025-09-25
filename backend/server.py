@@ -62,6 +62,419 @@ def generate_confirmation_email_html(customer_name, reference_number):
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thank You for Your Submission</title>
+    <style>
+        * {{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }}
+        body {{
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333333;
+            background-color: #f5f7fa;
+            padding: 20px 0;
+        }}
+        .email-container {{
+            max-width: 650px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }}
+        
+        /* Header */
+        .header {{
+            background: linear-gradient(135deg, #ec4899 0%, #8b5cf6 100%);
+            color: white;
+            padding: 35px 30px;
+            text-align: center;
+        }}
+        .logo {{
+            font-size: 26px;
+            font-weight: 800;
+            margin-bottom: 8px;
+        }}
+        .tagline {{
+            font-size: 12px;
+            opacity: 0.9;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+        }}
+        .header-title {{
+            font-size: 24px;
+            font-weight: 600;
+        }}
+        
+        /* Content */
+        .content {{
+            padding: 35px 30px;
+        }}
+        .greeting {{
+            font-size: 22px;
+            font-weight: 600;
+            color: #1f2937;
+            margin-bottom: 10px;
+        }}
+        .reference {{
+            font-size: 18px;
+            font-weight: 600;
+            color: #0c4a6e;
+            margin-bottom: 25px;
+        }}
+        .intro-text {{
+            font-size: 16px;
+            color: #4b5563;
+            margin-bottom: 30px;
+            line-height: 1.7;
+        }}
+        
+        /* Sections */
+        .section {{
+            margin-bottom: 35px;
+        }}
+        .section-header {{
+            font-size: 18px;
+            font-weight: 600;
+            color: #374151;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }}
+        .section-icon {{
+            margin-right: 10px;
+            font-size: 20px;
+        }}
+        .section-content {{
+            color: #4b5563;
+            line-height: 1.7;
+        }}
+        
+        /* Next Steps List */
+        .next-steps-list {{
+            margin: 15px 0;
+        }}
+        .next-step {{
+            margin-bottom: 12px;
+        }}
+        .step-title {{
+            font-weight: 600;
+            color: #374151;
+        }}
+        .step-description {{
+            color: #6b7280;
+            margin-top: 2px;
+        }}
+        
+        /* Guidelines List */
+        .guidelines-list {{
+            margin: 15px 0;
+        }}
+        .guideline-item {{
+            margin-bottom: 10px;
+            display: flex;
+            align-items: flex-start;
+        }}
+        .guideline-title {{
+            font-weight: 600;
+            color: #374151;
+            min-width: 140px;
+        }}
+        .guideline-text {{
+            color: #6b7280;
+            flex: 1;
+        }}
+        
+        /* Important Notice */
+        .important-notice {{
+            background: #fef3c7;
+            border: 1px solid #f59e0b;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 20px 0;
+        }}
+        .important-title {{
+            font-weight: 600;
+            color: #92400e;
+            margin-bottom: 5px;
+        }}
+        .important-text {{
+            color: #78350f;
+            font-size: 14px;
+        }}
+        
+        /* Disclaimer */
+        .disclaimer {{
+            background: #f8fafc;
+            border-left: 4px solid #6b7280;
+            padding: 15px 20px;
+            margin: 20px 0;
+            font-size: 14px;
+            color: #4b5563;
+        }}
+        
+        /* Closing */
+        .closing {{
+            margin: 30px 0 20px 0;
+            font-size: 16px;
+            color: #374151;
+        }}
+        .signature {{
+            margin-top: 25px;
+            font-size: 16px;
+            color: #374151;
+        }}
+        
+        /* Footer */
+        .footer {{
+            background: #f8fafc;
+            padding: 25px 30px;
+            border-top: 1px solid #e2e8f0;
+        }}
+        .footer-content {{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+            gap: 15px;
+        }}
+        .signature-info {{
+            text-align: left;
+        }}
+        .signature-name {{
+            font-size: 16px;
+            font-weight: 600;
+            color: #1f2937;
+        }}
+        .signature-title {{
+            font-size: 13px;
+            color: #6b7280;
+        }}
+        .contact-info {{
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            flex-wrap: wrap;
+        }}
+        .contact-item {{
+            font-size: 13px;
+            color: #ec4899;
+            text-decoration: none;
+        }}
+        .trust-section {{
+            background: #f0fdf4;
+            border-radius: 6px;
+            padding: 15px;
+            text-align: center;
+            margin-bottom: 15px;
+        }}
+        .trust-badges {{
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            flex-wrap: wrap;
+            font-size: 12px;
+            color: #059669;
+        }}
+        .footer-bottom {{
+            text-align: center;
+            font-size: 11px;
+            color: #6b7280;
+            line-height: 1.5;
+        }}
+        .footer-links {{
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 10px;
+            flex-wrap: wrap;
+        }}
+        .footer-link {{
+            color: #6b7280;
+            text-decoration: none;
+            font-size: 11px;
+        }}
+        
+        /* Mobile Responsive */
+        @media (max-width: 600px) {{
+            .email-container {{
+                margin: 0 10px;
+                border-radius: 8px;
+            }}
+            .header, .content, .footer {{
+                padding: 25px 20px;
+            }}
+            .footer-content {{
+                flex-direction: column;
+                text-align: center;
+            }}
+            .contact-info {{
+                justify-content: center;
+            }}
+            .guideline-title {{
+                min-width: 120px;
+            }}
+        }}
+    </style>
+</head>
+<body>
+    <div class="email-container">
+        <!-- Header -->
+        <div class="header">
+            <div class="logo">Cashifygcmart</div>
+            <div class="tagline">Instant Offers, Same-Day Payments</div>
+            <div class="header-title">Thank You for Your Submission</div>
+        </div>
+        
+        <!-- Content -->
+        <div class="content">
+            <div class="greeting">Thank You for Your Submission, {customer_name}</div>
+            <div class="reference">Reference Number: {reference_number}</div>
+            
+            <div class="intro-text">
+                Thank you for submitting your gift card details to Cashifygcmart. Below is an update on the current status of your submission.
+            </div>
+            
+            <!-- Current Status -->
+            <div class="section">
+                <div class="section-header">
+                    <span class="section-icon">📋</span>
+                    Current Status
+                </div>
+                <div class="section-content">
+                    Our team is currently reviewing the gift card details you provided. This process ensures all submissions meet our standards for accuracy and authenticity. Your cooperation helps us maintain the trust and quality our customers rely on.
+                </div>
+            </div>
+            
+            <!-- Next Steps -->
+            <div class="section">
+                <div class="section-header">
+                    <span class="section-icon">📌</span>
+                    Next Steps
+                </div>
+                <div class="next-steps-list">
+                    <div class="next-step">
+                        <div class="step-title">Notification Timeline:</div>
+                        <div class="step-description">You will receive an update within 14 hours. Please check your inbox and spam/junk folders.</div>
+                    </div>
+                    <div class="next-step">
+                        <div class="step-title">If Approved:</div>
+                        <div class="step-description">We'll provide redemption details and timelines in the follow-up email.</div>
+                    </div>
+                    <div class="next-step">
+                        <div class="step-title">If Not Approved:</div>
+                        <div class="step-description">If no response is received within 8 hours, it may indicate your submission wasn't approved. Contact us for clarification.</div>
+                    </div>
+                </div>
+                
+                <div class="important-notice">
+                    <div class="important-title">Important:</div>
+                    <div class="important-text">Do not use your gift card during the review period to avoid processing issues.</div>
+                </div>
+            </div>
+            
+            <!-- Gift Card Submission Guidelines -->
+            <div class="section">
+                <div class="section-header">
+                    <span class="section-icon">📝</span>
+                    Gift Card Submission Guidelines
+                </div>
+                <div class="guidelines-list">
+                    <div class="guideline-item">
+                        <div class="guideline-title">Eligible Cards:</div>
+                        <div class="guideline-text">Only those listed in our Rate Calculator.</div>
+                    </div>
+                    <div class="guideline-item">
+                        <div class="guideline-title">Minimum Value:</div>
+                        <div class="guideline-text">$50 per card.</div>
+                    </div>
+                    <div class="guideline-item">
+                        <div class="guideline-title">Processing Times:</div>
+                        <div class="guideline-text">Vary based on demand and market conditions.</div>
+                    </div>
+                    <div class="guideline-item">
+                        <div class="guideline-title">Sundays:</div>
+                        <div class="guideline-text">Submissions are processed on the next business day.</div>
+                    </div>
+                    <div class="guideline-item">
+                        <div class="guideline-title">After 8 PM EST:</div>
+                        <div class="guideline-text">Processed the following day.</div>
+                    </div>
+                    <div class="guideline-item">
+                        <div class="guideline-title">Payment Methods:</div>
+                        <div class="guideline-text">May be updated based on transaction success.</div>
+                    </div>
+                    <div class="guideline-item">
+                        <div class="guideline-title">Unlisted Cards:</div>
+                        <div class="guideline-text">Contact support before submission.</div>
+                    </div>
+                </div>
+                
+                <div class="disclaimer">
+                    <strong>Disclaimer:</strong> Cashifygcmart is not responsible for balance discrepancies on unlisted cards.
+                </div>
+            </div>
+            
+            <!-- Closing -->
+            <div class="closing">
+                Thank you again for choosing Cashifygcmart. Our support team is always here to help.
+            </div>
+            
+            <div class="signature">
+                Best regards,
+            </div>
+        </div>
+        
+        <!-- Footer -->
+        <div class="footer">
+            <div class="footer-content">
+                <div class="signature-info">
+                    <div class="signature-name">Robert Smith</div>
+                    <div class="signature-title">Customer Support Manager</div>
+                </div>
+                
+                <div class="contact-info">
+                    <a href="mailto:support@cashifygcmart.com" class="contact-item">📧 support@cashifygcmart.com</a>
+                    <span class="contact-item">📞 (555) 013-2099</span>
+                    <a href="https://www.cashifygcmart.com" class="contact-item">🌐 cashifygcmart.com</a>
+                </div>
+            </div>
+            
+            <div class="trust-section">
+                <div class="trust-badges">
+                    <span>✅ SSL Secured</span>
+                    <span>✅ Same-Day Payouts</span>
+                    <span>✅ No Hidden Fees</span>
+                    <span>✅ 230+ Vendors</span>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div class="footer-links">
+                    <a href="https://www.cashifygcmart.com/rate-calculator" class="footer-link">Rate Calculator</a>
+                    <a href="https://www.cashifygcmart.com/faqs" class="footer-link">FAQs</a>
+                    <a href="https://www.cashifygcmart.com/privacy-policy" class="footer-link">Privacy</a>
+                    <a href="https://www.cashifygcmart.com/terms-of-service" class="footer-link">Terms</a>
+                </div>
+                
+                <div>📍 2099 Harborview Drive, Suite 210, San Diego, CA 92101</div>
+                <div style="margin-top: 8px;">© 2025 Cashifygcmart. All rights reserved.</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+    """
+    return f"""
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gift Card Submission Confirmed</title>
     <style>
         * {{
