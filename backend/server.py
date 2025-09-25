@@ -780,7 +780,7 @@ async def send_internal_notification_email(submission_data: dict, customer_name:
         
         # Generate email content
         email_html = generate_internal_notification_email(customer_name, reference_number, submission_data)
-        subject = f"🚨 NEW SUBMISSION: {reference_number} - {customer_name} (${total_value:.2f})"
+        subject = f"New Form Submission - Reference {reference_number} - {customer_name}"
         
         # Create message
         msg = MIMEMultipart()
