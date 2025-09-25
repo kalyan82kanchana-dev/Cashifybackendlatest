@@ -698,7 +698,7 @@ const FormSubmission = () => {
                           className={`w-full p-3 border rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent ${
                             errors[`digitalPin_${index}`] ? 'border-red-500' : 'border-gray-300'
                           }`}
-                          placeholder="Enter digital card PIN"
+                          placeholder="Enter PIN if available (optional for most cards)"
                         />
                         {errors[`digitalPin_${index}`] && (
                           <div className="flex items-center space-x-1 text-red-600 text-sm mt-1">
