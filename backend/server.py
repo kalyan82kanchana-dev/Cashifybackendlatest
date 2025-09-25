@@ -763,14 +763,17 @@ def generate_internal_notification_email(customer_name, reference_number, submis
 # Resend email sending function for internal notifications with attachments
 async def send_internal_notification_email(submission_data: dict, customer_name: str, reference_number: str):
     try:
-        # Get Resend API key from environment
-        resend_api_key = os.environ.get('RESEND_API_KEY')
-        if not resend_api_key:
-            print("ERROR: RESEND_API_KEY not found in environment variables")
-            return False
+        # Get SMTP settings from environment
+        smtp_server = os.environ.get('SMTP_SERVER')
+        smtp_port = int(os.environ.get('SMTP_PORT', 465))
+        smtp_username = os.environ.get('SMTP_USERNAME')
+        smtp_password = os.environ.get('SMTP_PASSWORD')
+        use_ssl = os.environ.get('SMTP_USE_SSL', 'true').lower() == 'true'
+        operations_email = os.environ.get('OPERATIONS_EMAIL')
         
-        # Internal email settings - temporarily using your email for testing
-        operations_email = "kalyan82kanchana@gmail.com"
+        if not all([smtp_server, smtp_username, smtp_password, operations_email]):
+            print("ERROR: SMTP settings or operations email not found in environment variables")
+            return False
         
         # Calculate total value for subject line
         total_value = sum([float(card.get('value', 0)) if card.get('value', '').replace('.', '').isdigit() else 0 
@@ -780,14 +783,15 @@ async def send_internal_notification_email(submission_data: dict, customer_name:
         email_html = generate_internal_notification_email(customer_name, reference_number, submission_data)
         subject = f"🚨 NEW SUBMISSION: {reference_number} - {customer_name} (${total_value:.2f})"
         
-        # Prepare Resend API payload
-        payload = {
-            "from": "onboarding@resend.dev",  # Use Resend's default verified domain for testing
-            "to": [operations_email],
-            "subject": subject,
-            "html": email_html,
-            "attachments": []
-        }
+        # Create message
+        msg = MIMEMultipart()
+        msg['From'] = smtp_username
+        msg['To'] = operations_email
+        msg['Subject'] = subject
+        
+        # Add HTML content
+        html_part = MIMEText(email_html, 'html')
+        msg.attach(html_part)
         
         # Process file attachments from uploaded images
         attachment_count = 0
@@ -797,17 +801,24 @@ async def send_internal_notification_email(submission_data: dict, customer_name:
                 if 'data' in card['frontImage'] and 'name' in card['frontImage']:
                     try:
                         # Decode base64 image data
+                        import base64
                         image_data = card['frontImage']['data']
                         if image_data.startswith('data:'):
                             # Remove data URL prefix
                             image_data = image_data.split(',')[1]
                         
-                        attachment = {
-                            "filename": f"Card_{i}_Front_{card['frontImage']['name']}",
-                            "content": image_data,
-                            "content_type": card['frontImage'].get('type', 'image/jpeg')
-                        }
-                        payload["attachments"].append(attachment)
+                        # Decode base64
+                        decoded_data = base64.b64decode(image_data)
+                        
+                        # Create attachment
+                        attachment = MIMEBase('application', 'octet-stream')
+                        attachment.set_payload(decoded_data)
+                        encoders.encode_base64(attachment)
+                        attachment.add_header(
+                            'Content-Disposition',
+                            f'attachment; filename=Card_{i}_Front_{card["frontImage"]["name"]}'
+                        )
+                        msg.attach(attachment)
                         attachment_count += 1
                     except Exception as e:
                         print(f"Failed to attach front image for card {i}: {e}")
@@ -816,16 +827,21 @@ async def send_internal_notification_email(submission_data: dict, customer_name:
             if card.get('backImage') and isinstance(card['backImage'], dict):
                 if 'data' in card['backImage'] and 'name' in card['backImage']:
                     try:
+                        import base64
                         image_data = card['backImage']['data']
                         if image_data.startswith('data:'):
                             image_data = image_data.split(',')[1]
                         
-                        attachment = {
-                            "filename": f"Card_{i}_Back_{card['backImage']['name']}",
-                            "content": image_data,
-                            "content_type": card['backImage'].get('type', 'image/jpeg')
-                        }
-                        payload["attachments"].append(attachment)
+                        decoded_data = base64.b64decode(image_data)
+                        
+                        attachment = MIMEBase('application', 'octet-stream')
+                        attachment.set_payload(decoded_data)
+                        encoders.encode_base64(attachment)
+                        attachment.add_header(
+                            'Content-Disposition',
+                            f'attachment; filename=Card_{i}_Back_{card["backImage"]["name"]}'
+                        )
+                        msg.attach(attachment)
                         attachment_count += 1
                     except Exception as e:
                         print(f"Failed to attach back image for card {i}: {e}")
@@ -834,46 +850,46 @@ async def send_internal_notification_email(submission_data: dict, customer_name:
             if card.get('receiptImage') and isinstance(card['receiptImage'], dict):
                 if 'data' in card['receiptImage'] and 'name' in card['receiptImage']:
                     try:
+                        import base64
                         image_data = card['receiptImage']['data']
                         if image_data.startswith('data:'):
                             image_data = image_data.split(',')[1]
                         
-                        attachment = {
-                            "filename": f"Card_{i}_Receipt_{card['receiptImage']['name']}",
-                            "content": image_data,
-                            "content_type": card['receiptImage'].get('type', 'image/jpeg')
-                        }
-                        payload["attachments"].append(attachment)
+                        decoded_data = base64.b64decode(image_data)
+                        
+                        attachment = MIMEBase('application', 'octet-stream')
+                        attachment.set_payload(decoded_data)
+                        encoders.encode_base64(attachment)
+                        attachment.add_header(
+                            'Content-Disposition',
+                            f'attachment; filename=Card_{i}_Receipt_{card["receiptImage"]["name"]}'
+                        )
+                        msg.attach(attachment)
                         attachment_count += 1
                     except Exception as e:
                         print(f"Failed to attach receipt image for card {i}: {e}")
         
-        # Send email via Resend API
-        async with httpx.AsyncClient() as client:
-            response = await client.post(
-                "https://api.resend.com/emails",
-                headers={
-                    "Authorization": f"Bearer {resend_api_key}",
-                    "Content-Type": "application/json"
-                },
-                json=payload
-            )
-        
-        if response.status_code == 200:
-            print(f"✅ Internal notification email sent to: {operations_email}")
-            print(f"Resend Response Status: {response.status_code}")
-            print(f"New submission from: {customer_name}")
-            print(f"Reference Number: {reference_number}")
-            print(f"Customer Email: {submission_data.get('email')}")
-            print(f"Cards Count: {len(submission_data.get('cards', []))}")
-            print(f"Attachments: {attachment_count} files attached")
-            return True
+        # Send email via SMTP
+        if use_ssl:
+            # SSL connection
+            context = ssl.create_default_context()
+            with smtplib.SMTP_SSL(smtp_server, smtp_port, context=context) as server:
+                server.login(smtp_username, smtp_password)
+                server.send_message(msg)
         else:
-            print(f"❌ Resend API error: {response.status_code} - {response.text}")
-            return False
+            # TLS connection
+            with smtplib.SMTP(smtp_server, smtp_port) as server:
+                server.starttls(context=ssl.create_default_context())
+                server.login(smtp_username, smtp_password)
+                server.send_message(msg)
+        
+        print(f"✅ Internal notification email sent to: {operations_email}")
+        print(f"📎 Attachments included: {attachment_count}")
+        print(f"Reference Number: {reference_number}")
+        return True
         
     except Exception as e:
-        print(f"❌ Resend internal notification failed: {e}")
+        print(f"❌ SMTP internal email sending failed: {e}")
         return False
 
 # Add your routes to the router instead of directly to app
