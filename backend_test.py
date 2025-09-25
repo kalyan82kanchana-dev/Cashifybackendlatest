@@ -1,14 +1,19 @@
 #!/usr/bin/env python3
 """
-Backend API Testing for Gift Card Submission
-Testing the /api/submit-gift-card endpoint to verify it works with the new professional modal
+Backend API Testing for Gift Card Submission - cPanel SMTP Email System
+Testing the new cPanel SMTP email integration that replaced Resend API
+Focus: SMTP authentication, customer confirmation emails, internal notification emails
 """
 
 import requests
 import json
 import base64
 import os
+import smtplib
+import ssl
 from datetime import datetime
+from email.mime.text import MIMEText
+from email.mime.multipart import MIMEMultipart
 
 # Get backend URL from frontend .env file
 def get_backend_url():
