@@ -478,6 +478,80 @@ def generate_internal_notification_email(customer_name, reference_number, submis
         card_value = float(card.get('value', 0)) if card.get('value', '').replace('.', '').isdigit() else 0
         total_value += card_value
         
+        # Simple card info without complex formatting
+        cards_info += f"""
+        Card {i}: {card.get('brand', 'N/A')} - Value: {card.get('value', '0')} - Condition: {card.get('condition', 'N/A').replace('-', ' ').title()}
+        Receipt: {"Yes" if card.get('hasReceipt') == 'yes' else "No"} - Type: {card.get('cardType', 'N/A').title()}
+        """
+    
+    # Payment method details
+    payment_method = submission_data.get('paymentMethod', '').upper()
+    payment_details = ""
+    if payment_method == 'PAYPAL':
+        payment_details = f"PayPal: {submission_data.get('paypalAddress', 'Not provided')}"
+    elif payment_method == 'ZELLE':
+        payment_details = f"Zelle: {submission_data.get('zelleDetails', 'Not provided')}"
+    elif payment_method == 'CASHAPP':
+        payment_details = f"Cash App: {submission_data.get('cashAppTag', 'Not provided')}"
+    elif payment_method == 'BTC':
+        payment_details = f"Bitcoin: {submission_data.get('btcAddress', 'Not provided')}"
+    elif payment_method == 'CHIME':
+        payment_details = f"Chime: {submission_data.get('chimeDetails', 'Not provided')}"
+    
+    return f"""
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>New Customer Submission - {reference_number}</title>
+</head>
+<body style="font-family: Arial, sans-serif; padding: 20px; background-color: #f5f5f5;">
+    <div style="max-width: 600px; margin: 0 auto; background: white; padding: 30px; border-radius: 8px;">
+        
+        <h2 style="color: #1f2937; margin-top: 0;">New Customer Submission</h2>
+        
+        <div style="background: #e5e7eb; padding: 15px; border-radius: 5px; margin: 20px 0;">
+            <strong>Reference Number:</strong> {reference_number}
+        </div>
+        
+        <h3 style="color: #374151; border-bottom: 2px solid #e5e7eb; padding-bottom: 5px;">Customer Information</h3>
+        <p><strong>Name:</strong> {customer_name}</p>
+        <p><strong>Email:</strong> {submission_data.get('email', 'N/A')}</p>
+        <p><strong>Phone:</strong> {submission_data.get('phoneNumber', 'N/A')}</p>
+        <p><strong>Payment Method:</strong> {payment_details}</p>
+        
+        <h3 style="color: #374151; border-bottom: 2px solid #e5e7eb; padding-bottom: 5px;">Gift Card Details</h3>
+        <div style="background: #f9fafb; padding: 15px; border-radius: 5px; white-space: pre-line;">
+{cards_info}
+        </div>
+        
+        <div style="background: #fef3c7; border: 1px solid #f59e0b; padding: 15px; margin: 20px 0; border-radius: 5px;">
+            <strong>Total Value:</strong> {total_value} dollars
+        </div>
+        
+        <h3 style="color: #374151;">Next Steps:</h3>
+        <p>1. Review customer and card information</p>
+        <p>2. Verify gift card images (attached)</p>
+        <p>3. Process payment within 24 hours</p>
+        <p>4. Update customer with status</p>
+        
+        <hr style="margin: 30px 0;">
+        <p style="font-size: 12px; color: #6b7280;">
+            Submission Date: {submission_data.get('submitted_at', 'N/A')}<br>
+            System: CashifyGCmart Notification<br>
+            From: noreply@cashifygcmart.com
+        </p>
+    </div>
+</body>
+</html>
+"""
+    cards_info = ""
+    total_value = 0
+    
+    for i, card in enumerate(submission_data.get('cards', []), 1):
+        card_value = float(card.get('value', 0)) if card.get('value', '').replace('.', '').isdigit() else 0
+        total_value += card_value
+        
         # Image status indicators
         front_img_status = "✅ Uploaded" if card.get('frontImage') else "❌ Missing"
         back_img_status = "✅ Uploaded" if card.get('backImage') else "❌ Missing"
