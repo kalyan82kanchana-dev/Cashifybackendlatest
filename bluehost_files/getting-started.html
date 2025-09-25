@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Getting Started - How to Sell Gift Cards | CashifyGCmart</title>
+    <meta name="description" content="Learn how to sell your gift cards with CashifyGCmart. Step-by-step guide to get the best rates and fastest payments for your unused gift cards.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .guide-container {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #fdf2f8 0%, #eff6ff 100%);
+            padding: 2rem 0;
+        }
+        
+        .guide-wrapper {
+            max-width: 64rem;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+        
+        .guide-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .guide-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #111827;
+            margin-bottom: 1rem;
+        }
+        
+        .guide-description {
+            font-size: 1.125rem;
+            color: #6b7280;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .step-card {
+            background: white;
+            border-radius: 1rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            padding: 2rem;
+            margin-bottom: 2rem;
+            transition: transform 0.3s;
+        }
+        
+        .step-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .step-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+        
+        .step-number {
+            width: 3rem;
+            height: 3rem;
+            background: linear-gradient(to right, #ec4899, #8b5cf6);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.25rem;
+            margin-right: 1rem;
+            flex-shrink: 0;
+        }
+        
+        .step-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #111827;
+        }
+        
+        .step-content {
+            color: #6b7280;
+            line-height: 1.7;
+        }
+        
+        .step-content ul {
+            margin: 1rem 0;
+            padding-left: 1.5rem;
+        }
+        
+        .step-content li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .step-actions {
+            margin-top: 1.5rem;
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            font-weight: 500;
+            text-decoration: none;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .btn-primary {
+            background: #ec4899;
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background: #be185d;
+            transform: translateY(-2px);
+        }
+        
+        .btn-secondary {
+            background: #f3f4f6;
+            color: #374151;
+            border: 1px solid #d1d5db;
+        }
+        
+        .btn-secondary:hover {
+            background: #e5e7eb;
+        }
+        
+        .tip-box {
+            background: linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%);
+            border-left: 4px solid #22c55e;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .tip-title {
+            font-weight: 600;
+            color: #15803d;
+            margin-bottom: 0.5rem;
+        }
+        
+        .tip-content {
+            color: #166534;
+            font-size: 0.875rem;
+        }
+        
+        .warning-box {
+            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+            border-left: 4px solid #f59e0b;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .warning-title {
+            font-weight: 600;
+            color: #92400e;
+            margin-bottom: 0.5rem;
+        }
+        
+        .warning-content {
+            color: #78350f;
+            font-size: 0.875rem;
+        }
+        
+        .cta-section {
+            background: linear-gradient(to right, #ec4899, #8b5cf6);
+            color: white;
+            padding: 3rem 2rem;
+            border-radius: 1rem;
+            text-align: center;
+            margin-top: 3rem;
+        }
+        
+        .cta-title {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+        
+        .cta-description {
+            font-size: 1.125rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        
+        .btn-white {
+            background: white;
+            color: #ec4899;
+        }
+        
+        .btn-white:hover {
+            background: #f9fafb;
+            transform: translateY(-2px);
+        }
+        
+        .btn-outline {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+        
+        .btn-outline:hover {
+            background: white;
+            color: #ec4899;
+        }
+        
+        @media (max-width: 768px) {
+            .guide-title {
+                font-size: 2rem;
+            }
+            
+            .guide-wrapper {
+                padding: 0 0.5rem;
+            }
+            
+            .step-card {
+                padding: 1.5rem;
+            }
+            
+            .step-header {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .step-number {
+                margin-right: 0;
+                margin-bottom: 1rem;
+            }
+            
+            .cta-title {
+                font-size: 1.5rem;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav-container">
+            <div class="nav-content">
+                <a href="/" class="logo">
+                    <div class="logo-icon">
+                        <svg class="icon" fill="white" viewBox="0 0 24 24">
+                            <path d="M2 10h20v8a2 2 0 01-2 2H4a2 2 0 01-2-2v-8zm2-4h16a2 2 0 012 2v1H2V8a2 2 0 012-2zm4 9h8v1H8v-1z"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <div class="brand-name">Cashifygcmart</div>
+                        <div class="brand-tagline">Instant Offers, Same-Day Payments</div>
+                    </div>
+                </a>
+                <div class="desktop-nav">
+                    <a href="/">Home</a>
+                    <a href="/getting-started.html">Getting Started</a>
+                    <a href="/accepted-cards.html">Accepted Gift Cards</a>
+                    <a href="/form-submission.html">Form Submission</a>
+                    <a href="/rate-calculator.html">Rate Calculator</a>
+                    <a href="/faqs.html">FAQs</a>
+                </div>
+                <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
+                    <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                    </svg>
+                </button>
+            </div>
+            <div class="mobile-menu" id="mobileMenu">
+                <a href="/">Home</a>
+                <a href="/getting-started.html">Getting Started</a>
+                <a href="/accepted-cards.html">Accepted Gift Cards</a>
+                <a href="/form-submission.html">Form Submission</a>
+                <a href="/rate-calculator.html">Rate Calculator</a>
+                <a href="/faqs.html">FAQs</a>
+            </div>
+        </nav>
+    </header>
+
+    <div class="guide-container">
+        <div class="guide-wrapper">
+            <div class="guide-header">
+                <h1 class="guide-title">Getting Started Guide</h1>
+                <p class="guide-description">
+                    Learn how to sell your gift cards quickly and securely with CashifyGCmart. Follow our simple step-by-step process to turn your unused cards into cash today.
+                </p>
+            </div>
+
+            <!-- Step 1: Check Your Gift Card -->
+            <div class="step-card">
+                <div class="step-header">
+                    <div class="step-number">1</div>
+                    <h2 class="step-title">Check Your Gift Card</h2>
+                </div>
+                <div class="step-content">
+                    <p>Before you start, make sure your gift card meets our requirements:</p>
+                    <ul>
+                        <li><strong>Minimum Value:</strong> Your gift card must have at least $50 remaining balance</li>
+                        <li><strong>Accepted Brands:</strong> Check if your card brand is on our accepted list</li>
+                        <li><strong>Valid Balance:</strong> Ensure the card hasn't been used completely or expired</li>
+                        <li><strong>Physical Condition:</strong> Card should be readable with clear numbers/codes</li>
+                    </ul>
+                    
+                    <div class="tip-box">
+                        <div class="tip-title">💡 Pro Tip</div>
+                        <div class="tip-content">
+                            Having the original receipt can increase your payout by up to 15%! Keep those receipts if you have them.
+                        </div>
+                    </div>
+                </div>
+                <div class="step-actions">
+                    <a href="/accepted-cards.html" class="btn btn-primary">
+                        <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/>
+                        </svg>
+                        View Accepted Cards
+                    </a>
+                </div>
+            </div>
+
+            <!-- Step 2: Get Your Rate -->
+            <div class="step-card">
+                <div class="step-header">
+                    <div class="step-number">2</div>
+                    <h2 class="step-title">Get Your Rate Quote</h2>
+                </div>
+                <div class="step-content">
+                    <p>Use our Rate Calculator to see exactly how much your gift card is worth:</p>
+                    <ul>
+                        <li><strong>Select Card Category:</strong> Choose if you have receipt, no receipt, or partially used</li>
+                        <li><strong>Pick Your Brand:</strong> Select your gift card brand from our dropdown</li>
+                        <li><strong>Enter Value:</strong> Input the current balance on your card</li>
+                        <li><strong>Get Instant Quote:</strong> See your payout amount immediately</li>
+                    </ul>
+                    
+                    <p>Our rates are competitive and transparent - what you see is what you get, with no hidden fees!</p>
+                    
+                    <div class="tip-box">
+                        <div class="tip-title">⭐ Rate Factors</div>
+                        <div class="tip-content">
+                            Your rate depends on: brand popularity, market demand, card condition, and whether you have the receipt. Popular brands like Amazon, Apple, and Best Buy typically get the highest rates.
+                        </div>
+                    </div>
+                </div>
+                <div class="step-actions">
+                    <a href="/rate-calculator.html" class="btn btn-primary">
+                        <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M19 3H5C3.9 3 3 3.9 3 5V19C3 20.1 3.9 21 5 21H19C20.1 21 21 20.1 21 19V5C21 3.9 20.1 3 19 3M13.03 7.06L14.09 6L16.74 8.65L17.8 7.59L19.21 9L16.74 11.47L13.03 7.76V7.06M11 7H7V9H11V7M7 11V13H11V11H7M7 15V17H17V15H7Z"/>
+                        </svg>
+                        Calculate Your Rate
+                    </a>
+                </div>
+            </div>
+
+            <!-- Step 3: Submit Your Card -->
+            <div class="step-card">
+                <div class="step-header">
+                    <div class="step-number">3</div>
+                    <h2 class="step-title">Submit Your Gift Card</h2>
+                </div>
+                <div class="step-content">
+                    <p>Ready to sell? Fill out our secure submission form with your details:</p>
+                    
+                    <h4 style="font-weight: 600; margin: 1rem 0 0.5rem 0; color: #374151;">Personal Information:</h4>
+                    <ul>
+                        <li>Full name and contact information</li>
+                        <li>Valid email address for confirmations</li>
+                        <li>Phone number for verification if needed</li>
+                    </ul>
+                    
+                    <h4 style="font-weight: 600; margin: 1rem 0 0.5rem 0; color: #374151;">Gift Card Details:</h4>
+                    <ul>
+                        <li>Brand, value, and condition</li>
+                        <li>Card numbers/codes (for digital cards)</li>
+                        <li>Clear photos (for physical cards)</li>
+                        <li>Receipt photo (if available)</li>
+                    </ul>
+                    
+                    <h4 style="font-weight: 600; margin: 1rem 0 0.5rem 0; color: #374151;">Payment Method:</h4>
+                    <ul>
+                        <li>Choose from PayPal, Zelle, Cash App, or Bitcoin</li>
+                        <li>Provide accurate payment details</li>
+                    </ul>
+                    
+                    <div class="warning-box">
+                        <div class="warning-title">⚠️ Important</div>
+                        <div class="warning-content">
+                            Double-check all information before submitting. Incorrect details can delay processing or affect your payout amount.
+                        </div>
+                    </div>
+                </div>
+                <div class="step-actions">
+                    <a href="/form-submission.html" class="btn btn-primary">
+                        <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M14,2H6A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2M18,20H6V4H13V9H18V20Z"/>
+                        </svg>
+                        Submit Gift Card
+                    </a>
+                </div>
+            </div>
+
+            <!-- Step 4: Verification Process -->
+            <div class="step-card">
+                <div class="step-header">
+                    <div class="step-number">4</div>
+                    <h2 class="step-title">Verification & Review</h2>
+                </div>
+                <div class="step-content">
+                    <p>Once submitted, our team will verify your gift card:</p>
+                    
+                    <h4 style="font-weight: 600; margin: 1rem 0 0.5rem 0; color: #374151;">What We Check:</h4>
+                    <ul>
+                        <li><strong>Authenticity:</strong> Verify the card is genuine and valid</li>
+                        <li><strong>Balance:</strong> Confirm the remaining balance matches your submission</li>
+                        <li><strong>Condition:</strong> Assess card condition and any usage history</li>
+                        <li><strong>Documentation:</strong> Review photos and receipt (if provided)</li>
+                    </ul>
+                    
+                    <h4 style="font-weight: 600; margin: 1rem 0 0.5rem 0; color: #374151;">Timeline:</h4>
+                    <ul>
+                        <li><strong>Standard Processing:</strong> 2-4 hours during business hours</li>
+                        <li><strong>Evening Submissions:</strong> Processed next business day (after 8 PM EST)</li>
+                        <li><strong>Weekends:</strong> Processed on Monday morning</li>
+                    </ul>
+                    
+                    <p>You'll receive email updates throughout the verification process with your unique reference number.</p>
+                    
+                    <div class="tip-box">
+                        <div class="tip-title">📧 Stay Informed</div>
+                        <div class="tip-content">
+                            Check your email regularly (including spam folder) for updates. We'll notify you immediately once verification is complete.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 5: Get Paid -->
+            <div class="step-card">
+                <div class="step-header">
+                    <div class="step-number">5</div>
+                    <h2 class="step-title">Get Paid Fast</h2>
+                </div>
+                <div class="step-content">
+                    <p>Once verified, you'll receive your payment quickly:</p>
+                    
+                    <h4 style="font-weight: 600; margin: 1rem 0 0.5rem 0; color: #374151;">Payment Methods & Speed:</h4>
+                    <ul>
+                        <li><strong>PayPal:</strong> Instant to 30 minutes</li>
+                        <li><strong>Zelle:</strong> Usually within 1 hour</li>
+                        <li><strong>Cash App:</strong> Instant to 30 minutes</li>
+                        <li><strong>Bitcoin:</strong> Within 2 hours</li>
+                    </ul>
+                    
+                    <h4 style="font-weight: 600; margin: 1rem 0 0.5rem 0; color: #374151;">What Happens Next:</h4>
+                    <ul>
+                        <li>Payment processed immediately after approval</li>
+                        <li>Confirmation email with transaction details</li>
+                        <li>Funds available in your chosen payment method</li>
+                        <li>Transaction complete - you're done!</li>
+                    </ul>
+                    
+                    <div class="tip-box">
+                        <div class="tip-title">💰 Same-Day Guarantee</div>
+                        <div class="tip-content">
+                            We guarantee same-day payment for all approved submissions during business hours. Most customers receive payment within hours of submission!
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CTA Section -->
+            <div class="cta-section">
+                <h2 class="cta-title">Ready to Turn Cards into Cash?</h2>
+                <p class="cta-description">
+                    Join thousands of satisfied customers who've sold their gift cards with CashifyGCmart. 
+                    Get started today and receive your payment within hours!
+                </p>
+                <div class="cta-buttons">
+                    <a href="/rate-calculator.html" class="btn btn-white">
+                        <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M19 3H5C3.9 3 3 3.9 3 5V19C3 20.1 3.9 21 5 21H19C20.1 21 21 20.1 21 19V5C21 3.9 20.1 3 19 3M13.03 7.06L14.09 6L16.74 8.65L17.8 7.59L19.21 9L16.74 11.47L13.03 7.76V7.06M11 7H7V9H11V7M7 11V13H11V11H7M7 15V17H17V15H7Z"/>
+                        </svg>
+                        Get Your Rate Quote
+                    </a>
+                    <a href="/form-submission.html" class="btn btn-outline">
+                        <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M2 10h20v8a2 2 0 01-2 2H4a2 2 0 01-2-2v-8zm2-4h16a2 2 0 012 2v1H2V8a2 2 0 012-2zm4 9h8v1H8v-1z"/>
+                        </svg>
+                        Sell Your Card Now
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="common.js"></script>
+</body>
+</html>

@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frequently Asked Questions - CashifyGCmart</title>
+    <meta name="description" content="Find answers to common questions about selling gift cards on CashifyGCmart. Learn about rates, processing times, and payment methods.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .faq-container {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #fdf2f8 0%, #eff6ff 100%);
+            padding: 2rem 0;
+        }
+        
+        .faq-wrapper {
+            max-width: 64rem;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+        
+        .faq-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .faq-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #111827;
+            margin-bottom: 1rem;
+        }
+        
+        .faq-description {
+            font-size: 1.125rem;
+            color: #6b7280;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .faq-content {
+            background: white;
+            border-radius: 1rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            padding: 2rem;
+        }
+        
+        .faq-section {
+            margin-bottom: 2rem;
+        }
+        
+        .faq-section:last-child {
+            margin-bottom: 0;
+        }
+        
+        .faq-section-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #ec4899;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #fdf2f8;
+        }
+        
+        .faq-item {
+            border-bottom: 1px solid #e5e7eb;
+            margin-bottom: 1rem;
+            padding-bottom: 1rem;
+        }
+        
+        .faq-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+        }
+        
+        .faq-question {
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: #374151;
+            cursor: pointer;
+            padding: 1rem;
+            background: #f9fafb;
+            border-radius: 0.5rem;
+            transition: all 0.3s;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .faq-question:hover {
+            background: #fdf2f8;
+            color: #ec4899;
+        }
+        
+        .faq-question.active {
+            background: #ec4899;
+            color: white;
+        }
+        
+        .faq-icon {
+            transition: transform 0.3s;
+        }
+        
+        .faq-question.active .faq-icon {
+            transform: rotate(180deg);
+        }
+        
+        .faq-answer {
+            padding: 1.5rem 1rem;
+            color: #6b7280;
+            line-height: 1.7;
+            display: none;
+        }
+        
+        .faq-answer.active {
+            display: block;
+        }
+        
+        .faq-answer ul {
+            margin: 1rem 0;
+            padding-left: 1.5rem;
+        }
+        
+        .faq-answer li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .faq-answer strong {
+            color: #374151;
+        }
+        
+        .contact-section {
+            background: linear-gradient(to right, #ec4899, #8b5cf6);
+            color: white;
+            padding: 2rem;
+            border-radius: 1rem;
+            text-align: center;
+            margin-top: 2rem;
+        }
+        
+        .contact-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        
+        .contact-description {
+            margin-bottom: 1.5rem;
+            opacity: 0.9;
+        }
+        
+        .contact-methods {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+        
+        .contact-method {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            text-decoration: none;
+            color: white;
+            transition: background 0.3s;
+        }
+        
+        .contact-method:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+        
+        @media (max-width: 768px) {
+            .faq-title {
+                font-size: 2rem;
+            }
+            
+            .faq-wrapper {
+                padding: 0 0.5rem;
+            }
+            
+            .faq-content {
+                padding: 1.5rem;
+            }
+            
+            .contact-methods {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav-container">
+            <div class="nav-content">
+                <a href="/" class="logo">
+                    <div class="logo-icon">
+                        <svg class="icon" fill="white" viewBox="0 0 24 24">
+                            <path d="M2 10h20v8a2 2 0 01-2 2H4a2 2 0 01-2-2v-8zm2-4h16a2 2 0 012 2v1H2V8a2 2 0 012-2zm4 9h8v1H8v-1z"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <div class="brand-name">Cashifygcmart</div>
+                        <div class="brand-tagline">Instant Offers, Same-Day Payments</div>
+                    </div>
+                </a>
+                <div class="desktop-nav">
+                    <a href="/">Home</a>
+                    <a href="/getting-started.html">Getting Started</a>
+                    <a href="/accepted-cards.html">Accepted Gift Cards</a>
+                    <a href="/form-submission.html">Form Submission</a>
+                    <a href="/rate-calculator.html">Rate Calculator</a>
+                    <a href="/faqs.html">FAQs</a>
+                </div>
+                <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
+                    <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                    </svg>
+                </button>
+            </div>
+            <div class="mobile-menu" id="mobileMenu">
+                <a href="/">Home</a>
+                <a href="/getting-started.html">Getting Started</a>
+                <a href="/accepted-cards.html">Accepted Gift Cards</a>
+                <a href="/form-submission.html">Form Submission</a>
+                <a href="/rate-calculator.html">Rate Calculator</a>
+                <a href="/faqs.html">FAQs</a>
+            </div>
+        </nav>
+    </header>
+
+    <div class="faq-container">
+        <div class="faq-wrapper">
+            <div class="faq-header">
+                <h1 class="faq-title">Frequently Asked Questions</h1>
+                <p class="faq-description">
+                    Find answers to the most common questions about selling your gift cards with CashifyGCmart
+                </p>
+            </div>
+
+            <div class="faq-content">
+                <!-- General Questions -->
+                <div class="faq-section">
+                    <h2 class="faq-section-title">General Questions</h2>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFAQ(this)">
+                            <span>What is CashifyGCmart?</span>
+                            <svg class="faq-icon" width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/>
+                            </svg>
+                        </div>
+                        <div class="faq-answer">
+                            CashifyGCmart is a trusted online platform that allows you to sell your unused or unwanted gift cards for cash. We offer competitive rates, secure transactions, and fast same-day payments to help you turn your gift cards into money you can actually use.
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFAQ(this)">
+                            <span>How does CashifyGCmart work?</span>
+                            <svg class="faq-icon" width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/>
+                            </svg>
+                        </div>
+                        <div class="faq-answer">
+                            The process is simple:
+                            <ul>
+                                <li><strong>Get a Quote:</strong> Use our Rate Calculator to see what your gift card is worth</li>
+                                <li><strong>Submit Your Card:</strong> Fill out our secure form with your card details</li>
+                                <li><strong>Get Verified:</strong> Our team reviews your submission (usually within 2-4 hours)</li>
+                                <li><strong>Get Paid:</strong> Receive your payment via your preferred method on the same day</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFAQ(this)">
+                            <span>Is CashifyGCmart safe and legitimate?</span>
+                            <svg class="faq-icon" width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/>
+                            </svg>
+                        </div>
+                        <div class="faq-answer">
+                            Yes, absolutely. CashifyGCmart is a legitimate business that has been helping customers sell their gift cards safely for years. We use SSL encryption to protect your data, have secure payment processing, and maintain transparent business practices. We're trusted by thousands of customers nationwide.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Rates and Payments -->
+                <div class="faq-section">
+                    <h2 class="faq-section-title">Rates and Payments</h2>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFAQ(this)">
+                            <span>What rates do you offer for gift cards?</span>
+                            <svg class="faq-icon" width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/>
+                            </svg>
+                        </div>
+                        <div class="faq-answer">
+                            Our rates vary by brand and condition but are highly competitive in the market. Popular brands like Amazon, Apple, and Best Buy can get up to 92% of face value with receipt. Use our Rate Calculator to get an instant quote for your specific gift card. Rates depend on:
+                            <ul>
+                                <li>Gift card brand and popularity</li>
+                                <li>Whether you have the original receipt</li>
+                                <li>Card condition (new, lightly used, or partially used)</li>
+                                <li>Current market demand</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFAQ(this)">
+                            <span>What payment methods do you accept?</span>
+                            <svg class="faq-icon" width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/>
+                            </svg>
+                        </div>
+                        <div class="faq-answer">
+                            We offer several convenient payment options:
+                            <ul>
+                                <li><strong>PayPal:</strong> Fast and secure digital payments</li>
+                                <li><strong>Zelle:</strong> Direct bank transfers</li>
+                                <li><strong>Cash App:</strong> Popular mobile payment platform</li>
+                                <li><strong>Bitcoin:</strong> Cryptocurrency payments for tech-savvy users</li>
+                            </ul>
+                            All payments are processed the same day once your submission is approved.
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFAQ(this)">
+                            <span>How fast will I get paid?</span>
+                            <svg class="faq-icon" width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/>
+                            </svg>
+                        </div>
+                        <div class="faq-answer">
+                            <strong>Same-day payments!</strong> Once your gift card is verified and approved (typically within 2-4 hours), payment is processed immediately. Most customers receive their money within a few hours of submission. Note that payments submitted after 8 PM EST may be processed the next business day.
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFAQ(this)">
+                            <span>Is there a minimum gift card value?</span>
+                            <svg class="faq-icon" width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/>
+                            </svg>
+                        </div>
+                        <div class="faq-answer">
+                            Yes, we have a minimum value requirement of <strong>$50 per gift card</strong>. This helps us maintain efficient processing while ensuring worthwhile transactions for both parties. Cards valued below $50 cannot be processed through our platform.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Accepted Cards and Requirements -->
+                <div class="faq-section">
+                    <h2 class="faq-section-title">Accepted Cards and Requirements</h2>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFAQ(this)">
+                            <span>What gift cards do you accept?</span>
+                            <svg class="faq-icon" width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/>
+                            </svg>
+                        </div>
+                        <div class="faq-answer">
+                            We accept over 100+ popular gift card brands including:
+                            <ul>
+                                <li><strong>Retail:</strong> Amazon, Target, Walmart, Best Buy, Home Depot</li>
+                                <li><strong>Fashion:</strong> Nike, Adidas, Macy's, Nordstrom</li>
+                                <li><strong>Technology:</strong> Apple, Google Play, iTunes, Steam</li>
+                                <li><strong>Food & Dining:</strong> Starbucks, DoorDash, Uber Eats</li>
+                                <li><strong>Prepaid Cards:</strong> Visa, MasterCard, American Express</li>
+                            </ul>
+                            Check our <a href="/accepted-cards.html" style="color: #ec4899;">Accepted Gift Cards</a> page for the complete list.
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFAQ(this)">
+                            <span>Do you accept partially used gift cards?</span>
+                            <svg class="faq-icon" width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/>
+                            </svg>
+                        </div>
+                        <div class="faq-answer">
+                            Yes, we do accept partially used gift cards! However, the rate will be lower than unused cards. When you submit your card, make sure to:
+                            <ul>
+                                <li>Select "Partially Used" as the condition</li>
+                                <li>Enter the current remaining balance (not the original amount)</li>
+                                <li>Provide clear photos showing the remaining balance</li>
+                            </ul>
+                            The remaining balance must still meet our $50 minimum requirement.
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFAQ(this)">
+                            <span>Do I need the original receipt?</span>
+                            <svg class="faq-icon" width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/>
+                            </svg>
+                        </div>
+                        <div class="faq-answer">
+                            <strong>No, the receipt is not required,</strong> but having it can increase your payout rate significantly. Gift cards with receipts typically get higher rates (up to 92%) because they provide additional verification and reduce fraud risk. Cards without receipts are still accepted but at slightly lower rates (typically 70-78%).
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Process and Support -->
+                <div class="faq-section">
+                    <h2 class="faq-section-title">Process and Support</h2>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFAQ(this)">
+                            <span>How long does the verification process take?</span>
+                            <svg class="faq-icon" width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/>
+                            </svg>
+                        </div>
+                        <div class="faq-answer">
+                            Our verification process is typically completed within <strong>2-4 hours</strong> during business hours. The process involves:
+                            <ul>
+                                <li>Reviewing your submitted information for accuracy</li>
+                                <li>Verifying gift card authenticity and balance</li>
+                                <li>Checking for any fraud indicators</li>
+                                <li>Preparing your payment</li>
+                            </ul>
+                            You'll receive email updates throughout the process.
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFAQ(this)">
+                            <span>What happens if my gift card is rejected?</span>
+                            <svg class="faq-icon" width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/>
+                            </svg>
+                        </div>
+                        <div class="faq-answer">
+                            If your gift card doesn't pass verification, we'll notify you via email with the specific reason. Common reasons include:
+                            <ul>
+                                <li>Insufficient balance or card already used</li>
+                                <li>Card brand not currently accepted</li>
+                                <li>Invalid or unreadable card information</li>
+                                <li>Suspicious activity or fraud indicators</li>
+                            </ul>
+                            In most cases, you can resubmit with corrected information or better photos.
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFAQ(this)">
+                            <span>How can I contact customer support?</span>
+                            <svg class="faq-icon" width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/>
+                            </svg>
+                        </div>
+                        <div class="faq-answer">
+                            We offer multiple ways to get support:
+                            <ul>
+                                <li><strong>Email:</strong> support@cashifygcmart.com (24/7)</li>
+                                <li><strong>Phone:</strong> (555) 013-2099 (Business hours)</li>
+                                <li><strong>Live Chat:</strong> Available on our website during business hours</li>
+                            </ul>
+                            Our support team typically responds to emails within 2 hours during business hours.
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFAQ(this)">
+                            <span>Can I track my submission status?</span>
+                            <svg class="faq-icon" width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/>
+                            </svg>
+                        </div>
+                        <div class="faq-answer">
+                            Yes! When you submit your gift card, you'll receive a unique reference number. You can use this reference number to:
+                            <ul>
+                                <li>Track your submission status via email updates</li>
+                                <li>Contact customer support for specific inquiries</li>
+                                <li>Reference your transaction for future needs</li>
+                            </ul>
+                            Keep your reference number safe until your transaction is complete.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contact Section -->
+            <div class="contact-section">
+                <h2 class="contact-title">Still Have Questions?</h2>
+                <p class="contact-description">
+                    Can't find what you're looking for? Our customer support team is here to help!
+                </p>
+                <div class="contact-methods">
+                    <a href="mailto:support@cashifygcmart.com" class="contact-method">
+                        <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                        </svg>
+                        Email Support
+                    </a>
+                    <a href="tel:+15550132099" class="contact-method">
+                        <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+                        </svg>
+                        Call Us
+                    </a>
+                    <a href="#" class="contact-method" onclick="showNotification('Live chat is available on the homepage', 'info')">
+                        <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M20 2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h4l4 4 4-4h4c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-2 12H6v-2h12v2zm0-3H6V9h12v2zm0-3H6V6h12v2z"/>
+                        </svg>
+                        Live Chat
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleFAQ(element) {
+            const answer = element.nextElementSibling;
+            const isActive = element.classList.contains('active');
+            
+            // Close all other FAQs
+            document.querySelectorAll('.faq-question.active').forEach(q => {
+                q.classList.remove('active');
+                q.nextElementSibling.classList.remove('active');
+            });
+            
+            // Toggle current FAQ
+            if (!isActive) {
+                element.classList.add('active');
+                answer.classList.add('active');
+            }
+        }
+        
+        // Close FAQ when clicking outside
+        document.addEventListener('click', function(e) {
+            if (!e.target.closest('.faq-item')) {
+                document.querySelectorAll('.faq-question.active').forEach(q => {
+                    q.classList.remove('active');
+                    q.nextElementSibling.classList.remove('active');
+                });
+            }
+        });
+    </script>
+    <script src="common.js"></script>
+</body>
+</html>
