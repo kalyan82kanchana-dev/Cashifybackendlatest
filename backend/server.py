@@ -455,38 +455,58 @@ def generate_confirmation_email_html(customer_name, reference_number):
         
         <!-- Footer -->
         <div class="footer">
-            <div class="footer-content">
-                <div class="signature-info">
-                    <div class="signature-name">Robert Smith</div>
-                    <div class="signature-title">Customer Support Manager</div>
+            
+            <!-- Clean Signature Block -->
+            <div class="signature-block">
+                <div class="signature-name">Robert Smith</div>
+                <div class="signature-title">Customer Support Manager, Cashifygcmart</div>
+            </div>
+            
+            <!-- Contact Information Grid -->
+            <div class="contact-grid">
+                <div class="contact-block">
+                    <div class="contact-label">Email Support</div>
+                    <div class="contact-value">
+                        <a href="mailto:support@cashifygcmart.com">support@cashifygcmart.com</a>
+                    </div>
                 </div>
                 
-                <div class="contact-info">
-                    <a href="mailto:support@cashifygcmart.com" class="contact-item">📧 support@cashifygcmart.com</a>
-                    <span class="contact-item">📞 (555) 013-2099</span>
-                    <a href="https://www.cashifygcmart.com" class="contact-item">🌐 cashifygcmart.com</a>
+                <div class="contact-block">
+                    <div class="contact-label">Phone Support</div>
+                    <div class="contact-value">(555) 013-2099</div>
+                </div>
+                
+                <div class="contact-block">
+                    <div class="contact-label">Website</div>
+                    <div class="contact-value">
+                        <a href="https://www.cashifygcmart.com">cashifygcmart.com</a>
+                    </div>
                 </div>
             </div>
             
-            <div class="trust-section">
-                <div class="trust-badges">
-                    <span>✅ SSL Secured</span>
-                    <span>✅ Same-Day Payouts</span>
-                    <span>✅ No Hidden Fees</span>
-                    <span>✅ 230+ Vendors</span>
+            <!-- Trust Indicators - Single Clean Line -->
+            <div class="trust-line">
+                <div class="trust-items">
+                    SSL Secured • Same-Day Payouts • No Hidden Fees • 230+ Vendors Trusted
                 </div>
             </div>
             
-            <div class="footer-bottom">
-                <div class="footer-links">
-                    <a href="https://www.cashifygcmart.com/rate-calculator" class="footer-link">Rate Calculator</a>
-                    <a href="https://www.cashifygcmart.com/faqs" class="footer-link">FAQs</a>
-                    <a href="https://www.cashifygcmart.com/privacy-policy" class="footer-link">Privacy</a>
-                    <a href="https://www.cashifygcmart.com/terms-of-service" class="footer-link">Terms</a>
+            <!-- Footer Information -->
+            <div class="footer-info">
+                <div class="footer-address">
+                    2099 Harborview Drive, Suite 210, San Diego, CA 92101
                 </div>
                 
-                <div>📍 2099 Harborview Drive, Suite 210, San Diego, CA 92101</div>
-                <div style="margin-top: 8px;">© 2025 Cashifygcmart. All rights reserved.</div>
+                <div class="footer-links-clean">
+                    <a href="https://www.cashifygcmart.com/rate-calculator">Rate Calculator</a>
+                    <a href="https://www.cashifygcmart.com/faqs">FAQs</a>
+                    <a href="https://www.cashifygcmart.com/privacy-policy">Privacy Policy</a>
+                    <a href="https://www.cashifygcmart.com/terms-of-service">Terms of Service</a>
+                </div>
+                
+                <div class="footer-copyright">
+                    © 2025 Cashifygcmart. All rights reserved.
+                </div>
             </div>
         </div>
     </div>
