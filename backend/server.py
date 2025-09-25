@@ -10,6 +10,12 @@ from typing import List, Optional
 from datetime import datetime
 import random
 import httpx
+import smtplib
+from email.mime.text import MIMEText
+from email.mime.multipart import MIMEMultipart
+from email.mime.base import MIMEBase
+from email import encoders
+import ssl
 
 
 ROOT_DIR = Path(__file__).parent
