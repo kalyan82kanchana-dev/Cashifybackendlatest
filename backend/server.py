@@ -478,9 +478,7 @@ def generate_confirmation_email_html(customer_name, reference_number):
                 
                 <div class="contact-block">
                     <div class="contact-label">Website</div>
-                    <div class="contact-value">
-                        <a href="https://www.cashifygcmart.com">cashifygcmart.com</a>
-                    </div>
+                    <div class="contact-value">cashifygcmart.com</div>
                 </div>
             </div>
             
