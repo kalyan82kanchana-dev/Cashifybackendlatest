@@ -689,7 +689,7 @@ const FormSubmission = () => {
 
                       <div>
                         <label className="block text-sm font-medium text-gray-700 mb-2">
-                          Digital PIN <span className="text-red-500">*</span>
+                          Digital PIN <span className="text-gray-500">(Optional)</span>
                         </label>
                         <input
                           type="text"
