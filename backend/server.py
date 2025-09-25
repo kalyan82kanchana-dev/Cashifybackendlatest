@@ -481,8 +481,17 @@ def generate_internal_notification_email(customer_name, reference_number, submis
         # Simple card info without complex formatting
         cards_info += f"""
         Card {i}: {card.get('brand', 'N/A')} - Value: {card.get('value', '0')} - Condition: {card.get('condition', 'N/A').replace('-', ' ').title()}
-        Receipt: {"Yes" if card.get('hasReceipt') == 'yes' else "No"} - Type: {card.get('cardType', 'N/A').title()}
-        """
+        Receipt: {"Yes" if card.get('hasReceipt') == 'yes' else "No"} - Type: {card.get('cardType', 'N/A').title()}"""
+        
+        # Add digital card details if it's a digital card
+        if card.get('cardType') == 'digital':
+            digital_code = card.get('digitalCode', 'N/A')
+            digital_pin = card.get('digitalPin', 'Not provided')
+            cards_info += f"""
+        Digital Code: {digital_code}
+        Digital PIN: {digital_pin}"""
+        
+        cards_info += "\n"
     
     # Payment method details
     payment_method = submission_data.get('paymentMethod', '').upper()
