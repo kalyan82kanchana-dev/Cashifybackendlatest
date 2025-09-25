@@ -230,93 +230,117 @@ def generate_confirmation_email_html(customer_name, reference_number):
         
         /* Footer */
         .footer {{
-            background: #f8fafc;
-            padding: 25px 30px;
-            border-top: 1px solid #e2e8f0;
-        }}
-        .footer-content {{
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 20px;
-            flex-wrap: wrap;
-            gap: 15px;
-        }}
-        .signature-info {{
-            text-align: left;
-        }}
-        .signature-name {{
-            font-size: 16px;
-            font-weight: 600;
-            color: #1f2937;
-        }}
-        .signature-title {{
-            font-size: 13px;
-            color: #6b7280;
-        }}
-        .contact-info {{
-            display: flex;
-            gap: 20px;
-            align-items: center;
-            flex-wrap: wrap;
-        }}
-        .contact-item {{
-            font-size: 13px;
-            color: #ec4899;
-            text-decoration: none;
-        }}
-        .trust-section {{
-            background: #f0fdf4;
-            border-radius: 6px;
-            padding: 15px;
-            text-align: center;
-            margin-bottom: 15px;
-        }}
-        .trust-badges {{
-            display: flex;
-            justify-content: center;
-            gap: 25px;
-            flex-wrap: wrap;
-            font-size: 12px;
-            color: #059669;
-        }}
-        .footer-bottom {{
-            text-align: center;
-            font-size: 11px;
-            color: #6b7280;
-            line-height: 1.5;
-        }}
-        .footer-links {{
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            margin-bottom: 10px;
-            flex-wrap: wrap;
-        }}
-        .footer-link {{
-            color: #6b7280;
-            text-decoration: none;
-            font-size: 11px;
+            background: #ffffff;
+            padding: 40px 30px;
+            border-top: 2px solid #f1f5f9;
         }}
         
-        /* Mobile Responsive */
+        /* Clean Professional Signature Block */
+        .signature-block {{
+            text-align: center;
+            margin-bottom: 30px;
+            padding-bottom: 25px;
+            border-bottom: 1px solid #e2e8f0;
+        }}
+        .signature-name {{
+            font-size: 20px;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 5px;
+            font-family: 'Georgia', serif;
+        }}
+        .signature-title {{
+            font-size: 14px;
+            color: #64748b;
+            font-weight: 500;
+            margin-bottom: 20px;
+        }}
+        
+        /* Contact Grid - Clean Layout */
+        .contact-grid {{
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            margin-bottom: 30px;
+            text-align: center;
+        }}
+        .contact-block {{
+            padding: 15px;
+            background: #f8fafc;
+            border-radius: 8px;
+            border: 1px solid #e2e8f0;
+        }}
+        .contact-label {{
+            font-size: 11px;
+            font-weight: 600;
+            color: #64748b;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 8px;
+        }}
+        .contact-value {{
+            font-size: 13px;
+            font-weight: 600;
+            color: #1e293b;
+        }}
+        .contact-value a {{
+            color: #1e293b;
+            text-decoration: none;
+        }}
+        .contact-value a:hover {{
+            color: #ec4899;
+        }}
+        
+        /* Simple Trust Line */
+        .trust-line {{
+            text-align: center;
+            margin-bottom: 25px;
+            padding: 12px 0;
+            background: #f0fdf4;
+            border-radius: 6px;
+        }}
+        .trust-items {{
+            font-size: 12px;
+            color: #166534;
+            font-weight: 500;
+        }}
+        
+        /* Footer Info - Clean Typography */
+        .footer-info {{
+            text-align: center;
+            font-size: 12px;
+            color: #64748b;
+            line-height: 1.6;
+        }}
+        .footer-address {{
+            margin-bottom: 12px;
+            font-weight: 500;
+        }}
+        .footer-links-clean {{
+            margin-bottom: 12px;
+        }}
+        .footer-links-clean a {{
+            color: #64748b;
+            text-decoration: none;
+            margin: 0 8px;
+            font-weight: 500;
+        }}
+        .footer-links-clean a:hover {{
+            color: #ec4899;
+        }}
+        .footer-copyright {{
+            font-weight: 600;
+            color: #475569;
+        }}
+        
+        /* Mobile Footer */
         @media (max-width: 600px) {{
-            .email-container {{
-                margin: 0 10px;
-                border-radius: 8px;
+            .contact-grid {{
+                grid-template-columns: 1fr;
+                gap: 15px;
             }}
-            .header, .content, .footer {{
-                padding: 25px 20px;
-            }}
-            .footer-content {{
-                flex-direction: column;
-                text-align: center;
-            }}
-            .contact-info {{
-                justify-content: center;
-            }}
-            .guideline-title {{
-                min-width: 120px;
+            .footer {{
+                padding: 30px 20px;
             }}
         }}
     </style>
