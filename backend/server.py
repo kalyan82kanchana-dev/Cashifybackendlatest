@@ -62,6 +62,375 @@ def generate_confirmation_email_html(customer_name, reference_number):
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gift Card Submission Confirmed</title>
+    <style>
+        * {{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }}
+        body {{
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333333;
+            background-color: #f5f7fa;
+        }}
+        .email-container {{
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }}
+        
+        /* Header */
+        .header {{
+            background: linear-gradient(135deg, #ec4899 0%, #8b5cf6 100%);
+            color: white;
+            padding: 30px 25px;
+            text-align: center;
+        }}
+        .logo {{
+            font-size: 24px;
+            font-weight: 800;
+            margin-bottom: 5px;
+        }}
+        .tagline {{
+            font-size: 11px;
+            opacity: 0.9;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }}
+        .header-title {{
+            font-size: 22px;
+            font-weight: 600;
+            margin-top: 15px;
+        }}
+        
+        /* Content */
+        .content {{
+            padding: 30px 25px;
+        }}
+        .greeting {{
+            font-size: 18px;
+            font-weight: 600;
+            color: #1f2937;
+            margin-bottom: 15px;
+        }}
+        .reference-box {{
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+            border: 1px solid #0ea5e9;
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+            margin: 25px 0;
+        }}
+        .reference-label {{
+            font-size: 13px;
+            color: #0369a1;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }}
+        .reference-number {{
+            font-size: 24px;
+            font-weight: 800;
+            color: #0c4a6e;
+            margin-top: 5px;
+        }}
+        
+        /* Status Section */
+        .status-section {{
+            background: #f8fafc;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 25px 0;
+        }}
+        .status-title {{
+            font-size: 16px;
+            font-weight: 600;
+            color: #374151;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }}
+        .status-icon {{
+            width: 20px;
+            height: 20px;
+            background: #10b981;
+            border-radius: 50%;
+            margin-right: 10px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 12px;
+        }}
+        
+        /* Next Steps */
+        .next-steps {{
+            margin: 25px 0;
+        }}
+        .steps-title {{
+            font-size: 16px;
+            font-weight: 600;
+            color: #374151;
+            margin-bottom: 15px;
+        }}
+        .step-item {{
+            display: flex;
+            margin-bottom: 12px;
+            align-items: flex-start;
+        }}
+        .step-number {{
+            background: #ec4899;
+            color: white;
+            border-radius: 50%;
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: 600;
+            margin-right: 12px;
+            flex-shrink: 0;
+        }}
+        .step-text {{
+            font-size: 14px;
+            color: #4b5563;
+        }}
+        
+        /* Important Notice */
+        .notice-box {{
+            background: #fef3c7;
+            border: 1px solid #f59e0b;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 25px 0;
+        }}
+        .notice-title {{
+            font-size: 14px;
+            font-weight: 600;
+            color: #92400e;
+            margin-bottom: 5px;
+        }}
+        .notice-text {{
+            font-size: 13px;
+            color: #78350f;
+        }}
+        
+        /* Footer */
+        .footer {{
+            background: #f8fafc;
+            padding: 25px;
+            border-top: 1px solid #e2e8f0;
+        }}
+        .footer-content {{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+            gap: 15px;
+        }}
+        .signature {{
+            text-align: left;
+        }}
+        .signature-name {{
+            font-size: 16px;
+            font-weight: 600;
+            color: #1f2937;
+        }}
+        .signature-title {{
+            font-size: 13px;
+            color: #6b7280;
+        }}
+        .contact-info {{
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            flex-wrap: wrap;
+        }}
+        .contact-item {{
+            font-size: 13px;
+            color: #ec4899;
+            text-decoration: none;
+        }}
+        .trust-badges {{
+            background: #f0fdf4;
+            border-radius: 6px;
+            padding: 12px;
+            text-align: center;
+            margin-bottom: 15px;
+        }}
+        .trust-badges-grid {{
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            font-size: 12px;
+            color: #059669;
+        }}
+        .footer-bottom {{
+            text-align: center;
+            font-size: 11px;
+            color: #6b7280;
+            line-height: 1.5;
+        }}
+        .footer-links {{
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 10px;
+            flex-wrap: wrap;
+        }}
+        .footer-link {{
+            color: #6b7280;
+            text-decoration: none;
+            font-size: 11px;
+        }}
+        
+        /* Mobile Responsive */
+        @media (max-width: 600px) {{
+            .email-container {{
+                margin: 0 10px;
+                border-radius: 8px;
+            }}
+            .header, .content, .footer {{
+                padding: 20px 15px;
+            }}
+            .footer-content {{
+                flex-direction: column;
+                text-align: center;
+            }}
+            .contact-info {{
+                justify-content: center;
+            }}
+        }}
+    </style>
+</head>
+<body>
+    <div class="email-container">
+        <!-- Header -->
+        <div class="header">
+            <div class="logo">Cashifygcmart</div>
+            <div class="tagline">Instant Offers, Same-Day Payments</div>
+            <div class="header-title">✅ Submission Confirmed</div>
+        </div>
+        
+        <!-- Content -->
+        <div class="content">
+            <div class="greeting">Hi {customer_name},</div>
+            
+            <p style="color: #4b5563; margin-bottom: 20px;">
+                Thank you for choosing Cashifygcmart! We've successfully received your gift card submission and our team is already reviewing it.
+            </p>
+            
+            <!-- Reference Number -->
+            <div class="reference-box">
+                <div class="reference-label">Your Reference Number</div>
+                <div class="reference-number">{reference_number}</div>
+                <div style="font-size: 12px; color: #0369a1; margin-top: 5px;">Save this for your records</div>
+            </div>
+            
+            <!-- Current Status -->
+            <div class="status-section">
+                <div class="status-title">
+                    <div class="status-icon">✓</div>
+                    Current Status: Under Review
+                </div>
+                <p style="color: #6b7280; font-size: 14px;">
+                    Our verification team is checking your gift card details for authenticity and accuracy. This process ensures secure transactions for everyone.
+                </p>
+            </div>
+            
+            <!-- What Happens Next -->
+            <div class="next-steps">
+                <div class="steps-title">What Happens Next:</div>
+                
+                <div class="step-item">
+                    <div class="step-number">1</div>
+                    <div class="step-text">
+                        <strong>Verification (2-4 hours):</strong> We'll verify your gift card balance and authenticity.
+                    </div>
+                </div>
+                
+                <div class="step-item">
+                    <div class="step-number">2</div>
+                    <div class="step-text">
+                        <strong>Approval & Payment:</strong> Once approved, we'll process your payment via your chosen method.
+                    </div>
+                </div>
+                
+                <div class="step-item">
+                    <div class="step-number">3</div>
+                    <div class="step-text">
+                        <strong>Confirmation:</strong> You'll receive an email confirmation once payment is sent.
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Important Notice -->
+            <div class="notice-box">
+                <div class="notice-title">⚠️ Important:</div>
+                <div class="notice-text">
+                    Please do not use your gift card while it's under review to avoid any processing issues.
+                </div>
+            </div>
+            
+            <p style="color: #4b5563; margin-top: 20px;">
+                Questions? Simply reply to this email or contact our support team. We'll update you within 14 hours!
+            </p>
+        </div>
+        
+        <!-- Footer -->
+        <div class="footer">
+            <div class="footer-content">
+                <div class="signature">
+                    <div class="signature-name">Robert Smith</div>
+                    <div class="signature-title">Customer Support Manager</div>
+                </div>
+                
+                <div class="contact-info">
+                    <a href="mailto:support@cashifygcmart.com" class="contact-item">📧 support@cashifygcmart.com</a>
+                    <span class="contact-item">📞 (555) 013-2099</span>
+                    <a href="https://www.cashifygcmart.com" class="contact-item">🌐 cashifygcmart.com</a>
+                </div>
+            </div>
+            
+            <div class="trust-badges">
+                <div class="trust-badges-grid">
+                    <span>✅ SSL Secured</span>
+                    <span>✅ Same-Day Payouts</span>
+                    <span>✅ No Hidden Fees</span>
+                    <span>✅ 230+ Vendors</span>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div class="footer-links">
+                    <a href="https://www.cashifygcmart.com/rate-calculator" class="footer-link">Rate Calculator</a>
+                    <a href="https://www.cashifygcmart.com/faqs" class="footer-link">FAQs</a>
+                    <a href="https://www.cashifygcmart.com/privacy-policy" class="footer-link">Privacy</a>
+                    <a href="https://www.cashifygcmart.com/terms-of-service" class="footer-link">Terms</a>
+                </div>
+                
+                <div>📍 2099 Harborview Drive, Suite 210, San Diego, CA 92101</div>
+                <div style="margin-top: 8px;">© 2025 Cashifygcmart. All rights reserved.</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+    """
+    return f"""
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Submission Received — Reference {reference_number}</title>
     <style>
         * {{
