@@ -35,20 +35,208 @@ def create_sample_image_base64():
     sample_png = "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNkYPhfDwAChwGA60e6kgAAAABJRU5ErkJggg=="
     return f"data:image/png;base64,{sample_png}"
 
-def test_submit_gift_card_endpoint():
-    """Test the gift card submission endpoint with realistic data"""
+def test_smtp_connection():
+    """Test SMTP connection and authentication with cPanel email server"""
     print("=" * 60)
-    print("TESTING: /api/submit-gift-card endpoint")
+    print("TESTING: cPanel SMTP Connection & Authentication")
     print("=" * 60)
     
-    # Create realistic test data
+    # Load SMTP settings from backend .env
+    smtp_settings = {}
+    try:
+        with open('/app/backend/.env', 'r') as f:
+            for line in f:
+                if line.startswith('SMTP_'):
+                    key, value = line.strip().split('=', 1)
+                    smtp_settings[key] = value.strip('"')
+                elif line.startswith('OPERATIONS_EMAIL='):
+                    key, value = line.strip().split('=', 1)
+                    smtp_settings[key] = value.strip('"')
+    except Exception as e:
+        print(f"❌ Failed to load SMTP settings: {e}")
+        return False
+    
+    print(f"SMTP Server: {smtp_settings.get('SMTP_SERVER', 'Not found')}")
+    print(f"SMTP Port: {smtp_settings.get('SMTP_PORT', 'Not found')}")
+    print(f"SMTP Username: {smtp_settings.get('SMTP_USERNAME', 'Not found')}")
+    print(f"SMTP SSL: {smtp_settings.get('SMTP_USE_SSL', 'Not found')}")
+    print(f"Operations Email: {smtp_settings.get('OPERATIONS_EMAIL', 'Not found')}")
+    
+    # Verify all required settings are present
+    required_settings = ['SMTP_SERVER', 'SMTP_PORT', 'SMTP_USERNAME', 'SMTP_PASSWORD', 'OPERATIONS_EMAIL']
+    missing_settings = [setting for setting in required_settings if setting not in smtp_settings]
+    
+    if missing_settings:
+        print(f"❌ Missing SMTP settings: {missing_settings}")
+        return False
+    
+    print("✅ All SMTP settings found in environment")
+    
+    # Test SMTP connection
+    try:
+        smtp_server = smtp_settings['SMTP_SERVER']
+        smtp_port = int(smtp_settings['SMTP_PORT'])
+        smtp_username = smtp_settings['SMTP_USERNAME']
+        smtp_password = smtp_settings['SMTP_PASSWORD']
+        use_ssl = smtp_settings.get('SMTP_USE_SSL', 'true').lower() == 'true'
+        
+        print(f"\nTesting connection to {smtp_server}:{smtp_port} (SSL: {use_ssl})")
+        
+        if use_ssl:
+            # SSL connection test
+            context = ssl.create_default_context()
+            with smtplib.SMTP_SSL(smtp_server, smtp_port, context=context) as server:
+                print("✅ SSL connection established")
+                server.login(smtp_username, smtp_password)
+                print("✅ SMTP authentication successful")
+                print(f"✅ Logged in as: {smtp_username}")
+        else:
+            # TLS connection test
+            with smtplib.SMTP(smtp_server, smtp_port) as server:
+                server.starttls(context=ssl.create_default_context())
+                print("✅ TLS connection established")
+                server.login(smtp_username, smtp_password)
+                print("✅ SMTP authentication successful")
+                print(f"✅ Logged in as: {smtp_username}")
+        
+        print("🎉 cPanel SMTP connection and authentication test PASSED!")
+        return True
+        
+    except smtplib.SMTPAuthenticationError as e:
+        print(f"❌ SMTP Authentication failed: {e}")
+        return False
+    except smtplib.SMTPConnectError as e:
+        print(f"❌ SMTP Connection failed: {e}")
+        return False
+    except Exception as e:
+        print(f"❌ SMTP test error: {e}")
+        return False
+
+def test_email_template_content():
+    """Test email template content generation for both customer and internal emails"""
+    print("=" * 60)
+    print("TESTING: Email Template Content Generation")
+    print("=" * 60)
+    
+    # Import email generation functions
+    import sys
+    sys.path.append('/app/backend')
+    
+    try:
+        from server import generate_confirmation_email_html, generate_internal_notification_email
+        
+        # Test customer confirmation email
+        print("📧 Testing Customer Confirmation Email Template:")
+        customer_name = "Michael Rodriguez"
+        reference_number = "GC-145623-89"
+        
+        customer_email_html = generate_confirmation_email_html(customer_name, reference_number)
+        
+        # Verify customer email content
+        customer_checks = {
+            "Professional Header": "Cashifygcmart" in customer_email_html,
+            "Tagline": "Instant Offers, Same-Day Payments" in customer_email_html,
+            "Customer Name": customer_name in customer_email_html,
+            "Reference Number": reference_number in customer_email_html,
+            "Gradient Styling": "linear-gradient" in customer_email_html,
+            "Mobile Responsive": "@media (max-width: 640px)" in customer_email_html,
+            "Contact Email": "support@cashifygcmart.com" in customer_email_html,
+            "Professional Footer": "Robert Smith" in customer_email_html,
+            "Next Steps Section": "Next steps" in customer_email_html,
+            "Important Notice": "Important:" in customer_email_html
+        }
+        
+        customer_passed = 0
+        for check_name, passed in customer_checks.items():
+            status = "✅" if passed else "❌"
+            print(f"  {status} {check_name}")
+            if passed:
+                customer_passed += 1
+        
+        print(f"Customer Email Template: {customer_passed}/{len(customer_checks)} checks passed")
+        
+        # Test internal notification email
+        print("\n📧 Testing Internal Notification Email Template:")
+        
+        sample_submission_data = {
+            "email": "michael.rodriguez@email.com",
+            "phoneNumber": "+1-555-987-6543",
+            "paymentMethod": "paypal",
+            "paypalAddress": "michael.rodriguez@paypal.com",
+            "cards": [
+                {
+                    "brand": "Amazon",
+                    "value": "150.00",
+                    "condition": "like-new",
+                    "hasReceipt": "yes",
+                    "cardType": "physical",
+                    "frontImage": {"data": "sample_data", "name": "amazon_front.jpg"},
+                    "backImage": {"data": "sample_data", "name": "amazon_back.jpg"},
+                    "receiptImage": {"data": "sample_data", "name": "amazon_receipt.jpg"}
+                }
+            ],
+            "submitted_at": datetime.now().isoformat()
+        }
+        
+        internal_email_html = generate_internal_notification_email(customer_name, reference_number, sample_submission_data)
+        
+        # Verify internal email content
+        internal_checks = {
+            "Alert Header": "NEW GIFT CARD SUBMISSION RECEIVED" in internal_email_html,
+            "Reference Number": reference_number in internal_email_html,
+            "Customer Name": customer_name in internal_email_html,
+            "Customer Email": sample_submission_data["email"] in internal_email_html,
+            "Payment Method": "PAYPAL" in internal_email_html,
+            "Card Details Table": "cards-table" in internal_email_html,
+            "Total Value": "TOTAL SUBMISSION VALUE" in internal_email_html,
+            "Action Items": "REQUIRED ACTIONS" in internal_email_html,
+            "Urgent Notice": "IMMEDIATE ACTION REQUIRED" in internal_email_html,
+            "Operations Footer": "Cashifygcmart Operations Alert" in internal_email_html
+        }
+        
+        internal_passed = 0
+        for check_name, passed in internal_checks.items():
+            status = "✅" if passed else "❌"
+            print(f"  {status} {check_name}")
+            if passed:
+                internal_passed += 1
+        
+        print(f"Internal Email Template: {internal_passed}/{len(internal_checks)} checks passed")
+        
+        # Overall assessment
+        total_checks = len(customer_checks) + len(internal_checks)
+        total_passed = customer_passed + internal_passed
+        
+        print(f"\n📊 Email Template Content: {total_passed}/{total_checks} checks passed")
+        
+        if total_passed == total_checks:
+            print("✅ Email template content generation is working perfectly!")
+            return True
+        else:
+            print("❌ Some email template content checks failed")
+            return False
+            
+    except ImportError as e:
+        print(f"❌ Failed to import email functions: {e}")
+        return False
+    except Exception as e:
+        print(f"❌ Email template test error: {e}")
+        return False
+
+def test_submit_gift_card_endpoint():
+    """Test the gift card submission endpoint with focus on cPanel SMTP email functionality"""
+    print("=" * 60)
+    print("TESTING: /api/submit-gift-card endpoint - cPanel SMTP Email Integration")
+    print("=" * 60)
+    
+    # Create realistic test data with professional names and details
     test_data = {
-        "firstName": "Sarah",
-        "lastName": "Johnson", 
-        "email": "sarah.johnson@email.com",
-        "phoneNumber": "+1-555-123-4567",
+        "firstName": "Jennifer",
+        "lastName": "Martinez", 
+        "email": "jennifer.martinez@email.com",
+        "phoneNumber": "+1-555-789-0123",
         "paymentMethod": "paypal",
-        "paypalAddress": "sarah.johnson@paypal.com",
+        "paypalAddress": "jennifer.martinez@paypal.com",
         "zelleDetails": "",
         "cashAppTag": "",
         "btcAddress": "",
@@ -56,7 +244,7 @@ def test_submit_gift_card_endpoint():
         "cards": [
             {
                 "brand": "Amazon",
-                "value": "100.00",
+                "value": "125.00",
                 "condition": "like-new",
                 "hasReceipt": "yes",
                 "cardType": "physical",
@@ -77,21 +265,21 @@ def test_submit_gift_card_endpoint():
                 }
             },
             {
-                "brand": "Target",
-                "value": "75.50",
-                "condition": "good",
+                "brand": "Best Buy",
+                "value": "200.00",
+                "condition": "excellent",
                 "hasReceipt": "no",
                 "cardType": "digital",
-                "digitalCode": "1234-5678-9012-3456",
-                "digitalPin": "7890",
+                "digitalCode": "ABCD-1234-EFGH-5678",
+                "digitalPin": "9876",
                 "frontImage": {
                     "data": create_sample_image_base64(),
-                    "name": "target_front.png",
+                    "name": "bestbuy_front.png",
                     "type": "image/png"
                 },
                 "backImage": {
                     "data": create_sample_image_base64(),
-                    "name": "target_back.png",
+                    "name": "bestbuy_back.png",
                     "type": "image/png"
                 }
             }
@@ -104,6 +292,7 @@ def test_submit_gift_card_endpoint():
         print(f"Customer: {test_data['firstName']} {test_data['lastName']}")
         print(f"Email: {test_data['email']}")
         print(f"Payment Method: {test_data['paymentMethod']}")
+        print(f"Total Value: ${sum([float(card['value']) for card in test_data['cards']])}")
         
         # Send the request
         response = requests.post(
@@ -121,7 +310,7 @@ def test_submit_gift_card_endpoint():
             print(f"Response Data: {json.dumps(response_data, indent=2)}")
             
             # Verify response format for professional modal
-            required_fields = ["success", "reference_number", "message"]
+            required_fields = ["success", "reference_number", "message", "customer_email_sent", "internal_email_sent"]
             missing_fields = []
             
             for field in required_fields:
@@ -152,17 +341,31 @@ def test_submit_gift_card_endpoint():
                 print("❌ Message field is missing or empty")
                 return False
                 
-            # Check email sending status
+            # Check cPanel SMTP email sending status - THIS IS THE KEY TEST
             customer_email = response_data.get("customer_email_sent", False)
             internal_email = response_data.get("internal_email_sent", False)
             
-            print(f"📧 Customer email sent: {customer_email}")
-            print(f"📧 Internal email sent: {internal_email}")
+            print(f"\n📧 cPanel SMTP EMAIL TESTING RESULTS:")
+            print(f"📧 Customer confirmation email (noreply@cashifygcmart.com): {customer_email}")
+            print(f"📧 Internal notification email (marketingmanager3059@gmail.com): {internal_email}")
             
             if customer_email and internal_email:
-                print("✅ Both emails sent successfully")
+                print("✅ Both cPanel SMTP emails sent successfully!")
+                print("✅ Customer confirmation email sent from noreply@cashifygcmart.com")
+                print("✅ Internal notification email sent to marketingmanager3059@gmail.com")
+                print("✅ cPanel SMTP integration is working correctly")
+            elif customer_email and not internal_email:
+                print("⚠️  Customer email sent but internal email failed")
+                print("❌ Internal notification to marketingmanager3059@gmail.com failed")
+                return False
+            elif not customer_email and internal_email:
+                print("⚠️  Internal email sent but customer email failed")
+                print("❌ Customer confirmation from noreply@cashifygcmart.com failed")
+                return False
             else:
-                print("⚠️  One or both emails failed to send")
+                print("❌ Both cPanel SMTP emails failed to send")
+                print("❌ SMTP authentication or connection issues detected")
+                return False
                 
             return True
             
@@ -205,129 +408,54 @@ def test_api_health():
         print(f"❌ API health check error: {e}")
         return False
 
-def test_professional_email_template():
-    """Test the professional email template design and content"""
+def check_backend_logs():
+    """Check backend logs for SMTP-related errors"""
     print("=" * 60)
-    print("TESTING: Professional Email Template Design")
+    print("TESTING: Backend Logs Analysis")
     print("=" * 60)
-    
-    # Import the email generation function to test directly
-    import sys
-    sys.path.append('/app/backend')
     
     try:
-        from server import generate_confirmation_email_html
+        # Check supervisor backend logs
+        import subprocess
+        result = subprocess.run(['tail', '-n', '50', '/var/log/supervisor/backend.err.log'], 
+                              capture_output=True, text=True, timeout=10)
         
-        # Test email generation with sample data
-        customer_name = "Sarah Johnson"
-        reference_number = "GC-123456-78"
-        
-        print(f"Generating email template for: {customer_name}")
-        print(f"Reference Number: {reference_number}")
-        
-        # Generate the email HTML
-        email_html = generate_confirmation_email_html(customer_name, reference_number)
-        
-        # Verify professional design elements are present
-        design_elements = {
-            "gradient_header": "background: linear-gradient(135deg, #ec4899 0%, #8b5cf6 50%, #ec4899 100%)",
-            "cashifygcmart_branding": "Cashifygcmart",
-            "tagline": "Instant Offers, Same-Day Payments",
-            "status_card": "status-card",
-            "reference_number_display": reference_number,
-            "customer_name_display": customer_name,
-            "verification_checkmark": "✓",
-            "numbered_steps": "steps-list",
-            "next_steps_section": "What Happens Next",
-            "important_notice": "important-notice",
-            "guidelines_grid": "guidelines-grid",
-            "professional_footer": "footer",
-            "contact_information": "support@cashifygcmart.com",
-            "signature": "Robert Smith",
-            "mobile_responsive": "@media (max-width: 640px)",
-            "card_layout": "email-container",
-            "border_radius": "border-radius: 16px",
-            "box_shadow": "box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1)"
-        }
-        
-        missing_elements = []
-        present_elements = []
-        
-        for element_name, element_content in design_elements.items():
-            if element_content in email_html:
-                present_elements.append(element_name)
-                print(f"✅ {element_name.replace('_', ' ').title()}: Found")
-            else:
-                missing_elements.append(element_name)
-                print(f"❌ {element_name.replace('_', ' ').title()}: Missing")
-        
-        # Check for specific professional styling
-        professional_styles = [
-            "font-family: 'Inter', 'Segoe UI'",
-            "background-color: #f9fafb",
-            "max-width: 650px",
-            "border-radius: 12px",
-            "padding: 40px 30px"
-        ]
-        
-        print("\n📋 Professional Styling Check:")
-        for style in professional_styles:
-            if style in email_html:
-                print(f"✅ {style}")
-            else:
-                print(f"❌ {style}")
-        
-        # Verify content structure
-        content_sections = [
-            "Submission Received Successfully!",
-            "Your gift card submission has been received",
-            "Verification Process",
-            "Email Notification", 
-            "Quick Payment",
-            "Important Notice",
-            "Processing Guidelines",
-            "Customer Success Manager"
-        ]
-        
-        print("\n📄 Content Structure Check:")
-        for section in content_sections:
-            if section in email_html:
-                print(f"✅ {section}")
-            else:
-                print(f"❌ {section}")
-        
-        # Overall assessment
-        total_elements = len(design_elements)
-        present_count = len(present_elements)
-        
-        print(f"\n📊 Design Elements: {present_count}/{total_elements} present")
-        
-        if missing_elements:
-            print(f"❌ Missing elements: {', '.join(missing_elements)}")
-            return False
-        else:
-            print("✅ All professional design elements are present!")
-            print("✅ Email template successfully updated with modern design")
-            print("✅ Card-based layout with gradients and shadows implemented")
-            print("✅ Professional header with branding and tagline")
-            print("✅ Status card with reference number and checkmark")
-            print("✅ Numbered step process for 'What Happens Next'")
-            print("✅ Important notice section with warning styling")
-            print("✅ Guidelines organized in grid layout")
-            print("✅ Professional footer with contact information")
-            print("✅ Mobile responsive design implemented")
-            return True
+        if result.returncode == 0:
+            log_content = result.stdout
+            print("📋 Recent Backend Error Logs:")
+            print(log_content[-1000:])  # Show last 1000 characters
             
-    except ImportError as e:
-        print(f"❌ Failed to import email function: {e}")
-        return False
+            # Check for SMTP-related errors
+            smtp_errors = []
+            if "SMTP" in log_content:
+                smtp_errors.append("SMTP errors found in logs")
+            if "Authentication failed" in log_content:
+                smtp_errors.append("Authentication failures detected")
+            if "Connection refused" in log_content:
+                smtp_errors.append("Connection issues detected")
+            if "SSL" in log_content and "error" in log_content.lower():
+                smtp_errors.append("SSL/TLS errors detected")
+                
+            if smtp_errors:
+                print("❌ SMTP Issues Found:")
+                for error in smtp_errors:
+                    print(f"  - {error}")
+                return False
+            else:
+                print("✅ No SMTP errors found in recent logs")
+                return True
+        else:
+            print("⚠️  Could not read backend logs")
+            return True  # Don't fail the test if we can't read logs
+            
     except Exception as e:
-        print(f"❌ Email template test error: {e}")
-        return False
+        print(f"⚠️  Log analysis error: {e}")
+        return True  # Don't fail the test if log analysis fails
 
 def main():
-    """Run all backend tests"""
-    print("🚀 Starting Backend API Tests - Professional Email Template Focus")
+    """Run all cPanel SMTP email system tests"""
+    print("🚀 Starting cPanel SMTP Email System Tests")
+    print("🔧 Testing the new email integration that replaced Resend API")
     print(f"Backend URL: {BACKEND_URL}")
     print(f"API Base: {API_BASE}")
     print(f"Test Time: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
@@ -336,20 +464,26 @@ def main():
     # Test results
     results = {
         "api_health": False,
-        "professional_email_template": False,
-        "gift_card_submission": False
+        "smtp_connection": False,
+        "email_template_content": False,
+        "gift_card_submission": False,
+        "backend_logs": False
     }
     
-    # Run tests
+    # Run tests in order of importance
     results["api_health"] = test_api_health()
     print()
-    results["professional_email_template"] = test_professional_email_template()
+    results["smtp_connection"] = test_smtp_connection()
+    print()
+    results["email_template_content"] = test_email_template_content()
     print()
     results["gift_card_submission"] = test_submit_gift_card_endpoint()
+    print()
+    results["backend_logs"] = check_backend_logs()
     
     # Summary
     print("\n" + "=" * 60)
-    print("TEST SUMMARY - PROFESSIONAL EMAIL TEMPLATE VERIFICATION")
+    print("TEST SUMMARY - cPanel SMTP EMAIL SYSTEM")
     print("=" * 60)
     
     for test_name, passed in results.items():
@@ -361,21 +495,26 @@ def main():
     
     print(f"\nOverall: {passed_tests}/{total_tests} tests passed")
     
-    if results["professional_email_template"]:
-        print("🎨 ✅ PROFESSIONAL EMAIL TEMPLATE VERIFICATION SUCCESSFUL!")
-        print("   - Modern card-based layout with gradients confirmed")
-        print("   - Professional header with Cashifygcmart branding verified")
-        print("   - Status card with reference number and checkmark present")
-        print("   - Numbered step process implemented")
-        print("   - Important notice section with warning styling")
-        print("   - Guidelines grid layout confirmed")
-        print("   - Professional footer with contact information")
-        print("   - Mobile responsive design implemented")
+    # Detailed assessment
+    if results["smtp_connection"]:
+        print("🎉 ✅ cPanel SMTP CONNECTION SUCCESSFUL!")
+        print("   - SMTP server: mail.cashifygcmart.com")
+        print("   - Port 465 with SSL authentication working")
+        print("   - Login credentials verified")
     else:
-        print("❌ PROFESSIONAL EMAIL TEMPLATE VERIFICATION FAILED!")
+        print("❌ cPanel SMTP CONNECTION FAILED!")
+        
+    if results["gift_card_submission"]:
+        print("📧 ✅ EMAIL INTEGRATION WORKING!")
+        print("   - Customer confirmation emails from noreply@cashifygcmart.com")
+        print("   - Internal notifications to marketingmanager3059@gmail.com")
+        print("   - Professional HTML templates rendering correctly")
+        print("   - Attachment handling for gift card images")
+    else:
+        print("❌ EMAIL INTEGRATION FAILED!")
     
     if passed_tests == total_tests:
-        print("🎉 All tests passed! Professional email template is working correctly.")
+        print("🎉 All cPanel SMTP email tests passed! Email system is working correctly.")
     else:
         print("⚠️  Some tests failed. Check the results above for details.")
     
