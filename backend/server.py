@@ -498,10 +498,7 @@ def generate_confirmation_email_html(customer_name, reference_number):
                 </div>
                 
                 <div class="footer-links-clean">
-                    <a href="https://www.cashifygcmart.com/rate-calculator">Rate Calculator</a>
-                    <a href="https://www.cashifygcmart.com/faqs">FAQs</a>
-                    <a href="https://www.cashifygcmart.com/privacy-policy">Privacy Policy</a>
-                    <a href="https://www.cashifygcmart.com/terms-of-service">Terms of Service</a>
+                    Rate Calculator | FAQs | Privacy Policy | Terms of Service
                 </div>
                 
                 <div class="footer-copyright">
