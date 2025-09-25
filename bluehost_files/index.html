@@ -1,0 +1,1325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CashifyGCmart - Sell Gift Cards for Same-Day Cash Online</title>
+    <meta name="description" content="Turn unused gift cards into cash with CashifyGCmart. Competitive rates up to 93%, secure same-day payments, and instant quotes for 100+ brands.">
+    
+    <!-- Preload critical resources for faster loading -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Inline critical CSS for fastest loading -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #374151;
+            overflow-x: hidden;
+        }
+
+        /* Header Styles */
+        .header {
+            background: #ffffff;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 4rem;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            background: linear-gradient(to right, #ec4899, #be185d);
+            padding: 0.5rem;
+            border-radius: 50%;
+            margin-right: 0.75rem;
+        }
+
+        .brand-name {
+            font-size: 1.5rem;
+            font-weight: 800;
+            background: linear-gradient(to right, #ec4899, #be185d);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .brand-tagline {
+            font-size: 0.75rem;
+            color: #6b7280;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .desktop-nav {
+            display: none;
+        }
+
+        .desktop-nav a {
+            color: #374151;
+            text-decoration: none;
+            padding: 0.5rem 0.75rem;
+            font-weight: 500;
+            transition: all 0.2s;
+            position: relative;
+        }
+
+        .desktop-nav a:hover {
+            color: #ec4899;
+            transform: scale(1.05);
+        }
+
+        .mobile-menu-btn {
+            display: block;
+            background: none;
+            border: none;
+            padding: 0.5rem;
+            color: #6b7280;
+            cursor: pointer;
+        }
+
+        .mobile-menu {
+            display: none;
+            background: #ffffff;
+            border-top: 1px solid #e5e7eb;
+            padding: 1rem;
+        }
+
+        .mobile-menu.active {
+            display: block;
+        }
+
+        .mobile-menu a {
+            display: block;
+            color: #374151;
+            text-decoration: none;
+            padding: 0.75rem;
+            font-weight: 500;
+        }
+
+        .mobile-menu a:hover {
+            color: #ec4899;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #fdf2f8 0%, #eff6ff 100%);
+            padding: 2rem 0 4rem;
+        }
+
+        .hero-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .hero-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #111827;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-title .highlight {
+            color: #ec4899;
+        }
+
+        .hero-description {
+            font-size: 1.125rem;
+            color: #6b7280;
+            margin-bottom: 2rem;
+            max-width: 600px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .btn-primary {
+            background: #ec4899;
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 0.5rem;
+            text-decoration: none;
+            font-weight: 600;
+            text-align: center;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary:hover {
+            background: #be185d;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(236, 72, 153, 0.3);
+        }
+
+        .btn-secondary {
+            background: #111827;
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 0.5rem;
+            text-decoration: none;
+            font-weight: 600;
+            text-align: center;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-secondary:hover {
+            background: #374151;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(17, 24, 39, 0.3);
+        }
+
+        .trust-badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            font-size: 0.875rem;
+            color: #6b7280;
+        }
+
+        .trust-badge {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .hero-image {
+            width: 100%;
+            height: auto;
+            border-radius: 1rem;
+        }
+
+        /* Stats Section */
+        .stats {
+            padding: 3rem 0;
+            background: #ffffff;
+        }
+
+        .stats-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 1rem;
+            text-align: center;
+        }
+
+        .stats-header {
+            margin-bottom: 3rem;
+        }
+
+        .stats-subtitle {
+            color: #ec4899;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .stats-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #111827;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+
+        .stat-card {
+            background: #fce7f3;
+            padding: 2rem;
+            border-radius: 1rem;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .stat-card:hover {
+            background: #fbcfe8;
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(236, 72, 153, 0.1);
+        }
+
+        .stat-card.active {
+            background: #be185d;
+            color: white;
+            transform: scale(1.05);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #ec4899;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-card.active .stat-number {
+            color: white;
+        }
+
+        .stat-label {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-description {
+            font-size: 0.875rem;
+            color: #6b7280;
+        }
+
+        .stat-card.active .stat-description {
+            color: #fce7f3;
+        }
+
+        /* Process Section */
+        .process {
+            padding: 3rem 0;
+            background: #111827;
+            color: white;
+        }
+
+        .process-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 1rem;
+            text-center;
+        }
+
+        .process-header {
+            margin-bottom: 3rem;
+        }
+
+        .process-subtitle {
+            color: #f472b6;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .process-title {
+            font-size: 2rem;
+            font-weight: 700;
+        }
+
+        .process-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+
+        .process-step {
+            text-align: center;
+        }
+
+        .process-icon {
+            background: #ec4899;
+            width: 4rem;
+            height: 4rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            transition: transform 0.3s;
+        }
+
+        .process-icon:hover {
+            transform: scale(1.1);
+        }
+
+        .process-step-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .process-step-description {
+            color: #d1d5db;
+        }
+
+        /* Why Choose Us Section */
+        .why-choose {
+            padding: 3rem 0;
+            background: #ffffff;
+        }
+
+        .why-choose-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 1rem;
+            text-center;
+        }
+
+        .why-choose-header {
+            margin-bottom: 3rem;
+        }
+
+        .why-choose-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #111827;
+            margin-bottom: 1rem;
+        }
+
+        .why-choose-description {
+            color: #6b7280;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+
+        .feature-card {
+            background: #f9fafb;
+            padding: 2rem;
+            border-radius: 1rem;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .feature-card:hover {
+            background: #ffffff;
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .feature-card.active {
+            background: #ec4899;
+            color: white;
+            transform: scale(1.05);
+        }
+
+        .feature-icon {
+            margin: 0 auto 1.5rem;
+            transition: transform 0.3s;
+        }
+
+        .feature-card:hover .feature-icon {
+            transform: scale(1.1);
+        }
+
+        .feature-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #111827;
+        }
+
+        .feature-card.active .feature-title {
+            color: white;
+        }
+
+        .feature-description {
+            color: #6b7280;
+        }
+
+        .feature-card.active .feature-description {
+            color: #fce7f3;
+        }
+
+        /* Advantages Section */
+        .advantages {
+            padding: 3rem 0;
+            background: linear-gradient(to right, #ec4899, #be185d);
+            color: white;
+        }
+
+        .advantages-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        .advantages-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .advantages-title {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+        }
+
+        .advantage-list {
+            space-y: 1.5rem;
+        }
+
+        .advantage-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 1.5rem;
+        }
+
+        .advantage-number {
+            background: white;
+            color: #ec4899;
+            width: 2.5rem;
+            height: 2.5rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            margin-right: 1rem;
+            flex-shrink: 0;
+        }
+
+        .advantage-content h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .advantage-content p {
+            color: #fce7f3;
+        }
+
+        .advantages-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .btn-white {
+            background: white;
+            color: #ec4899;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            text-decoration: none;
+            font-weight: 600;
+            text-align: center;
+            transition: all 0.3s;
+        }
+
+        .btn-white:hover {
+            background: #f9fafb;
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border: 2px solid white;
+            border-radius: 0.5rem;
+            text-decoration: none;
+            font-weight: 600;
+            text-align: center;
+            transition: all 0.3s;
+        }
+
+        .btn-outline:hover {
+            background: white;
+            color: #ec4899;
+            transform: translateY(-2px);
+        }
+
+        /* Testimonials Section */
+        .testimonials {
+            padding: 3rem 0;
+            background: #ffffff;
+        }
+
+        .testimonials-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 1rem;
+            text-center;
+        }
+
+        .testimonials-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #111827;
+            margin-bottom: 3rem;
+        }
+
+        .testimonials-title .highlight {
+            color: #ec4899;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+
+        .testimonial-card {
+            background: #f9fafb;
+            padding: 2rem;
+            border-radius: 1rem;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .testimonial-card:hover {
+            background: #ffffff;
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .testimonial-avatar {
+            width: 4rem;
+            height: 4rem;
+            border-radius: 50%;
+            margin: 0 auto 1rem;
+            object-fit: cover;
+        }
+
+        .testimonial-rating {
+            margin-bottom: 1rem;
+        }
+
+        .star {
+            color: #fbbf24;
+            font-size: 1.25rem;
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            color: #6b7280;
+            margin-bottom: 1rem;
+        }
+
+        .testimonial-author {
+            font-weight: 600;
+            color: #111827;
+        }
+
+        /* Footer */
+        .footer {
+            background: #111827;
+            color: white;
+            padding: 4rem 0 2rem;
+        }
+
+        .footer-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-brand {
+            margin-bottom: 1rem;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .footer-logo-icon {
+            background: linear-gradient(to right, #ec4899, #be185d);
+            padding: 0.5rem;
+            border-radius: 50%;
+            margin-right: 0.75rem;
+        }
+
+        .footer-brand-name {
+            font-size: 1.5rem;
+            font-weight: 800;
+        }
+
+        .footer-tagline {
+            font-size: 0.875rem;
+            color: #9ca3af;
+            margin-bottom: 1rem;
+        }
+
+        .footer-description {
+            color: #d1d5db;
+            margin-bottom: 1rem;
+        }
+
+        .footer-section h3 {
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #ec4899;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-links a {
+            color: #d1d5db;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: #ec4899;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #374151;
+            padding-top: 2rem;
+            text-align: center;
+            color: #9ca3af;
+            font-size: 0.875rem;
+        }
+
+        /* Animations */
+        .scroll-move {
+            transition: all 0.6s ease-out;
+        }
+
+        .animate-in {
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Icons */
+        .icon {
+            width: 1.5rem;
+            height: 1.5rem;
+            display: inline-block;
+        }
+
+        .icon-sm {
+            width: 1rem;
+            height: 1rem;
+        }
+
+        .icon-lg {
+            width: 2rem;
+            height: 2rem;
+        }
+
+        /* Responsive Design */
+        @media (min-width: 640px) {
+            .hero-buttons {
+                flex-direction: row;
+            }
+
+            .advantages-buttons {
+                flex-direction: row;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .process-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .features-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .testimonials-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 768px) {
+            .desktop-nav {
+                display: flex;
+                align-items: center;
+                gap: 2rem;
+            }
+
+            .mobile-menu-btn {
+                display: none;
+            }
+
+            .hero-title {
+                font-size: 3rem;
+            }
+
+            .stats-title,
+            .process-title,
+            .why-choose-title,
+            .advantages-title,
+            .testimonials-title {
+                font-size: 2.5rem;
+            }
+
+            .hero-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .advantages-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .hero-title {
+                font-size: 4rem;
+            }
+
+            .stats-title,
+            .process-title,
+            .why-choose-title,
+            .advantages-title,
+            .testimonials-title {
+                font-size: 3rem;
+            }
+
+            .features-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav-container">
+            <div class="nav-content">
+                <a href="/" class="logo">
+                    <div class="logo-icon">
+                        <svg class="icon" fill="white" viewBox="0 0 24 24">
+                            <path d="M2 10h20v8a2 2 0 01-2 2H4a2 2 0 01-2-2v-8zm2-4h16a2 2 0 012 2v1H2V8a2 2 0 012-2zm4 9h8v1H8v-1z"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <div class="brand-name">Cashifygcmart</div>
+                        <div class="brand-tagline">Instant Offers, Same-Day Payments</div>
+                    </div>
+                </a>
+
+                <div class="desktop-nav">
+                    <a href="/">Home</a>
+                    <a href="/getting-started.html">Getting Started</a>
+                    <a href="/accepted-cards.html">Accepted Gift Cards</a>
+                    <a href="/form-submission.html">Form Submission</a>
+                    <a href="/rate-calculator.html">Rate Calculator</a>
+                    <a href="/faqs.html">FAQs</a>
+                </div>
+
+                <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
+                    <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                    </svg>
+                </button>
+            </div>
+
+            <div class="mobile-menu" id="mobileMenu">
+                <a href="/">Home</a>
+                <a href="/getting-started.html">Getting Started</a>
+                <a href="/accepted-cards.html">Accepted Gift Cards</a>
+                <a href="/form-submission.html">Form Submission</a>
+                <a href="/rate-calculator.html">Rate Calculator</a>
+                <a href="/faqs.html">FAQs</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-container">
+            <div class="hero-grid">
+                <div>
+                    <h1 class="hero-title animate-in">
+                        Sell Unused Gift Cards for <span class="highlight">Same-Day Cash Online</span>
+                    </h1>
+                    <p class="hero-description animate-in">
+                        CashifyGCmart is the trusted gift card exchange platform offering instant quotes, competitive rates up to 93%, and secure same-day payments. Turn your unwanted gift cards into cash today.
+                    </p>
+                    <div class="hero-buttons animate-in">
+                        <a href="/form-submission.html" class="btn-primary">Start Here</a>
+                        <a href="/accepted-cards.html" class="btn-secondary">See 100+ Accepted Brands</a>
+                    </div>
+                    <div class="trust-badges animate-in">
+                        <div class="trust-badge">
+                            <svg class="icon-sm" fill="currentColor" viewBox="0 0 20 20" style="color: #10b981;">
+                                <path fill-rule="evenodd" d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"/>
+                            </svg>
+                            <span>SSL Secured</span>
+                        </div>
+                        <div class="trust-badge">
+                            <svg class="icon-sm" fill="currentColor" viewBox="0 0 20 20" style="color: #10b981;">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/>
+                            </svg>
+                            <span>No Hidden Fees</span>
+                        </div>
+                        <div class="trust-badge">
+                            <svg class="icon-sm" fill="currentColor" viewBox="0 0 20 20" style="color: #10b981;">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z"/>
+                            </svg>
+                            <span>Same-Day Payouts</span>
+                        </div>
+                        <div class="trust-badge">
+                            <svg class="icon-sm" fill="currentColor" viewBox="0 0 20 20" style="color: #10b981;">
+                                <path d="M4 4a2 2 0 00-2 2v1h16V6a2 2 0 00-2-2H4z"/>
+                                <path fill-rule="evenodd" d="M18 9H2v5a2 2 0 002 2h12a2 2 0 002-2V9zM4 13a1 1 0 011-1h1a1 1 0 110 2H5a1 1 0 01-1-1zm5-1a1 1 0 100 2h1a1 1 0 100-2H9z"/>
+                            </svg>
+                            <span>230+ Vendors</span>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <img src="https://customer-assets.emergentagent.com/job_giftcard-trader/artifacts/gtkeecwv_Gemini_Generated_Image_57zioz57zioz57zi.png" 
+                         alt="Happy customers exchanging gift cards for cash online" 
+                         class="hero-image animate-in">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="stats-container">
+            <div class="stats-header">
+                <p class="stats-subtitle">First Time Selling a Gift Card?</p>
+                <h2 class="stats-title">Easy setup, clear rates, and same-day payout options.</h2>
+            </div>
+            <div class="stats-grid" id="statsGrid">
+                <div class="stat-card scroll-move" onclick="toggleStat(0)">
+                    <div class="stat-number">100+</div>
+                    <div class="stat-label">Choose Your Card</div>
+                    <div class="stat-description">Select a brand and enter the balance to view current offers.</div>
+                </div>
+                <div class="stat-card scroll-move" onclick="toggleStat(1)">
+                    <div class="stat-number">92%</div>
+                    <div class="stat-label">Get an Instant Quote</div>
+                    <div class="stat-description">Instant transparent pricing so you know what to expect.</div>
+                </div>
+                <div class="stat-card scroll-move" onclick="toggleStat(2)">
+                    <div class="stat-number">230+</div>
+                    <div class="stat-label">Trusted Vendor Network</div>
+                    <div class="stat-description">Expert resources from vetted vendors.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="process">
+        <div class="process-container">
+            <div class="process-header">
+                <p class="process-subtitle">Getting Started: Sell a Gift Card</p>
+                <h2 class="process-title">We'll walk you through each step — no surprises.</h2>
+            </div>
+            <div class="process-grid">
+                <div class="process-step scroll-move">
+                    <div class="process-icon">
+                        <svg class="icon-lg" fill="white" viewBox="0 0 24 24">
+                            <path d="M12 2C13.1 2 14 2.9 14 4C14 5.1 13.1 6 12 6C10.9 6 10 5.1 10 4C10 2.9 10.9 2 12 2ZM21 9V7L15 1H5C3.9 1 3 1.9 3 3V21C3 22.1 3.9 23 5 23H19C20.1 23 21 22.1 21 21V9M19 9H14V4H5V21H19V9Z"/>
+                        </svg>
+                    </div>
+                    <h3 class="process-step-title">Get Your Best Cash Offer</h3>
+                    <p class="process-step-description">See a clear, up-front quote and get the highest payout available.</p>
+                </div>
+                <div class="process-step scroll-move">
+                    <div class="process-icon">
+                        <svg class="icon-lg" fill="white" viewBox="0 0 24 24">
+                            <path d="M2 10h20v8a2 2 0 01-2 2H4a2 2 0 01-2-2v-8zm2-4h16a2 2 0 012 2v1H2V8a2 2 0 012-2zm4 9h8v1H8v-1z"/>
+                        </svg>
+                    </div>
+                    <h3 class="process-step-title">Pick a Wallet, Get Paid</h3>
+                    <p class="process-step-description">Fast payouts to the wallet you choose.</p>
+                </div>
+                <div class="process-step scroll-move">
+                    <div class="process-icon">
+                        <svg class="icon-lg" fill="white" viewBox="0 0 24 24">
+                            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/>
+                        </svg>
+                    </div>
+                    <h3 class="process-step-title">Unlock Same-Day Payouts</h3>
+                    <p class="process-step-description">Quick verification and reliable same-day transfers.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us Section -->
+    <section class="why-choose">
+        <div class="why-choose-container">
+            <div class="why-choose-header">
+                <h2 class="why-choose-title">Why Choose Us?</h2>
+                <p class="why-choose-description">
+                    Sell your unused gift cards with ease, speed, and confidence. We offer a secure, hassle-free process and 
+                    transparent rates to ensure you get the best value, every time.
+                </p>
+            </div>
+            <div class="features-grid" id="featuresGrid">
+                <div class="feature-card scroll-move" onclick="toggleFeature(0)">
+                    <div class="feature-icon">
+                        <svg class="icon-lg" fill="#ec4899" viewBox="0 0 24 24">
+                            <path fill-rule="evenodd" d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"/>
+                        </svg>
+                    </div>
+                    <h3 class="feature-title">Honest Pricing, Always</h3>
+                    <p class="feature-description">Clear, up-front offers — no hidden clauses, ever.</p>
+                </div>
+                <div class="feature-card scroll-move" onclick="toggleFeature(1)">
+                    <div class="feature-icon">
+                        <svg class="icon-lg" fill="#ec4899" viewBox="0 0 24 24">
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z"/>
+                        </svg>
+                    </div>
+                    <h3 class="feature-title">Quick Turnaround</h3>
+                    <p class="feature-description">Fast verification and prompt payouts so you don't wait for your cash.</p>
+                </div>
+                <div class="feature-card scroll-move" onclick="toggleFeature(2)">
+                    <div class="feature-icon">
+                        <svg class="icon-lg" fill="#ec4899" viewBox="0 0 24 24">
+                            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/>
+                        </svg>
+                    </div>
+                    <h3 class="feature-title">Consistent Results</h3>
+                    <p class="feature-description">Dependable processing and predictable outcomes every time you sell.</p>
+                </div>
+                <div class="feature-card scroll-move" onclick="toggleFeature(3)">
+                    <div class="feature-icon">
+                        <svg class="icon-lg" fill="#ec4899" viewBox="0 0 24 24">
+                            <path d="M7 4V2C7 1.45 6.55 1 6 1S5 1.45 5 2V4C5 4.55 5.45 5 6 5S7 4.55 7 4M12 7C13.66 7 15 8.34 15 10V11H16C16.55 11 17 11.45 17 12V19C17 19.55 16.55 20 16 20H8C7.45 20 7 19.55 7 19V12C7 11.45 7.45 11 8 11H9V10C9 8.34 10.34 7 12 7M12 8.5C11.17 8.5 10.5 9.17 10.5 10V11H13.5V10C13.5 9.17 12.83 8.5 12 8.5Z"/>
+                        </svg>
+                    </div>
+                    <h3 class="feature-title">Designed for Everyone</h3>
+                    <p class="feature-description">Intuitive flows and friction-free steps — sell a card in minutes.</p>
+                </div>
+                <div class="feature-card scroll-move" onclick="toggleFeature(4)">
+                    <div class="feature-icon">
+                        <svg class="icon-lg" fill="#ec4899" viewBox="0 0 24 24">
+                            <path fill-rule="evenodd" d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"/>
+                        </svg>
+                    </div>
+                    <h3 class="feature-title">Privacy First</h3>
+                    <p class="feature-description">Encrypted storage and strict fraud checks protect your information.</p>
+                </div>
+                <div class="feature-card scroll-move" onclick="toggleFeature(5)">
+                    <div class="feature-icon">
+                        <svg class="icon-lg" fill="#ec4899" viewBox="0 0 24 24">
+                            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/>
+                        </svg>
+                    </div>
+                    <h3 class="feature-title">Help When You Need It</h3>
+                    <p class="feature-description">Responsive support via chat or email — real people, real help.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Advantages Section -->
+    <section class="advantages">
+        <div class="advantages-container">
+            <div class="advantages-grid">
+                <div>
+                    <h2 class="advantages-title">Advantages of becoming a customer of our company.</h2>
+                    <div class="advantage-list">
+                        <div class="advantage-item">
+                            <div class="advantage-number">1</div>
+                            <div class="advantage-content">
+                                <h3>Sell On The Go</h3>
+                                <p>Complete a sale from anywhere in minutes using your phone.</p>
+                            </div>
+                        </div>
+                        <div class="advantage-item">
+                            <div class="advantage-number">2</div>
+                            <div class="advantage-content">
+                                <h3>Digital & Eco-Friendly</h3>
+                                <p>Paperless processing that's faster and better for the planet.</p>
+                            </div>
+                        </div>
+                        <div class="advantage-item">
+                            <div class="advantage-number">3</div>
+                            <div class="advantage-content">
+                                <h3>Huge Brand Selection</h3>
+                                <p>We accept hundreds of gift-card brands and any balance.</p>
+                            </div>
+                        </div>
+                        <div class="advantage-item">
+                            <div class="advantage-number">4</div>
+                            <div class="advantage-content">
+                                <h3>Fair, Upfront Offers</h3>
+                                <p>Transparent quotes with clear fees — accept only if you're happy.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="advantages-buttons">
+                        <a href="/getting-started.html" class="btn-white">Get Started</a>
+                        <a href="/form-submission.html" class="btn-outline">Sell Gift Card</a>
+                    </div>
+                </div>
+                <div>
+                    <img src="https://customer-assets.emergentagent.com/job_giftcard-trader/artifacts/kwthizs9_Gemini_Generated_Image_tsh5iztsh5iztsh5.png" 
+                         alt="Happy satisfied customers celebrating success" 
+                         class="hero-image">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <div class="testimonials-container">
+            <h2 class="testimonials-title">Recent <span class="highlight">reviews</span> from our customers</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial-card scroll-move">
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=face" 
+                         alt="Jordan K." class="testimonial-avatar">
+                    <div class="testimonial-rating">
+                        <span class="star">★★★★★</span>
+                    </div>
+                    <p class="testimonial-text">"I sold three cards in one go — each payout arrived the same day. CashifyGCmart made the whole process seamless."</p>
+                    <div class="testimonial-author">Jordan K., Chicago</div>
+                </div>
+                <div class="testimonial-card scroll-move">
+                    <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop&crop=face" 
+                         alt="Samantha W." class="testimonial-avatar">
+                    <div class="testimonial-rating">
+                        <span class="star">★★★★★</span>
+                    </div>
+                    <p class="testimonial-text">"Reliable and transparent. CashifyGCmart is the best gift-card buyer I've tried."</p>
+                    <div class="testimonial-author">Samantha W., Boston</div>
+                </div>
+                <div class="testimonial-card scroll-move">
+                    <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&crop=face" 
+                         alt="Cameron P." class="testimonial-avatar">
+                    <div class="testimonial-rating">
+                        <span class="star">★★★★★</span>
+                    </div>
+                    <p class="testimonial-text">"The whole process was effortless: clear instructions, quick verification, and a reliable payout from CashifyGCmart."</p>
+                    <div class="testimonial-author">Cameron P., Denver</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <div class="footer-logo-icon">
+                            <svg class="icon" fill="white" viewBox="0 0 24 24">
+                                <path d="M2 10h20v8a2 2 0 01-2 2H4a2 2 0 01-2-2v-8zm2-4h16a2 2 0 012 2v1H2V8a2 2 0 012-2zm4 9h8v1H8v-1z"/>
+                            </svg>
+                        </div>
+                        <div class="footer-brand-name">Cashifygcmart</div>
+                    </div>
+                    <p class="footer-tagline">Instant Offers, Same-Day Payments</p>
+                    <p class="footer-description">
+                        Your trusted platform for selling unused gift cards. Get instant quotes, competitive rates, and same-day payments.
+                    </p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="/rate-calculator.html">Rate Calculator</a></li>
+                        <li><a href="/accepted-cards.html">Accepted Cards</a></li>
+                        <li><a href="/getting-started.html">Getting Started</a></li>
+                        <li><a href="/form-submission.html">Sell Gift Card</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Support</h3>
+                    <ul class="footer-links">
+                        <li><a href="/faqs.html">FAQs</a></li>
+                        <li><a href="mailto:support@cashifygcmart.com">Contact Support</a></li>
+                        <li><a href="tel:+15550132099">Call: (555) 013-2099</a></li>
+                        <li><a href="#">Live Chat</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Legal</h3>
+                    <ul class="footer-links">
+                        <li><a href="/privacy-policy.html">Privacy Policy</a></li>
+                        <li><a href="/refund-policy.html">Refund Policy</a></li>
+                        <li><a href="/cookie-policy.html">Cookie Policy</a></li>
+                        <li><a href="/terms-of-service.html">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Cashifygcmart. All rights reserved. | 2099 Harborview Drive, Suite 210, San Diego, CA 92101</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        function toggleMobileMenu() {
+            const mobileMenu = document.getElementById('mobileMenu');
+            mobileMenu.classList.toggle('active');
+        }
+
+        // Stats card toggle
+        let selectedStat = null;
+        function toggleStat(index) {
+            const cards = document.querySelectorAll('.stat-card');
+            if (selectedStat === index) {
+                cards[index].classList.remove('active');
+                selectedStat = null;
+            } else {
+                cards.forEach((card, i) => {
+                    if (i === index) {
+                        card.classList.add('active');
+                    } else {
+                        card.classList.remove('active');
+                    }
+                });
+                selectedStat = index;
+            }
+        }
+
+        // Features card toggle
+        let selectedFeature = null;
+        function toggleFeature(index) {
+            const cards = document.querySelectorAll('.feature-card');
+            if (selectedFeature === index) {
+                cards[index].classList.remove('active');
+                selectedFeature = null;
+            } else {
+                cards.forEach((card, i) => {
+                    if (i === index) {
+                        card.classList.add('active');
+                    } else {
+                        card.classList.remove('active');
+                    }
+                });
+                selectedFeature = index;
+            }
+        }
+
+        // Scroll animations
+        function initScrollAnimations() {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animate-in');
+                    }
+                });
+            }, {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            });
+
+            document.querySelectorAll('.scroll-move').forEach(el => {
+                observer.observe(el);
+            });
+        }
+
+        // Smooth scroll movement effect
+        function initScrollMovement() {
+            window.addEventListener('scroll', () => {
+                const scrolled = window.pageYOffset;
+                const elements = document.querySelectorAll('.scroll-move');
+                
+                elements.forEach((element, index) => {
+                    const rect = element.getBoundingClientRect();
+                    const elementTop = rect.top + window.pageYOffset;
+                    const elementHeight = rect.height;
+                    const windowHeight = window.innerHeight;
+                    
+                    const elementCenter = elementTop + (elementHeight / 2);
+                    const distanceFromCenter = Math.abs((window.pageYOffset + windowHeight / 2) - elementCenter);
+                    const maxDistance = windowHeight / 2 + elementHeight / 2;
+                    
+                    if (distanceFromCenter < maxDistance) {
+                        const progress = 1 - (distanceFromCenter / maxDistance);
+                        const moveY = progress * 10;
+                        const scaleValue = 1 + (progress * 0.02);
+                        
+                        element.style.transform = `translateY(-${moveY}px) scale(${scaleValue})`;
+                        element.style.opacity = 0.8 + (progress * 0.2);
+                    }
+                });
+            });
+        }
+
+        // Initialize everything when DOM is loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            initScrollAnimations();
+            initScrollMovement();
+            
+            // Add animation delays for better effect
+            document.querySelectorAll('.animate-in').forEach((el, index) => {
+                el.style.animationDelay = `${index * 0.1}s`;
+            });
+        });
+    </script>
+
+    <!-- Zoho SalesIQ Live Chat -->
+    <script type="text/javascript">
+        var $zoho=$zoho || {};$zoho.salesiq = $zoho.salesiq || {widgetcode: "siq42b6cc0c4405e90d123ecd8e901077c5f", values:{},ready:function(){}};var d=document;s=d.createElement("script");s.type="text/javascript";s.id="zsiqscript";s.defer=true;s.src="https://salesiq.zohopublic.com/widget";t=d.getElementsByTagName("script")[0];t.parentNode.insertBefore(s,t);
+    </script>
+</body>
+</html>
