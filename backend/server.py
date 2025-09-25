@@ -383,84 +383,56 @@ def generate_confirmation_email_html(customer_name, reference_number):
         
         <!-- Footer -->
         <div class="footer">
-            <div class="signature">
-                <div class="signature-name">Robert Smith</div>
-                <div class="signature-title">Customer Support Manager</div>
-            </div>
-            
-            <div class="footer-divider"></div>
-            
-            <!-- Enhanced Contact Section -->
-            <div class="contact-section">
-                <!-- Contact Info - Better Organized -->
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-bottom: 30px; text-align: center;">
-                    <div>
-                        <a href="mailto:support@cashifygcmart.com" class="contact-item" style="display: block; padding: 10px;">
-                            <span class="contact-icon">📧</span>
-                            <span style="display: block; margin-top: 5px;">support@cashifygcmart.com</span>
-                        </a>
+            <!-- Compact Professional Footer -->
+            <div style="background: #f8fafc; padding: 25px 20px; border-radius: 8px; text-align: center;">
+                
+                <!-- Signature & Contact in One Row -->
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; flex-wrap: wrap; gap: 15px;">
+                    <div style="text-align: left;">
+                        <div style="font-size: 18px; font-weight: 700; color: #1f2937; margin-bottom: 3px;">Robert Smith</div>
+                        <div style="font-size: 14px; color: #6b7280;">Customer Support Manager</div>
                     </div>
-                    <div>
-                        <a href="tel:+15550132099" class="contact-item" style="display: block; padding: 10px;">
-                            <span class="contact-icon">📞</span>
-                            <span style="display: block; margin-top: 5px;">(555) 013-2099</span>
+                    
+                    <div style="display: flex; gap: 20px; align-items: center; flex-wrap: wrap;">
+                        <a href="mailto:support@cashifygcmart.com" style="color: #ec4899; text-decoration: none; font-size: 13px;">
+                            📧 support@cashifygcmart.com
                         </a>
-                    </div>
-                    <div>
-                        <a href="https://www.cashifygcmart.com" class="contact-item" style="display: block; padding: 10px;">
-                            <span class="contact-icon">🌐</span>
-                            <span style="display: block; margin-top: 5px;">www.cashifygcmart.com</span>
+                        <span style="color: #ec4899; font-size: 13px;">📞 (555) 013-2099</span>
+                        <a href="https://www.cashifygcmart.com" style="color: #ec4899; text-decoration: none; font-size: 13px;">
+                            🌐 cashifygcmart.com
                         </a>
                     </div>
                 </div>
                 
-                <!-- Business Address -->
-                <div style="text-align: center; margin: 25px 0; padding: 20px; background: #f8fafc; border-radius: 8px; border: 1px solid #e2e8f0;">
-                    <p style="color: #374151; font-weight: 600; margin: 0 0 8px 0; font-size: 14px;">📍 Business Address</p>
-                    <p style="color: #6b7280; font-size: 13px; margin: 0; line-height: 1.5;">
-                        2099 Harborview Drive, Suite 210<br>
-                        San Diego, CA 92101, United States
-                    </p>
-                </div>
-                
-                <!-- Quick Links - Better Organized -->
-                <div style="text-align: center; margin: 25px 0;">
-                    <p style="color: #374151; font-weight: 600; margin: 0 0 15px 0; font-size: 14px;">Quick Links</p>
-                    <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; max-width: 400px; margin: 0 auto;">
-                        <a href="https://www.cashifygcmart.com/rate-calculator" style="color: #ec4899; text-decoration: none; font-size: 13px; padding: 5px;">Rate Calculator</a>
-                        <a href="https://www.cashifygcmart.com/accepted-cards" style="color: #ec4899; text-decoration: none; font-size: 13px; padding: 5px;">Accepted Cards</a>
-                        <a href="https://www.cashifygcmart.com/faqs" style="color: #ec4899; text-decoration: none; font-size: 13px; padding: 5px;">FAQs</a>
-                        <a href="https://www.cashifygcmart.com/getting-started" style="color: #ec4899; text-decoration: none; font-size: 13px; padding: 5px;">Getting Started</a>
+                <!-- Compact Trust Badges -->
+                <div style="background: #f0fdf4; padding: 12px; border-radius: 6px; margin-bottom: 15px;">
+                    <div style="display: flex; justify-content: center; gap: 25px; flex-wrap: wrap; font-size: 12px; color: #059669;">
+                        <span>✅ SSL Secured</span>
+                        <span>✅ Same-Day Payouts</span>
+                        <span>✅ No Hidden Fees</span>
+                        <span>✅ 230+ Vendors</span>
                     </div>
                 </div>
                 
-                <!-- Security & Trust -->
-                <div style="text-align: center; margin: 25px 0; padding: 20px; background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 8px;">
-                    <p style="color: #166534; font-weight: 600; margin: 0 0 12px 0; font-size: 14px;">🔒 Secure & Trusted Platform</p>
-                    <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; font-size: 12px; max-width: 300px; margin: 0 auto;">
-                        <span style="color: #059669;">✅ SSL Secured</span>
-                        <span style="color: #059669;">✅ Same-Day Payouts</span>
-                        <span style="color: #059669;">✅ No Hidden Fees</span>
-                        <span style="color: #059669;">✅ 230+ Vendors</span>
+                <!-- Address & Legal Links in One Line -->
+                <div style="font-size: 11px; color: #6b7280; line-height: 1.4;">
+                    <div style="margin-bottom: 8px;">
+                        📍 2099 Harborview Drive, Suite 210, San Diego, CA 92101
                     </div>
-                </div>
-            </div>
-            
-            <!-- Legal Links - Better Organized -->
-            <div style="text-align: center; margin: 25px 0; padding: 15px 0; border-top: 1px solid #e2e8f0;">
-                <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; font-size: 12px; max-width: 300px; margin: 0 auto;">
-                    <a href="https://www.cashifygcmart.com/privacy-policy" style="color: #6b7280; text-decoration: none;">Privacy Policy</a>
-                    <a href="https://www.cashifygcmart.com/terms-of-service" style="color: #6b7280; text-decoration: none;">Terms of Service</a>
-                    <a href="https://www.cashifygcmart.com/refund-policy" style="color: #6b7280; text-decoration: none;">Refund Policy</a>
-                    <a href="https://www.cashifygcmart.com/security" style="color: #6b7280; text-decoration: none;">Security</a>
-                </div>
-            </div>
-            
-            <div class="footer-note">
-                <div class="copyright" style="font-weight: 600; margin-bottom: 8px;">© 2025 Cashifygcmart. All rights reserved.</div>
-                <div style="margin-bottom: 8px;">Add <a href="mailto:support@cashifygcmart.com" style="color: #ec4899;">support@cashifygcmart.com</a> to your contacts for best delivery.</div>
-                <div style="font-size: 11px; color: #9ca3af; line-height: 1.4;">
-                    This email was sent because you submitted a gift card for evaluation. Please keep this email for your records.
+                    
+                    <div style="display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; margin-bottom: 8px;">
+                        <a href="https://www.cashifygcmart.com/rate-calculator" style="color: #6b7280; text-decoration: none;">Rate Calculator</a>
+                        <span>•</span>
+                        <a href="https://www.cashifygcmart.com/faqs" style="color: #6b7280; text-decoration: none;">FAQs</a>
+                        <span>•</span>
+                        <a href="https://www.cashifygcmart.com/privacy-policy" style="color: #6b7280; text-decoration: none;">Privacy</a>
+                        <span>•</span>
+                        <a href="https://www.cashifygcmart.com/terms-of-service" style="color: #6b7280; text-decoration: none;">Terms</a>
+                    </div>
+                    
+                    <div>
+                        © 2025 Cashifygcmart. All rights reserved. | Add support@cashifygcmart.com to your contacts.
+                    </div>
                 </div>
             </div>
         </div>
