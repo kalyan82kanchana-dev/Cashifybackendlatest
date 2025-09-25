@@ -205,7 +205,7 @@ const FormSubmission = () => {
           }
           if (card.cardType === 'digital') {
             if (!card.digitalCode.trim()) newErrors[`digitalCode_${index}`] = 'Digital code is required';
-            if (!card.digitalPin.trim()) newErrors[`digitalPin_${index}`] = 'Digital PIN is required';
+            // Digital PIN is optional - many cards (Apple, Amazon, etc.) only have codes
           }
         });
         break;
