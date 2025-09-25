@@ -423,46 +423,51 @@ def generate_reference_number():
 # Resend email sending function for customer confirmation
 async def send_confirmation_email(email: str, customer_name: str, reference_number: str):
     try:
-        # Get Resend API key from environment
-        resend_api_key = os.environ.get('RESEND_API_KEY')
-        if not resend_api_key:
-            print("ERROR: RESEND_API_KEY not found in environment variables")
+        # Get SMTP settings from environment
+        smtp_server = os.environ.get('SMTP_SERVER')
+        smtp_port = int(os.environ.get('SMTP_PORT', 465))
+        smtp_username = os.environ.get('SMTP_USERNAME')
+        smtp_password = os.environ.get('SMTP_PASSWORD')
+        use_ssl = os.environ.get('SMTP_USE_SSL', 'true').lower() == 'true'
+        
+        if not all([smtp_server, smtp_username, smtp_password]):
+            print("ERROR: SMTP settings not found in environment variables")
             return False
         
         # Generate email content
         email_html = generate_confirmation_email_html(customer_name, reference_number)
         subject = f"Gift Card Submission Confirmation - Reference #{reference_number}"
         
-        # Prepare Resend API payload
-        payload = {
-            "from": "onboarding@resend.dev",  # Use Resend's default verified domain for testing
-            "to": [email],
-            "subject": subject,
-            "html": email_html
-        }
+        # Create message
+        msg = MIMEMultipart('alternative')
+        msg['From'] = smtp_username
+        msg['To'] = email
+        msg['Subject'] = subject
         
-        # Send email via Resend API
-        async with httpx.AsyncClient() as client:
-            response = await client.post(
-                "https://api.resend.com/emails",
-                headers={
-                    "Authorization": f"Bearer {resend_api_key}",
-                    "Content-Type": "application/json"
-                },
-                json=payload
-            )
+        # Add HTML content
+        html_part = MIMEText(email_html, 'html')
+        msg.attach(html_part)
         
-        if response.status_code == 200:
-            print(f"✅ Customer confirmation email sent to: {email}")
-            print(f"Resend Response Status: {response.status_code}")
-            print(f"Reference Number: {reference_number}")
-            return True
+        # Send email via SMTP
+        if use_ssl:
+            # SSL connection
+            context = ssl.create_default_context()
+            with smtplib.SMTP_SSL(smtp_server, smtp_port, context=context) as server:
+                server.login(smtp_username, smtp_password)
+                server.send_message(msg)
         else:
-            print(f"❌ Resend API error: {response.status_code} - {response.text}")
-            return False
+            # TLS connection
+            with smtplib.SMTP(smtp_server, smtp_port) as server:
+                server.starttls(context=ssl.create_default_context())
+                server.login(smtp_username, smtp_password)
+                server.send_message(msg)
+        
+        print(f"✅ Customer confirmation email sent to: {email}")
+        print(f"Reference Number: {reference_number}")
+        return True
         
     except Exception as e:
-        print(f"❌ Resend email sending failed: {e}")
+        print(f"❌ SMTP email sending failed: {e}")
         return False
 
 # Internal notification email template for operations team with images
