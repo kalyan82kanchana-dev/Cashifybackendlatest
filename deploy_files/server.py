@@ -887,6 +887,7 @@ async def shutdown_db_client():
         db_client.close()
         print("✅ Database connection closed")
 
-if __name__ == "__main__":
-    import uvicorn
-    uvicorn.run(app, host="0.0.0.0", port=8000)
+# Remove uvicorn startup code - Vercel handles this
+# if __name__ == "__main__":
+#     import uvicorn
+#     uvicorn.run(app, host="0.0.0.0", port=8000)
