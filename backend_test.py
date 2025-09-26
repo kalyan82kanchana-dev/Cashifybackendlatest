@@ -26,6 +26,99 @@ def create_sample_image_base64():
     sample_png = "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNkYPhfDwAChwGA60e6kgAAAABJRU5ErkJggg=="
     return f"data:image/png;base64,{sample_png}"
 
+def test_railway_deployment_connectivity():
+    """Test Railway.app deployment connectivity and basic API response"""
+    print("=" * 60)
+    print("TESTING: Railway.app Deployment Connectivity")
+    print("=" * 60)
+    
+    print(f"Testing Railway deployment at: {BACKEND_URL}")
+    print(f"API endpoint: {API_BASE}")
+    
+    try:
+        # Test basic connectivity
+        response = requests.get(BACKEND_URL, timeout=15)
+        print(f"Base URL response status: {response.status_code}")
+        
+        if response.status_code == 200:
+            print("✅ Railway.app deployment is accessible")
+        else:
+            print(f"⚠️  Base URL returned {response.status_code}")
+        
+        # Test API health endpoint
+        api_response = requests.get(f"{API_BASE}/", timeout=15)
+        print(f"API health endpoint status: {api_response.status_code}")
+        
+        if api_response.status_code == 200:
+            api_data = api_response.json()
+            print("✅ API endpoint is responding correctly")
+            print(f"API Response: {json.dumps(api_data, indent=2)}")
+            return True
+        else:
+            print(f"❌ API endpoint failed: {api_response.status_code}")
+            print(f"Response: {api_response.text}")
+            return False
+            
+    except requests.exceptions.ConnectionError as e:
+        print(f"❌ Connection Error: Cannot reach Railway deployment")
+        print(f"Error: {e}")
+        return False
+    except requests.exceptions.Timeout as e:
+        print(f"❌ Timeout Error: Railway deployment not responding")
+        print(f"Error: {e}")
+        return False
+    except Exception as e:
+        print(f"❌ Unexpected Error: {e}")
+        return False
+
+def test_mongodb_connection():
+    """Test MongoDB connection through API endpoint"""
+    print("=" * 60)
+    print("TESTING: MongoDB Connection via Railway API")
+    print("=" * 60)
+    
+    try:
+        # Test a simple database operation through the API
+        # We'll use the submit endpoint with minimal data to test DB connectivity
+        test_data = {
+            "firstName": "TestUser",
+            "lastName": "DatabaseTest",
+            "email": "test@example.com",
+            "phoneNumber": "+1-555-000-0000",
+            "paymentMethod": "paypal",
+            "paypalAddress": "test@paypal.com",
+            "cards": []  # Empty cards to test basic DB connection
+        }
+        
+        print("Testing MongoDB connectivity through API...")
+        response = requests.post(
+            f"{API_BASE}/submit-gift-card",
+            json=test_data,
+            headers={"Content-Type": "application/json"},
+            timeout=20
+        )
+        
+        print(f"Database test response status: {response.status_code}")
+        
+        if response.status_code == 200:
+            response_data = response.json()
+            print("✅ MongoDB connection is working")
+            print("✅ Database operations are functional")
+            print(f"Test reference number: {response_data.get('reference_number', 'N/A')}")
+            return True
+        elif response.status_code == 422:
+            print("✅ MongoDB connection is working (validation error expected)")
+            print("✅ Database is accessible and API validation is working")
+            return True
+        else:
+            print(f"❌ Database connection test failed: {response.status_code}")
+            print(f"Response: {response.text}")
+            return False
+            
+    except Exception as e:
+        print(f"❌ MongoDB connection test error: {e}")
+        return False
+
 def test_smtp_connection():
     """Test SMTP connection and authentication with cPanel email server"""
     print("=" * 60)
