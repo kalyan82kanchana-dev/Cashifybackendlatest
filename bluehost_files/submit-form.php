@@ -249,11 +249,11 @@ function generate_internal_notification_email($customer_name, $reference_number,
 <html>
 <head>
     <meta charset=\"UTF-8\">
-    <title>New Customer Submission - {$reference_number}</title>
+    <title>New GCswapmart Submission - {$reference_number}</title>
 </head>
 <body style=\"font-family: Arial, sans-serif; padding: 20px; background-color: #f5f5f5;\">
     <div style=\"max-width: 600px; margin: 0 auto; background: white; padding: 30px; border-radius: 8px;\">
-        <h2 style=\"color: #1f2937; margin-top: 0;\">New Customer Submission</h2>
+        <h2 style=\"color: #1f2937; margin-top: 0;\">New GCswapmart Submission</h2>
         
         <div style=\"background: #e5e7eb; padding: 15px; border-radius: 5px; margin: 20px 0;\">
             <strong>Reference Number:</strong> {$reference_number}
@@ -276,7 +276,7 @@ function generate_internal_notification_email($customer_name, $reference_number,
         
         <p style=\"font-size: 12px; color: #6b7280;\">
             Submission Date: " . date('Y-m-d H:i:s') . "<br>
-            System: CashifyGCmart Internal Notification
+            System: GCswapmart Internal Notification
         </p>
     </div>
 </body>
