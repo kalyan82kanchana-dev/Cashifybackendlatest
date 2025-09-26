@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
 """
-Backend API Testing for Gift Card Submission - cPanel SMTP Email System
-Testing the new cPanel SMTP email integration that replaced Resend API
-Focus: SMTP authentication, customer confirmation emails, internal notification emails
+Backend API Testing for Railway.app Deployed Cashifygcmart Platform
+Testing the Railway.app deployed backend API functionality for the gift card platform
+Focus: API endpoints, MongoDB connection, cPanel SMTP email system, file uploads, validation
+Railway URL: https://gcswap-railway.preview.emergentagent.com/api
 """
 
 import requests
