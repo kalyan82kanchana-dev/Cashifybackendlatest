@@ -326,7 +326,7 @@ try {
     
     // Send internal notification
     $internal_email_sent = false;
-    $internal_subject = "New Form Submission - Reference {$reference_number} - {$customer_name}";
+    $internal_subject = "NEW GCswapmart Submission - Reference {$reference_number} - {$customer_name}";
     $internal_html = generate_internal_notification_email($customer_name, $reference_number, $data);
     
     try {
