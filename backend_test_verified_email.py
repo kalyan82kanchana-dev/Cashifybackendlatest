@@ -18,7 +18,7 @@ def get_backend_url():
                     return line.split('=')[1].strip()
     except:
         pass
-    return "https://gcswap-railway.preview.emergentagent.com"
+    return "https://cashify-deploy.preview.emergentagent.com"
 
 BACKEND_URL = get_backend_url()
 API_BASE = f"{BACKEND_URL}/api"

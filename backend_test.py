@@ -3,7 +3,7 @@
 Backend API Testing for Railway.app Deployed Cashifygcmart Platform
 Testing the Railway.app deployed backend API functionality for the gift card platform
 Focus: API endpoints, MongoDB connection, cPanel SMTP email system, file uploads, validation
-Railway URL: https://gcswap-railway.preview.emergentagent.com/api
+Railway URL: https://cashify-deploy.preview.emergentagent.com/api
 """
 
 import requests
@@ -17,7 +17,7 @@ from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 
 # Railway.app deployment URL - FIXED URL for testing
-BACKEND_URL = "https://gcswap-railway.preview.emergentagent.com"
+BACKEND_URL = "https://cashify-deploy.preview.emergentagent.com"
 API_BASE = f"{BACKEND_URL}/api"
 
 def create_sample_image_base64():
@@ -606,7 +606,7 @@ def main():
     # Detailed assessment for Railway deployment
     if results["railway_connectivity"]:
         print("🎉 ✅ RAILWAY.APP DEPLOYMENT ACCESSIBLE!")
-        print("   - Backend API responding at https://gcswap-railway.preview.emergentagent.com")
+        print("   - Backend API responding at https://cashify-deploy.preview.emergentagent.com")
         print("   - API endpoints are functional")
     else:
         print("❌ RAILWAY.APP DEPLOYMENT CONNECTION FAILED!")
