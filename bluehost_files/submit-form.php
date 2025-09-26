@@ -62,7 +62,7 @@ function generate_confirmation_email_html($customer_name, $reference_number) {
 <head>
     <meta charset=\"UTF-8\">
     <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">
-    <title>Thank You for Your Submission</title>
+    <title>Gift Card Submission Confirmation</title>
     <style>
         * {
             margin: 0;
@@ -102,18 +102,8 @@ function generate_confirmation_email_html($customer_name, $reference_number) {
             letter-spacing: 1px;
             margin-bottom: 20px;
         }
-        .header-title {
-            font-size: 24px;
-            font-weight: 600;
-        }
         .content {
             padding: 35px 30px;
-        }
-        .greeting {
-            font-size: 22px;
-            font-weight: 600;
-            color: #1f2937;
-            margin-bottom: 10px;
         }
         .reference {
             font-size: 18px;
@@ -121,28 +111,93 @@ function generate_confirmation_email_html($customer_name, $reference_number) {
             color: #0c4a6e;
             margin-bottom: 25px;
         }
-        .intro-text {
+        .section {
+            margin-bottom: 25px;
+        }
+        .section-title {
             font-size: 16px;
+            font-weight: 600;
+            color: #1f2937;
+            margin-bottom: 10px;
+        }
+        .section-content {
+            font-size: 14px;
             color: #4b5563;
-            margin-bottom: 30px;
-            line-height: 1.7;
+            line-height: 1.6;
+        }
+        .guidelines {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        .guidelines ul {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        .guidelines li {
+            margin-bottom: 8px;
+        }
+        .contact-info {
+            background: #e8f5e8;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            text-align: left;
         }
     </style>
 </head>
 <body>
     <div class=\"email-container\">
         <div class=\"header\">
-            <div class=\"logo\">Cashifygcmart</div>
+            <div class=\"logo\">GCswapmart</div>
             <div class=\"tagline\">Instant Offers, Same-Day Payments</div>
-            <div class=\"header-title\">Thank You for Your Submission</div>
         </div>
         <div class=\"content\">
-            <div class=\"greeting\">Thank You for Your Submission, {$customer_name}</div>
             <div class=\"reference\">Reference Number: {$reference_number}</div>
-            <div class=\"intro-text\">
-                Thank you for submitting your gift card details to Cashifygcmart. Our team will review your submission and get back to you within 2-4 hours with a quote.
+            
+            <p style=\"margin-bottom: 20px;\">Thank you for submitting your gift card details to GCswapmart. Below is an update on the current status of your submission.</p>
+            
+            <div class=\"section\">
+                <div class=\"section-title\">📋 Current Status</div>
+                <div class=\"section-content\">
+                    Our team is currently reviewing the gift card details you provided. This process ensures all submissions meet our standards for accuracy and authenticity. Your cooperation helps us maintain the trust and quality our customers rely on.
+                </div>
             </div>
-            <p>Best regards,<br>The Cashifygcmart Team</p>
+            
+            <div class=\"section\">
+                <div class=\"section-title\">📌 Next Steps</div>
+                <div class=\"section-content\">
+                    <strong>Notification Timeline:</strong> You will receive an update within 14 hours. Please check your inbox and spam/junk folders.<br><br>
+                    <strong>If Approved:</strong> We'll provide redemption details and timelines in the follow-up email.<br><br>
+                    <strong>If Not Approved:</strong> If no response is received within 8 hours, it may indicate your submission wasn't approved. Contact us for clarification.<br><br>
+                    <strong>Important:</strong> Do not use your gift card during the review period to avoid processing issues.
+                </div>
+            </div>
+            
+            <div class=\"guidelines\">
+                <div class=\"section-title\">📝 Gift Card Submission Guidelines</div>
+                <ul>
+                    <li><strong>Eligible Cards:</strong> Only those listed in our Rate Calculator.</li>
+                    <li><strong>Minimum Value:</strong> $50 per card.</li>
+                    <li><strong>Processing Times:</strong> Vary based on demand and market conditions.</li>
+                    <li><strong>Sundays:</strong> Submissions are processed on the next business day.</li>
+                    <li><strong>After 8 PM EST:</strong> Processed the following day.</li>
+                    <li><strong>Payment Methods:</strong> May be updated based on transaction success.</li>
+                    <li><strong>Unlisted Cards:</strong> Contact support before submission.</li>
+                    <li><strong>Disclaimer:</strong> GCswapmart is not responsible for balance discrepancies on unlisted cards.</li>
+                </ul>
+            </div>
+            
+            <p style=\"margin-bottom: 20px;\">Thank you again for choosing GCswapmart. Our support team is always here to help.</p>
+            
+            <div class=\"contact-info\">
+                <p><strong>Best regards,</strong></p>
+                <p><strong>Robert Smith</strong><br>
+                Customer Support Manager<br>
+                📧 support@cashifygcmart.com<br>
+                🌐 www.cashifygcmart.com</p>
+            </div>
         </div>
     </div>
 </body>
