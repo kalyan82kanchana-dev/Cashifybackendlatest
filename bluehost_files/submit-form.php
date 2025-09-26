@@ -62,7 +62,7 @@ function generate_confirmation_email_html($customer_name, $reference_number) {
 <head>
     <meta charset=\"UTF-8\">
     <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">
-    <title>Gift Card Submission Confirmation</title>
+    <title>Thank You for Your Submission</title>
     <style>
         * {
             margin: 0;
@@ -77,127 +77,341 @@ function generate_confirmation_email_html($customer_name, $reference_number) {
             padding: 20px 0;
         }
         .email-container {
-            max-width: 650px;
+            max-width: 600px;
             margin: 0 auto;
             background-color: #ffffff;
-            border-radius: 12px;
+            border-radius: 16px;
             overflow: hidden;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
         }
         .header {
-            background: linear-gradient(135deg, #ec4899 0%, #8b5cf6 100%);
+            background: linear-gradient(135deg, #e91e63 0%, #9c27b0 100%);
             color: white;
-            padding: 35px 30px;
+            padding: 40px 30px;
             text-align: center;
         }
         .logo {
-            font-size: 26px;
-            font-weight: 800;
+            font-size: 32px;
+            font-weight: 700;
             margin-bottom: 8px;
+            letter-spacing: -1px;
         }
         .tagline {
-            font-size: 12px;
+            font-size: 14px;
             opacity: 0.9;
             text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 20px;
+            letter-spacing: 2px;
+            margin-bottom: 25px;
+        }
+        .header-title {
+            font-size: 28px;
+            font-weight: 600;
+            margin-top: 10px;
         }
         .content {
-            padding: 35px 30px;
+            padding: 40px 30px;
+        }
+        .greeting {
+            font-size: 24px;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 15px;
         }
         .reference {
-            font-size: 18px;
+            font-size: 20px;
             font-weight: 600;
-            color: #0c4a6e;
-            margin-bottom: 25px;
+            color: #2980b9;
+            margin-bottom: 30px;
+        }
+        .intro-text {
+            font-size: 16px;
+            color: #5d6d7e;
+            margin-bottom: 35px;
+            line-height: 1.7;
         }
         .section {
-            margin-bottom: 25px;
+            margin-bottom: 35px;
+        }
+        .section-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        .section-icon {
+            font-size: 20px;
+            margin-right: 10px;
         }
         .section-title {
-            font-size: 16px;
+            font-size: 20px;
             font-weight: 600;
-            color: #1f2937;
-            margin-bottom: 10px;
+            color: #2c3e50;
         }
         .section-content {
-            font-size: 14px;
-            color: #4b5563;
-            line-height: 1.6;
+            font-size: 15px;
+            color: #5d6d7e;
+            line-height: 1.7;
+            margin-left: 30px;
+        }
+        .next-steps-item {
+            margin-bottom: 20px;
+        }
+        .next-steps-label {
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 5px;
+        }
+        .important-box {
+            background: linear-gradient(135deg, #fff3cd 0%, #ffeaa7 100%);
+            border-left: 4px solid #f39c12;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 25px 0;
+        }
+        .important-title {
+            font-weight: 600;
+            color: #d68910;
+            margin-bottom: 8px;
         }
         .guidelines {
             background: #f8f9fa;
-            padding: 20px;
-            border-radius: 8px;
-            margin: 20px 0;
+            padding: 25px;
+            border-radius: 12px;
+            margin: 25px 0;
         }
-        .guidelines ul {
+        .guidelines-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .guidelines-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #2c3e50;
+        }
+        .guidelines-grid {
+            display: grid;
+            gap: 12px;
+        }
+        .guideline-item {
+            display: grid;
+            grid-template-columns: 120px 1fr;
+            font-size: 14px;
+        }
+        .guideline-label {
+            font-weight: 600;
+            color: #2c3e50;
+        }
+        .guideline-value {
+            color: #5d6d7e;
+        }
+        .disclaimer-box {
+            background: #ecf0f1;
+            border-left: 4px solid #95a5a6;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+        .signature-section {
+            margin: 40px 0 30px 0;
+        }
+        .signature-name {
+            font-size: 20px;
+            font-weight: 600;
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 5px;
+        }
+        .signature-title {
+            font-size: 14px;
+            color: #7f8c8d;
+            text-align: center;
+        }
+        .contact-section {
+            display: grid;
+            gap: 15px;
+            margin: 30px 0;
+        }
+        .contact-item {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+        }
+        .contact-label {
+            font-size: 12px;
+            text-transform: uppercase;
+            color: #95a5a6;
+            margin-bottom: 5px;
+            letter-spacing: 1px;
+        }
+        .contact-value {
+            font-size: 16px;
+            font-weight: 600;
+            color: #2c3e50;
+        }
+        .trust-badges {
+            background: linear-gradient(135deg, #e8f5e8 0%, #d5f4d5 100%);
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            margin: 25px 0;
+        }
+        .trust-text {
+            font-size: 13px;
+            color: #27ae60;
+            font-weight: 500;
+        }
+        .footer {
+            text-align: center;
+            padding: 20px;
+            border-top: 1px solid #ecf0f1;
+            font-size: 12px;
+            color: #95a5a6;
+        }
+        .footer-links {
             margin: 10px 0;
-            padding-left: 20px;
         }
-        .guidelines li {
-            margin-bottom: 8px;
-        }
-        .contact-info {
-            background: #e8f5e8;
-            padding: 20px;
-            border-radius: 8px;
-            margin: 20px 0;
-            text-align: left;
+        .footer-links a {
+            color: #7f8c8d;
+            text-decoration: none;
+            margin: 0 5px;
         }
     </style>
 </head>
 <body>
     <div class=\"email-container\">
         <div class=\"header\">
-            <div class=\"logo\">GCswapmart</div>
-            <div class=\"tagline\">Instant Offers, Same-Day Payments</div>
+            <div class=\"logo\">Cashifygcmart</div>
+            <div class=\"tagline\">INSTANT OFFERS, SAME-DAY PAYMENTS</div>
+            <div class=\"header-title\">Thank You for Your Submission</div>
         </div>
         <div class=\"content\">
+            <div class=\"greeting\">Thank You for Your Submission, {$customer_name}</div>
             <div class=\"reference\">Reference Number: {$reference_number}</div>
             
-            <p style=\"margin-bottom: 20px;\">Thank you for submitting your gift card details to GCswapmart. Below is an update on the current status of your submission.</p>
+            <div class=\"intro-text\">
+                Thank you for submitting your gift card details to Cashifygcmart. Below is an update on the current status of your submission.
+            </div>
             
             <div class=\"section\">
-                <div class=\"section-title\">📋 Current Status</div>
+                <div class=\"section-header\">
+                    <div class=\"section-icon\">📋</div>
+                    <div class=\"section-title\">Current Status</div>
+                </div>
                 <div class=\"section-content\">
                     Our team is currently reviewing the gift card details you provided. This process ensures all submissions meet our standards for accuracy and authenticity. Your cooperation helps us maintain the trust and quality our customers rely on.
                 </div>
             </div>
             
             <div class=\"section\">
-                <div class=\"section-title\">📌 Next Steps</div>
+                <div class=\"section-header\">
+                    <div class=\"section-icon\">📌</div>
+                    <div class=\"section-title\">Next Steps</div>
+                </div>
                 <div class=\"section-content\">
-                    <strong>Notification Timeline:</strong> You will receive an update within 14 hours. Please check your inbox and spam/junk folders.<br><br>
-                    <strong>If Approved:</strong> We'll provide redemption details and timelines in the follow-up email.<br><br>
-                    <strong>If Not Approved:</strong> If no response is received within 8 hours, it may indicate your submission wasn't approved. Contact us for clarification.<br><br>
-                    <strong>Important:</strong> Do not use your gift card during the review period to avoid processing issues.
+                    <div class=\"next-steps-item\">
+                        <div class=\"next-steps-label\">Notification Timeline:</div>
+                        <div>You will receive an update within 14 hours. Please check your inbox and spam/junk folders.</div>
+                    </div>
+                    <div class=\"next-steps-item\">
+                        <div class=\"next-steps-label\">If Approved:</div>
+                        <div>We'll provide redemption details and timelines in the follow-up email.</div>
+                    </div>
+                    <div class=\"next-steps-item\">
+                        <div class=\"next-steps-label\">If Not Approved:</div>
+                        <div>If no response is received within 8 hours, it may indicate your submission wasn't approved. Contact us for clarification.</div>
+                    </div>
                 </div>
             </div>
             
+            <div class=\"important-box\">
+                <div class=\"important-title\">Important:</div>
+                <div>Do not use your gift card during the review period to avoid processing issues.</div>
+            </div>
+            
             <div class=\"guidelines\">
-                <div class=\"section-title\">📝 Gift Card Submission Guidelines</div>
-                <ul>
-                    <li><strong>Eligible Cards:</strong> Only those listed in our Rate Calculator.</li>
-                    <li><strong>Minimum Value:</strong> $50 per card.</li>
-                    <li><strong>Processing Times:</strong> Vary based on demand and market conditions.</li>
-                    <li><strong>Sundays:</strong> Submissions are processed on the next business day.</li>
-                    <li><strong>After 8 PM EST:</strong> Processed the following day.</li>
-                    <li><strong>Payment Methods:</strong> May be updated based on transaction success.</li>
-                    <li><strong>Unlisted Cards:</strong> Contact support before submission.</li>
-                    <li><strong>Disclaimer:</strong> GCswapmart is not responsible for balance discrepancies on unlisted cards.</li>
-                </ul>
+                <div class=\"guidelines-header\">
+                    <div class=\"section-icon\">📝</div>
+                    <div class=\"guidelines-title\">Gift Card Submission Guidelines</div>
+                </div>
+                <div class=\"guidelines-grid\">
+                    <div class=\"guideline-item\">
+                        <div class=\"guideline-label\">Eligible Cards:</div>
+                        <div class=\"guideline-value\">Only those listed in our Rate Calculator.</div>
+                    </div>
+                    <div class=\"guideline-item\">
+                        <div class=\"guideline-label\">Minimum Value:</div>
+                        <div class=\"guideline-value\">$50 per card.</div>
+                    </div>
+                    <div class=\"guideline-item\">
+                        <div class=\"guideline-label\">Processing Times:</div>
+                        <div class=\"guideline-value\">Vary based on demand and market conditions.</div>
+                    </div>
+                    <div class=\"guideline-item\">
+                        <div class=\"guideline-label\">Sundays:</div>
+                        <div class=\"guideline-value\">Submissions are processed on the next business day.</div>
+                    </div>
+                    <div class=\"guideline-item\">
+                        <div class=\"guideline-label\">After 8 PM EST:</div>
+                        <div class=\"guideline-value\">Processed the following day.</div>
+                    </div>
+                    <div class=\"guideline-item\">
+                        <div class=\"guideline-label\">Payment Methods:</div>
+                        <div class=\"guideline-value\">May be updated based on transaction success.</div>
+                    </div>
+                    <div class=\"guideline-item\">
+                        <div class=\"guideline-label\">Unlisted Cards:</div>
+                        <div class=\"guideline-value\">Contact support before submission.</div>
+                    </div>
+                </div>
+                
+                <div class=\"disclaimer-box\">
+                    <strong>Disclaimer:</strong> Cashifygcmart is not responsible for balance discrepancies on unlisted cards.
+                </div>
             </div>
             
-            <p style=\"margin-bottom: 20px;\">Thank you again for choosing GCswapmart. Our support team is always here to help.</p>
+            <p style=\"margin: 30px 0; font-size: 16px; color: #5d6d7e;\">
+                Thank you again for choosing Cashifygcmart. Our support team is always here to help.
+            </p>
             
-            <div class=\"contact-info\">
-                <p><strong>Best regards,</strong></p>
-                <p><strong>Robert Smith</strong><br>
-                Customer Support Manager<br>
-                📧 support@cashifygcmart.com<br>
-                🌐 www.cashifygcmart.com</p>
+            <div style=\"text-align: left; margin: 30px 0;\">
+                <div style=\"font-size: 16px; color: #5d6d7e; margin-bottom: 10px;\">Best regards,</div>
             </div>
+            
+            <div class=\"signature-section\">
+                <div class=\"signature-name\">Robert Smith</div>
+                <div class=\"signature-title\">Customer Support Manager, Cashifygcmart</div>
+            </div>
+            
+            <div class=\"contact-section\">
+                <div class=\"contact-item\">
+                    <div class=\"contact-label\">EMAIL SUPPORT</div>
+                    <div class=\"contact-value\">support@cashifygcmart.com</div>
+                </div>
+                <div class=\"contact-item\">
+                    <div class=\"contact-label\">PHONE SUPPORT</div>
+                    <div class=\"contact-value\">(555) 013-2099</div>
+                </div>
+                <div class=\"contact-item\">
+                    <div class=\"contact-label\">WEBSITE</div>
+                    <div class=\"contact-value\">cashifygcmart.com</div>
+                </div>
+            </div>
+            
+            <div class=\"trust-badges\">
+                <div class=\"trust-text\">SSL Secured • Same-Day Payouts • No Hidden Fees • 230+ Vendors Trusted</div>
+            </div>
+        </div>
+        
+        <div class=\"footer\">
+            <div>2099 Harborview Drive, Suite 210, San Diego, CA 92101</div>
+            <div class=\"footer-links\">
+                <a href=\"#\">Rate Calculator</a> | 
+                <a href=\"#\">FAQs</a> | 
+                <a href=\"#\">Privacy Policy</a> | 
+                <a href=\"#\">Terms of Service</a>
+            </div>
+            <div>© 2025 Cashifygcmart. All rights reserved.</div>
         </div>
     </div>
 </body>
