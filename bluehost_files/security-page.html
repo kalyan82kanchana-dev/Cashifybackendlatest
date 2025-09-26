@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Security & Safety - CashifyGCmart</title>
+    <meta name="description" content="Learn about CashifyGCmart's comprehensive security measures. Discover how we protect your personal information and ensure safe transactions.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .security-container {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #fdf2f8 0%, #eff6ff 100%);
+            padding: 2rem 0;
+        }
+        
+        .security-wrapper {
+            max-width: 64rem;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+        
+        .security-header {
+            background: linear-gradient(to right, #ec4899, #8b5cf6);
+            color: white;
+            padding: 3rem 2rem;
+            border-radius: 1rem;
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .security-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+        }
+        
+        .security-icon {
+            width: 4rem;
+            height: 4rem;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .security-subtitle {
+            font-size: 1.125rem;
+            opacity: 0.9;
+        }
+        
+        .security-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        .security-card {
+            background: white;
+            border-radius: 1rem;
+            padding: 2rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s;
+        }
+        
+        .security-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .card-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+        
+        .card-icon {
+            width: 3rem;
+            height: 3rem;
+            background: linear-gradient(135deg, #ec4899, #8b5cf6);
+            border-radius: 0.75rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1rem;
+            color: white;
+        }
+        
+        .card-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #111827;
+        }
+        
+        .card-content {
+            color: #6b7280;
+            line-height: 1.7;
+        }
+        
+        .card-content p {
+            margin-bottom: 1rem;
+        }
+        
+        .card-content ul {
+            margin: 1rem 0;
+            padding-left: 1.5rem;
+        }
+        
+        .card-content li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .card-content strong {
+            color: #374151;
+            font-weight: 600;
+        }
+        
+        .highlight-box {
+            background: linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%);
+            border-left: 4px solid #10b981;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            margin: 1rem 0;
+        }
+        
+        .warning-box {
+            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+            border-left: 4px solid #f59e0b;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            margin: 1rem 0;
+        }
+        
+        .security-badges {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+        
+        .badge {
+            background: white;
+            border: 2px solid #e5e7eb;
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            text-align: center;
+            transition: all 0.3s;
+        }
+        
+        .badge:hover {
+            border-color: #ec4899;
+            transform: translateY(-2px);
+        }
+        
+        .badge-icon {
+            width: 2.5rem;
+            height: 2.5rem;
+            background: linear-gradient(135deg, #ec4899, #8b5cf6);
+            border-radius: 0.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            color: white;
+        }
+        
+        .badge-title {
+            font-weight: 600;
+            color: #111827;
+            margin-bottom: 0.5rem;
+        }
+        
+        .badge-description {
+            font-size: 0.875rem;
+            color: #6b7280;
+        }
+        
+        .contact-section {
+            background: white;
+            border-radius: 1rem;
+            padding: 2rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        
+        .contact-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #111827;
+            margin-bottom: 1rem;
+        }
+        
+        .contact-info {
+            color: #6b7280;
+            margin-bottom: 1.5rem;
+        }
+        
+        .contact-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            font-weight: 500;
+            text-decoration: none;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .btn-primary {
+            background: #ec4899;
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background: #be185d;
+            transform: translateY(-2px);
+        }
+        
+        .btn-secondary {
+            background: #374151;
+            color: white;
+        }
+        
+        .btn-secondary:hover {
+            background: #111827;
+            transform: translateY(-2px);
+        }
+        
+        @media (min-width: 768px) {
+            .security-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .security-title {
+                font-size: 2rem;
+                flex-direction: column;
+            }
+            
+            .security-wrapper {
+                padding: 0 0.5rem;
+            }
+            
+            .security-card {
+                padding: 1.5rem;
+            }
+            
+            .contact-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav-container">
+            <div class="nav-content">
+                <a href="/" class="logo">
+                    <div class="logo-icon">
+                        <svg class="icon" fill="white" viewBox="0 0 24 24">
+                            <path d="M2 10h20v8a2 2 0 01-2 2H4a2 2 0 01-2-2v-8zm2-4h16a2 2 0 012 2v1H2V8a2 2 0 012-2zm4 9h8v1H8v-1z"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <div class="brand-name">Cashifygcmart</div>
+                        <div class="brand-tagline">Instant Offers, Same-Day Payments</div>
+                    </div>
+                </a>
+                <div class="desktop-nav">
+                    <a href="/">Home</a>
+                    <a href="/getting-started.html">Getting Started</a>
+                    <a href="/accepted-cards.html">Accepted Gift Cards</a>
+                    <a href="/form-submission.html">Form Submission</a>
+                    <a href="/rate-calculator.html">Rate Calculator</a>
+                    <a href="/faqs.html">FAQs</a>
+                </div>
+                <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
+                    <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                    </svg>
+                </button>
+            </div>
+            <div class="mobile-menu" id="mobileMenu">
+                <a href="/">Home</a>
+                <a href="/getting-started.html">Getting Started</a>
+                <a href="/accepted-cards.html">Accepted Gift Cards</a>
+                <a href="/form-submission.html">Form Submission</a>
+                <a href="/rate-calculator.html">Rate Calculator</a>
+                <a href="/faqs.html">FAQs</a>
+            </div>
+        </nav>
+    </header>
+
+    <div class="security-container">
+        <div class="security-wrapper">
+            <div class="security-header">
+                <h1 class="security-title">
+                    <div class="security-icon">
+                        <svg width="48" height="48" fill="currentColor" viewBox="0 0 24 24">
+                            <path fill-rule="evenodd" d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"/>
+                        </svg>
+                    </div>
+                    Security & Safety
+                </h1>
+                <p class="security-subtitle">Your security is our top priority. Learn about the comprehensive measures we take to protect your personal information and ensure safe transactions.</p>
+            </div>
+
+            <!-- Security Badges -->
+            <div class="security-badges">
+                <div class="badge">
+                    <div class="badge-icon">
+                        <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M18,8A6,6 0 0,0 12,2A6,6 0 0,0 6,8H4A2,2 0 0,0 2,10V20A2,2 0 0,0 4,22H20A2,2 0 0,0 22,20V10A2,2 0 0,0 20,8H18M12,4A4,4 0 0,1 16,8H8A4,4 0 0,1 12,4M12,13A2,2 0 0,1 14,15A2,2 0 0,1 12,17A2,2 0 0,1 10,15A2,2 0 0,1 12,13Z"/>
+                        </svg>
+                    </div>
+                    <div class="badge-title">SSL Encrypted</div>
+                    <div class="badge-description">256-bit SSL encryption protects all data transmission</div>
+                </div>
+                <div class="badge">
+                    <div class="badge-icon">
+                        <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                            <path fill-rule="evenodd" d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"/>
+                        </svg>
+                    </div>
+                    <div class="badge-title">Fraud Protection</div>
+                    <div class="badge-description">Advanced fraud detection and prevention systems</div>
+                </div>
+                <div class="badge">
+                    <div class="badge-icon">
+                        <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12,1L3,5V11C3,16.55 6.84,21.74 12,23C17.16,21.74 21,16.55 21,11V5L12,1M12,7C13.4,7 14.8,8.6 14.8,10V11H16V17H8V11H9.2V10C9.2,8.6 10.6,7 12,7M12,8.2C11.2,8.2 10.4,8.7 10.4,10V11H13.6V10C13.6,8.7 12.8,8.2 12,8.2Z"/>
+                        </svg>
+                    </div>
+                    <div class="badge-title">Secure Storage</div>
+                    <div class="badge-description">Data encrypted at rest with industry standards</div>
+                </div>
+                <div class="badge">
+                    <div class="badge-icon">
+                        <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12,4A4,4 0 0,1 16,8A4,4 0 0,1 12,12A4,4 0 0,1 8,8A4,4 0 0,1 12,4M12,6A2,2 0 0,0 10,8A2,2 0 0,0 12,10A2,2 0 0,0 14,8A2,2 0 0,0 12,6M12,13C14.67,13 20,14.33 20,17V20H4V17C4,14.33 9.33,13 12,13M12,14.9C9.03,14.9 5.9,16.36 5.9,17V18.1H18.1V17C18.1,16.36 14.97,14.9 12,14.9Z"/>
+                        </svg>
+                    </div>
+                    <div class="badge-title">Privacy First</div>
+                    <div class="badge-description">Your personal information is never sold or shared</div>
+                </div>
+            </div>
+
+            <!-- Security Features Grid -->
+            <div class="security-grid">
+                <!-- Data Encryption -->
+                <div class="security-card">
+                    <div class="card-header">
+                        <div class="card-icon">
+                            <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M18,8A6,6 0 0,0 12,2A6,6 0 0,0 6,8H4A2,2 0 0,0 2,10V20A2,2 0 0,0 4,22H20A2,2 0 0,0 22,20V10A2,2 0 0,0 20,8H18M12,4A4,4 0 0,1 16,8H8A4,4 0 0,1 12,4M12,13A2,2 0 0,1 14,15A2,2 0 0,1 12,17A2,2 0 0,1 10,15A2,2 0 0,1 12,13Z"/>
+                            </svg>
+                        </div>
+                        <h2 class="card-title">Data Encryption</h2>
+                    </div>
+                    <div class="card-content">
+                        <p>We use military-grade encryption to protect your sensitive information at every step:</p>
+                        <ul>
+                            <li><strong>TLS 1.3 Encryption:</strong> All data transmitted between your browser and our servers</li>
+                            <li><strong>AES-256 Encryption:</strong> Personal information stored in our secure databases</li>
+                            <li><strong>End-to-End Security:</strong> Gift card details encrypted during processing</li>
+                            <li><strong>Key Management:</strong> Advanced cryptographic key rotation and management</li>
+                        </ul>
+                        
+                        <div class="highlight-box">
+                            <strong>Bank-Level Security:</strong> Our encryption standards meet or exceed those used by major financial institutions.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Fraud Prevention -->
+                <div class="security-card">
+                    <div class="card-header">
+                        <div class="card-icon">
+                            <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                                <path fill-rule="evenodd" d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"/>
+                            </svg>
+                        </div>
+                        <h2 class="card-title">Fraud Prevention</h2>
+                    </div>
+                    <div class="card-content">
+                        <p>Our multi-layered fraud prevention system protects both customers and our platform:</p>
+                        <ul>
+                            <li><strong>Real-time Monitoring:</strong> AI-powered systems detect suspicious activities</li>
+                            <li><strong>Gift Card Verification:</strong> Multiple checks to ensure card authenticity</li>
+                            <li><strong>Risk Assessment:</strong> Advanced algorithms evaluate transaction risk</li>
+                            <li><strong>Manual Reviews:</strong> High-value transactions undergo additional verification</li>
+                        </ul>
+                        
+                        <div class="warning-box">
+                            <strong>Zero Tolerance:</strong> We maintain a strict policy against fraudulent activities and work with law enforcement when necessary.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Secure Infrastructure -->
+                <div class="security-card">
+                    <div class="card-header">
+                        <div class="card-icon">
+                            <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M4,6H20V16H4M20,18A2,2 0 0,0 22,16V6C22,4.89 21.1,4 20,4H4C2.89,4 2,4.89 2,6V16A2,2 0 0,0 4,18H0V20H24V18H20Z"/>
+                            </svg>
+                        </div>
+                        <h2 class="card-title">Secure Infrastructure</h2>
+                    </div>
+                    <div class="card-content">
+                        <p>Our platform is built on enterprise-grade infrastructure with multiple security layers:</p>
+                        <ul>
+                            <li><strong>Cloud Security:</strong> Hosted on SOC 2 compliant cloud infrastructure</li>
+                            <li><strong>Network Protection:</strong> Advanced firewalls and intrusion detection systems</li>
+                            <li><strong>Regular Updates:</strong> Continuous security patches and system updates</li>
+                            <li><strong>Backup Systems:</strong> Multiple redundancies ensure service availability</li>
+                        </ul>
+                        
+                        <div class="highlight-box">
+                            <strong>99.9% Uptime:</strong> Our robust infrastructure ensures reliable service with minimal downtime.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Access Control -->
+                <div class="security-card">
+                    <div class="card-header">
+                        <div class="card-icon">
+                            <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12,4A4,4 0 0,1 16,8A4,4 0 0,1 12,12A4,4 0 0,1 8,8A4,4 0 0,1 12,4M12,6A2,2 0 0,0 10,8A2,2 0 0,0 12,10A2,2 0 0,0 14,8A2,2 0 0,0 12,6M12,13C14.67,13 20,14.33 20,17V20H4V17C4,14.33 9.33,13 12,13M12,14.9C9.03,14.9 5.9,16.36 5.9,17V18.1H18.1V17C18.1,16.36 14.97,14.9 12,14.9Z"/>
+                            </svg>
+                        </div>
+                        <h2 class="card-title">Access Control</h2>
+                    </div>
+                    <div class="card-content">
+                        <p>Strict access controls ensure only authorized personnel can access sensitive systems:</p>
+                        <ul>
+                            <li><strong>Role-Based Access:</strong> Employees have access only to necessary systems</li>
+                            <li><strong>Multi-Factor Authentication:</strong> Additional security layers for staff accounts</li>
+                            <li><strong>Audit Logs:</strong> Comprehensive logging of all system access and actions</li>
+                            <li><strong>Background Checks:</strong> All team members undergo thorough screening</li>
+                        </ul>
+                        
+                        <div class="highlight-box">
+                            <strong>Principle of Least Privilege:</strong> Staff access is limited to the minimum required for their role.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Payment Security -->
+                <div class="security-card">
+                    <div class="card-header">
+                        <div class="card-icon">
+                            <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M2 10h20v8a2 2 0 01-2 2H4a2 2 0 01-2-2v-8zm2-4h16a2 2 0 012 2v1H2V8a2 2 0 012-2zm4 9h8v1H8v-1z"/>
+                            </svg>
+                        </div>
+                        <h2 class="card-title">Payment Security</h2>
+                    </div>
+                    <div class="card-content">
+                        <p>We partner with trusted payment providers to ensure secure money transfers:</p>
+                        <ul>
+                            <li><strong>Trusted Partners:</strong> PayPal, Zelle, and other established payment processors</li>
+                            <li><strong>Secure APIs:</strong> Encrypted communication with payment services</li>
+                            <li><strong>No Stored Payment Info:</strong> We don't store your sensitive payment details</li>
+                            <li><strong>Transaction Monitoring:</strong> Real-time monitoring for suspicious payment activity</li>
+                        </ul>
+                        
+                        <div class="warning-box">
+                            <strong>Important:</strong> We never ask for your full banking details or passwords via email or phone.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Privacy Protection -->
+                <div class="security-card">
+                    <div class="card-header">
+                        <div class="card-icon">
+                            <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12,1L3,5V11C3,16.55 6.84,21.74 12,23C17.16,21.74 21,16.55 21,11V5L12,1M10,17L6,13L7.41,11.59L10,14.17L16.59,7.58L18,9L10,17Z"/>
+                            </svg>
+                        </div>
+                        <h2 class="card-title">Privacy Protection</h2>
+                    </div>
+                    <div class="card-content">
+                        <p>Your privacy is fundamental to our service. We protect your personal information through:</p>
+                        <ul>
+                            <li><strong>Data Minimization:</strong> We collect only necessary information for our services</li>
+                            <li><strong>Purpose Limitation:</strong> Data used only for stated purposes</li>
+                            <li><strong>Retention Limits:</strong> Information deleted when no longer needed</li>
+                            <li><strong>No Third-Party Sharing:</strong> We never sell or rent your personal information</li>
+                        </ul>
+                        
+                        <div class="highlight-box">
+                            <strong>Your Rights:</strong> You can access, correct, or delete your personal information at any time.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Security Best Practices Section -->
+            <div class="security-card">
+                <div class="card-header">
+                    <div class="card-icon">
+                        <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M11,15H13V17H11V15M11,7H13V13H11V7M12,2C6.47,2 2,6.5 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M12,20A8,8 0 0,1 4,12A8,8 0 0,1 12,4A8,8 0 0,1 20,12A8,8 0 0,1 12,20Z"/>
+                        </svg>
+                    </div>
+                    <h2 class="card-title">Security Tips for Users</h2>
+                </div>
+                <div class="card-content">
+                    <p>Help us keep your account secure by following these best practices:</p>
+                    
+                    <h4 style="font-weight: 600; margin: 1.5rem 0 0.5rem 0; color: #374151;"><strong>Account Security</strong></h4>
+                    <ul>
+                        <li>Use a strong, unique password for your account</li>
+                        <li>Never share your login credentials with anyone</li>
+                        <li>Log out completely when using shared or public computers</li>
+                        <li>Contact us immediately if you notice any suspicious account activity</li>
+                    </ul>
+                    
+                    <h4 style="font-weight: 600; margin: 1.5rem 0 0.5rem 0; color: #374151;"><strong>Gift Card Safety</strong></h4>
+                    <ul>
+                        <li>Only submit gift cards that you legally own</li>
+                        <li>Keep original receipts when possible for higher rates</li>
+                        <li>Don't share gift card details with unverified services</li>
+                        <li>Verify our website URL (look for the padlock icon) before entering sensitive information</li>
+                    </ul>
+                    
+                    <h4 style="font-weight: 600; margin: 1.5rem 0 0.5rem 0; color: #374151;"><strong>Communication Security</strong></h4>
+                    <ul>
+                        <li>We will never ask for passwords or full card details via email</li>
+                        <li>Verify any suspicious communications by contacting us directly</li>
+                        <li>Use our official website or app for all transactions</li>
+                        <li>Be wary of phishing attempts claiming to be from CashifyGCmart</li>
+                    </ul>
+                    
+                    <div class="warning-box">
+                        <strong>Stay Alert:</strong> If something seems suspicious or too good to be true, contact our support team before proceeding.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Compliance and Certifications -->
+            <div class="security-card">
+                <div class="card-header">
+                    <div class="card-icon">
+                        <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M23,12L20.56,9.22L20.9,5.54L17.29,4.72L15.4,1.54L12,3L8.6,1.54L6.71,4.72L3.1,5.53L3.44,9.21L1,12L3.44,14.78L3.1,18.47L6.71,19.29L8.6,22.47L12,21L15.4,22.46L17.29,19.28L20.9,18.46L20.56,14.78L23,12M10,17L6,13L7.41,11.59L10,14.17L16.59,7.58L18,9L10,17Z"/>
+                        </svg>
+                    </div>
+                    <h2 class="card-title">Compliance & Certifications</h2>
+                </div>
+                <div class="card-content">
+                    <p>We adhere to industry standards and regulations to ensure the highest level of security:</p>
+                    
+                    <h4 style="font-weight: 600; margin: 1.5rem 0 0.5rem 0; color: #374151;"><strong>Security Standards</strong></h4>
+                    <ul>
+                        <li><strong>SOC 2 Type II:</strong> Audited security controls and procedures</li>
+                        <li><strong>ISO 27001:</strong> Information security management compliance</li>
+                        <li><strong>PCI DSS:</strong> Payment card industry security standards</li>
+                        <li><strong>GDPR:</strong> European data protection regulation compliance</li>
+                    </ul>
+                    
+                    <h4 style="font-weight: 600; margin: 1.5rem 0 0.5rem 0; color: #374151;"><strong>Regular Audits</strong></h4>
+                    <ul>
+                        <li>Annual third-party security assessments</li>
+                        <li>Quarterly vulnerability scans and penetration testing</li>
+                        <li>Continuous compliance monitoring</li>
+                        <li>Regular employee security training and certification</li>
+                    </ul>
+                    
+                    <div class="highlight-box">
+                        <strong>Transparency:</strong> We provide annual transparency reports detailing our security practices and any incidents.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Incident Response -->
+            <div class="security-card">
+                <div class="card-header">
+                    <div class="card-icon">
+                        <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M13,14H11V10H13M13,18H11V16H13M1,21H23L12,2L1,21Z"/>
+                        </svg>
+                    </div>
+                    <h2 class="card-title">Incident Response</h2>
+                </div>
+                <div class="card-content">
+                    <p>In the unlikely event of a security incident, we have comprehensive response procedures:</p>
+                    
+                    <h4 style="font-weight: 600; margin: 1.5rem 0 0.5rem 0; color: #374151;"><strong>Response Plan</strong></h4>
+                    <ul>
+                        <li><strong>Immediate Containment:</strong> Quick isolation of affected systems</li>
+                        <li><strong>Assessment:</strong> Thorough investigation of the incident scope</li>
+                        <li><strong>Notification:</strong> Prompt communication to affected users</li>
+                        <li><strong>Resolution:</strong> Swift remediation and system restoration</li>
+                    </ul>
+                    
+                    <h4 style="font-weight: 600; margin: 1.5rem 0 0.5rem 0; color: #374151;"><strong>Communication Commitment</strong></h4>
+                    <ul>
+                        <li>Transparent updates throughout the incident response</li>
+                        <li>Clear explanation of what happened and what we're doing</li>
+                        <li>Specific steps users should take to protect themselves</li>
+                        <li>Timeline for resolution and follow-up actions</li>
+                    </ul>
+                    
+                    <div class="warning-box">
+                        <strong>Zero Incident Record:</strong> We're proud to maintain a clean security record with no major data breaches to date.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contact Section -->
+            <div class="contact-section">
+                <h2 class="contact-title">Security Questions or Concerns?</h2>
+                <p class="contact-info">
+                    Our security team is available to address any concerns about the safety of your information or our security practices. Don't hesitate to reach out if you notice anything suspicious.
+                </p>
+                <div class="contact-buttons">
+                    <a href="mailto:security@cashifygcmart.com" class="btn btn-primary">
+                        <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
+                            <path fill-rule="evenodd" d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"/>
+                        </svg>
+                        Report Security Issue
+                    </a>
+                    <a href="mailto:support@cashifygcmart.com" class="btn btn-secondary">
+                        <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                        </svg>
+                        General Support
+                    </a>
+                </div>
+                <p style="margin-top: 1rem; font-size: 0.875rem; color: #6b7280;">
+                    <strong>Emergency Contact:</strong> For urgent security issues, call (555) 013-2099 and select option 9
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <script src="common.js"></script>
+</body>
+</html>
