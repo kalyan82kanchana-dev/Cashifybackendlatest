@@ -537,9 +537,9 @@ def check_backend_logs():
         return True  # Don't fail the test if log analysis fails
 
 def main():
-    """Run all cPanel SMTP email system tests"""
-    print("🚀 Starting cPanel SMTP Email System Tests")
-    print("🔧 Testing the new email integration that replaced Resend API")
+    """Run all Railway.app deployment tests"""
+    print("🚀 Starting Railway.app Deployment Backend API Tests")
+    print("🔧 Testing Railway.app deployed Cashifygcmart platform")
     print(f"Backend URL: {BACKEND_URL}")
     print(f"API Base: {API_BASE}")
     print(f"Test Time: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
@@ -547,15 +547,18 @@ def main():
     
     # Test results
     results = {
-        "api_health": False,
+        "railway_connectivity": False,
+        "mongodb_connection": False,
         "smtp_connection": False,
         "email_template_content": False,
         "gift_card_submission": False,
         "backend_logs": False
     }
     
-    # Run tests in order of importance
-    results["api_health"] = test_api_health()
+    # Run tests in order of importance for Railway deployment
+    results["railway_connectivity"] = test_railway_deployment_connectivity()
+    print()
+    results["mongodb_connection"] = test_mongodb_connection()
     print()
     results["smtp_connection"] = test_smtp_connection()
     print()
@@ -567,7 +570,7 @@ def main():
     
     # Summary
     print("\n" + "=" * 60)
-    print("TEST SUMMARY - cPanel SMTP EMAIL SYSTEM")
+    print("TEST SUMMARY - RAILWAY.APP DEPLOYMENT")
     print("=" * 60)
     
     for test_name, passed in results.items():
@@ -579,9 +582,23 @@ def main():
     
     print(f"\nOverall: {passed_tests}/{total_tests} tests passed")
     
-    # Detailed assessment
+    # Detailed assessment for Railway deployment
+    if results["railway_connectivity"]:
+        print("🎉 ✅ RAILWAY.APP DEPLOYMENT ACCESSIBLE!")
+        print("   - Backend API responding at https://gcswap-railway.preview.emergentagent.com")
+        print("   - API endpoints are functional")
+    else:
+        print("❌ RAILWAY.APP DEPLOYMENT CONNECTION FAILED!")
+        
+    if results["mongodb_connection"]:
+        print("🗄️ ✅ MONGODB CONNECTION WORKING!")
+        print("   - Database operations functional through Railway deployment")
+        print("   - Data persistence is working")
+    else:
+        print("❌ MONGODB CONNECTION FAILED!")
+        
     if results["smtp_connection"]:
-        print("🎉 ✅ cPanel SMTP CONNECTION SUCCESSFUL!")
+        print("📧 ✅ cPanel SMTP CONNECTION SUCCESSFUL!")
         print("   - SMTP server: mail.cashifygcmart.com")
         print("   - Port 465 with SSL authentication working")
         print("   - Login credentials verified")
@@ -589,16 +606,18 @@ def main():
         print("❌ cPanel SMTP CONNECTION FAILED!")
         
     if results["gift_card_submission"]:
-        print("📧 ✅ EMAIL INTEGRATION WORKING!")
+        print("💳 ✅ GIFT CARD SUBMISSION API WORKING!")
+        print("   - /api/submit-gift-card endpoint functional")
         print("   - Customer confirmation emails from noreply@cashifygcmart.com")
         print("   - Internal notifications to marketingmanager3059@gmail.com")
         print("   - Professional HTML templates rendering correctly")
-        print("   - Attachment handling for gift card images")
+        print("   - File upload handling working")
+        print("   - Form validation working")
     else:
-        print("❌ EMAIL INTEGRATION FAILED!")
+        print("❌ GIFT CARD SUBMISSION API FAILED!")
     
     if passed_tests == total_tests:
-        print("🎉 All cPanel SMTP email tests passed! Email system is working correctly.")
+        print("🎉 All Railway.app deployment tests passed! Platform is fully functional.")
     else:
         print("⚠️  Some tests failed. Check the results above for details.")
     
