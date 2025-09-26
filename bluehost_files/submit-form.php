@@ -22,12 +22,10 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     exit();
 }
 
-// SMTP Configuration
-$smtp_server = 'mail.cashifygcmart.com';
-$smtp_port = 465;
-$smtp_username = 'noreply@cashifygcmart.com';
-$smtp_password = 'Kalyan@1982';
+// Email Configuration - Updated to use standard PHP mail()
 $operations_email = 'marketingmanager3059@gmail.com';
+$from_email = 'noreply@cashifygcmart.com';
+$from_name = 'CashifyGCmart';
 
 // Get JSON input
 $input = file_get_contents('php://input');
