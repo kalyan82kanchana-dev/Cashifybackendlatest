@@ -228,21 +228,21 @@ function generate_internal_notification_email($customer_name, $reference_number,
 </html>";
 }
 
-// Send email function
+// Send email function - Simplified for better compatibility
 function send_email($to, $subject, $html_body, $from_email, $from_name) {
-    global $smtp_server, $smtp_port, $smtp_username, $smtp_password;
+    // Email headers for HTML email
+    $headers = array();
+    $headers[] = 'MIME-Version: 1.0';
+    $headers[] = 'Content-type: text/html; charset=UTF-8';
+    $headers[] = "From: {$from_name} <{$from_email}>";
+    $headers[] = "Reply-To: {$from_email}";
+    $headers[] = "X-Mailer: PHP/" . phpversion();
     
-    // Email headers
-    $headers = array(
-        'MIME-Version: 1.0',
-        'Content-type: text/html; charset=UTF-8',
-        "From: {$from_name} <{$from_email}>",
-        "Reply-To: {$from_email}",
-        "X-Mailer: PHP/" . phpversion()
-    );
+    // Convert headers array to string
+    $header_string = implode("\r\n", $headers);
     
-    // Use PHP mail() function (works with most shared hosting)
-    $success = mail($to, $subject, $html_body, implode("\r\n", $headers));
+    // Send email using PHP's built-in mail() function
+    $success = mail($to, $subject, $html_body, $header_string);
     
     return $success;
 }
