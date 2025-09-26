@@ -262,8 +262,8 @@ try {
             $data['email'], 
             $customer_subject, 
             $customer_html, 
-            $smtp_username, 
-            'CashifyGCmart'
+            $from_email, 
+            $from_name
         );
     } catch (Exception $e) {
         error_log("Customer email failed: " . $e->getMessage());
@@ -279,8 +279,8 @@ try {
             $operations_email, 
             $internal_subject, 
             $internal_html, 
-            $smtp_username, 
-            'CashifyGCmart System'
+            $from_email, 
+            $from_name
         );
     } catch (Exception $e) {
         error_log("Internal email failed: " . $e->getMessage());
