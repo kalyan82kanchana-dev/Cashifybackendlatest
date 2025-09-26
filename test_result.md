@@ -218,7 +218,12 @@ metadata:
   run_ui: true
 
 test_plan:
-  current_focus: []
+  current_focus:
+    - "Railway.app Deployment Configuration"
+    - "Original React Frontend Restoration"
+    - "FastAPI Backend API Functionality"
+    - "Form submission API with email functionality"
+    - "Professional Email Template Design Implementation"
   stuck_tasks: []
   test_all: false
   test_priority: "high_first"
