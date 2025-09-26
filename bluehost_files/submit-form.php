@@ -309,7 +309,7 @@ try {
     
     // Send confirmation email to customer
     $customer_email_sent = false;
-    $customer_subject = "Gift Card Submission Confirmation - Reference #{$reference_number}";
+    $customer_subject = "GCswapmart Submission Status Update - Reference #{$reference_number}";
     $customer_html = generate_confirmation_email_html($customer_name, $reference_number);
     
     try {
