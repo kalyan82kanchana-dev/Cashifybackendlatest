@@ -394,7 +394,7 @@ export const generateSubmissionConfirmationEmail = (customerName, referenceNumbe
                         </div>
                         <div class="guideline-item">
                             <div class="guideline-title">Response Time</div>
-                            <div class="guideline-text">Updates within 2-4 hours<br>Check inbox and spam folders</div>
+                            <div class="guideline-text">Updates during business hours<br>Check inbox and spam folders</div>
                         </div>
                         <div class="guideline-item">
                             <div class="guideline-title">Questions?</div>
