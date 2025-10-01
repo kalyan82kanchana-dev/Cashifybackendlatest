@@ -1139,8 +1139,7 @@ const FormSubmission = () => {
                   What happens next?
                 </h4>
                 <ul className="text-xs sm:text-sm text-green-700 space-y-1">
-                  <li>• Our team will review your submission within 2-4 hours</li>
-                  <li>• You'll receive a quote via email</li>
+                  <li>• Our team will review your submission</li>
                   <li>• Payment processed within same day upon acceptance</li>
                 </ul>
               </div>
