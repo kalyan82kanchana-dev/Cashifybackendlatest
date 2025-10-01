@@ -468,7 +468,7 @@ PROCESSING GUIDELINES:
 • Sunday submissions reviewed Monday
 • Minimum Value: $50 per card
 • Only cards listed in Rate Calculator accepted
-• Response Time: Updates within 2-4 hours
+• Response Time: Updates during business hours
 • Check inbox and spam folders
 • Include reference number ${referenceNumber} in all correspondence
 
