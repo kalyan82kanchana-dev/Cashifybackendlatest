@@ -450,7 +450,7 @@ STATUS: Under Review
 WHAT HAPPENS NEXT:
 ==================
 1. VERIFICATION PROCESS
-   Our team reviews your submission within 2-4 hours during business hours.
+   Our team reviews your submission during business hours.
 
 2. EMAIL NOTIFICATION
    You'll receive a quote or additional information request at ${submissionData.email}.
