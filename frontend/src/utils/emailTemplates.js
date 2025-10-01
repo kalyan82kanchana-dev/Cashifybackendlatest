@@ -352,7 +352,7 @@ export const generateSubmissionConfirmationEmail = (customerName, referenceNumbe
                     <ul class="steps-list">
                         <li>
                             <div class="step-title">Verification Process</div>
-                            <div class="step-description">Our team reviews your submission within 2-4 hours during business hours</div>
+                            <div class="step-description">Our team reviews your submission during business hours</div>
                         </li>
                         <li>
                             <div class="step-title">Email Notification</div>
