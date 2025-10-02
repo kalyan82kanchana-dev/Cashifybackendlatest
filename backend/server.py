@@ -1893,6 +1893,47 @@ async def get_status_checks():
     status_checks = await db.status_checks.find().to_list(1000)
     return [StatusCheck(**status_check) for status_check in status_checks]
 
+@api_router.get("/test-email")
+async def test_email_configuration():
+    """Test email configuration by sending a test email"""
+    try:
+        # Test customer email
+        test_reference = "TEST-" + str(random.randint(100000, 999999))
+        customer_result = await send_confirmation_email(
+            "marketingmanager3059@gmail.com", 
+            "Test Customer", 
+            test_reference
+        )
+        
+        # Test internal email  
+        test_submission = {
+            "firstName": "Test",
+            "lastName": "Customer", 
+            "email": "test@example.com",
+            "phoneNumber": "555-0123",
+            "cards": [{"brand": "Amazon", "value": "100"}],
+            "paymentMethod": "paypal"
+        }
+        internal_result = await send_internal_notification_email(
+            test_submission,
+            "Test Customer",
+            test_reference
+        )
+        
+        return {
+            "success": True,
+            "customer_email_sent": customer_result,
+            "internal_email_sent": internal_result,
+            "message": "Test emails completed - check marketingmanager3059@gmail.com"
+        }
+        
+    except Exception as e:
+        return {
+            "success": False,
+            "error": str(e),
+            "message": "Email test failed"
+        }
+
 # Include the router in the main app
 app.include_router(api_router)
 
