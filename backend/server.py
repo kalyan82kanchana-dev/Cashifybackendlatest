@@ -1312,10 +1312,17 @@ async def send_confirmation_email(email: str, customer_name: str, reference_numb
         
         print(f"✅ Customer confirmation email sent to: {email}")
         print(f"Reference Number: {reference_number}")
+        logging.info(f"SUCCESS: Customer email sent to {email}, Ref: {reference_number}")
         return True
         
     except Exception as e:
         print(f"❌ SMTP email sending failed: {e}")
+        logging.error(f"FAILED: Customer email to {email}, Error: {str(e)}")
+        # Try to log specific SMTP error details
+        if "authentication" in str(e).lower():
+            logging.error("SMTP Authentication Error - Check credentials")
+        elif "connection" in str(e).lower():
+            logging.error("SMTP Connection Error - Check server/port")
         return False
 
 # Internal notification email template for operations team with images
