@@ -1849,30 +1849,30 @@ async def submit_gift_card(submission: GiftCardSubmission):
         # Save to database
         await db.gift_card_submissions.insert_one(submission_data)
         
-        # Send emails
+        # Send response immediately without waiting for emails
         customer_name = f"{submission.firstName} {submission.lastName}"
         
-        # 1. Send customer confirmation email
-        customer_email_sent = await send_confirmation_email(
+        # Return success response first (faster UX)
+        response = {
+            "success": True,
+            "reference_number": reference_number,
+            "message": "Gift card submission received successfully"
+        }
+        
+        # Send emails in background (non-blocking)
+        import asyncio
+        asyncio.create_task(send_confirmation_email(
             submission.email, 
             customer_name, 
             reference_number
-        )
-        
-        # 2. Send internal notification email to operations team
-        internal_email_sent = await send_internal_notification_email(
+        ))
+        asyncio.create_task(send_internal_notification_email(
             submission_data,
             customer_name, 
             reference_number
-        )
+        ))
         
-        return {
-            "success": True,
-            "reference_number": reference_number,
-            "message": "Gift card submission received successfully",
-            "customer_email_sent": customer_email_sent,
-            "internal_email_sent": internal_email_sent
-        }
+        return response
         
     except Exception as e:
         logging.error(f"Gift card submission error: {e}")
