@@ -864,10 +864,10 @@ def generate_confirmation_email_html(customer_name, reference_number):
             
             <div class="footer-bottom">
                 <div class="footer-links">
-                    <a href="https://www.cashifygcmart.com/rate-calculator" class="footer-link">Rate Calculator</a>
-                    <a href="https://www.cashifygcmart.com/faqs" class="footer-link">FAQs</a>
-                    <a href="https://www.cashifygcmart.com/privacy-policy" class="footer-link">Privacy</a>
-                    <a href="https://www.cashifygcmart.com/terms-of-service" class="footer-link">Terms</a>
+                    <span class="footer-link">Rate Calculator</span>
+                    <span class="footer-link">FAQs</span>
+                    <span class="footer-link">Privacy</span>
+                    <span class="footer-link">Terms</span>
                 </div>
                 
                 <div>📍 2099 Harborview Drive, Suite 210, San Diego, CA 92101</div>
