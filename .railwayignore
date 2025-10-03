@@ -1,0 +1,6 @@
+frontend/
+bluehost_files/
+deploy_files/
+tests/
+*.md
+.emergent/
