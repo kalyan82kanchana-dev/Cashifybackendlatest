@@ -368,7 +368,7 @@ const CookiePolicy = () => {
               <strong>Email:</strong> <a href="mailto:support@cashifygcmart.com" className="text-green-600 hover:underline">support@cashifygcmart.com</a>
             </p>
             <p className="text-green-800">
-              <strong>Website:</strong> <a href="https://cashifygcmart.com" className="text-green-600 hover:underline">https://cashifygcmart.com</a>
+              <strong>Website:</strong> <a href="/" className="text-green-600 hover:underline">www.cashifygcmart.com</a>
             </p>
           </div>
         </div>
