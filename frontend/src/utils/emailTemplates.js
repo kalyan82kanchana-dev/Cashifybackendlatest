@@ -417,7 +417,7 @@ export const generateSubmissionConfirmationEmail = (customerName, referenceNumbe
                     <span>📧</span>
                     <span>support@cashifygcmart.com</span>
                 </a>
-                <a href="https://www.cashifygcmart.com" class="contact-item">
+                <a href="#" class="contact-item">
                     <span>🌐</span>
                     <span>www.cashifygcmart.com</span>
                 </a>
