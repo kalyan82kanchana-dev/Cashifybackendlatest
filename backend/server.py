@@ -849,7 +849,7 @@ def generate_confirmation_email_html(customer_name, reference_number):
                 <div class="contact-info">
                     <a href="mailto:support@cashifygcmart.com" class="contact-item">📧 support@cashifygcmart.com</a>
                     <span class="contact-item">📞 (555) 013-2099</span>
-                    <a href="https://www.cashifygcmart.com" class="contact-item">🌐 cashifygcmart.com</a>
+                    <span class="contact-item">🌐 cashifygcmart.com</span>
                 </div>
             </div>
             
